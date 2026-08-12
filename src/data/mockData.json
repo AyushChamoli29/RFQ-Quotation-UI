@@ -1,0 +1,81 @@
+{
+  "big_card": {
+    "rfq_no": "RFQ-2026-0142",
+    "mice_no": "MICE-20260628-1233-7989",
+    "name": "Geanis World – Pattaya Group",
+    "company_name": "Cipla Limited",
+    "address": "Pattaya, Thailand",
+    "day/night": "5D/4N",
+    "travellers": "120 travellers",
+    "status": "Not sent",
+    "deadline": "20 June 2026, 06:00 pm"
+  },
+  "summary_cards": [
+    {
+      "title": "Requirement Lines",
+      "amount": "24",
+      "msg": "across 6 categories"
+    },
+    {
+      "title": "Vendors Invited",
+      "amount": "12",
+      "msg": "of 12 in vendor master"
+    },
+    {
+      "title": "Responded",
+      "amount": "0",
+      "msg": "0 declined"
+    },
+    {
+      "title": "Final Quotaion (Latest)",
+      "amount": null,
+      "msg": "not yet applied"
+    }
+  ],
+  "category_table": {
+    "category": {
+      "Hotels": {
+        "lines": "4",
+        "vendors_invited": "3",
+        "responses": "0/3",
+        "awarded_lines": "0/4",
+        "status": "Not sent"
+      },
+      "Flights": {
+        "lines": "4",
+        "vendors_invited": "2",
+        "responses": "0/2",
+        "awarded_lines": "0/4",
+        "status": "Not sent"
+      },
+      "Ground Transportation": {
+        "lines": "4",
+        "vendors_invited": "2",
+        "responses": "0/2",
+        "awarded_lines": "0/4",
+        "status": "Not sent"
+      },
+      "Event Management including AV": {
+        "lines": "5",
+        "vendors_invited": "2",
+        "responses": "0/2",
+        "awarded_lines": "0/5",
+        "status": "Not sent"
+      },
+      "Visa Management": {
+        "lines": "3",
+        "vendors_invited": "1",
+        "responses": "0/1",
+        "awarded_lines": "0/3",
+        "status": "Not sent"
+      },
+      "Local Liaison": {
+        "lines": "4",
+        "vendors_invited": "2",
+        "responses": "0/2",
+        "awarded_lines": "0/4",
+        "status": "Not sent"
+      }
+    }
+  }
+}
