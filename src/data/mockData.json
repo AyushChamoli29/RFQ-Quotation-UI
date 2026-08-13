@@ -27,7 +27,7 @@
       "msg": "0 declined"
     },
     {
-      "title": "Final Quotaion (Latest)",
+      "title": "Final Quotation (Latest)",
       "amount": null,
       "msg": "not yet applied"
     }
@@ -77,5 +77,55 @@
         "status": "Not sent"
       }
     }
-  }
+  },
+  "vendor_portal":[
+    {
+      "name":"Grand Marina Hotel",
+      "type":"Hotels"
+    },
+    {
+      "name":"Sunset Bay Resort & Spa",
+      "type":"Hotels"
+    },
+    {
+      "name":"Ocean Pearl Hotel Pattaya",
+      "type":"Hotels"
+    },
+    {
+      "name":"SkyBridge Airlines",
+      "type":"Flights"
+    },
+    {
+      "name":"Horizon Charter Airways",
+      "type":"Flights"
+    },
+    {
+      "name":"CityLine Transport",
+      "type":"Ground Transportation"
+    },
+    {
+      "name":"Pattaya Premier Coaches",
+      "type":"Ground Transportation"
+    },
+    {
+      "name":"EventSphere Productions",
+      "type":"Event Management including AV"
+    },
+    {
+      "name":"Stellar Events Co.",
+      "type":"Event Management including AV"
+    },
+    {
+      "name":"GlobalVisa Facilitation",
+      "type":"Visa Management"
+    },
+    {
+      "name":"Destination Connect DMC",
+      "type":"Local Liaison"
+    },
+    {
+      "name":"LocalPro Thailand Services",
+      "type":"Local Liaison"
+    }
+  ]
 }

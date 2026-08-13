@@ -3,18 +3,23 @@ import Header from "./components/Header.vue";
 import { RouterView } from "vue-router";
 import Navigation from "./components/Navigation.vue";
 import Footer from "./components/Footer.vue";
+import { ref } from "vue";
+const flag=ref('')
+const showVendor=(tab)=>{
+  flag.value=tab;
+}
 </script>
 
 <template>
-  <Header />
+  <Header @show-vendor="showVendor" />
   <br /><br /><br />
-  <div class="flex flex-col gap-5 mt-1 bg-white px-19">
-    <Navigation />
+  <div class="flex flex-col gap-6 mt-1 px-31">
+    <div v-if="flag!=='vendor'"><Navigation /></div>
     <RouterView />
+    <br>
+    <Footer />
+    <br><br>
   </div>
-  <br /><br /><br />
-  <Footer />
-  <br /><br /><br />
 </template>
 
 <style scoped></style>

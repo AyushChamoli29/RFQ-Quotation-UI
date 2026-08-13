@@ -3,23 +3,23 @@ import data from "@/data/mockData.json";
 </script>
 
 <template>
-  <div class="px-5 shadow-sm shadow-slate-300">
-    <table class="text-xs w-full">
+  <div class="px-5 bg-white shadow-sm shadow-slate-300 rounded-lg">
+    <p class="text-xs tracking-wider text-slate-500 font-bold mt-5 mb-3">CATEGORIES AT A GLANCE</p>
+    <table class="text-xs w-full mb-4">
       <thead>
-        <p class="text-sm text-slate-500 font-bold">CATEGORIES AT A GLANCE</p>
-        <tr class="border border-amber-50 text-slate-500">
-          <th class="p-3 text-left">CATEGORY</th>
-          <th class="p-3 text-left">LINES</th>
-          <th class="p-3 text-left">VENDORS INVITED</th>
-          <th class="p-3 text-left">RESPONSES</th>
-          <th class="p-3 text-left">AWARDED LINES</th>
-          <th class="p-3 text-left">STATUS</th>
+        <tr class=" text-slate-500 text-[11px]">
+          <th class="px-3 py-2 text-left">CATEGORY</th>
+          <th class="px-3 py-2 text-left">LINES</th>
+          <th class="px-3 py-2 text-left">VENDORS INVITED</th>
+          <th class="px-3 py-2 text-left">RESPONSES</th>
+          <th class="px-3 py-2 text-left">AWARDED LINES</th>
+          <th class="px-3 py-2 text-left">STATUS</th>
         </tr>
       </thead>
       <tbody>
         <tr
-          class="border border-amber-50"
           v-for="[key, value] in Object.entries(data.category_table.category)"
+          class="border-t border-[#F4F5FA]"
         >
           <td class="p-3 pl-5 text-left text-[13px] font-bold">
             {{ key }}
@@ -28,7 +28,7 @@ import data from "@/data/mockData.json";
           <td class="p-3 text-left">{{ value.vendors_invited }}</td>
           <td class="p-3 text-left">{{ value.responses }}</td>
           <td class="p-3 text-left">{{ value.awarded_lines }}</td>
-          <td class="p-3 text-left text-slate-500">{{ value.status }}</td>
+          <td ><span class="bg-[#F4F5FA] p-1 px-2 text-slate-500 font-bold text-[11px] rounded-lg">{{ value.status }}</span></td>
         </tr>
       </tbody>
     </table>

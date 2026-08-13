@@ -1,4 +1,5 @@
 import Overview from "@/views/Overview.vue";
+import VendorPortal from "@/views/VendorPortal.vue";
 import { createRouter, createWebHistory } from "vue-router";
 
 const router = createRouter({
@@ -9,6 +10,11 @@ const router = createRouter({
       name: "overview",
       component: Overview,
     },
+    {
+      path:"/vendorPortal",
+      name:"vendorPortal",
+      component:VendorPortal
+    }
   ],
 });
 

@@ -13,19 +13,19 @@ const goToOverview = () => {
 
 <template>
   <div
-    class="flex flex-wrap gap-9 bg-white text-slate-500 text-sm font-semibold justify-start items-center mt-5 px-6 py-4 rounded-xl shadow-sm shadow-slate-300"
+    class="flex flex-wrap gap-1 bg-white text-slate-500 text-sm/6 font-semibold justify-start items-center mt-5 p-1 rounded-xl shadow-sm shadow-slate-300"
   >
     <div
       class="cursor-pointer"
       @click="goToOverview"
-      :class="{ 'text-[#373593]': flag === 'overview' }"
+      :class="{ 'text-[#3F3BA6] p-2 px-4 rounded-lg bg-[#F4F5FA]': flag === 'overview' }"
     >
       Overview
     </div>
-    <div class="cursor-pointer">Requirements & Allocation</div>
-    <div class="cursor-pointer">Vendor Responses</div>
-    <div class="cursor-pointer">Costing</div>
-    <div class="cursor-pointer">Corporate Quotation</div>
-    <div class="cursor-pointer">Audit History</div>
+    <div class="cursor-pointer p-2 px-4">Requirements & Allocation</div>
+    <div class="cursor-pointer p-2 px-4">Vendor Responses</div>
+    <div class="cursor-pointer p-2 px-4">Costing</div>
+    <div class="cursor-pointer p-2 px-4">Corporate Quotation</div>
+    <div class="cursor-pointer p-2 px-4">Audit History</div>
   </div>
 </template>

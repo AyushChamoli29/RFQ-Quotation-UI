@@ -1,14 +1,25 @@
 <script setup>
-import { ref } from "vue";
+import { ref,defineEmits } from "vue";
+import { useRouter } from "vue-router";
+const emit=defineEmits(['show-vendor'])
+const router=useRouter();
 const flag = ref("agent");
 const agent = () => {
   if (flag.value !== "agent") {
     flag.value = "agent";
+    emit('show-vendor',flag.value)
+    router.push({
+      name:"overview"
+    })
   }
 };
 const vendor = () => {
   if (flag.value !== "vendor") {
     flag.value = "vendor";
+    emit('show-vendor',flag.value)
+    router.push({
+      name:"vendorPortal"
+    })
   }
 };
 </script>
@@ -24,7 +35,7 @@ const vendor = () => {
         TX
       </div>
       <div>
-        <p class="font-bold text-base tracking-tighter text-white">
+        <p class="font-bold text-base/7 tracking-tighter text-white">
           Travelexic
         </p>
         <p class="text-xs/3 text-slate-300 tracking-tight">
@@ -37,24 +48,22 @@ const vendor = () => {
     >
       <button
         @click="agent"
-        class="p-2"
-        :class="{
-          'bg-white text-[#373593] px-4 rounded-3xl': flag === 'agent',
-        }"
+        class="p-2 pl-3"
+        :class="{'bg-white text-[#373593] px-4 rounded-3xl' : flag==='agent'}"
       >
         Agent Workspace
       </button>
       <button
         @click="vendor"
-        class="p-2"
-        :class="{ 'bg-white text-[#373593] rounded-3xl': flag === 'vendor' }"
+        class="p-2 pr-3"
+        :class="{'bg-white text-[#373593] px-4 rounded-3xl' : flag==='vendor'}"
       >
         Vendor Portal
       </button>
     </div>
-    <div class="text-white flex gap-3 text-xs justify-center items-center">
-      <p class="text-slate-300">Acting as</p>
-      <div class="outline outline-white/50 p-1 rounded-md bg-[#ffffff24]">
+    <div class="text-white flex gap-2 text-xs justify-center items-center">
+      <p class="text-slate-300 text-[11px]" :class="{'hidden' : flag==='vendor'}">Acting as</p>
+      <div class="outline outline-white/50 py-2 px-1 rounded-md bg-[#ffffff24]":class="{'hidden' : flag==='vendor'}" >
         <select id="acting">
           <option class="text-black" value="Priya Sharma">
             Priya Sharma &mdash; RFQ/Procuremer
@@ -68,7 +77,7 @@ const vendor = () => {
         </select>
       </div>
       <div
-        class="text-white font-medium flex text-xs/2 px-3 py-3 justify-center items-center outline outline-white/25 rounded-lg cursor-pointer hover:bg-[#ffffff24]"
+        class="text-slate-200 font-medium flex text-xs/2 px-3 py-3 justify-center items-center outline outline-white/25 rounded-lg cursor-pointer hover:bg-[#ffffff24]"
       >
         <button class="cursor-pointer">Reset prototype data</button>
       </div>
