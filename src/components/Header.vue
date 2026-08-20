@@ -1,32 +1,22 @@
 <script setup>
-import { ref,defineEmits } from "vue";
-import { useRouter } from "vue-router";
-const emit=defineEmits(['show-vendor'])
-const router=useRouter();
+import { ref } from "vue";
+import { RouterLink } from "vue-router";
 const flag = ref("agent");
 const agent = () => {
   if (flag.value !== "agent") {
     flag.value = "agent";
-    emit('show-vendor',flag.value)
-    router.push({
-      name:"overview"
-    })
   }
 };
 const vendor = () => {
   if (flag.value !== "vendor") {
     flag.value = "vendor";
-    emit('show-vendor',flag.value)
-    router.push({
-      name:"vendorPortal"
-    })
   }
 };
 </script>
 
 <template>
   <div
-    class="bg-[#373593] flex flex-wrap justify-between px-7 py-4 items-center gap-10 fixed top-0 left-0 right-0"
+    class="bg-[#373593] flex flex-wrap justify-between px-7 py-4 items-center gap-10 fixed top-0 left-0 right-0 z-20"
   >
     <div class="flex gap-3">
       <div
@@ -46,24 +36,40 @@ const vendor = () => {
     <div
       class="text-white flex justify-center items-center p-1 gap-3 bg-[#ffffff24] rounded-3xl text-[13px]/4 font-semibold"
     >
-      <button
-        @click="agent"
-        class="p-2 pl-3"
-        :class="{'bg-white text-[#373593] px-4 rounded-3xl' : flag==='agent'}"
-      >
-        Agent Workspace
-      </button>
-      <button
-        @click="vendor"
-        class="p-2 pr-3"
-        :class="{'bg-white text-[#373593] px-4 rounded-3xl' : flag==='vendor'}"
-      >
-        Vendor Portal
-      </button>
+      <RouterLink to="/">
+        <button
+          @click="agent"
+          class="p-2 pl-3"
+          :class="{
+            'bg-white text-[#373593] px-4 rounded-3xl': flag === 'agent',
+          }"
+        >
+          Agent Workspace
+        </button>
+      </RouterLink>
+      <RouterLink to="/vendorPortal">
+        <button
+          @click="vendor"
+          class="p-2 pr-3"
+          :class="{
+            'bg-white text-[#373593] px-4 rounded-3xl': flag === 'vendor',
+          }"
+        >
+          Vendor Portal
+        </button>
+      </RouterLink>
     </div>
     <div class="text-white flex gap-2 text-xs justify-center items-center">
-      <p class="text-slate-300 text-[11px]" :class="{'hidden' : flag==='vendor'}">Acting as</p>
-      <div class="outline outline-white/50 py-2 px-1 rounded-md bg-[#ffffff24]":class="{'hidden' : flag==='vendor'}" >
+      <p
+        class="text-slate-300 text-[11px]"
+        :class="{ hidden: flag === 'vendor' }"
+      >
+        Acting as
+      </p>
+      <div
+        class="outline outline-white/50 py-2 px-1 rounded-md bg-[#ffffff24]"
+        :class="{ hidden: flag === 'vendor' }"
+      >
         <select id="acting">
           <option class="text-black" value="Priya Sharma">
             Priya Sharma &mdash; RFQ/Procuremer

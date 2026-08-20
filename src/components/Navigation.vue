@@ -1,31 +1,85 @@
 <script setup>
 import { ref } from "vue";
-import { useRouter } from "vue-router";
-const router = useRouter();
+import { RouterLink } from "vue-router";
 const flag = ref("overview");
-const goToOverview = () => {
-  flag.value = "overview";
-  router.push({
-    name: "overview",
-  });
+const changeNavigate = (text) => {
+  flag.value = text;
 };
 </script>
 
 <template>
   <div
-    class="flex flex-wrap gap-1 bg-white text-slate-500 text-sm/6 font-semibold justify-start items-center mt-5 p-1 rounded-xl shadow-sm shadow-slate-300"
+    class="flex flex-wrap gap-1 w-full bg-white text-slate-500 text-sm/6 font-semibold justify-start items-center mt-5 p-1 rounded-xl shadow-sm shadow-slate-300"
   >
-    <div
-      class="cursor-pointer"
-      @click="goToOverview"
-      :class="{ 'text-[#3F3BA6] p-2 px-4 rounded-lg bg-[#F4F5FA]': flag === 'overview' }"
+    <RouterLink to="/overview">
+      <div
+        class="cursor-pointer p-2 px-4"
+        @click="changeNavigate('overview')"
+        :class="{
+          'text-[#3F3BA6] p-2 px-4 rounded-lg bg-[#F4F5FA]':
+            flag === 'overview',
+        }"
+      >
+        Overview
+      </div>
+    </RouterLink>
+    <RouterLink to="requirements"
+      ><div
+        class="cursor-pointer p-2 px-4"
+        @click="changeNavigate('requirements')"
+        :class="{
+          'text-[#3F3BA6] p-2 px-4 rounded-lg bg-[#F4F5FA]':
+            flag === 'requirements',
+        }"
+      >
+        Requirements & Allocation
+      </div></RouterLink
     >
-      Overview
-    </div>
-    <div class="cursor-pointer p-2 px-4">Requirements & Allocation</div>
-    <div class="cursor-pointer p-2 px-4">Vendor Responses</div>
-    <div class="cursor-pointer p-2 px-4">Costing</div>
-    <div class="cursor-pointer p-2 px-4">Corporate Quotation</div>
-    <div class="cursor-pointer p-2 px-4">Audit History</div>
+    <RouterLink to="vendorResponses"
+      ><div
+        class="cursor-pointer p-2 px-4"
+        @click="changeNavigate('vendor')"
+        :class="{
+          'text-[#3F3BA6] p-2 px-4 rounded-lg bg-[#F4F5FA]': flag === 'vendor',
+        }"
+      >
+        Vendor Responses
+      </div></RouterLink
+    >
+    <RouterLink to="costing"
+      ><div
+        class="cursor-pointer p-2 px-4"
+        @click="changeNavigate('costing')"
+        :class="{
+          'text-[#3F3BA6] p-2 px-4 rounded-lg bg-[#F4F5FA]': flag === 'costing',
+        }"
+      >
+        Costing
+      </div></RouterLink
+    >
+    <RouterLink to="corporate"
+      ><div
+        class="cursor-pointer p-2 px-4"
+        @click="changeNavigate('corporate')"
+        :class="{
+          'text-[#3F3BA6] p-2 px-4 rounded-lg bg-[#F4F5FA]':
+            flag === 'corporate',
+        }"
+      >
+        Corporate Quotation
+      </div></RouterLink
+    >
+    <RouterLink to="auditHistory"
+      ><div
+        class="cursor-pointer p-2 px-4"
+        @click="changeNavigate('audit history')"
+        :class="{
+          'text-[#3F3BA6] p-2 px-4 rounded-lg bg-[#F4F5FA]':
+            flag === 'audit history',
+        }"
+      >
+        Audit History
+      </div></RouterLink
+    >
   </div>
 </template>

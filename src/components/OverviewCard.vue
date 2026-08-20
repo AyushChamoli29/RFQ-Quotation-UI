@@ -1,5 +1,19 @@
 <script setup>
 import data from "@/data/mockData.json";
+const responseDeadlineDate = new Date(
+  data.big_card.deadline,
+).toLocaleDateString("en-IN", {
+  day: "2-digit",
+  month: "long",
+  year: "numeric",
+});
+const responseDeadlineTime = new Date(
+  data.big_card.deadline,
+).toLocaleTimeString("en-IN", {
+  hour: "2-digit",
+  minute: "2-digit",
+  hour12: true,
+});
 </script>
 
 <template>
@@ -7,7 +21,8 @@ import data from "@/data/mockData.json";
     <div class="flex justify-between h-23">
       <div class="flex flex-col gap-1">
         <div class="text-[11px] text-slate-500 font-bold flex gap-2">
-          <span class="tracking-wider">RFQ {{ data.big_card.rfq_no }}</span> &middot;
+          <span class="tracking-wider">RFQ {{ data.big_card.rfq_no }}</span>
+          &middot;
           <span class="tracking-wider">{{ data.big_card.mice_no }}</span>
         </div>
         <p class="font-bold text-xl">{{ data.big_card.name }}</p>
@@ -19,14 +34,16 @@ import data from "@/data/mockData.json";
         </p>
       </div>
       <div class="flex flex-col items-end gap-1">
-        <div class="text-[11px] text-slate-500 font-bold h-6 w-20 p-1 flex justify-center items-center gap-1 rounded-lg bg-[#F4F5FA]">
+        <div
+          class="text-[11px] text-slate-500 font-bold h-6 w-20 p-1 flex justify-center items-center gap-1 rounded-lg bg-[#F4F5FA]"
+        >
           <span class="text-[17px]">&#9679;</span> {{ data.big_card.status }}
         </div>
         <p class="text-xs text-slate-600 font-normal">
           Response deadline :
-          <span class="text-black font-bold">{{
-            data.big_card.deadline
-          }}</span>
+          <span class="text-black font-bold"
+            >{{ responseDeadlineDate }},{{ responseDeadlineTime }}</span
+          >
         </p>
       </div>
     </div>
