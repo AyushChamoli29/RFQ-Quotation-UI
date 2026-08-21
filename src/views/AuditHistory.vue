@@ -57,7 +57,7 @@ const actor = ref("all actors");
       </select>
     </div>
     <div
-      class="mt-6 outline outline-slate-200 p-2 px-3 text-[13px] rounded-lg font-bold"
+      class="mt-6 outline outline-slate-200 p-2 px-3 text-[13px] rounded-lg font-bold hover:bg-slate-200 cursor-pointer"
     >
       Export CSV
     </div>

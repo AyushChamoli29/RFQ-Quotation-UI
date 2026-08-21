@@ -14,10 +14,10 @@ const deadline = data.big_card.deadline;
       </p>
       <div class="flex gap-5">
         <div
-          class="flex text-xs w-1/3 justify-between mr-2 py-1 border-b border-dashed border-slate-300"
+          class="flex text-[11px] w-1/3 justify-between mr-2 py-2 border-b border-dashed border-slate-300"
         >
           <label class="text-[#6b7090]">RFQ number</label>
-          <p class="font-bold">{{ data.big_card.rfq_no }}</p>
+          <p class="font-bold tracking-wider">{{ data.big_card.rfq_no }}</p>
         </div>
         <div
           class="flex text-xs w-1/3 py-1 mr-2 border-b border-dashed border-slate-300"
@@ -31,8 +31,8 @@ const deadline = data.big_card.deadline;
         </div>
       </div>
     </div>
-    <div class="w-1/5 text-[13px]">
-      <label for="date" class="font-semibold">RFQ response deadline</label>
+    <div class="w-1/5 text-xs">
+      <label for="date" class="font-[650]">RFQ response deadline</label>
       <input
         type="datetime-local"
         id="date"

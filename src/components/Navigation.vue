@@ -1,10 +1,6 @@
 <script setup>
-import { ref } from "vue";
-import { RouterLink } from "vue-router";
-const flag = ref("overview");
-const changeNavigate = (text) => {
-  flag.value = text;
-};
+import { RouterLink, useRoute } from "vue-router";
+const route = useRoute();
 </script>
 
 <template>
@@ -14,10 +10,9 @@ const changeNavigate = (text) => {
     <RouterLink to="/overview">
       <div
         class="cursor-pointer p-2 px-4"
-        @click="changeNavigate('overview')"
         :class="{
           'text-[#3F3BA6] p-2 px-4 rounded-lg bg-[#F4F5FA]':
-            flag === 'overview',
+            route.name === 'overview',
         }"
       >
         Overview
@@ -26,10 +21,9 @@ const changeNavigate = (text) => {
     <RouterLink to="requirements"
       ><div
         class="cursor-pointer p-2 px-4"
-        @click="changeNavigate('requirements')"
         :class="{
           'text-[#3F3BA6] p-2 px-4 rounded-lg bg-[#F4F5FA]':
-            flag === 'requirements',
+            route.name === 'requirements',
         }"
       >
         Requirements & Allocation
@@ -38,9 +32,9 @@ const changeNavigate = (text) => {
     <RouterLink to="vendorResponses"
       ><div
         class="cursor-pointer p-2 px-4"
-        @click="changeNavigate('vendor')"
         :class="{
-          'text-[#3F3BA6] p-2 px-4 rounded-lg bg-[#F4F5FA]': flag === 'vendor',
+          'text-[#3F3BA6] p-2 px-4 rounded-lg bg-[#F4F5FA]':
+            route.name === 'vendorResponses',
         }"
       >
         Vendor Responses
@@ -49,9 +43,9 @@ const changeNavigate = (text) => {
     <RouterLink to="costing"
       ><div
         class="cursor-pointer p-2 px-4"
-        @click="changeNavigate('costing')"
         :class="{
-          'text-[#3F3BA6] p-2 px-4 rounded-lg bg-[#F4F5FA]': flag === 'costing',
+          'text-[#3F3BA6] p-2 px-4 rounded-lg bg-[#F4F5FA]':
+            route.name === 'costing',
         }"
       >
         Costing
@@ -60,10 +54,9 @@ const changeNavigate = (text) => {
     <RouterLink to="corporate"
       ><div
         class="cursor-pointer p-2 px-4"
-        @click="changeNavigate('corporate')"
         :class="{
           'text-[#3F3BA6] p-2 px-4 rounded-lg bg-[#F4F5FA]':
-            flag === 'corporate',
+            route.name === 'corporate',
         }"
       >
         Corporate Quotation
@@ -72,10 +65,9 @@ const changeNavigate = (text) => {
     <RouterLink to="auditHistory"
       ><div
         class="cursor-pointer p-2 px-4"
-        @click="changeNavigate('audit history')"
         :class="{
           'text-[#3F3BA6] p-2 px-4 rounded-lg bg-[#F4F5FA]':
-            flag === 'audit history',
+            route.name === 'auditHistory',
         }"
       >
         Audit History
