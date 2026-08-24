@@ -117,7 +117,7 @@ const closeSearchResults = () => {
                 @click="hide(item)"
                 >x
                 <span
-                  class="absolute hidden group-hover:block top-full left-1/2 w-max bg-black text-white p-1"
+                  class="absolute hidden group-hover:block top-full left-1 z-5 w-max bg-black text-white p-1"
                   >Remove {{ item }}</span
                 ></span
               >
@@ -132,17 +132,23 @@ const closeSearchResults = () => {
             />
             <div
               v-if="searchFlag"
-              class="absolute top-full left-0 bg-white h-50 overflow-y-scroll"
+              class="absolute top-full left-0 bg-white h-50 overflow-y-scroll rounded-lg outline outline-slate-300"
             >
-              <button @click="closeSearchResults">X</button>
-              <div v-for="search in value.searchList" class="p-2">
+              <button @click="closeSearchResults" class="pl-2 text-sm">
+                X
+              </button>
+              <div
+                v-for="search in value.searchList"
+                class="p-2 border-t border-slate-200"
+              >
                 <span class="font-bold">{{ search.name }}</span
                 ><span class="px-1 text-slate-500 bg-slate-200 rounded-lg">{{
                   search.type
                 }}</span
                 ><br />
-                <span>{{ search.customer }}</span
-                ><span>{{ search.email }}</span>
+                <span class="text-[#6b7090]">{{ search.customer }}</span
+                ><span class="text-[#6b7090] px-1 text-lg">&middot;</span
+                ><span class="text-[#6b7090]">{{ search.email }}</span>
               </div>
             </div>
           </div>

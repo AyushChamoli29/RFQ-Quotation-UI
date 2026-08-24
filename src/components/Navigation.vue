@@ -18,7 +18,7 @@ const route = useRoute();
         Overview
       </div>
     </RouterLink>
-    <RouterLink to="requirements"
+    <RouterLink to="/requirements"
       ><div
         class="cursor-pointer p-2 px-4"
         :class="{
@@ -29,7 +29,7 @@ const route = useRoute();
         Requirements & Allocation
       </div></RouterLink
     >
-    <RouterLink to="vendorResponses"
+    <RouterLink to="/vendorResponses"
       ><div
         class="cursor-pointer p-2 px-4"
         :class="{
@@ -40,7 +40,7 @@ const route = useRoute();
         Vendor Responses
       </div></RouterLink
     >
-    <RouterLink to="costing"
+    <RouterLink to="/costing"
       ><div
         class="cursor-pointer p-2 px-4"
         :class="{
@@ -51,7 +51,7 @@ const route = useRoute();
         Costing
       </div></RouterLink
     >
-    <RouterLink to="corporate"
+    <RouterLink to="/corporate"
       ><div
         class="cursor-pointer p-2 px-4"
         :class="{
@@ -62,7 +62,7 @@ const route = useRoute();
         Corporate Quotation
       </div></RouterLink
     >
-    <RouterLink to="auditHistory"
+    <RouterLink to="/auditHistory"
       ><div
         class="cursor-pointer p-2 px-4"
         :class="{
