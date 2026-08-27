@@ -9,7 +9,7 @@ import Footer from "./components/Footer.vue";
   <br /><br /><br />
   <div class="flex flex-col gap-6 mt-1 mb-5 px-31">
     <RouterView />
-    <br>
+    <br />
     <Footer />
   </div>
 </template>
