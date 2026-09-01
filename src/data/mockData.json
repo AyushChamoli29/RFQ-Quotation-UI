@@ -7,7 +7,8 @@
     "address": "Pattaya, Thailand",
     "day/night": "5D/4N",
     "travellers": "120 travellers",
-    "status": "Not sent",
+    "status1": "Not sent",
+    "status2": "Overdue",
     "deadline": "2026-06-20T18:00:00",
     "query_type": "Package"
   },
@@ -129,6 +130,14 @@
       "type": "Local Liaison"
     }
   ],
+  "recentActivity": {
+    "Vendor submissions simulated": "Priya Sharma (RFQ / Procurement Manager)",
+    "Clarification answered": "Priya Sharma (RFQ / Procurement Manager) · Flights · SkyBridge Airlines",
+    "Clarification question raised": "Anurag Mehta (SkyBridge Airlines) · Flights · SkyBridge Airlines",
+    "Vendor declined category": "Anong W. (LocalPro Thailand Services) · Local Liaison · LocalPro Thailand Services",
+    "Vendor portal accessed": "Anong W. (LocalPro Thailand Services) · Local Liaison · LocalPro Thailand Services",
+    "Vendor submitted quotation": " Ploy K. (Destination Connect DMC) · Local Liaison · Destination Connect DMC"
+  },
   "requirementTable": {
     "Hotels": {
       "defaultMargin": "12",

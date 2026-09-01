@@ -1,4 +1,9 @@
-<script setup></script>
+<script setup>
+const emit = defineEmits(["simulate-vendors"]);
+const simulateVendors = () => {
+  emit("simulate-vendors");
+};
+</script>
 
 <template>
   <div
@@ -14,6 +19,7 @@
     </div>
     <div
       class="text-white bg-[#4f4dc2] flex justify-center items-center px-4 text-[13px]/1 rounded-lg font-bold cursor-pointer"
+      @click="simulateVendors"
     >
       Simulate vendor submissions
     </div>

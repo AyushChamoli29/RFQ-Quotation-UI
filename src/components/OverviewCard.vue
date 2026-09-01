@@ -1,5 +1,6 @@
 <script setup>
 import data from "@/data/mockData.json";
+import { defineProps } from "vue";
 const responseDeadlineDate = new Date(
   data.big_card.deadline,
 ).toLocaleDateString("en-IN", {
@@ -13,6 +14,9 @@ const responseDeadlineTime = new Date(
   hour: "2-digit",
   minute: "2-digit",
   hour12: true,
+});
+const prop = defineProps({
+  show: Boolean,
 });
 </script>
 
@@ -35,9 +39,18 @@ const responseDeadlineTime = new Date(
       </div>
       <div class="flex flex-col items-end gap-1">
         <div
+          v-if="!prop.show"
           class="text-[11px] text-slate-500 font-bold h-6 w-20 p-1 flex justify-center items-center gap-1 rounded-lg bg-[#F4F5FA]"
         >
-          <span class="text-[17px]">&#9679;</span> {{ data.big_card.status }}
+          <span class="text-[17px]">&#9679;</span>
+          <span>{{ data.big_card.status1 }}</span>
+        </div>
+        <div
+          v-else
+          class="text-[11px] font-bold h-6 w-20 p-1 flex justify-center items-center gap-1 rounded-lg text-[#c02d3c] bg-[#fbe6e8]"
+        >
+          <span class="text-[17px]">&#9679;</span>
+          <span>{{ data.big_card.status2 }}</span>
         </div>
         <p class="text-xs text-slate-600 font-normal">
           Response deadline :
@@ -50,30 +63,58 @@ const responseDeadlineTime = new Date(
     <div class="flex text-[11px] flex-wrap">
       <div class="flex gap-2 justify-center items-center">
         <span
+          v-if="!prop.show"
           class="h-6 w-6 flex justify-center items-center rounded-full bg-[#5957db] text-white"
         >
           1
         </span>
+        <span
+          v-if="prop.show"
+          class="h-6 w-6 flex justify-center items-center rounded-full bg-[#0d8f7a] text-white"
+        >
+          ✓
+        </span>
         <div class="font-medium">Draft</div>
-        <div class="h-1/10 w-10 bg-slate-200"></div>
+        <div
+          class="h-1/10 w-10"
+          :class="prop.show ? 'bg-[#0d8f7a]' : 'bg-slate-200'"
+        ></div>
       </div>
       <div class="flex gap-2 justify-center items-center">
         <span
+          v-if="!prop.show"
           class="h-6 w-6 text-[11px] font-bold flex justify-center items-center rounded-full bg-white text-slate-400 outline outline-slate-300"
         >
           2
         </span>
+        <span
+          v-if="prop.show"
+          class="h-6 w-6 flex justify-center items-center rounded-full bg-[#0d8f7a] text-white"
+        >
+          ✓
+        </span>
         <div class="text-slate-500 font-medium">Sent to vendors</div>
-        <div class="h-1/10 w-10 bg-slate-200"></div>
+        <div
+          class="h-1/10 w-10"
+          :class="prop.show ? 'bg-[#0d8f7a]' : 'bg-slate-200'"
+        ></div>
       </div>
       <div class="flex gap-2 justify-center items-center">
         <span
-          class="h-6 w-6 text-[11px] font-bold flex justify-center items-center rounded-full bg-white text-slate-400 outline outline-slate-300"
+          class="h-6 w-6 text-[11px] font-bold flex justify-center items-center rounded-full"
+          :class="
+            prop.show
+              ? 'bg-[#5957db] text-white'
+              : 'bg-white text-slate-400 outline outline-slate-300'
+          "
         >
           3
         </span>
         <div class="text-slate-500 font-medium">Responses recieved</div>
-        <div class="h-1/10 w-10 bg-slate-200"></div>
+        <div
+          class="h-1/10 w-10"
+          :class="prop.show ? 'bg-[#0d8f7a]' : 'bg-slate-200'"
+        ></div>
       </div>
       <div class="flex gap-2 justify-center items-center">
         <span

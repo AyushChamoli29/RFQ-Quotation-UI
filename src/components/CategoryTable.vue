@@ -1,5 +1,9 @@
 <script setup>
 import data from "@/data/mockData.json";
+import { defineProps } from "vue";
+const prop = defineProps({
+  show: Boolean,
+});
 </script>
 
 <template>
