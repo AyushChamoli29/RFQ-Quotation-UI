@@ -1,9 +1,16 @@
 <script setup>
+import data from "@/data/mockData.json";
 import { RouterLink } from "vue-router";
+import { defineProps } from "vue";
+import VendorResponsesBox from "@/components/VendorResponsesBox.vue";
+const prop = defineProps({
+  show: Boolean,
+});
 </script>
 
 <template>
   <div
+    v-if="!prop.show"
     class="text-sm h-47 w-full p-5 flex flex-col gap-3 justify-center items-center bg-white outline outline-slate-200 rounded-lg"
   >
     <span class="text-4xl">📭</span>
@@ -17,5 +24,8 @@ import { RouterLink } from "vue-router";
       >
       tab to start collecting responses.
     </p>
+  </div>
+  <div v-if="prop.show" v-for="item in data.vendorResponses">
+    <VendorResponsesBox :data="item" />
   </div>
 </template>

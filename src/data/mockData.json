@@ -877,5 +877,946 @@
       "vendor": "Grand Marina Hotel",
       "detail": "Secure link opened (simulated)"
     }
+  ],
+  "vendorResponses": [
+    {
+      "name": "Hotels",
+      "quotationComparison": {
+        "vendors": [
+          {
+            "name": "Grand Marina Hotel",
+            "type": "submitted",
+            "time": "on time"
+          },
+          {
+            "name": "Sunset Bay Resort & Spa",
+            "type": "submitted",
+            "time": "on time"
+          },
+          {
+            "name": "Ocean Pearl Hotel Pattaya",
+            "type": "submitted",
+            "time": "on time"
+          }
+        ],
+        "tableData": {
+          "data": [
+            {
+              "name": "Deluxe Twin Room",
+              "quantity": "180",
+              "unit": "room-nights",
+              "mandatory": true,
+              "quotations": [
+                {
+                  "status": "submitted",
+                  "vendorName": "Grand Marina Hotel",
+                  "unitPrice": "15690",
+                  "tax": "7",
+                  "total": "3021894",
+                  "attachment": true,
+                  "info": true
+                },
+                {
+                  "status": "submitted",
+                  "vendorName": "Sunset Bay Resort & Spa",
+                  "unitPrice": "16860",
+                  "tax": "7",
+                  "total": "3247236",
+                  "attachment": false,
+                  "info": false
+                },
+                {
+                  "status": "submitted",
+                  "vendorName": "Ocean Pearl Hotel Patayya",
+                  "unitPrice": "18200",
+                  "tax": "7",
+                  "total": "3505320",
+                  "attachment": false,
+                  "info": false
+                }
+              ]
+            },
+            {
+              "name": "Executive Suite",
+              "quantity": "20",
+              "unit": "room-nights",
+              "mandatory": false,
+              "quotations": [
+                {
+                  "status": "submitted",
+                  "vendorName": "Grand Marina Hotel",
+                  "unitPrice": "26010",
+                  "tax": "7",
+                  "total": "556614",
+                  "attachment": true,
+                  "info": true
+                },
+                {
+                  "status": "submitted",
+                  "vendorName": "Sunset Bay Resort & Spa",
+                  "unitPrice": "27380",
+                  "tax": "7",
+                  "total": "585932",
+                  "attachment": false,
+                  "info": false
+                },
+                {
+                  "status": "submitted",
+                  "vendorName": "Ocean Pearl Hotel Patayya",
+                  "unitPrice": "29040",
+                  "tax": "7",
+                  "total": "621456",
+                  "attachment": false,
+                  "info": false
+                }
+              ]
+            },
+            {
+              "name": "Extra Bed with Breakfast",
+              "quantity": "40",
+              "unit": "bed-nights",
+              "mandatory": false,
+              "quotations": [
+                {
+                  "status": "submitted",
+                  "vendorName": "Grand Marina Hotel",
+                  "unitPrice": "3990",
+                  "tax": "7",
+                  "total": "170772",
+                  "attachment": true,
+                  "info": true
+                },
+                {
+                  "status": "submitted",
+                  "vendorName": "Sunset Bay Resort & Spa",
+                  "unitPrice": "4290",
+                  "tax": "7",
+                  "total": "183612",
+                  "attachment": false,
+                  "info": false
+                },
+                {
+                  "status": "submitted",
+                  "vendorName": "Ocean Pearl Hotel Patayya",
+                  "unitPrice": "4630",
+                  "tax": "7",
+                  "total": "198164",
+                  "attachment": false,
+                  "info": false
+                }
+              ]
+            },
+            {
+              "name": "Porterage and Welcome Drink",
+              "quantity": "100",
+              "unit": "pax",
+              "mandatory": false,
+              "quotations": [
+                {
+                  "status": "submitted",
+                  "vendorName": "Grand Marina Hotel",
+                  "unitPrice": "880",
+                  "tax": "7",
+                  "total": "94160",
+                  "attachment": true,
+                  "info": true
+                },
+                {
+                  "status": "submitted",
+                  "vendorName": "Sunset Bay Resort & Spa",
+                  "unitPrice": "930",
+                  "tax": "7",
+                  "total": "99510",
+                  "attachment": false,
+                  "info": false
+                },
+                {
+                  "status": "submitted",
+                  "vendorName": "Ocean Pearl Hotel Patayya",
+                  "unitPrice": "990",
+                  "tax": "7",
+                  "total": "105930",
+                  "attachment": false,
+                  "info": false
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "vendorSelection": [
+        {
+          "name": "Deluxe Twin Room",
+          "award": "",
+          "margin": "12",
+          "base": "",
+          "markup": "",
+          "selling total": ""
+        },
+        {
+          "name": "Executive Suite",
+          "award": "",
+          "margin": "12",
+          "base": "",
+          "markup": "",
+          "selling total": ""
+        },
+        {
+          "name": "Extra Bed with Breakfast",
+          "award": "",
+          "margin": "12",
+          "base": "",
+          "markup": "",
+          "selling total": ""
+        },
+        {
+          "name": "Porterage and Welcome Drink",
+          "award": "",
+          "margin": "12",
+          "base": "",
+          "markup": "",
+          "selling total": ""
+        }
+      ],
+      "clarifications": false
+    },
+    {
+      "name": "Flights",
+      "quotationComparison": {
+        "vendors": [
+          {
+            "name": "SkyBridge Airlines",
+            "type": "submitted",
+            "time": "on time"
+          },
+          {
+            "name": "Horizon Charter Airways",
+            "type": "submitted",
+            "time": "on time"
+          }
+        ],
+        "tableData": {
+          "data": [
+            {
+              "name": "Outbound Economy Class Airfare",
+              "quantity": "114",
+              "unit": "pax",
+              "mandatory": true,
+              "quotations": [
+                {
+                  "status": "submitted",
+                  "vendorName": "SkyBridge Airlines",
+                  "unitPrice": "27100",
+                  "tax": "7",
+                  "total": "3305658",
+                  "attachment": true,
+                  "info": true
+                },
+                {
+                  "status": "submitted",
+                  "vendorName": "Horizon Charter Airways",
+                  "unitPrice": "29130",
+                  "tax": "7",
+                  "total": "3553277",
+                  "attachment": false,
+                  "info": false
+                }
+              ]
+            },
+            {
+              "name": "Return Economy Class Airfare",
+              "quantity": "114",
+              "unit": "pax",
+              "mandatory": true,
+              "quotations": [
+                {
+                  "status": "submitted",
+                  "vendorName": "SkyBridge Airlines",
+                  "unitPrice": "27870",
+                  "tax": "7",
+                  "total": "3399583",
+                  "attachment": true,
+                  "info": true
+                },
+                {
+                  "status": "submitted",
+                  "vendorName": "Horizon Charter Airways",
+                  "unitPrice": "29340",
+                  "tax": "7",
+                  "total": "3578893",
+                  "attachment": false,
+                  "info": false
+                }
+              ]
+            },
+            {
+              "name": "Outbound Business Class Airfare",
+              "quantity": "6",
+              "unit": "pax",
+              "mandatory": false,
+              "quotations": [
+                {
+                  "status": "submitted",
+                  "vendorName": "SkyBridge Airlines",
+                  "unitPrice": "74180",
+                  "tax": "7",
+                  "total": "476236",
+                  "attachment": true,
+                  "info": true
+                },
+                {
+                  "status": "submitted",
+                  "vendorName": "Horizon Charter Airways",
+                  "unitPrice": "79720",
+                  "tax": "7",
+                  "total": "511802",
+                  "attachment": false,
+                  "info": false
+                }
+              ]
+            },
+            {
+              "name": "Group Air Ticketing and Manifest Management",
+              "quantity": "120",
+              "unit": "pax",
+              "mandatory": true,
+              "quotations": [
+                {
+                  "status": "submitted",
+                  "vendorName": "SkyBridge Airlines",
+                  "unitPrice": "790",
+                  "tax": "7",
+                  "total": "101436",
+                  "attachment": true,
+                  "info": true
+                },
+                {
+                  "status": "submitted",
+                  "vendorName": "Horizon Charter Airways",
+                  "unitPrice": "830",
+                  "tax": "7",
+                  "total": "106572",
+                  "attachment": false,
+                  "info": false
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "vendorSelection": [
+        {
+          "name": "Outbound Economy Class Airfare",
+          "award": "",
+          "margin": "8",
+          "base": "",
+          "markup": "",
+          "selling total": ""
+        },
+        {
+          "name": "Return Economy Class Airfare",
+          "award": "",
+          "margin": "8",
+          "base": "",
+          "markup": "",
+          "selling total": ""
+        },
+        {
+          "name": "Outbound Business Class Airfare",
+          "award": "",
+          "margin": "8",
+          "base": "",
+          "markup": "",
+          "selling total": ""
+        },
+        {
+          "name": "Group Air Ticketing and Manifest Management",
+          "award": "",
+          "margin": "8",
+          "base": "",
+          "markup": "",
+          "selling total": ""
+        }
+      ],
+      "clarifications": true
+    },
+    {
+      "name": "Group Transportation",
+      "quotationComparison": {
+        "vendors": [
+          {
+            "name": "CityLine Transport",
+            "type": "submitted",
+            "time": "on time"
+          },
+          {
+            "name": "Pattaya Premier Coaches",
+            "type": "submitted",
+            "time": "late"
+          }
+        ],
+        "tableData": {
+          "data": [
+            {
+              "name": "Arrival Airport Transfer by 45-Seater Coach",
+              "quantity": "3",
+              "unit": "coach",
+              "mandatory": true,
+              "quotations": [
+                {
+                  "status": "submitted",
+                  "vendorName": "CityLine Transport",
+                  "unitPrice": "17590",
+                  "tax": "7",
+                  "total": "56464",
+                  "attachment": true,
+                  "info": true
+                },
+                {
+                  "status": "submitted",
+                  "vendorName": "Pattaya Premier Coaches",
+                  "unitPrice": "18910",
+                  "tax": "7",
+                  "total": "60701",
+                  "attachment": false,
+                  "info": false
+                }
+              ]
+            },
+            {
+              "name": "Departure Airport Transfer by 45-Seater Coach",
+              "quantity": "3",
+              "unit": "coach",
+              "mandatory": true,
+              "quotations": [
+                {
+                  "status": "submitted",
+                  "vendorName": "CityLine Transport",
+                  "unitPrice": "17190",
+                  "tax": "7",
+                  "total": "55180",
+                  "attachment": true,
+                  "info": true
+                },
+                {
+                  "status": "submitted",
+                  "vendorName": "Pattaya Premier Coaches",
+                  "unitPrice": "18090",
+                  "tax": "7",
+                  "total": "58069",
+                  "attachment": false,
+                  "info": false
+                }
+              ]
+            },
+            {
+              "name": "Full-Day Coach Disposal",
+              "quantity": "6",
+              "unit": "coach-day",
+              "mandatory": false,
+              "quotations": [
+                {
+                  "status": "submitted",
+                  "vendorName": "CityLine Transport",
+                  "unitPrice": "30430",
+                  "tax": "7",
+                  "total": "195361",
+                  "attachment": true,
+                  "info": true
+                },
+                {
+                  "status": "submitted",
+                  "vendorName": "Pattaya Premier Coaches",
+                  "unitPrice": "32700",
+                  "tax": "7",
+                  "total": "209934",
+                  "attachment": false,
+                  "info": false
+                }
+              ]
+            },
+            {
+              "name": "VIP Sedan Airport Tranfers",
+              "quantity": "12",
+              "unit": "trip",
+              "mandatory": false,
+              "quotations": [
+                {
+                  "status": "submitted",
+                  "vendorName": "CityLine Transport",
+                  "unitPrice": "6040",
+                  "tax": "7",
+                  "total": "77554",
+                  "attachment": true,
+                  "info": true
+                },
+                {
+                  "status": "submitted",
+                  "vendorName": "Pattaya Premier Coaches",
+                  "unitPrice": "6360",
+                  "tax": "7",
+                  "total": "81662",
+                  "attachment": false,
+                  "info": false
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "vendorSelection": [
+        {
+          "name": "Arrival Airport Transfer by 45-Seater Coach",
+          "award": "",
+          "margin": "12",
+          "base": "",
+          "markup": "",
+          "selling total": ""
+        },
+        {
+          "name": "Departure Airport Transfer by 45-Seater Coach",
+          "award": "",
+          "margin": "12",
+          "base": "",
+          "markup": "",
+          "selling total": ""
+        },
+        {
+          "name": "Full-Day Coach Disposal",
+          "award": "",
+          "margin": "12",
+          "base": "",
+          "markup": "",
+          "selling total": ""
+        },
+        {
+          "name": "VIP Sedan Airport Tranfers",
+          "award": "",
+          "margin": "12",
+          "base": "",
+          "markup": "",
+          "selling total": ""
+        }
+      ],
+      "clarifications": false
+    },
+    {
+      "name": "Event Management including AV",
+      "quotationComparison": {
+        "vendors": [
+          {
+            "name": "EventSphere Productions",
+            "type": "submitted",
+            "time": "on time"
+          },
+          {
+            "name": "Stellar Events Co.",
+            "type": "partially submitted",
+            "time": "on time"
+          }
+        ],
+        "tableData": {
+          "data": [
+            {
+              "name": "Gala Dinner Venue Rental",
+              "quantity": "1",
+              "unit": "lot",
+              "mandatory": true,
+              "quotations": [
+                {
+                  "status": "submitted",
+                  "vendorName": "EventSphere Productions",
+                  "unitPrice": "427950",
+                  "tax": "7",
+                  "total": "457907",
+                  "attachment": true,
+                  "info": true
+                },
+                {
+                  "status": "submitted",
+                  "vendorName": "Stellar Events Co.",
+                  "unitPrice": "459900",
+                  "tax": "7",
+                  "total": "492093",
+                  "attachment": false,
+                  "info": false
+                }
+              ]
+            },
+            {
+              "name": "Stage, Backdrop and Basic Branding",
+              "quantity": "1",
+              "unit": "lot",
+              "mandatory": true,
+              "quotations": [
+                {
+                  "status": "submitted",
+                  "vendorName": "EventSphere Productions",
+                  "unitPrice": "209030",
+                  "tax": "7",
+                  "total": "223662",
+                  "attachment": true,
+                  "info": true
+                },
+                {
+                  "status": "submitted",
+                  "vendorName": "Stellar Events Co.",
+                  "unitPrice": "220050",
+                  "tax": "7",
+                  "total": "235454",
+                  "attachment": false,
+                  "info": false
+                }
+              ]
+            },
+            {
+              "name": "LED Wall 24ft X 10ft",
+              "quantity": "1",
+              "unit": "lot",
+              "mandatory": false,
+              "quotations": [
+                {
+                  "status": "submitted",
+                  "vendorName": "EventSphere Productions",
+                  "unitPrice": "261530",
+                  "tax": "7",
+                  "total": "279837",
+                  "attachment": true,
+                  "info": true
+                },
+                {
+                  "status": "submitted",
+                  "vendorName": "Stellar Events Co.",
+                  "unitPrice": "281050",
+                  "tax": "7",
+                  "total": "300724",
+                  "attachment": false,
+                  "info": false
+                }
+              ]
+            },
+            {
+              "name": "Professional Sound System",
+              "quantity": "1",
+              "unit": "lot",
+              "mandatory": true,
+              "quotations": [
+                {
+                  "status": "submitted",
+                  "vendorName": "EventSphere Productions",
+                  "unitPrice": "153290",
+                  "tax": "7",
+                  "total": "164020",
+                  "attachment": true,
+                  "info": true
+                },
+                {
+                  "status": "submitted",
+                  "vendorName": "Stellar Events Co.",
+                  "unitPrice": "161370",
+                  "tax": "7",
+                  "total": "172666",
+                  "attachment": false,
+                  "info": false
+                }
+              ]
+            },
+            {
+              "name": "Event Photography and Highlight Video",
+              "quantity": "1",
+              "unit": "lot",
+              "mandatory": false,
+              "quotations": [
+                {
+                  "status": "submitted",
+                  "vendorName": "EventSphere Productions",
+                  "unitPrice": "137900",
+                  "tax": "7",
+                  "total": "147553",
+                  "attachment": true,
+                  "info": true
+                },
+                {
+                  "status": "awaiting"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "vendorSelection": [
+        {
+          "name": "Gala Dinner Venue Rental",
+          "award": "",
+          "margin": "16",
+          "base": "",
+          "markup": "",
+          "selling total": ""
+        },
+        {
+          "name": "Stage, Backdrop and Basic Branding",
+          "award": "",
+          "margin": "16",
+          "base": "",
+          "markup": "",
+          "selling total": ""
+        },
+        {
+          "name": "LED Wall 24ft X 10ft",
+          "award": "",
+          "margin": "16",
+          "base": "",
+          "markup": "",
+          "selling total": ""
+        },
+        {
+          "name": "Professional Sound System",
+          "award": "",
+          "margin": "16",
+          "base": "",
+          "markup": "",
+          "selling total": ""
+        },
+        {
+          "name": "Event Photography and Highlight Video",
+          "award": "",
+          "margin": "16",
+          "base": "",
+          "markup": "",
+          "selling total": ""
+        }
+      ],
+      "clarifications": false
+    },
+    {
+      "name": "Visa Management",
+      "quotationComparison": {
+        "vendors": [
+          {
+            "name": "GlobalVisa Facilitation",
+            "type": "submitted",
+            "time": "on time"
+          }
+        ],
+        "tableData": {
+          "data": [
+            {
+              "name": "Tourist Visa Government Fee",
+              "quantity": "120",
+              "unit": "pax",
+              "mandatory": true,
+              "quotations": [
+                {
+                  "status": "submitted",
+                  "vendorName": "GlobalVisa Facilitation",
+                  "unitPrice": "7280",
+                  "tax": "7",
+                  "total": "934752",
+                  "attachment": true,
+                  "info": true
+                }
+              ]
+            },
+            {
+              "name": "Visa Processing and Service Fee",
+              "quantity": "120",
+              "unit": "pax",
+              "mandatory": true,
+              "quotations": [
+                {
+                  "status": "submitted",
+                  "vendorName": "GlobalVisa Facilitation",
+                  "unitPrice": "1780",
+                  "tax": "7",
+                  "total": "228552",
+                  "attachment": true,
+                  "info": true
+                }
+              ]
+            },
+            {
+              "name": "Travel Insurance",
+              "quantity": "120",
+              "unit": "pax",
+              "mandatory": false,
+              "quotations": [
+                {
+                  "status": "submitted",
+                  "vendorName": "GlobalVisa Facilitation",
+                  "unitPrice": "1260",
+                  "tax": "7",
+                  "total": "161784",
+                  "attachment": true,
+                  "info": true
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "vendorSelection": [
+        {
+          "name": "Tourist Visa Government Fee",
+          "award": "",
+          "margin": "10",
+          "base": "",
+          "markup": "",
+          "selling total": ""
+        },
+        {
+          "name": "Visa Processing and Service Fee",
+          "award": "",
+          "margin": "10",
+          "base": "",
+          "markup": "",
+          "selling total": ""
+        },
+        {
+          "name": "Travel Insurance",
+          "award": "",
+          "margin": "10",
+          "base": "",
+          "markup": "",
+          "selling total": ""
+        }
+      ],
+      "clarifications": false
+    },
+    {
+      "name": "Local Liaison",
+      "quotationComparison": {
+        "vendors": [
+          {
+            "name": "Destination Connect DMC",
+            "type": "submitted",
+            "time": "on time"
+          },
+          {
+            "name": "LocalPro Thailand Services",
+            "type": "declined",
+            "time": "on time"
+          }
+        ],
+        "tableData": {
+          "data": [
+            {
+              "name": "Lead Local Coordinator",
+              "quantity": "5",
+              "unit": "day",
+              "mandatory": true,
+              "quotations": [
+                {
+                  "status": "submitted",
+                  "vendorName": "Destination Connect DMC",
+                  "unitPrice": "17590",
+                  "tax": "7",
+                  "total": "94107",
+                  "attachment": true,
+                  "info": true
+                },
+                {
+                  "status": "declined"
+                }
+              ]
+            },
+            {
+              "name": "Assistant Coordinators",
+              "quantity": "10",
+              "unit": "day",
+              "mandatory": false,
+              "quotations": [
+                {
+                  "status": "submitted",
+                  "vendorName": "Destination Connect DMC",
+                  "unitPrice": "10680",
+                  "tax": "7",
+                  "total": "114276",
+                  "attachment": true,
+                  "info": true
+                },
+                {
+                  "status": "declined"
+                }
+              ]
+            },
+            {
+              "name": "Airport Representatives",
+              "quantity": "12",
+              "unit": "shift",
+              "mandatory": false,
+              "quotations": [
+                {
+                  "status": "submitted",
+                  "vendorName": "Destination Connect DMC",
+                  "unitPrice": "8080",
+                  "tax": "7",
+                  "total": "103747",
+                  "attachment": true,
+                  "info": true
+                },
+                {
+                  "status": "declined"
+                }
+              ]
+            },
+            {
+              "name": "Local SIM Cards with Data",
+              "quantity": "15",
+              "unit": "unit",
+              "mandatory": false,
+              "quotations": [
+                {
+                  "status": "submitted",
+                  "vendorName": "Destination Connect DMC",
+                  "unitPrice": "1670",
+                  "tax": "7",
+                  "total": "26804",
+                  "attachment": true,
+                  "info": true
+                },
+                {
+                  "status": "declined"
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "vendorSelection": [
+        {
+          "name": "Lead Local Coordinator",
+          "award": "",
+          "margin": "15",
+          "base": "",
+          "markup": "",
+          "selling total": ""
+        },
+        {
+          "name": "Assistant Coordinators",
+          "award": "",
+          "margin": "15",
+          "base": "",
+          "markup": "",
+          "selling total": ""
+        },
+        {
+          "name": "Airport Representatives",
+          "award": "",
+          "margin": "15",
+          "base": "",
+          "markup": "",
+          "selling total": ""
+        },
+        {
+          "name": "Local SIM Cards with Data",
+          "award": "",
+          "margin": "15",
+          "base": "",
+          "markup": "",
+          "selling total": ""
+        }
+      ],
+      "clarifications": false
+    }
   ]
 }
