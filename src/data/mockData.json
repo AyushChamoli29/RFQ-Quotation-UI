@@ -39,44 +39,56 @@
       "Hotels": {
         "lines": "4",
         "vendors_invited": "3",
-        "responses": "0/3",
+        "responses1": "0/3",
+        "responses2": "3/3",
         "awarded_lines": "0/4",
-        "status": "Not sent"
+        "status1": "Not sent",
+        "status2": "Under evaluation"
       },
       "Flights": {
         "lines": "4",
         "vendors_invited": "2",
-        "responses": "0/2",
+        "responses1": "0/2",
+        "responses2": "2/2",
         "awarded_lines": "0/4",
-        "status": "Not sent"
+        "status1": "Not sent",
+        "status2": "Under evaluation"
       },
       "Ground Transportation": {
         "lines": "4",
         "vendors_invited": "2",
-        "responses": "0/2",
+        "responses1": "0/2",
+        "responses2": "2/2",
         "awarded_lines": "0/4",
-        "status": "Not sent"
+        "status1": "Not sent",
+        "status2": "Under evaluation"
       },
       "Event Management including AV": {
         "lines": "5",
         "vendors_invited": "2",
-        "responses": "0/2",
+        "responses1": "0/2",
+        "responses2": "2/2",
         "awarded_lines": "0/5",
-        "status": "Not sent"
+        "status1": "Not sent",
+        "status2": "Under evaluation"
       },
       "Visa Management": {
         "lines": "3",
         "vendors_invited": "1",
-        "responses": "0/1",
+        "responses1": "0/1",
+        "responses2": "1/1",
         "awarded_lines": "0/3",
-        "status": "Not sent"
+        "status1": "Not sent",
+        "status2": "Under evaluation"
       },
       "Local Liaison": {
         "lines": "4",
         "vendors_invited": "2",
-        "responses": "0/2",
+        "responses1": "0/2",
+        "responses2": "2/2",
         "awarded_lines": "0/4",
-        "status": "Not sent"
+        "status1": "Not sent",
+        "status2": "Under evaluation"
       }
     }
   },
@@ -647,5 +659,223 @@
         }
       ]
     }
-  }
+  },
+  "auditHistory": [
+    {
+      "actor": "Priya Sharma",
+      "role": "RFQ/Procurement Manager",
+      "action": "Vendor submission simulated",
+      "category": "",
+      "vendor": "",
+      "detail": "Demo shortcut used to populate realistic responses, including a decline, a partial quote, a late submission and a clarification."
+    },
+    {
+      "actor": "Priya Sharma",
+      "role": "RFQ/Procurement Manager",
+      "action": "Clarification answered",
+      "category": "Flights",
+      "vendor": "SkyBridge Airlines",
+      "detail": "Same-day connection required; onward departure not before 20:00 local time."
+    },
+    {
+      "actor": "Anurag Mehta",
+      "role": "SkyBridge Airlines",
+      "action": "Clarification question raised",
+      "category": "Flights",
+      "vendor": "SkyBridge Airlines",
+      "detail": "Please confirm whether the return sector is a same-day or next-day connection."
+    },
+    {
+      "actor": "Anong W.",
+      "role": "LocalPro Thailand Services",
+      "action": "Vendor declined category",
+      "category": "Local Liaison",
+      "vendor": "LocalPro Thailand Services",
+      "detail": "Insufficient local staff availability for these dates."
+    },
+    {
+      "actor": "Anong W.",
+      "role": "LocalPro Thailand Services",
+      "action": "Vendor portal accessed",
+      "category": "Local Liaison",
+      "vendor": "LocalPro Thailand Services",
+      "detail": "Secure link opened (simulated)"
+    },
+    {
+      "actor": "Ploy K.",
+      "role": "Destination Connect DMC",
+      "action": "Vendor submitted quotation",
+      "category": "Local Liaison",
+      "vendor": "Destination Connect DMC",
+      "detail": "4/4 line item(s) quoted"
+    },
+    {
+      "actor": "Ploy K.",
+      "role": "Destination Connect DMC",
+      "action": "Vendor portal accessed",
+      "category": "Local Liaison",
+      "vendor": "Destination Connect DMC",
+      "detail": "Secure link opened (simulated)"
+    },
+    {
+      "actor": "Karan Sethi",
+      "role": "GlobalVisa Facilitation",
+      "action": "Vendor submitted quotation",
+      "category": "Visa Management",
+      "vendor": "GlobalVisa Facilitation",
+      "detail": "3/3 line item(s) quoted"
+    },
+    {
+      "actor": "Karan Sethi",
+      "role": "GlobalVisa Facilitation",
+      "action": "Vendor portal accessed",
+      "category": "Visa Management",
+      "vendor": "GlobalVisa Facilitation",
+      "detail": "Secure link opened (simulated)"
+    },
+    {
+      "actor": "Meera Iyer",
+      "role": "Stellar Events Co.",
+      "action": "Vendor submitted quotation(partial)",
+      "category": "Event Management including AV",
+      "vendor": "Stellar Events Co.",
+      "detail": "4/5 line item(s) quoted"
+    },
+    {
+      "actor": "Meera Iyer",
+      "role": "Stellar Events Co.",
+      "action": "Vendor portal accessed",
+      "category": "Event Management including AV",
+      "vendor": "Stellar Events Co.",
+      "detail": "Secure link opened (simulated)"
+    },
+    {
+      "actor": "Rahul Kapoor",
+      "role": "EventSphere Productions",
+      "action": "Vendor submitted quotation",
+      "category": "Event Management including AV",
+      "vendor": "EventSphere Productions",
+      "detail": "5/5 line item(s) quoted"
+    },
+    {
+      "actor": "Rahul Kapoor",
+      "role": "EventSphere Productions",
+      "action": "Vendor portal accessed",
+      "category": "Event Management including AV",
+      "vendor": "EventSphere Productions",
+      "detail": "Secure link opened (simulated)"
+    },
+    {
+      "actor": "Suda M.",
+      "role": "Pattaya Premier Coaches",
+      "action": "Vendor submitted quotation",
+      "category": "Ground Transportation",
+      "vendor": "Pattaya Premier Coaches",
+      "detail": "4/4 line item(s) quoted — submitted after deadline"
+    },
+    {
+      "actor": "Suda M.",
+      "role": "Pattaya Premier Coaches",
+      "action": "Vendor portal accessed",
+      "category": "Ground Transportation",
+      "vendor": "Pattaya Premier Coaches",
+      "detail": "Secure link opened (simulated)"
+    },
+    {
+      "actor": "Wichai R.",
+      "role": "CityLine Transport",
+      "action": "Vendor submitted quotation",
+      "category": "Ground Transportation",
+      "vendor": "CityLine Transport",
+      "detail": "4/4 line item(s) quoted"
+    },
+    {
+      "actor": "Wichai R.",
+      "role": "CityLine Transport",
+      "action": "Vendor portal accessed",
+      "category": "Ground Transportation",
+      "vendor": "CityLine Transport",
+      "detail": "Secure link opened (simulated)"
+    },
+    {
+      "actor": "Priya Nair",
+      "role": "Horizon Charter Airways",
+      "action": "Vendor submitted quotation",
+      "category": "Flights",
+      "vendor": "Horizon Charter Airways",
+      "detail": "4/4 line item(s) quoted"
+    },
+    {
+      "actor": "Priya Nair",
+      "role": "Horizon Charter Airways",
+      "action": "Vendor portal accessed",
+      "category": "Flights",
+      "vendor": "Horizon Charter Airways",
+      "detail": "Secure link opened (simulated)"
+    },
+    {
+      "actor": "Anurag Mehta",
+      "role": "SkyBridge Airlines",
+      "action": "Vendor submitted quotation",
+      "category": "Flights",
+      "vendor": "SkyBridge Airlines",
+      "detail": "4/4 line item(s) quoted"
+    },
+    {
+      "actor": "Anurag Mehta",
+      "role": "SkyBridge Airlines",
+      "action": "Vendor portal accessed",
+      "category": "Flights",
+      "vendor": "SkyBridge Airlines",
+      "detail": "Secure link opened (simulated)"
+    },
+    {
+      "actor": "Somchai T.",
+      "role": "Ocean Pearl Hotel Pattaya",
+      "action": "Vendor submitted quotation",
+      "category": "Hotels",
+      "vendor": "Ocean Pearl Hotel Pattaya",
+      "detail": "4/4 line item(s) quoted"
+    },
+    {
+      "actor": "Somchai T.",
+      "role": "Ocean Pearl Hotel Pattaya",
+      "action": "Vendor portal accessed",
+      "category": "Hotels",
+      "vendor": "Ocean Pearl Hotel Pattaya",
+      "detail": "Secure link opened (simulated)"
+    },
+    {
+      "actor": "Kanya P.",
+      "role": "Sunset Bay Resort & Spa",
+      "action": "Vendor submitted quotation",
+      "category": "Hotels",
+      "vendor": "Sunset Bay Resort & Spa",
+      "detail": "4/4 line item(s) quoted"
+    },
+    {
+      "actor": "Kanya P.",
+      "role": "Sunset Bay Resort & Spa",
+      "action": "Vendor portal accessed",
+      "category": "Hotels",
+      "vendor": "Sunset Bay Resort & Spa",
+      "detail": "Secure link opened (simulated)"
+    },
+    {
+      "actor": "Nattapong S.",
+      "role": "Grand Marina Hotel",
+      "action": "Vendor submitted quotation",
+      "category": "Hotels",
+      "vendor": "Grand Marina Hotel",
+      "detail": "4/4 line item(s) quoted"
+    },
+    {
+      "actor": "Nattapong S.",
+      "role": "Grand Marina Hotel",
+      "action": "Vendor portal accessed",
+      "category": "Hotels",
+      "vendor": "Grand Marina Hotel",
+      "detail": "Secure link opened (simulated)"
+    }
+  ]
 }

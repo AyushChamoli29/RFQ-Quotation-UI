@@ -1,6 +1,10 @@
 <script setup>
 import { RouterLink, useRoute } from "vue-router";
+import { defineProps } from "vue";
 const route = useRoute();
+const prop = defineProps({
+  show: Boolean,
+});
 </script>
 
 <template>
@@ -71,6 +75,11 @@ const route = useRoute();
         }"
       >
         Audit History
+        <span
+          v-if="prop.show"
+          class="text-white text-[11px] font-bold bg-slate-400 rounded-2xl px-2"
+          >27</span
+        >
       </div></RouterLink
     >
   </div>

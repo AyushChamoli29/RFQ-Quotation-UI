@@ -8,10 +8,12 @@ const prop = defineProps({
 
 <template>
   <div class="px-5 bg-white shadow-sm shadow-slate-300 rounded-lg">
-    <p class="text-xs tracking-wider text-slate-500 font-bold mt-5 mb-3">CATEGORIES AT A GLANCE</p>
+    <p class="text-xs tracking-wider text-slate-500 font-bold mt-5 mb-3">
+      CATEGORIES AT A GLANCE
+    </p>
     <table class="text-xs w-full mb-4">
       <thead>
-        <tr class=" text-slate-500 text-[11px]">
+        <tr class="text-slate-500 text-[11px]">
           <th class="px-3 py-2 text-left">CATEGORY</th>
           <th class="px-3 py-2 text-left">LINES</th>
           <th class="px-3 py-2 text-left">VENDORS INVITED</th>
@@ -30,9 +32,21 @@ const prop = defineProps({
           </td>
           <td class="p-3 text-left">{{ value.lines }}</td>
           <td class="p-3 text-left">{{ value.vendors_invited }}</td>
-          <td class="p-3 text-left">{{ value.responses }}</td>
+          <td class="p-3 text-left">
+            {{ prop.show ? value.responses2 : value.responses1 }}
+          </td>
           <td class="p-3 text-left">{{ value.awarded_lines }}</td>
-          <td ><span class="bg-[#F4F5FA] p-1 px-2 text-slate-500 font-bold text-[11px] rounded-lg">{{ value.status }}</span></td>
+          <td>
+            <span
+              class="p-1 px-2 font-bold text-[11px] rounded-lg"
+              :class="
+                prop.show
+                  ? 'bg-[#eeecfb] text-[#3f3ba6]'
+                  : 'bg-[#F4F5FA] text-slate-500'
+              "
+              >{{ prop.show ? value.status2 : value.status1 }}</span
+            >
+          </td>
         </tr>
       </tbody>
     </table>

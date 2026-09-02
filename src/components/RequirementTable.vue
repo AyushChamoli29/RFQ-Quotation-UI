@@ -1,7 +1,20 @@
 <script setup>
 import data from "@/data/mockData.json";
+import { defineProps } from "vue";
 import RequirementTableEntry from "./RequirementTableEntry.vue";
 const array = data.requirementTable;
+const prop = defineProps({
+  show: Boolean,
+});
+const currentDate = new Date().toLocaleDateString("en-IN", {
+  day: "2-digit",
+  month: "short",
+  year: "numeric",
+});
+const currentTime = new Date().toLocaleTimeString("en-IN", {
+  hour: "2-digit",
+  minute: "2-digit",
+});
 </script>
 
 <template>
@@ -10,8 +23,17 @@ const array = data.requirementTable;
       <div class="text-[13px] text-[#6b7090] tracking-wide font-bold px-3">
         REQUIREMENT LINE ITEMS & VENDOR ALLOCATION
       </div>
-      <div class="bg-[#4d3fc9] text-white font-bold text-[13px] p-2 rounded-lg">
+      <div
+        v-if="!prop.show"
+        class="bg-[#4d3fc9] text-white font-bold text-[13px] p-2 rounded-lg"
+      >
         Send RFQ to allocated vendors(12)
+      </div>
+      <div
+        v-if="prop.show"
+        class="text-[11px] bg-[#e1f6f1] text-[#0d8f7a] p-1 rounded-xl font-bold"
+      >
+        RFQ sent {{ currentDate }}, {{ currentTime }}
       </div>
     </div>
     <div

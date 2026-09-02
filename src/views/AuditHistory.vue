@@ -1,8 +1,12 @@
 <script setup>
-import { ref } from "vue";
+import AuditHistoryTable from "@/components/AuditHistoryTable.vue";
+import { ref, defineProps } from "vue";
 const search = ref("");
 const category = ref("all categories");
 const actor = ref("all actors");
+const prop = defineProps({
+  show: Boolean,
+});
 </script>
 
 <template>
@@ -62,12 +66,18 @@ const actor = ref("all actors");
       Export CSV
     </div>
   </div>
-  <div class="flex flex-col bg-white p-10 justify-center items-center gap-1">
+  <div
+    v-if="!prop.show"
+    class="flex flex-col bg-white p-10 justify-center items-center gap-1"
+  >
     <span class="text-4xl">🗒️</span>
     <p class="text-lg font-bold mt-2">No activity recorded yet</p>
     <p class="text-[#6b7090]">
       Every allocation, dispatch, portal access, quote edit, award and export
       will appear here as it happens.
     </p>
+  </div>
+  <div v-if="prop.show">
+    <AuditHistoryTable />
   </div>
 </template>

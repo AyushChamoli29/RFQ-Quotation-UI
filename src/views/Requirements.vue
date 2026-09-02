@@ -1,7 +1,11 @@
 <script setup>
 import RequirementTable from "@/components/RequirementTable.vue";
 import data from "@/data/mockData.json";
+import { defineProps } from "vue";
 const deadline = data.big_card.deadline;
+const prop = defineProps({
+  show: Boolean,
+});
 </script>
 
 <template>
@@ -41,5 +45,5 @@ const deadline = data.big_card.deadline;
       />
     </div>
   </div>
-  <RequirementTable />
+  <RequirementTable :show="prop.show" />
 </template>
