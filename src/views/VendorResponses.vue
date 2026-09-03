@@ -25,7 +25,11 @@ const prop = defineProps({
       tab to start collecting responses.
     </p>
   </div>
-  <div v-if="prop.show" v-for="item in data.vendorResponses">
+  <div
+    v-if="prop.show"
+    v-for="item in data.vendorResponses"
+    class="bg-white rounded-xl h-max"
+  >
     <VendorResponsesBox :data="item" />
   </div>
 </template>

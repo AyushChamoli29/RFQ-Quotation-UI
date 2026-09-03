@@ -881,6 +881,7 @@
   "vendorResponses": [
     {
       "name": "Hotels",
+      "margin": "12",
       "quotationComparison": {
         "vendors": [
           {
@@ -914,7 +915,8 @@
                   "tax": "7",
                   "total": "3021894",
                   "attachment": true,
-                  "info": true
+                  "info": true,
+                  "color": "green"
                 },
                 {
                   "status": "submitted",
@@ -923,16 +925,18 @@
                   "tax": "7",
                   "total": "3247236",
                   "attachment": false,
-                  "info": false
+                  "info": false,
+                  "color": "yellow"
                 },
                 {
                   "status": "submitted",
-                  "vendorName": "Ocean Pearl Hotel Patayya",
+                  "vendorName": "Ocean Pearl Hotel Pattaya",
                   "unitPrice": "18200",
                   "tax": "7",
                   "total": "3505320",
                   "attachment": false,
-                  "info": false
+                  "info": false,
+                  "color": "white"
                 }
               ]
             },
@@ -949,7 +953,8 @@
                   "tax": "7",
                   "total": "556614",
                   "attachment": true,
-                  "info": true
+                  "info": true,
+                  "color": "green"
                 },
                 {
                   "status": "submitted",
@@ -958,16 +963,18 @@
                   "tax": "7",
                   "total": "585932",
                   "attachment": false,
-                  "info": false
+                  "info": false,
+                  "color": "yellow"
                 },
                 {
                   "status": "submitted",
-                  "vendorName": "Ocean Pearl Hotel Patayya",
+                  "vendorName": "Ocean Pearl Hotel Pattaya",
                   "unitPrice": "29040",
                   "tax": "7",
                   "total": "621456",
                   "attachment": false,
-                  "info": false
+                  "info": false,
+                  "color": "white"
                 }
               ]
             },
@@ -984,7 +991,8 @@
                   "tax": "7",
                   "total": "170772",
                   "attachment": true,
-                  "info": true
+                  "info": true,
+                  "color": "green"
                 },
                 {
                   "status": "submitted",
@@ -993,16 +1001,18 @@
                   "tax": "7",
                   "total": "183612",
                   "attachment": false,
-                  "info": false
+                  "info": false,
+                  "color": "yellow"
                 },
                 {
                   "status": "submitted",
-                  "vendorName": "Ocean Pearl Hotel Patayya",
+                  "vendorName": "Ocean Pearl Hotel Pattaya",
                   "unitPrice": "4630",
                   "tax": "7",
                   "total": "198164",
                   "attachment": false,
-                  "info": false
+                  "info": false,
+                  "color": "white"
                 }
               ]
             },
@@ -1019,7 +1029,8 @@
                   "tax": "7",
                   "total": "94160",
                   "attachment": true,
-                  "info": true
+                  "info": true,
+                  "color": "green"
                 },
                 {
                   "status": "submitted",
@@ -1028,60 +1039,29 @@
                   "tax": "7",
                   "total": "99510",
                   "attachment": false,
-                  "info": false
+                  "info": false,
+                  "color": "yellow"
                 },
                 {
                   "status": "submitted",
-                  "vendorName": "Ocean Pearl Hotel Patayya",
+                  "vendorName": "Ocean Pearl Hotel Pattaya",
                   "unitPrice": "990",
                   "tax": "7",
                   "total": "105930",
                   "attachment": false,
-                  "info": false
+                  "info": false,
+                  "color": "white"
                 }
               ]
             }
           ]
         }
       },
-      "vendorSelection": [
-        {
-          "name": "Deluxe Twin Room",
-          "award": "",
-          "margin": "12",
-          "base": "",
-          "markup": "",
-          "selling total": ""
-        },
-        {
-          "name": "Executive Suite",
-          "award": "",
-          "margin": "12",
-          "base": "",
-          "markup": "",
-          "selling total": ""
-        },
-        {
-          "name": "Extra Bed with Breakfast",
-          "award": "",
-          "margin": "12",
-          "base": "",
-          "markup": "",
-          "selling total": ""
-        },
-        {
-          "name": "Porterage and Welcome Drink",
-          "award": "",
-          "margin": "12",
-          "base": "",
-          "markup": "",
-          "selling total": ""
-        }
-      ],
       "clarifications": false
     },
     {
       "name": "Flights",
+      "margin": "8",
       "quotationComparison": {
         "vendors": [
           {
@@ -1110,7 +1090,8 @@
                   "tax": "7",
                   "total": "3305658",
                   "attachment": true,
-                  "info": true
+                  "info": true,
+                  "color": "green"
                 },
                 {
                   "status": "submitted",
@@ -1119,7 +1100,8 @@
                   "tax": "7",
                   "total": "3553277",
                   "attachment": false,
-                  "info": false
+                  "info": false,
+                  "color": "yellow"
                 }
               ]
             },
@@ -1136,7 +1118,8 @@
                   "tax": "7",
                   "total": "3399583",
                   "attachment": true,
-                  "info": true
+                  "info": true,
+                  "color": "green"
                 },
                 {
                   "status": "submitted",
@@ -1145,7 +1128,8 @@
                   "tax": "7",
                   "total": "3578893",
                   "attachment": false,
-                  "info": false
+                  "info": false,
+                  "color": "yellow"
                 }
               ]
             },
@@ -1162,7 +1146,8 @@
                   "tax": "7",
                   "total": "476236",
                   "attachment": true,
-                  "info": true
+                  "info": true,
+                  "color": "green"
                 },
                 {
                   "status": "submitted",
@@ -1171,7 +1156,8 @@
                   "tax": "7",
                   "total": "511802",
                   "attachment": false,
-                  "info": false
+                  "info": false,
+                  "color": "yellow"
                 }
               ]
             },
@@ -1188,7 +1174,8 @@
                   "tax": "7",
                   "total": "101436",
                   "attachment": true,
-                  "info": true
+                  "info": true,
+                  "color": "green"
                 },
                 {
                   "status": "submitted",
@@ -1197,51 +1184,19 @@
                   "tax": "7",
                   "total": "106572",
                   "attachment": false,
-                  "info": false
+                  "info": false,
+                  "color": "yellow"
                 }
               ]
             }
           ]
         }
       },
-      "vendorSelection": [
-        {
-          "name": "Outbound Economy Class Airfare",
-          "award": "",
-          "margin": "8",
-          "base": "",
-          "markup": "",
-          "selling total": ""
-        },
-        {
-          "name": "Return Economy Class Airfare",
-          "award": "",
-          "margin": "8",
-          "base": "",
-          "markup": "",
-          "selling total": ""
-        },
-        {
-          "name": "Outbound Business Class Airfare",
-          "award": "",
-          "margin": "8",
-          "base": "",
-          "markup": "",
-          "selling total": ""
-        },
-        {
-          "name": "Group Air Ticketing and Manifest Management",
-          "award": "",
-          "margin": "8",
-          "base": "",
-          "markup": "",
-          "selling total": ""
-        }
-      ],
       "clarifications": true
     },
     {
       "name": "Group Transportation",
+      "margin": "12",
       "quotationComparison": {
         "vendors": [
           {
@@ -1270,7 +1225,8 @@
                   "tax": "7",
                   "total": "56464",
                   "attachment": true,
-                  "info": true
+                  "info": true,
+                  "color": "green"
                 },
                 {
                   "status": "submitted",
@@ -1279,7 +1235,8 @@
                   "tax": "7",
                   "total": "60701",
                   "attachment": false,
-                  "info": false
+                  "info": false,
+                  "color": "yellow"
                 }
               ]
             },
@@ -1296,7 +1253,8 @@
                   "tax": "7",
                   "total": "55180",
                   "attachment": true,
-                  "info": true
+                  "info": true,
+                  "color": "green"
                 },
                 {
                   "status": "submitted",
@@ -1305,7 +1263,8 @@
                   "tax": "7",
                   "total": "58069",
                   "attachment": false,
-                  "info": false
+                  "info": false,
+                  "color": "yellow"
                 }
               ]
             },
@@ -1322,7 +1281,8 @@
                   "tax": "7",
                   "total": "195361",
                   "attachment": true,
-                  "info": true
+                  "info": true,
+                  "color": "green"
                 },
                 {
                   "status": "submitted",
@@ -1331,7 +1291,8 @@
                   "tax": "7",
                   "total": "209934",
                   "attachment": false,
-                  "info": false
+                  "info": false,
+                  "color": "yellow"
                 }
               ]
             },
@@ -1348,7 +1309,8 @@
                   "tax": "7",
                   "total": "77554",
                   "attachment": true,
-                  "info": true
+                  "info": true,
+                  "color": "green"
                 },
                 {
                   "status": "submitted",
@@ -1357,51 +1319,19 @@
                   "tax": "7",
                   "total": "81662",
                   "attachment": false,
-                  "info": false
+                  "info": false,
+                  "color": "yellow"
                 }
               ]
             }
           ]
         }
       },
-      "vendorSelection": [
-        {
-          "name": "Arrival Airport Transfer by 45-Seater Coach",
-          "award": "",
-          "margin": "12",
-          "base": "",
-          "markup": "",
-          "selling total": ""
-        },
-        {
-          "name": "Departure Airport Transfer by 45-Seater Coach",
-          "award": "",
-          "margin": "12",
-          "base": "",
-          "markup": "",
-          "selling total": ""
-        },
-        {
-          "name": "Full-Day Coach Disposal",
-          "award": "",
-          "margin": "12",
-          "base": "",
-          "markup": "",
-          "selling total": ""
-        },
-        {
-          "name": "VIP Sedan Airport Tranfers",
-          "award": "",
-          "margin": "12",
-          "base": "",
-          "markup": "",
-          "selling total": ""
-        }
-      ],
       "clarifications": false
     },
     {
       "name": "Event Management including AV",
+      "margin": "16",
       "quotationComparison": {
         "vendors": [
           {
@@ -1430,7 +1360,8 @@
                   "tax": "7",
                   "total": "457907",
                   "attachment": true,
-                  "info": true
+                  "info": true,
+                  "color": "green"
                 },
                 {
                   "status": "submitted",
@@ -1439,7 +1370,8 @@
                   "tax": "7",
                   "total": "492093",
                   "attachment": false,
-                  "info": false
+                  "info": false,
+                  "color": "yellow"
                 }
               ]
             },
@@ -1456,7 +1388,8 @@
                   "tax": "7",
                   "total": "223662",
                   "attachment": true,
-                  "info": true
+                  "info": true,
+                  "color": "green"
                 },
                 {
                   "status": "submitted",
@@ -1465,7 +1398,8 @@
                   "tax": "7",
                   "total": "235454",
                   "attachment": false,
-                  "info": false
+                  "info": false,
+                  "color": "yellow"
                 }
               ]
             },
@@ -1482,7 +1416,8 @@
                   "tax": "7",
                   "total": "279837",
                   "attachment": true,
-                  "info": true
+                  "info": true,
+                  "color": "green"
                 },
                 {
                   "status": "submitted",
@@ -1491,7 +1426,8 @@
                   "tax": "7",
                   "total": "300724",
                   "attachment": false,
-                  "info": false
+                  "info": false,
+                  "color": "yellow"
                 }
               ]
             },
@@ -1508,7 +1444,8 @@
                   "tax": "7",
                   "total": "164020",
                   "attachment": true,
-                  "info": true
+                  "info": true,
+                  "color": "green"
                 },
                 {
                   "status": "submitted",
@@ -1517,7 +1454,8 @@
                   "tax": "7",
                   "total": "172666",
                   "attachment": false,
-                  "info": false
+                  "info": false,
+                  "color": "yellow"
                 }
               ]
             },
@@ -1534,62 +1472,23 @@
                   "tax": "7",
                   "total": "147553",
                   "attachment": true,
-                  "info": true
+                  "info": true,
+                  "color": "green"
                 },
                 {
-                  "status": "awaiting"
+                  "status": "awaiting",
+                  "color": "white"
                 }
               ]
             }
           ]
         }
       },
-      "vendorSelection": [
-        {
-          "name": "Gala Dinner Venue Rental",
-          "award": "",
-          "margin": "16",
-          "base": "",
-          "markup": "",
-          "selling total": ""
-        },
-        {
-          "name": "Stage, Backdrop and Basic Branding",
-          "award": "",
-          "margin": "16",
-          "base": "",
-          "markup": "",
-          "selling total": ""
-        },
-        {
-          "name": "LED Wall 24ft X 10ft",
-          "award": "",
-          "margin": "16",
-          "base": "",
-          "markup": "",
-          "selling total": ""
-        },
-        {
-          "name": "Professional Sound System",
-          "award": "",
-          "margin": "16",
-          "base": "",
-          "markup": "",
-          "selling total": ""
-        },
-        {
-          "name": "Event Photography and Highlight Video",
-          "award": "",
-          "margin": "16",
-          "base": "",
-          "markup": "",
-          "selling total": ""
-        }
-      ],
       "clarifications": false
     },
     {
       "name": "Visa Management",
+      "margin": "10",
       "quotationComparison": {
         "vendors": [
           {
@@ -1613,7 +1512,8 @@
                   "tax": "7",
                   "total": "934752",
                   "attachment": true,
-                  "info": true
+                  "info": true,
+                  "color": "green"
                 }
               ]
             },
@@ -1630,7 +1530,8 @@
                   "tax": "7",
                   "total": "228552",
                   "attachment": true,
-                  "info": true
+                  "info": true,
+                  "color": "green"
                 }
               ]
             },
@@ -1647,43 +1548,19 @@
                   "tax": "7",
                   "total": "161784",
                   "attachment": true,
-                  "info": true
+                  "info": true,
+                  "color": "green"
                 }
               ]
             }
           ]
         }
       },
-      "vendorSelection": [
-        {
-          "name": "Tourist Visa Government Fee",
-          "award": "",
-          "margin": "10",
-          "base": "",
-          "markup": "",
-          "selling total": ""
-        },
-        {
-          "name": "Visa Processing and Service Fee",
-          "award": "",
-          "margin": "10",
-          "base": "",
-          "markup": "",
-          "selling total": ""
-        },
-        {
-          "name": "Travel Insurance",
-          "award": "",
-          "margin": "10",
-          "base": "",
-          "markup": "",
-          "selling total": ""
-        }
-      ],
       "clarifications": false
     },
     {
       "name": "Local Liaison",
+      "margin": "15",
       "quotationComparison": {
         "vendors": [
           {
@@ -1712,10 +1589,12 @@
                   "tax": "7",
                   "total": "94107",
                   "attachment": true,
-                  "info": true
+                  "info": true,
+                  "color": "green"
                 },
                 {
-                  "status": "declined"
+                  "status": "declined",
+                  "color": "white"
                 }
               ]
             },
@@ -1732,10 +1611,12 @@
                   "tax": "7",
                   "total": "114276",
                   "attachment": true,
-                  "info": true
+                  "info": true,
+                  "color": "green"
                 },
                 {
-                  "status": "declined"
+                  "status": "declined",
+                  "color": "white"
                 }
               ]
             },
@@ -1752,10 +1633,12 @@
                   "tax": "7",
                   "total": "103747",
                   "attachment": true,
-                  "info": true
+                  "info": true,
+                  "color": "green"
                 },
                 {
-                  "status": "declined"
+                  "status": "declined",
+                  "color": "white"
                 }
               ]
             },
@@ -1772,50 +1655,18 @@
                   "tax": "7",
                   "total": "26804",
                   "attachment": true,
-                  "info": true
+                  "info": true,
+                  "color": "green"
                 },
                 {
-                  "status": "declined"
+                  "status": "declined",
+                  "color": "white"
                 }
               ]
             }
           ]
         }
       },
-      "vendorSelection": [
-        {
-          "name": "Lead Local Coordinator",
-          "award": "",
-          "margin": "15",
-          "base": "",
-          "markup": "",
-          "selling total": ""
-        },
-        {
-          "name": "Assistant Coordinators",
-          "award": "",
-          "margin": "15",
-          "base": "",
-          "markup": "",
-          "selling total": ""
-        },
-        {
-          "name": "Airport Representatives",
-          "award": "",
-          "margin": "15",
-          "base": "",
-          "markup": "",
-          "selling total": ""
-        },
-        {
-          "name": "Local SIM Cards with Data",
-          "award": "",
-          "margin": "15",
-          "base": "",
-          "markup": "",
-          "selling total": ""
-        }
-      ],
       "clarifications": false
     }
   ]
