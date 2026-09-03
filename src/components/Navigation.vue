@@ -42,6 +42,11 @@ const prop = defineProps({
         }"
       >
         Vendor Responses
+        <span
+          v-if="prop.show"
+          class="text-white text-[11px] font-bold bg-slate-400 rounded-2xl px-2"
+          >12</span
+        >
       </div></RouterLink
     >
     <RouterLink to="/costing"

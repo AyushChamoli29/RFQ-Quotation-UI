@@ -61,10 +61,11 @@ const prop = defineProps({
             }"
           >
             <div v-if="entry.status === 'submitted'">
-              <span class="font-bold">₹{{ entry.total }}</span> <br />
+              <span class="font-bold font-mono">₹{{ entry.total }}</span>
+              <br />
               <span class="text-[#6b7090]"
-                >₹{{ entry.unitPrice }}/{{ item.unit }} &middot; tax
-                {{ entry.tax }}%
+                ><span class="font-mono">₹{{ entry.unitPrice }}</span
+                >/{{ item.unit }} &middot; tax {{ entry.tax }}%
                 <span v-if="entry.attachment">&middot; 📎</span>
                 <br />
                 {{ entry.info ? "Standard group terms apply." : "" }}</span
