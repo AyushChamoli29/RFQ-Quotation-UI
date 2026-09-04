@@ -915,8 +915,7 @@
                   "tax": "7",
                   "total": "3021894",
                   "attachment": true,
-                  "info": true,
-                  "color": "green"
+                  "info": true
                 },
                 {
                   "status": "submitted",
@@ -925,8 +924,7 @@
                   "tax": "7",
                   "total": "3247236",
                   "attachment": false,
-                  "info": false,
-                  "color": "yellow"
+                  "info": false
                 },
                 {
                   "status": "submitted",
@@ -935,8 +933,7 @@
                   "tax": "7",
                   "total": "3505320",
                   "attachment": false,
-                  "info": false,
-                  "color": "white"
+                  "info": false
                 }
               ]
             },
@@ -953,8 +950,7 @@
                   "tax": "7",
                   "total": "556614",
                   "attachment": true,
-                  "info": true,
-                  "color": "green"
+                  "info": true
                 },
                 {
                   "status": "submitted",
@@ -963,8 +959,7 @@
                   "tax": "7",
                   "total": "585932",
                   "attachment": false,
-                  "info": false,
-                  "color": "yellow"
+                  "info": false
                 },
                 {
                   "status": "submitted",
@@ -973,8 +968,7 @@
                   "tax": "7",
                   "total": "621456",
                   "attachment": false,
-                  "info": false,
-                  "color": "white"
+                  "info": false
                 }
               ]
             },
@@ -991,8 +985,7 @@
                   "tax": "7",
                   "total": "170772",
                   "attachment": true,
-                  "info": true,
-                  "color": "green"
+                  "info": true
                 },
                 {
                   "status": "submitted",
@@ -1001,8 +994,7 @@
                   "tax": "7",
                   "total": "183612",
                   "attachment": false,
-                  "info": false,
-                  "color": "yellow"
+                  "info": false
                 },
                 {
                   "status": "submitted",
@@ -1011,8 +1003,7 @@
                   "tax": "7",
                   "total": "198164",
                   "attachment": false,
-                  "info": false,
-                  "color": "white"
+                  "info": false
                 }
               ]
             },
@@ -1029,8 +1020,7 @@
                   "tax": "7",
                   "total": "94160",
                   "attachment": true,
-                  "info": true,
-                  "color": "green"
+                  "info": true
                 },
                 {
                   "status": "submitted",
@@ -1039,8 +1029,7 @@
                   "tax": "7",
                   "total": "99510",
                   "attachment": false,
-                  "info": false,
-                  "color": "yellow"
+                  "info": false
                 },
                 {
                   "status": "submitted",
@@ -1049,8 +1038,7 @@
                   "tax": "7",
                   "total": "105930",
                   "attachment": false,
-                  "info": false,
-                  "color": "white"
+                  "info": false
                 }
               ]
             }
@@ -1090,8 +1078,7 @@
                   "tax": "7",
                   "total": "3305658",
                   "attachment": true,
-                  "info": true,
-                  "color": "green"
+                  "info": true
                 },
                 {
                   "status": "submitted",
@@ -1100,8 +1087,7 @@
                   "tax": "7",
                   "total": "3553277",
                   "attachment": false,
-                  "info": false,
-                  "color": "yellow"
+                  "info": false
                 }
               ]
             },
@@ -1118,8 +1104,7 @@
                   "tax": "7",
                   "total": "3399583",
                   "attachment": true,
-                  "info": true,
-                  "color": "green"
+                  "info": true
                 },
                 {
                   "status": "submitted",
@@ -1128,8 +1113,7 @@
                   "tax": "7",
                   "total": "3578893",
                   "attachment": false,
-                  "info": false,
-                  "color": "yellow"
+                  "info": false
                 }
               ]
             },
@@ -1146,8 +1130,7 @@
                   "tax": "7",
                   "total": "476236",
                   "attachment": true,
-                  "info": true,
-                  "color": "green"
+                  "info": true
                 },
                 {
                   "status": "submitted",
@@ -1156,8 +1139,7 @@
                   "tax": "7",
                   "total": "511802",
                   "attachment": false,
-                  "info": false,
-                  "color": "yellow"
+                  "info": false
                 }
               ]
             },
@@ -1174,8 +1156,7 @@
                   "tax": "7",
                   "total": "101436",
                   "attachment": true,
-                  "info": true,
-                  "color": "green"
+                  "info": true
                 },
                 {
                   "status": "submitted",
@@ -1184,8 +1165,7 @@
                   "tax": "7",
                   "total": "106572",
                   "attachment": false,
-                  "info": false,
-                  "color": "yellow"
+                  "info": false
                 }
               ]
             }
@@ -1225,8 +1205,7 @@
                   "tax": "7",
                   "total": "56464",
                   "attachment": true,
-                  "info": true,
-                  "color": "green"
+                  "info": true
                 },
                 {
                   "status": "submitted",
@@ -1235,8 +1214,7 @@
                   "tax": "7",
                   "total": "60701",
                   "attachment": false,
-                  "info": false,
-                  "color": "yellow"
+                  "info": false
                 }
               ]
             },
@@ -1253,8 +1231,7 @@
                   "tax": "7",
                   "total": "55180",
                   "attachment": true,
-                  "info": true,
-                  "color": "green"
+                  "info": true
                 },
                 {
                   "status": "submitted",
@@ -1263,8 +1240,7 @@
                   "tax": "7",
                   "total": "58069",
                   "attachment": false,
-                  "info": false,
-                  "color": "yellow"
+                  "info": false
                 }
               ]
             },
@@ -1281,8 +1257,7 @@
                   "tax": "7",
                   "total": "195361",
                   "attachment": true,
-                  "info": true,
-                  "color": "green"
+                  "info": true
                 },
                 {
                   "status": "submitted",
@@ -1291,8 +1266,7 @@
                   "tax": "7",
                   "total": "209934",
                   "attachment": false,
-                  "info": false,
-                  "color": "yellow"
+                  "info": false
                 }
               ]
             },
@@ -1309,8 +1283,7 @@
                   "tax": "7",
                   "total": "77554",
                   "attachment": true,
-                  "info": true,
-                  "color": "green"
+                  "info": true
                 },
                 {
                   "status": "submitted",
@@ -1319,8 +1292,7 @@
                   "tax": "7",
                   "total": "81662",
                   "attachment": false,
-                  "info": false,
-                  "color": "yellow"
+                  "info": false
                 }
               ]
             }
@@ -1360,8 +1332,7 @@
                   "tax": "7",
                   "total": "457907",
                   "attachment": true,
-                  "info": true,
-                  "color": "green"
+                  "info": true
                 },
                 {
                   "status": "submitted",
@@ -1370,8 +1341,7 @@
                   "tax": "7",
                   "total": "492093",
                   "attachment": false,
-                  "info": false,
-                  "color": "yellow"
+                  "info": false
                 }
               ]
             },
@@ -1388,8 +1358,7 @@
                   "tax": "7",
                   "total": "223662",
                   "attachment": true,
-                  "info": true,
-                  "color": "green"
+                  "info": true
                 },
                 {
                   "status": "submitted",
@@ -1398,8 +1367,7 @@
                   "tax": "7",
                   "total": "235454",
                   "attachment": false,
-                  "info": false,
-                  "color": "yellow"
+                  "info": false
                 }
               ]
             },
@@ -1416,8 +1384,7 @@
                   "tax": "7",
                   "total": "279837",
                   "attachment": true,
-                  "info": true,
-                  "color": "green"
+                  "info": true
                 },
                 {
                   "status": "submitted",
@@ -1426,8 +1393,7 @@
                   "tax": "7",
                   "total": "300724",
                   "attachment": false,
-                  "info": false,
-                  "color": "yellow"
+                  "info": false
                 }
               ]
             },
@@ -1444,8 +1410,7 @@
                   "tax": "7",
                   "total": "164020",
                   "attachment": true,
-                  "info": true,
-                  "color": "green"
+                  "info": true
                 },
                 {
                   "status": "submitted",
@@ -1454,8 +1419,7 @@
                   "tax": "7",
                   "total": "172666",
                   "attachment": false,
-                  "info": false,
-                  "color": "yellow"
+                  "info": false
                 }
               ]
             },
@@ -1472,12 +1436,11 @@
                   "tax": "7",
                   "total": "147553",
                   "attachment": true,
-                  "info": true,
-                  "color": "green"
+                  "info": true
                 },
                 {
                   "status": "awaiting",
-                  "color": "white"
+                  "vendorName": "Stellar Events Co."
                 }
               ]
             }
@@ -1512,8 +1475,7 @@
                   "tax": "7",
                   "total": "934752",
                   "attachment": true,
-                  "info": true,
-                  "color": "green"
+                  "info": true
                 }
               ]
             },
@@ -1530,8 +1492,7 @@
                   "tax": "7",
                   "total": "228552",
                   "attachment": true,
-                  "info": true,
-                  "color": "green"
+                  "info": true
                 }
               ]
             },
@@ -1548,8 +1509,7 @@
                   "tax": "7",
                   "total": "161784",
                   "attachment": true,
-                  "info": true,
-                  "color": "green"
+                  "info": true
                 }
               ]
             }
@@ -1589,12 +1549,11 @@
                   "tax": "7",
                   "total": "94107",
                   "attachment": true,
-                  "info": true,
-                  "color": "green"
+                  "info": true
                 },
                 {
                   "status": "declined",
-                  "color": "white"
+                  "vendorName": "LocalPro Thailand Services"
                 }
               ]
             },
@@ -1611,12 +1570,11 @@
                   "tax": "7",
                   "total": "114276",
                   "attachment": true,
-                  "info": true,
-                  "color": "green"
+                  "info": true
                 },
                 {
                   "status": "declined",
-                  "color": "white"
+                  "vendorName": "LocalPro Thailand Services"
                 }
               ]
             },
@@ -1633,12 +1591,11 @@
                   "tax": "7",
                   "total": "103747",
                   "attachment": true,
-                  "info": true,
-                  "color": "green"
+                  "info": true
                 },
                 {
                   "status": "declined",
-                  "color": "white"
+                  "vendorName": "LocalPro Thailand Services"
                 }
               ]
             },
@@ -1655,12 +1612,11 @@
                   "tax": "7",
                   "total": "26804",
                   "attachment": true,
-                  "info": true,
-                  "color": "green"
+                  "info": true
                 },
                 {
                   "status": "declined",
-                  "color": "white"
+                  "vendorName": "LocalPro Thailand Services"
                 }
               ]
             }

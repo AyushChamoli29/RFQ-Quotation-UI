@@ -1,11 +1,14 @@
 <script setup>
 import data from "@/data/mockData.json";
-import { defineProps } from "vue";
+import { defineProps, defineEmits } from "vue";
+import { useRouter } from "vue-router";
 import RequirementTableEntry from "./RequirementTableEntry.vue";
+const router = useRouter();
 const array = data.requirementTable;
 const prop = defineProps({
   show: Boolean,
 });
+const emit = defineEmits(["allocate-vendors"]);
 const currentDate = new Date().toLocaleDateString("en-IN", {
   day: "2-digit",
   month: "short",
@@ -15,6 +18,10 @@ const currentTime = new Date().toLocaleTimeString("en-IN", {
   hour: "2-digit",
   minute: "2-digit",
 });
+const allocateVendors = () => {
+  emit("allocate-vendors");
+  router.push({ name: "vendorResponses" });
+};
 </script>
 
 <template>
@@ -25,7 +32,8 @@ const currentTime = new Date().toLocaleTimeString("en-IN", {
       </div>
       <div
         v-if="!prop.show"
-        class="bg-[#4d3fc9] text-white font-bold text-[13px] p-2 rounded-lg"
+        class="bg-[#4d3fc9] text-white font-bold text-[13px] p-2 rounded-lg cursor-pointer"
+        @click="allocateVendors"
       >
         Send RFQ to allocated vendors(12)
       </div>

@@ -76,7 +76,12 @@ const prop = defineProps({
         >
           ✓
         </span>
-        <div class="font-medium">Draft</div>
+        <div
+          class="font-medium"
+          :class="prop.show ? 'text-slate-500' : 'text-black'"
+        >
+          Draft
+        </div>
         <div
           class="h-1/10 w-10"
           :class="prop.show ? 'bg-[#0d8f7a]' : 'bg-slate-200'"
@@ -112,7 +117,12 @@ const prop = defineProps({
         >
           3
         </span>
-        <div class="text-slate-500 font-medium">Responses recieved</div>
+        <div
+          class="font-medium"
+          :class="prop.show ? 'text-black' : 'text-slate-500'"
+        >
+          Responses recieved
+        </div>
         <div
           class="h-1/10 w-10"
           :class="prop.show ? 'bg-[#0d8f7a]' : 'bg-slate-200'"

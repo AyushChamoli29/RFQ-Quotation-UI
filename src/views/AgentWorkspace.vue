@@ -6,9 +6,18 @@ const simulateVendorsFlag = ref(false);
 const simulateVendor = () => {
   simulateVendorsFlag.value = true;
 };
+const allocateVendorFlag = ref(false);
+const allocateVendor = () => {
+  allocateVendorFlag.value = true;
+};
 </script>
 
 <template>
   <Navigation :show="simulateVendorsFlag" />
-  <RouterView @simulate-vendor="simulateVendor" :show="simulateVendorsFlag" />
+  <RouterView
+    @simulate-vendor="simulateVendor"
+    :show="simulateVendorsFlag"
+    @allocate-vendor="allocateVendor"
+    :allocate="allocateVendorFlag"
+  />
 </template>

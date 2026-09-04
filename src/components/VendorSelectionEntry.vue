@@ -2,13 +2,16 @@
 import { computed, defineProps, ref } from "vue";
 const prop = defineProps({
   data1: Object,
-  data2: Array,
-  data3: String,
+  data2: String,
 });
 const data1 = { ...prop.data1 };
-const data2 = [...prop.data2];
+const vendors = data1.quotations.filter((item) => {
+  if (item.status === "submitted") {
+    return item.vendorName;
+  }
+});
 const award = ref("No award");
-const margin = ref(Number(prop.data3) || 0);
+const margin = ref(Number(prop.data2) || 0);
 const base = computed(() => {
   for (const element of data1.quotations) {
     if (award.value === element.vendorName) {
@@ -23,6 +26,27 @@ const markup = computed(() => {
 const sellingTotal = computed(() => {
   return base.value + markup.value;
 });
+const baseCurrency = computed(() => {
+  return base.value.toLocaleString("en-IN", {
+    style: "currency",
+    currency: "INR",
+    minimumFractionDigits: 0,
+  });
+});
+const markupCurrency = computed(() => {
+  return markup.value.toLocaleString("en-IN", {
+    style: "currency",
+    currency: "INR",
+    minimumFractionDigits: 0,
+  });
+});
+const sellingTotalCurrency = computed(() => {
+  return sellingTotal.value.toLocaleString("en-IN", {
+    style: "currency",
+    currency: "INR",
+    minimumFractionDigits: 0,
+  });
+});
 </script>
 
 <template>
@@ -33,18 +57,23 @@ const sellingTotal = computed(() => {
       v-model="award"
     >
       <option value="No award">No award</option>
-      <option v-for="item in data2" :value="item.name">{{ item.name }}</option>
+      <option v-for="item in vendors" :value="item.vendorName">
+        {{ item.vendorName }}
+      </option>
     </select>
   </td>
   <td>
     <input
       type="number"
       min="0"
+      step="0.5"
       class="outline outline-slate-200 rounded-sm w-8/10 text-[12.5px] p-2"
       v-model="margin"
     />
   </td>
-  <td>{{ base || " - " }}</td>
-  <td>{{ markup || " - " }}</td>
-  <td class="font-bold">{{ sellingTotal || " - " }}</td>
+  <td>{{ base > 0 ? baseCurrency : "-" }}</td>
+  <td>{{ markup > 0 ? markupCurrency : "-" }}</td>
+  <td class="font-bold">
+    {{ sellingTotal > 0 ? sellingTotalCurrency : "-" }}
+  </td>
 </template>

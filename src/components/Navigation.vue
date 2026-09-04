@@ -15,7 +15,7 @@ const prop = defineProps({
       <div
         class="cursor-pointer p-2 px-4"
         :class="{
-          'text-[#3F3BA6] p-2 px-4 rounded-lg bg-[#F4F5FA]':
+          'text-[#3F3BA6] p-2 px-4 rounded-lg bg-[#f7f6fe]':
             route.name === 'overview',
         }"
       >
@@ -26,7 +26,7 @@ const prop = defineProps({
       ><div
         class="cursor-pointer p-2 px-4"
         :class="{
-          'text-[#3F3BA6] p-2 px-4 rounded-lg bg-[#F4F5FA]':
+          'text-[#3F3BA6] p-2 px-4 rounded-lg bg-[#f7f6fe]':
             route.name === 'requirements',
         }"
       >
@@ -37,14 +37,17 @@ const prop = defineProps({
       ><div
         class="cursor-pointer p-2 px-4"
         :class="{
-          'text-[#3F3BA6] p-2 px-4 rounded-lg bg-[#F4F5FA]':
+          'text-[#3F3BA6] p-2 px-4 rounded-lg bg-[#f7f6fe]':
             route.name === 'vendorResponses',
         }"
       >
         Vendor Responses
         <span
           v-if="prop.show"
-          class="text-white text-[11px] font-bold bg-slate-400 rounded-2xl px-2"
+          class="text-white text-[11px] font-bold rounded-2xl px-2"
+          :class="
+            route.name === 'vendorResponses' ? 'bg-[#5b4fe0]' : 'bg-[#9ba0c0]'
+          "
           >12</span
         >
       </div></RouterLink
@@ -53,7 +56,7 @@ const prop = defineProps({
       ><div
         class="cursor-pointer p-2 px-4"
         :class="{
-          'text-[#3F3BA6] p-2 px-4 rounded-lg bg-[#F4F5FA]':
+          'text-[#3F3BA6] p-2 px-4 rounded-lg bg-[#f7f6fe]':
             route.name === 'costing',
         }"
       >
@@ -64,7 +67,7 @@ const prop = defineProps({
       ><div
         class="cursor-pointer p-2 px-4"
         :class="{
-          'text-[#3F3BA6] p-2 px-4 rounded-lg bg-[#F4F5FA]':
+          'text-[#3F3BA6] p-2 px-4 rounded-lg bg-[#f7f6fe]':
             route.name === 'corporate',
         }"
       >
@@ -75,14 +78,17 @@ const prop = defineProps({
       ><div
         class="cursor-pointer p-2 px-4"
         :class="{
-          'text-[#3F3BA6] p-2 px-4 rounded-lg bg-[#F4F5FA]':
+          'text-[#3F3BA6] p-2 px-4 rounded-lg bg-[#f7f6fe]':
             route.name === 'auditHistory',
         }"
       >
         Audit History
         <span
           v-if="prop.show"
-          class="text-white text-[11px] font-bold bg-slate-400 rounded-2xl px-2"
+          class="text-white text-[11px] font-bold rounded-2xl px-2"
+          :class="
+            route.name === 'auditHistory' ? 'bg-[#5b4fe0]' : 'bg-[#9ba0c0]'
+          "
           >27</span
         >
       </div></RouterLink

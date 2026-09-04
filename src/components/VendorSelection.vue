@@ -30,8 +30,7 @@ const prop = defineProps({
         >
           <VendorSelectionEntry
             :data1="item"
-            :data2="prop.data.quotationComparison.vendors"
-            :data3="prop.data.margin"
+            :data2="prop.data.margin"
           />
         </tr>
       </tbody>

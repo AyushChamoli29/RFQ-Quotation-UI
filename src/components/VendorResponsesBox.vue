@@ -53,18 +53,31 @@ const prop = defineProps({
             >
           </td>
           <td
-            v-for="entry in item.quotations"
+            v-for="(entry, index) in item.quotations"
             class="px-2"
             :class="{
-              'bg-[#e1f6f1] border border-[#bfe9de]': entry.color === 'green',
-              'bg-[#fbfaef] border border-slate-200': entry.color === 'yellow',
+              'bg-[#e1f6f1] border border-[#bfe9de]': index === 0,
+              'bg-[#fbfaef] border border-slate-200': index === 1,
+              'bg-white': entry.status !== 'submitted',
             }"
           >
             <div v-if="entry.status === 'submitted'">
-              <span class="font-bold font-mono">₹{{ entry.total }}</span>
+              <span class="font-bold font-mono">{{
+                Number(entry.total).toLocaleString("en-IN", {
+                  style: "currency",
+                  currency: "INR",
+                  minimumFractionDigits: 0,
+                })
+              }}</span>
               <br />
               <span class="text-[#6b7090]"
-                ><span class="font-mono">₹{{ entry.unitPrice }}</span
+                ><span class="font-mono">{{
+                  Number(entry.unitPrice).toLocaleString("en-IN", {
+                    style: "currency",
+                    currency: "INR",
+                    minimumFractionDigits: 0,
+                  })
+                }}</span
                 >/{{ item.unit }} &middot; tax {{ entry.tax }}%
                 <span v-if="entry.attachment">&middot; 📎</span>
                 <br />
