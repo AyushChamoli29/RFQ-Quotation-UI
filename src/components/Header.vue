@@ -16,7 +16,7 @@ const vendor = () => {
 
 <template>
   <div
-    class="bg-[#373593] flex flex-wrap justify-between px-7 py-4 items-center gap-10 fixed top-0 left-0 right-0 z-20"
+    class="bg-[#373593] flex flex-wrap justify-between px-7 py-4 items-center gap-10 fixed top-0 left-0 right-0 z-10"
   >
     <div class="flex gap-3">
       <div

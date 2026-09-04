@@ -1,10 +1,5 @@
 <script setup>
 import { RouterLink } from "vue-router";
-import { defineEmits } from "vue";
-const emit = defineEmits(["show-vendor"]);
-const showVendor = () => {
-  emit("show-vendor");
-};
 </script>
 
 <template>
@@ -44,7 +39,7 @@ const showVendor = () => {
     <p class="font-bold text-lg mt-2">No costing applied yet</p>
     <p class="text-slate-500">
       Award vendors in the
-      <span class="text-indigo-800 font-bold text-xs" @click="showVendor"
+      <span class="text-indigo-800 font-bold text-xs"
         ><RouterLink to="vendorResponses">Vendor Responses</RouterLink></span
       >
       tab, then apply awarded rates to costing

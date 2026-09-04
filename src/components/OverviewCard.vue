@@ -21,6 +21,7 @@ const prop = defineProps({
 </script>
 
 <template>
+  <!-- Initial Data -->
   <div class="bg-white shadow-sm h-40 shadow-slate-300 rounded-xl p-6 py-5">
     <div class="flex justify-between h-23">
       <div class="flex flex-col gap-1">
@@ -60,6 +61,7 @@ const prop = defineProps({
         </p>
       </div>
     </div>
+    <!-- TimeLine -->
     <div class="flex text-[11px] flex-wrap">
       <div class="flex gap-2 justify-center items-center">
         <span

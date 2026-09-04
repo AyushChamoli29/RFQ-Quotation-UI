@@ -10,6 +10,7 @@ const prop = defineProps({
 </script>
 
 <template>
+  <!-- Search & Export -->
   <div
     class="flex justify-start items-center gap-4 px-6 py-5 outline outline-slate-200 rounded-xl bg-white"
   >
@@ -66,6 +67,7 @@ const prop = defineProps({
       Export CSV
     </div>
   </div>
+  <!-- History OR No Activity -->
   <div
     v-if="!prop.show"
     class="flex flex-col bg-white p-10 justify-center items-center gap-1"

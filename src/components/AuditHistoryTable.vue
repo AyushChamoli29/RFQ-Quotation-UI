@@ -8,6 +8,7 @@ const currentDate = new Date().toLocaleDateString("en-IN", {
 const currentTime = new Date().toLocaleTimeString("en-IN", {
   hour: "2-digit",
   minute: "2-digit",
+  hour12: true,
 });
 </script>
 

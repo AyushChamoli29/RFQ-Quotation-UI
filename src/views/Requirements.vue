@@ -9,6 +9,7 @@ const prop = defineProps({
 </script>
 
 <template>
+  <!-- Heading box -->
   <div
     class="p-5 gap-80 flex justify-between items-center bg-white rounded-xl oultine outline-slate-300"
   >
@@ -44,6 +45,7 @@ const prop = defineProps({
         class="w-full outline outline-slate-300 p-2 mt-1 rounded-lg"
       />
     </div>
+    <!-- Requirement Data -->
   </div>
   <RequirementTable :show="prop.show" />
 </template>

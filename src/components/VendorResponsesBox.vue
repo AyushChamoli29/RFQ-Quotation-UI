@@ -89,9 +89,11 @@ const prop = defineProps({
     </table>
   </div>
   <br />
+  <!-- Vendor Selection -->
   <div class="border-b border-slate-200">
     <VendorSelection :data="prop.data" />
   </div>
+  <!-- Clarifications -->
   <div class="p-5 pb-5">
     <p class="text-[#6b7090] text-[13px] font-bold">CLARIFICATIONS</p>
     <br />

@@ -41,6 +41,7 @@ const addToVendor = (name) => {
 
 <template>
   <div>
+    <!-- Initial Data -->
     <div
       class="flex justify-between items-center hover:bg-[#f4f5fa]"
       @click="showDetails(name)"
@@ -62,6 +63,7 @@ const addToVendor = (name) => {
       </div>
     </div>
   </div>
+  <!-- Requirement Table -->
   <div :class="hiddenItems[name] ? 'hidden' : 'block'" class="text-xs">
     <div class="p-5">
       <table class="w-full table-fixed">
@@ -102,6 +104,7 @@ const addToVendor = (name) => {
         </tbody>
       </table>
     </div>
+    <!-- Requirement Vendors -->
     <div class="ml-5 mb-5">
       <p class="mb-1">
         Vendor allocation for this category — each vendor added below receives
@@ -127,6 +130,7 @@ const addToVendor = (name) => {
           >
         </div>
       </div>
+      <!-- Requirement Search -->
       <div class="relative">
         <input
           type="text"
