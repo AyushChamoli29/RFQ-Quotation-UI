@@ -1,4 +1,18 @@
 {
+  "actor": [
+    {
+      "name": "Priya Sharma",
+      "role": "RFQ/Procurement Manager"
+    },
+    {
+      "name": "Karan Verma",
+      "role": "Operations & Costing"
+    },
+    {
+      "name": "Neha Gupta",
+      "role": "Approver"
+    }
+  ],
   "big_card": {
     "rfq_no": "RFQ-2026-0142",
     "mice_no": "MICE-20260628-1233-7989",

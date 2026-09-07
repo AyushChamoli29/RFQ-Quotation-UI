@@ -1,7 +1,10 @@
 <script setup>
 import Navigation from "@/components/Navigation.vue";
-import { ref } from "vue";
+import { ref, defineProps } from "vue";
 import { RouterView } from "vue-router";
+const prop = defineProps({
+  actor: String,
+});
 const simulateVendorsFlag = ref(false);
 const simulateVendor = () => {
   simulateVendorsFlag.value = true;
@@ -15,6 +18,7 @@ const allocateVendor = () => {
 <template>
   <Navigation :show="simulateVendorsFlag" />
   <RouterView
+    :actor="prop.actor"
     @simulate-vendor="simulateVendor"
     :show="simulateVendorsFlag"
     @allocate-vendor="allocateVendor"

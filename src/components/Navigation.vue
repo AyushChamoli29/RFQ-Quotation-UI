@@ -11,7 +11,7 @@ const prop = defineProps({
   <div
     class="flex flex-wrap gap-1 w-full bg-white text-slate-500 text-sm/6 font-semibold justify-start items-center mt-5 p-1 rounded-xl shadow-sm shadow-slate-300"
   >
-    <RouterLink to="/overview">
+    <RouterLink :to="{ name: 'overview' }">
       <div
         class="cursor-pointer p-2 px-4"
         :class="{
@@ -22,7 +22,7 @@ const prop = defineProps({
         Overview
       </div>
     </RouterLink>
-    <RouterLink to="/requirements"
+    <RouterLink :to="{ name: 'requirements' }"
       ><div
         class="cursor-pointer p-2 px-4"
         :class="{
@@ -33,7 +33,7 @@ const prop = defineProps({
         Requirements & Allocation
       </div></RouterLink
     >
-    <RouterLink to="/vendorResponses"
+    <RouterLink :to="{ name: 'vendorResponses' }"
       ><div
         class="cursor-pointer p-2 px-4"
         :class="{
@@ -52,7 +52,7 @@ const prop = defineProps({
         >
       </div></RouterLink
     >
-    <RouterLink to="/costing"
+    <RouterLink :to="{ name: 'costing' }"
       ><div
         class="cursor-pointer p-2 px-4"
         :class="{
@@ -63,7 +63,7 @@ const prop = defineProps({
         Costing
       </div></RouterLink
     >
-    <RouterLink to="/corporate"
+    <RouterLink :to="{ name: 'corporate' }"
       ><div
         class="cursor-pointer p-2 px-4"
         :class="{
@@ -74,7 +74,7 @@ const prop = defineProps({
         Corporate Quotation
       </div></RouterLink
     >
-    <RouterLink to="/auditHistory"
+    <RouterLink :to="{ name: 'auditHistory' }"
       ><div
         class="cursor-pointer p-2 px-4"
         :class="{

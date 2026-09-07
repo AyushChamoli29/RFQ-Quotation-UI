@@ -4,21 +4,20 @@ import OverviewCard from "@/components/OverviewCard.vue";
 import OverviewSummaryCard from "@/components/OverviewSummaryCard.vue";
 import RecentActivity from "@/components/RecentActivity.vue";
 import Simulate from "@/components/Simulate.vue";
-import { ref,defineEmits, watch } from "vue";
-const simulateVendorsFlag = ref(false);
+import { defineEmits, defineProps } from "vue";
+const emit = defineEmits(["simulate-vendor"]);
 const simulateVendors = () => {
-  simulateVendorsFlag.value = true;
+  emit("simulate-vendor");
 };
-const emit=defineEmits(['simulate-vendor'])
-watch(simulateVendorsFlag,()=>{
-  emit('simulate-vendor');
-})
+const prop = defineProps({
+  show: Boolean,
+});
 </script>
 
 <template>
-  <OverviewCard :show="simulateVendorsFlag" />
+  <OverviewCard :show="prop.show" />
   <OverviewSummaryCard />
-  <CategoryTable :show="simulateVendorsFlag" />
+  <CategoryTable :show="prop.show" />
   <Simulate @simulate-vendors="simulateVendors" />
-  <RecentActivity :show="simulateVendorsFlag" />
+  <RecentActivity :show="prop.show" />
 </template>

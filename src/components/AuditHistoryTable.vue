@@ -10,6 +10,7 @@ const currentTime = new Date().toLocaleTimeString("en-IN", {
   minute: "2-digit",
   hour12: true,
 });
+const content = [...data.auditHistory];
 </script>
 
 <template>
@@ -27,7 +28,7 @@ const currentTime = new Date().toLocaleTimeString("en-IN", {
         </tr>
       </thead>
       <tbody>
-        <tr v-for="item in data.auditHistory" class="border-t border-slate-200">
+        <tr v-for="item in content" class="border-t border-slate-200">
           <td class="p-3">{{ currentDate }}, {{ currentTime }}</td>
           <td class="p-3">{{ item.actor }}</td>
           <td class="p-3 text-[#6b7090]">{{ item.role }}</td>

@@ -1,5 +1,6 @@
 <script setup>
-import { ref } from "vue";
+import data from "@/data/mockData.json";
+import { ref, watch, defineEmits } from "vue";
 import { RouterLink } from "vue-router";
 const flag = ref("agent");
 const agent = () => {
@@ -12,6 +13,12 @@ const vendor = () => {
     flag.value = "vendor";
   }
 };
+const emit = defineEmits(["selected-actor"]);
+const actor = [...data.actor];
+const selectedActor = ref(actor[0].name);
+watch(selectedActor, (newActor) => {
+  emit("selected-actor", newActor);
+});
 </script>
 
 <template>
@@ -70,15 +77,9 @@ const vendor = () => {
         class="outline outline-white/50 py-2 px-1 rounded-md bg-[#ffffff24]"
         :class="{ hidden: flag === 'vendor' }"
       >
-        <select id="acting">
-          <option class="text-black" value="Priya Sharma">
-            Priya Sharma &mdash; RFQ/Procuremer
-          </option>
-          <option class="text-black" value="Karan Verma">
-            Karan Verma &mdash; Operations & Costing
-          </option>
-          <option class="text-black" value="Neha Gupta">
-            Neha Gupta &mdash; Approver
+        <select id="acting" v-model="selectedActor">
+          <option v-for="item in actor" class="text-black" :value="item.name">
+            {{ item.name }} &mdash; {{ item.role }}
           </option>
         </select>
       </div>

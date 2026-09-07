@@ -56,7 +56,7 @@ const prop = defineProps({
         <p class="text-xs text-slate-600 font-normal">
           Response deadline :
           <span class="text-black font-bold"
-            >{{ responseDeadlineDate }},{{ responseDeadlineTime }}</span
+            >{{ responseDeadlineDate }}, {{ responseDeadlineTime }}</span
           >
         </p>
       </div>
