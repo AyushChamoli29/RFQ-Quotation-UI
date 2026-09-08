@@ -1,9 +1,7 @@
 <script setup>
 import data from "@/data/mockData.json";
-import { defineProps } from "vue";
-const prop = defineProps({
-  show: Boolean,
-});
+import { useFlagsStore } from "@/store/flag";
+const flags = useFlagsStore();
 </script>
 
 <template>
@@ -33,18 +31,18 @@ const prop = defineProps({
           <td class="p-3 text-left">{{ value.lines }}</td>
           <td class="p-3 text-left">{{ value.vendors_invited }}</td>
           <td class="p-3 text-left">
-            {{ prop.show ? value.responses2 : value.responses1 }}
+            {{ flags.simulateFlag ? value.responses2 : value.responses1 }}
           </td>
           <td class="p-3 text-left">{{ value.awarded_lines }}</td>
           <td>
             <span
               class="p-1 px-2 font-bold text-[11px] rounded-lg"
               :class="
-                prop.show
+                flags.simulateFlag
                   ? 'bg-[#eeecfb] text-[#3f3ba6]'
                   : 'bg-[#F4F5FA] text-slate-500'
               "
-              >{{ prop.show ? value.status2 : value.status1 }}</span
+              >{{ flags.simulateFlag ? value.status2 : value.status1 }}</span
             >
           </td>
         </tr>

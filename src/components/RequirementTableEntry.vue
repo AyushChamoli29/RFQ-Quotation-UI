@@ -1,13 +1,26 @@
 <script setup>
-import { defineProps, ref, watch } from "vue";
+import Data from "@/data/mockData.json";
+import { computed, defineProps, ref, watch } from "vue";
+import { useHistoryStore } from "@/store/auditHistory";
+import { useFlagsStore } from "@/store/flag";
+const historyStore = useHistoryStore();
+const flags = useFlagsStore();
 const props = defineProps({
   name: String,
   value: Object,
 });
 const name = ref(props.name);
 const data = ref(props.value);
-const vendors = ref(props.value.vendors);
-const searchList = ref(props.value.searchList);
+const vendors = computed(() => {
+  return props.value.vendors.map((item) => {
+    for (const element of Data.vendor_portal) {
+      if (element.id === item) {
+        return element.name;
+      }
+    }
+  });
+});
+const searchList = [...props.value.searchList];
 const searchValue = ref("");
 const hiddenItems = ref({});
 const showDetails = (key) => {
@@ -34,8 +47,18 @@ watch(searchValue, (newSearch) => {
 const closeSearchResults = () => {
   searchFlag.value = false;
 };
-const addToVendor = (name) => {
+const addToVendor = (name, index) => {
   vendors.value.push(name);
+  searchList.splice(index, 1);
+  closeSearchResults();
+  historyStore.historyEntry({
+    actor: flags.selectedActor.name,
+    roleOrCompany: flags.selectedActor.role,
+    action: "Vendor allocated to category",
+    vendor: name,
+    category: props.name,
+    detail: `${name} added to ${props.name} (primary category:)`,
+  });
 };
 </script>
 
@@ -111,7 +134,7 @@ const addToVendor = (name) => {
         an RFQ scoped only to {{ name }}. Search across the full vendor master,
         or add a brand-new vendor on the fly.
       </p>
-      <div class="flex gap-2 mb-1">
+      <div class="flex gap-2 mb-1 flex-wrap">
         <div
           v-for="(item, index) in vendors"
           class="bg-[#f7f6fe] text-[#3f3ba6] flex justify-center items-center gap-2 px-2 py-1 rounded-xl outline outline-slate-200"
@@ -145,9 +168,9 @@ const addToVendor = (name) => {
         >
           <button @click="closeSearchResults" class="pl-2 text-sm">X</button>
           <div
-            v-for="search in searchList"
+            v-for="(search, index) in searchList"
             class="p-2 border-t border-slate-200"
-            @click="addToVendor(search.name)"
+            @click="addToVendor(search.name, index)"
           >
             <span class="font-bold">{{ search.name }}</span
             ><span

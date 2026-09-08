@@ -1,15 +1,8 @@
 <script setup>
 import RequirementTable from "@/components/RequirementTable.vue";
 import data from "@/data/mockData.json";
-import { defineProps, defineEmits } from "vue";
+import { defineEmits } from "vue";
 const deadline = data.big_card.deadline;
-const prop = defineProps({
-  show: Boolean,
-});
-const emit = defineEmits(["allocate-vendor"]);
-const allocateVendors = () => {
-  emit("allocate-vendor");
-};
 </script>
 
 <template>
@@ -51,5 +44,5 @@ const allocateVendors = () => {
     </div>
     <!-- Requirement Data -->
   </div>
-  <RequirementTable :show="prop.show" @allocate-vendors="allocateVendors" />
+  <RequirementTable />
 </template>

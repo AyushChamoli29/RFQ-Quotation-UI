@@ -1,12 +1,11 @@
 <script setup>
 import AuditHistoryTable from "@/components/AuditHistoryTable.vue";
-import { ref, defineProps } from "vue";
+import { useHistoryStore } from "@/store/auditHistory";
+import { ref } from "vue";
+const historyStore = useHistoryStore();
 const search = ref("");
 const category = ref("all categories");
 const actor = ref("all actors");
-const prop = defineProps({
-  show: Boolean,
-});
 </script>
 
 <template>
@@ -63,13 +62,14 @@ const prop = defineProps({
     </div>
     <div
       class="mt-6 outline outline-slate-200 p-2 px-3 text-[13px] rounded-lg font-bold hover:bg-slate-200 cursor-pointer"
+      @click="historyStore.historyEntry"
     >
       Export CSV
     </div>
   </div>
   <!-- History OR No Activity -->
   <div
-    v-if="!prop.show"
+    v-if="!historyStore.history.length"
     class="flex flex-col bg-white p-10 justify-center items-center gap-1"
   >
     <span class="text-4xl">🗒️</span>
@@ -79,7 +79,7 @@ const prop = defineProps({
       will appear here as it happens.
     </p>
   </div>
-  <div v-if="prop.show">
+  <div v-if="historyStore.history.length">
     <AuditHistoryTable />
   </div>
 </template>

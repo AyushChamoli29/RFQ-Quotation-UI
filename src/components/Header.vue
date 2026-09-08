@@ -1,7 +1,9 @@
 <script setup>
 import data from "@/data/mockData.json";
-import { ref, watch, defineEmits } from "vue";
+import { ref, watch } from "vue";
 import { RouterLink } from "vue-router";
+import { useFlagsStore } from "@/store/flag";
+const flags = useFlagsStore();
 const flag = ref("agent");
 const agent = () => {
   if (flag.value !== "agent") {
@@ -13,11 +15,10 @@ const vendor = () => {
     flag.value = "vendor";
   }
 };
-const emit = defineEmits(["selected-actor"]);
 const actor = [...data.actor];
-const selectedActor = ref(actor[0].name);
+const selectedActor = ref(actor[0]);
 watch(selectedActor, (newActor) => {
-  emit("selected-actor", newActor);
+  flags.selectedActor = newActor;
 });
 </script>
 
@@ -78,7 +79,7 @@ watch(selectedActor, (newActor) => {
         :class="{ hidden: flag === 'vendor' }"
       >
         <select id="acting" v-model="selectedActor">
-          <option v-for="item in actor" class="text-black" :value="item.name">
+          <option v-for="item in actor" class="text-black" :value="item">
             {{ item.name }} &mdash; {{ item.role }}
           </option>
         </select>

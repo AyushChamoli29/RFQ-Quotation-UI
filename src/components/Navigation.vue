@@ -1,10 +1,10 @@
 <script setup>
 import { RouterLink, useRoute } from "vue-router";
-import { defineProps } from "vue";
+import { useFlagsStore } from "@/store/flag";
+import { useHistoryStore } from "@/store/auditHistory";
 const route = useRoute();
-const prop = defineProps({
-  show: Boolean,
-});
+const flags = useFlagsStore();
+const historyStore = useHistoryStore();
 </script>
 
 <template>
@@ -43,7 +43,7 @@ const prop = defineProps({
       >
         Vendor Responses
         <span
-          v-if="prop.show"
+          v-if="flags.simulateFlag"
           class="text-white text-[11px] font-bold rounded-2xl px-2"
           :class="
             route.name === 'vendorResponses' ? 'bg-[#5b4fe0]' : 'bg-[#9ba0c0]'
@@ -84,12 +84,12 @@ const prop = defineProps({
       >
         Audit History
         <span
-          v-if="prop.show"
+          v-if="historyStore.history.length >= 1"
           class="text-white text-[11px] font-bold rounded-2xl px-2"
           :class="
             route.name === 'auditHistory' ? 'bg-[#5b4fe0]' : 'bg-[#9ba0c0]'
           "
-          >27</span
+          >{{ historyStore.history.length }}</span
         >
       </div></RouterLink
     >

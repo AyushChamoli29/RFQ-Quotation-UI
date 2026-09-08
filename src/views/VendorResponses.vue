@@ -1,16 +1,14 @@
 <script setup>
 import data from "@/data/mockData.json";
 import { RouterLink } from "vue-router";
-import { defineProps } from "vue";
 import VendorResponsesBox from "@/components/VendorResponsesBox.vue";
-const prop = defineProps({
-  show: Boolean,
-});
+import { useFlagsStore } from "@/store/flag";
+const flags = useFlagsStore();
 </script>
 
 <template>
   <div
-    v-if="!prop.show"
+    v-if="!flags.simulateFlag"
     class="text-sm h-47 w-full p-5 flex flex-col gap-3 justify-center items-center bg-white outline outline-slate-200 rounded-lg"
   >
     <span class="text-4xl">📭</span>
@@ -26,7 +24,7 @@ const prop = defineProps({
     </p>
   </div>
   <div
-    v-if="prop.show"
+    v-if="flags.simulateFlag"
     v-for="item in data.vendorResponses"
     class="bg-white rounded-xl h-max"
   >

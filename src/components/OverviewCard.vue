@@ -1,6 +1,7 @@
 <script setup>
 import data from "@/data/mockData.json";
-import { defineProps } from "vue";
+import { useFlagsStore } from "@/store/flag";
+const flags = useFlagsStore();
 const responseDeadlineDate = new Date(
   data.big_card.deadline,
 ).toLocaleDateString("en-IN", {
@@ -14,9 +15,6 @@ const responseDeadlineTime = new Date(
   hour: "2-digit",
   minute: "2-digit",
   hour12: true,
-});
-const prop = defineProps({
-  show: Boolean,
 });
 </script>
 
@@ -40,7 +38,7 @@ const prop = defineProps({
       </div>
       <div class="flex flex-col items-end gap-1">
         <div
-          v-if="!prop.show"
+          v-if="!flags.simulateFlag"
           class="text-[11px] text-slate-500 font-bold h-6 w-20 p-1 flex justify-center items-center gap-1 rounded-lg bg-[#F4F5FA]"
         >
           <span class="text-[17px]">&#9679;</span>
@@ -65,37 +63,37 @@ const prop = defineProps({
     <div class="flex text-[11px] flex-wrap">
       <div class="flex gap-2 justify-center items-center">
         <span
-          v-if="!prop.show"
+          v-if="!flags.simulateFlag"
           class="h-6 w-6 flex justify-center items-center rounded-full bg-[#5957db] text-white"
         >
           1
         </span>
         <span
-          v-if="prop.show"
+          v-if="flags.simulateFlag"
           class="h-6 w-6 flex justify-center items-center rounded-full bg-[#0d8f7a] text-white"
         >
           ✓
         </span>
         <div
           class="font-medium"
-          :class="prop.show ? 'text-slate-500' : 'text-black'"
+          :class="flags.simulateFlag ? 'text-slate-500' : 'text-black'"
         >
           Draft
         </div>
         <div
           class="h-1/10 w-10"
-          :class="prop.show ? 'bg-[#0d8f7a]' : 'bg-slate-200'"
+          :class="flags.simulateFlag ? 'bg-[#0d8f7a]' : 'bg-slate-200'"
         ></div>
       </div>
       <div class="flex gap-2 justify-center items-center">
         <span
-          v-if="!prop.show"
+          v-if="!flags.simulateFlag"
           class="h-6 w-6 text-[11px] font-bold flex justify-center items-center rounded-full bg-white text-slate-400 outline outline-slate-300"
         >
           2
         </span>
         <span
-          v-if="prop.show"
+          v-if="flags.simulateFlag"
           class="h-6 w-6 flex justify-center items-center rounded-full bg-[#0d8f7a] text-white"
         >
           ✓
@@ -103,14 +101,14 @@ const prop = defineProps({
         <div class="text-slate-500 font-medium">Sent to vendors</div>
         <div
           class="h-1/10 w-10"
-          :class="prop.show ? 'bg-[#0d8f7a]' : 'bg-slate-200'"
+          :class="flags.simulateFlag ? 'bg-[#0d8f7a]' : 'bg-slate-200'"
         ></div>
       </div>
       <div class="flex gap-2 justify-center items-center">
         <span
           class="h-6 w-6 text-[11px] font-bold flex justify-center items-center rounded-full"
           :class="
-            prop.show
+            flags.simulateFlag
               ? 'bg-[#5957db] text-white'
               : 'bg-white text-slate-400 outline outline-slate-300'
           "
@@ -119,13 +117,13 @@ const prop = defineProps({
         </span>
         <div
           class="font-medium"
-          :class="prop.show ? 'text-black' : 'text-slate-500'"
+          :class="flags.simulateFlag ? 'text-black' : 'text-slate-500'"
         >
           Responses recieved
         </div>
         <div
           class="h-1/10 w-10"
-          :class="prop.show ? 'bg-[#0d8f7a]' : 'bg-slate-200'"
+          :class="flags.simulateFlag ? 'bg-[#0d8f7a]' : 'bg-slate-200'"
         ></div>
       </div>
       <div class="flex gap-2 justify-center items-center">

@@ -1,7 +1,28 @@
 <script setup>
+import data from "@/data/mockData.json";
+import { useHistoryStore } from "@/store/auditHistory";
+import { useFlagsStore } from "@/store/flag";
+const flags = useFlagsStore();
+const historyStore = useHistoryStore();
 const emit = defineEmits(["simulate-vendors"]);
+const currentDate = new Date().toLocaleDateString("en-IN", {
+  day: "2-digit",
+  month: "short",
+  year: "numeric",
+});
+const currentTime = new Date().toLocaleTimeString("en-IN", {
+  hour: "2-digit",
+  minute: "2-digit",
+  hour12: true,
+});
 const simulateVendors = () => {
-  emit("simulate-vendors");
+  flags.simulateFlag = true;
+  for (const element of data.auditHistorySimulate.toReversed()) {
+    historyStore.history.unshift({
+      ...element,
+      time: `${currentDate}, ${currentTime}`,
+    });
+  }
 };
 </script>
 

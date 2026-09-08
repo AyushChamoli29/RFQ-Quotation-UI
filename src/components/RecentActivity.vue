@@ -1,19 +1,13 @@
 <script setup>
-import { defineProps } from "vue";
-import data from "@/data/mockData.json";
-const prop = defineProps({
-  show: Boolean,
-});
-const simulatedVendors = data.recentActivity;
-const currentDate = new Date().toLocaleDateString("en-IN", {
-  day: "2-digit",
-  month: "short",
-  year: "numeric",
-});
-const currentTime = new Date().toLocaleTimeString("en-IN", {
-  hour: "2-digit",
-  minute: "2-digit",
-  hour12: true,
+import { computed } from "vue";
+import { useHistoryStore } from "@/store/auditHistory";
+const historyStore = useHistoryStore();
+const recentHistory = computed(() => {
+  return historyStore.history.filter((item, index) => {
+    if (index < 6) {
+      return item;
+    }
+  });
 });
 </script>
 
@@ -24,7 +18,10 @@ const currentTime = new Date().toLocaleTimeString("en-IN", {
         <p class="font-bold text-[13px] tracking-wider text-slate-500">
           RECENT ACTIVITY
         </p>
-        <p v-if="!prop.show" class="text-slate-500 text-xs tracking-tight">
+        <p
+          v-if="!recentHistory.length"
+          class="text-slate-500 text-xs tracking-tight"
+        >
           No activity recorded yet &mdash; allocate a vendor send the RFQ to see
           it appear here
         </p>
@@ -37,15 +34,19 @@ const currentTime = new Date().toLocaleTimeString("en-IN", {
         </div>
       </RouterLink>
     </div>
-    <div v-if="prop.show">
+    <div v-if="recentHistory.length">
       <div
-        v-for="[key, value] in Object.entries(simulatedVendors)"
+        v-for="value in recentHistory"
         class="border-t border-slate-200 py-2 text-xs"
       >
-        <p class="font-[650]">{{ key }}</p>
+        <p class="font-[650]">{{ value.action }}</p>
         <p class="text-[#6b7090] text-[11.5px]">
-          <span>{{ currentDate }}, {{ currentTime }}</span> &middot;
-          <span>{{ value }}</span>
+          <span>{{ value.time }}</span> &middot;
+          <span>{{ value.actor }} ({{ value.roleOrCompany }})</span
+          ><span v-if="value.category"> &middot; </span>
+          <span>{{ value.category }}</span>
+          <span v-if="value.vendor"> &middot; </span>
+          <span>{{ value.vendor }}</span>
         </p>
       </div>
     </div>
