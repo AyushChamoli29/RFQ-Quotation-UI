@@ -7,8 +7,8 @@ export const useHistoryStore = defineStore("history", () => {
     actor = "",
     roleOrCompany = "",
     action = "",
-    category = `&mdash;`,
-    vendor = `&mdash;`,
+    category = "-",
+    vendor = "-",
     detail = "",
   }) => {
     const currentDate = new Date().toLocaleDateString("en-IN", {

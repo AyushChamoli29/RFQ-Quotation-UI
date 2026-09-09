@@ -4,8 +4,10 @@ import { useRouter } from "vue-router";
 import RequirementTableEntry from "./RequirementTableEntry.vue";
 import { useHistoryStore } from "@/store/auditHistory.js";
 import { useFlagsStore } from "@/store/flag";
+import { useVendorStore } from "@/store/requirementsVendor.js";
 const historyStore = useHistoryStore();
 const flags = useFlagsStore();
+const vendorsStore = useVendorStore();
 const router = useRouter();
 const array = data.requirementTable;
 const currentDate = new Date().toLocaleDateString("en-IN", {
@@ -41,7 +43,7 @@ const allocateVendors = () => {
         class="bg-[#4d3fc9] text-white font-bold text-[13px] p-2 rounded-lg cursor-pointer"
         @click="allocateVendors"
       >
-        Send RFQ to allocated vendors(12)
+        Send RFQ to allocated vendors({{ vendorsStore.totalVendors }})
       </div>
       <div
         v-if="flags.simulateFlag"

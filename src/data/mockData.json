@@ -1006,6 +1006,2716 @@
       "detail": "RFQ-2026-0142 sent to Grand Marina Hotel, deadline 20 Jun 2026, 06:00 pm"
     }
   ],
+  "requirementLines": [
+    "Deluxe Twin Room",
+    "Executive Suite",
+    "Extra Bed with Breakfast",
+    "Porterage and Welcome Drink",
+    "Outbound Economy Class Airfare",
+    "Return Economy Class Airfare",
+    "Outbound Business Class Airfare",
+    "Group Air Ticketing and Manifest Management",
+    "Arrival Airport Transfer by 45-Seater Coach",
+    "Departure Airport Transfer by 45-Seater Coach",
+    "Full-Day Coach Disposal",
+    "VIP Sedan Airport Transfers",
+    "Gala Dinner Venue Rental",
+    "Stage, Backdrop and Basic Branding",
+    "LED Wall 24ft x 10ft",
+    "Professional Sound System",
+    "Event Photography and Highlight Video",
+    "Tourist Visa Government Fee",
+    "Visa Processing and Service Fee",
+    "Travel Insurance",
+    "Lead Local Coordinator",
+    "Assistant Coordinators",
+    "Airport Representatives",
+    "Local SIM Cards with Data"
+  ],
+  "vendorPricing": [
+    {
+      "category": "Hotels",
+      "vendorsPrices": [
+        {
+          "name": "Grand Marina Hotel",
+          "content": [
+            {
+              "requirementLine": "Deluxe Twin Room",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "15690",
+                "attachment": true,
+                "info": true
+              }
+            },
+            {
+              "requirementLine": "Executive Suite",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "26010",
+                "attachment": true,
+                "info": true
+              }
+            },
+            {
+              "requirementLine": "Extra Bed with Breakfast",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "3990",
+                "attachment": true,
+                "info": true
+              }
+            },
+            {
+              "requirementLine": "Porterage and Welcome Drink",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "880",
+                "attachment": true,
+                "info": true
+              }
+            },
+            {
+              "requirementLine": "Outbound Economy Class Airfare",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "31440",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Return Economy Class Airfare",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "31110",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Outbound Buisness Class Airfare",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "86030",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Group Air Ticketing and Manifest Management",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "880",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Arrival Airport Transfer by 45-Seater Coach",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "20410",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Departure Airport Transfer by 45-Seater Coach",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "19180",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Full-Day Coach Disposal",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "35300",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "VIP Sedan Airport Transfers",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "6740",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Gala Dinner Venue Rental",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "533700",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Stage, Backdrop and Basic Branding",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "237150",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "LED Wall 24ft X 10ft",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "326150",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Professional Sound System",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "173910",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Event Photography and Highlight Video",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "171970",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Tourist Visa Government Fee",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "8460",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Visa Processing and Service Fee",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "1920",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Travel Insurance",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "1470",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Lead Local Coordinator",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "21940",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Assistant Coordinators",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "12120",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Airport Representatives",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "10080",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Local SIM Cards with Data",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "1900",
+                "attachment": false,
+                "info": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "Sunset Bay Resort & Spa",
+          "content": [
+            {
+              "requirementLine": "Deluxe Twin Room",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "16860",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Executive Suite",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "27380",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Extra Bed with Breakfast",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "4290",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Porterage and Welcome Drink",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "930",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Outbound Economy Class Airfare",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "35680",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Return Economy Class Airfare",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "29640",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Outbound Buisness Class Airfare",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "97660",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Group Air Ticketing and Manifest Management",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "840",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Arrival Airport Transfer by 45-Seater Coach",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "23160",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Departure Airport Transfer by 45-Seater Coach",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "18280",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Full-Day Coach Disposal",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "40060",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "VIP Sedan Airport Transfers",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "6420",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Gala Dinner Venue Rental",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "563400",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Stage, Backdrop and Basic Branding",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "222300",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "LED Wall 24ft X 10ft",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "344300",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Professional Sound System",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "163020",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Event Photography and Highlight Video",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "181540",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Tourist Visa Government Fee",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "9010",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Visa Processing and Service Fee",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "1780",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Travel Insurance",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "1570",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Lead Local Coordinator",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "23160",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Assistant Coordinators",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "11360",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Airport Representatives",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "10640",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Local SIM Cards with Data",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "1780",
+                "attachment": false,
+                "info": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "Ocean Pearl Hotel Pattaya",
+          "content": [
+            {
+              "requirementLine": "Deluxe Twin Room",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "18200",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Executive Suite",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "29040",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Extra Bed with Breakfast",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "4630",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Porterage and Welcome Drink",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "990",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Outbound Economy Class Airfare",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "34740",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Return Economy Class Airfare",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "30630",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Outbound Buisness Class Airfare",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "95080",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Group Air Ticketing and Manifest Management",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "870",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Arrival Airport Transfer by 45-Seater Coach",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "22350",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Departure Airport Transfer by 45-Seater Coach",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "19090",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Full-Day Coach Disposal",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "38660",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "VIP Sedan Airport Transfers",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "6710",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Gala Dinner Venue Rental",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "548550",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Stage, Backdrop and Basic Branding",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "229730",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "LED Wall 24ft X 10ft",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "335230",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Professional Sound System",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "168470",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Event Photography and Highlight Video",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "176760",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Tourist Visa Government Fee",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "8700",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Visa Processing and Service Fee",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "1860",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Travel Insurance",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "1510",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Lead Local Coordinator",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "22350",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Assistant Coordinators",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "11870",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Airport Representatives",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "10270",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Local SIM Cards with Data",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "1860",
+                "attachment": false,
+                "info": false
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Flights",
+      "vendorsPrices": [
+        {
+          "name": "SkyBridge Airlines",
+          "content": [
+            {
+              "requirementLine": "Deluxe Twin Room",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "20480",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Executive Suite",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "27970",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Extra Bed with Breakfast",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "5210",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Porterage and Welcome Drink",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "940",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Outbound Economy Class Airfare",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "27100",
+                "attachment": true,
+                "info": true
+              }
+            },
+            {
+              "requirementLine": "Return Economy Class Airfare",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "27870",
+                "attachment": true,
+                "info": true
+              }
+            },
+            {
+              "requirementLine": "Outbound Buisness Class Airfare",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "74180",
+                "attachment": true,
+                "info": true
+              }
+            },
+            {
+              "requirementLine": "Group Air Ticketing and Manifest Management",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "790",
+                "attachment": true,
+                "info": true
+              }
+            },
+            {
+              "requirementLine": "Arrival Airport Transfer by 45-Seater Coach",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "22760",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Departure Airport Transfer by 45-Seater Coach",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "18690",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Full-Day Coach Disposal",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "39360",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "VIP Sedan Airport Transfers",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "6570",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Gala Dinner Venue Rental",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "558450",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Stage, Backdrop and Basic Branding",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "224780",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "LED Wall 24ft X 10ft",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "341280",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Professional Sound System",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "164840",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Event Photography and Highlight Video",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "179950",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Tourist Visa Government Fee",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "8860",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Visa Processing and Service Fee",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "1820",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Travel Insurance",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "1540",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Lead Local Coordinator",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "22760",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Assistant Coordinators",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "11620",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Airport Representatives",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "10460",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Local SIM Cards with Data",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "1820",
+                "attachment": false,
+                "info": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "Horizon Charter Airways",
+          "content": [
+            {
+              "requirementLine": "Deluxe Twin Room",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "19930",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Executive Suite",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "28900",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Extra Bed with Breakfast",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "5070",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Porterage and Welcome Drink",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "980",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Outbound Economy Class Airfare",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "29130",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Return Economy Class Airfare",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "29340",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Outbound Buisness Class Airfare",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "79720",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Group Air Ticketing and Manifest Management",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "830",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Arrival Airport Transfer by 45-Seater Coach",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "22140",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Departure Airport Transfer by 45-Seater Coach",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "19300",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Full-Day Coach Disposal",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "38300",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "VIP Sedan Airport Transfers",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "6780",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Gala Dinner Venue Rental",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "538650",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Stage, Backdrop and Basic Branding",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "234680",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "LED Wall 24ft X 10ft",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "329180",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Professional Sound System",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "172100",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Event Photography and Highlight Video",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "173570",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Tourist Visa Government Fee",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "8540",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Visa Processing and Service Fee",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "1900",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Travel Insurance",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "1480",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Lead Local Coordinator",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "22140",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Assistant Coordinators",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "11990",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Airport Representatives",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "10170",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Local SIM Cards with Data",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "1880",
+                "attachment": false,
+                "info": false
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Ground Transportation",
+      "vendorsPrices": [
+        {
+          "name": "CityLine Transport",
+          "content": [
+            {
+              "requirementLine": "Deluxe Twin Room",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "19210",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Executive Suite",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "30130",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Extra Bed with Breakfast",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "4890",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Porterage and Welcome Drink",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "1020",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Outbound Economy Class Airfare",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "33170",
+                "attachment": true,
+                "info": true
+              }
+            },
+            {
+              "requirementLine": "Return Economy Class Airfare",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "32280",
+                "attachment": true,
+                "info": true
+              }
+            },
+            {
+              "requirementLine": "Outbound Buisness Class Airfare",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "90790",
+                "attachment": true,
+                "info": true
+              }
+            },
+            {
+              "requirementLine": "Group Air Ticketing and Manifest Management",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "910",
+                "attachment": true,
+                "info": true
+              }
+            },
+            {
+              "requirementLine": "Arrival Airport Transfer by 45-Seater Coach",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "17590",
+                "attachment": true,
+                "info": true
+              }
+            },
+            {
+              "requirementLine": "Departure Airport Transfer by 45-Seater Coach",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "17190",
+                "attachment": true,
+                "info": true
+              }
+            },
+            {
+              "requirementLine": "Full-Day Coach Disposal",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "30430",
+                "attachment": true,
+                "info": true
+              }
+            },
+            {
+              "requirementLine": "VIP Sedan Airport Transfers",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "6040",
+                "attachment": true,
+                "info": true
+              }
+            },
+            {
+              "requirementLine": "Gala Dinner Venue Rental",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "496350",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Stage, Backdrop and Basic Branding",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "233330",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "LED Wall 24ft X 10ft",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "303330",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Professional Sound System",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "171110",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Event Photography and Highlight Video",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "159940",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Tourist Visa Government Fee",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "7360",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Visa Processing and Service Fee",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "1760",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Travel Insurance",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "1280",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Lead Local Coordinator",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "20410",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Assistant Coordinators",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "11930",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Airport Representatives",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "9380",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Local SIM Cards with Data",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "1870",
+                "attachment": false,
+                "info": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "Pattaya Premier Coaches",
+          "content": [
+            {
+              "requirementLine": "Deluxe Twin Room",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "20300",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Executive Suite",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "28280",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Extra Bed with Breakfast",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "5170",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Porterage and Welcome Drink",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "960",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Outbound Economy Class Airfare",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "35060",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Return Economy Class Airfare",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "30300",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Outbound Buisness Class Airfare",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "95940",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Group Air Ticketing and Manifest Management",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "860",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Arrival Airport Transfer by 45-Seater Coach",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "18910",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Departure Airport Transfer by 45-Seater Coach",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "18090",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Full-Day Coach Disposal",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "32700",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "VIP Sedan Airport Transfers",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "6360",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Gala Dinner Venue Rental",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "553500",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Stage, Backdrop and Basic Branding",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "227250",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "LED Wall 24ft X 10ft",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "338250",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Professional Sound System",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "166650",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Event Photography and Highlight Video",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "178350",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Tourist Visa Government Fee",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "8780",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Visa Processing and Service Fee",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "1840",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Travel Insurance",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "1520",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Lead Local Coordinator",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "22550",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Assistant Coordinators",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "11740",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Airport Representatives",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "10360",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Local SIM Cards with Data",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "1840",
+                "attachment": false,
+                "info": false
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Event Management including AV",
+      "vendorsPrices": [
+        {
+          "name": "EventSphere Productions",
+          "content": [
+            {
+              "requirementLine": "Deluxe Twin Room",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "19570",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Executive Suite",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "29510",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Extra Bed with Breakfast",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "4980",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Porterage and Welcome Drink",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "1000",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Outbound Economy Class Airfare",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "33800",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Return Economy Class Airfare",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "31620",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Outbound Buisness Class Airfare",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "92510",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Group Air Ticketing and Manifest Management",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "900",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Arrival Airport Transfer by 45-Seater Coach",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "21740",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Departure Airport Transfer by 45-Seater Coach",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "19700",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Full-Day Coach Disposal",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "37600",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "VIP Sedan Airport Transfers",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "6920",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Gala Dinner Venue Rental",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "427950",
+                "attachment": true,
+                "info": true
+              }
+            },
+            {
+              "requirementLine": "Stage, Backdrop and Basic Branding",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "209030",
+                "attachment": true,
+                "info": true
+              }
+            },
+            {
+              "requirementLine": "LED Wall 24ft X 10ft",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "261530",
+                "attachment": true,
+                "info": true
+              }
+            },
+            {
+              "requirementLine": "Professional Sound System",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "153290",
+                "attachment": true,
+                "info": true
+              }
+            },
+            {
+              "requirementLine": "Event Photography and Highlight Video",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "137900",
+                "attachment": true,
+                "info": true
+              }
+            },
+            {
+              "requirementLine": "Tourist Visa Government Fee",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "8380",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Visa Processing and Service Fee",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "1940",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Travel Insurance",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "1460",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Lead Local Coordinator",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "21530",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Assistant Coordinators",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "12370",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Airport Representatives",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "9890",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Local SIM Cards with Data",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "1940",
+                "attachment": false,
+                "info": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "Stellar Events Co.",
+          "content": [
+            {
+              "requirementLine": "Deluxe Twin Room",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "20660",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Executive Suite",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "27660",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Extra Bed with Breakfast",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "5260",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Porterage and Welcome Drink",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "940",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Outbound Economy Class Airfare",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "35370",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Return Economy Class Airfare",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "29970",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Outbound Buisness Class Airfare",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "96800",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Group Air Ticketing and Manifest Management",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "850",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Arrival Airport Transfer by 45-Seater Coach",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "22960",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Departure Airport Transfer by 45-Seater Coach",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "18480",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Full-Day Coach Disposal",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "39710",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "VIP Sedan Airport Transfers",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "6490",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Gala Dinner Venue Rental",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "459900",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Stage, Backdrop and Basic Branding",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "220050",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "LED Wall 24ft X 10ft",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "281050",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Professional Sound System",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "161370",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Event Photography and Highlight Video",
+              "information": {
+                "status": "awaiting",
+                "unitPrice": "178350",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Tourist Visa Government Fee",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "8940",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Visa Processing and Service Fee",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "1800",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Travel Insurance",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "1550",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Lead Local Coordinator",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "22960",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Assistant Coordinators",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "11490",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Airport Representatives",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "10550",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Local SIM Cards with Data",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "1800",
+                "attachment": false,
+                "info": false
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Visa Management",
+      "vendorsPrices": [
+        {
+          "name": "GlobalVisa Facilitation",
+          "content": [
+            {
+              "requirementLine": "Deluxe Twin Room",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "19750",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Executive Suite",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "29200",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Extra Bed with Breakfast",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "5030",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Porterage and Welcome Drink",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "990",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Outbound Economy Class Airfare",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "34110",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Return Economy Class Airfare",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "31290",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Outbound Buisness Class Airfare",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "93370",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Group Air Ticketing and Manifest Management",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "890",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Arrival Airport Transfer by 45-Seater Coach",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "21940",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Departure Airport Transfer by 45-Seater Coach",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "19500",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Full-Day Coach Disposal",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "37950",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "VIP Sedan Airport Transfers",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "6850",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Gala Dinner Venue Rental",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "528750",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Stage, Backdrop and Basic Branding",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "239630",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "LED Wall 24ft X 10ft",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "345749",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Professional Sound System",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "188031",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Event Photography and Highlight Video",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "170380",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Tourist Visa Government Fee",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "6850",
+                "attachment": true,
+                "info": true
+              }
+            },
+            {
+              "requirementLine": "Visa Processing and Service Fee",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "1670",
+                "attachment": true,
+                "info": true
+              }
+            },
+            {
+              "requirementLine": "Travel Insurance",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "1190",
+                "attachment": true,
+                "info": true
+              }
+            },
+            {
+              "requirementLine": "Lead Local Coordinator",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "21740",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Assistant Coordinators",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "12250",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Airport Representatives",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "9990",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Local SIM Cards with Data",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "1920",
+                "attachment": false,
+                "info": false
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Local Liaison",
+      "vendorsPrices": [
+        {
+          "name": "Destination Connect DMC",
+          "content": [
+            {
+              "requirementLine": "Deluxe Twin Room",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "19390",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Executive Suite",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "29820",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Extra Bed with Breakfast",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "4940",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Porterage and Welcome Drink",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "1010",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Outbound Economy Class Airfare",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "33490",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Return Economy Class Airfare",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "31950",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Outbound Buisness Class Airfare",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "91650",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Group Air Ticketing and Manifest Management",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "910",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Arrival Airport Transfer by 45-Seater Coach",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "21530",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Departure Airport Transfer by 45-Seater Coach",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "19910",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Full-Day Coach Disposal",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "37250",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "VIP Sedan Airport Transfers",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "6990",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Gala Dinner Venue Rental",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "523800",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Stage, Backdrop and Basic Branding",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "242100",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "LED Wall 24ft X 10ft",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "320100",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Professional Sound System",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "177540",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Event Photography and Highlight Video",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "168780",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Tourist Visa Government Fee",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "7940",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Visa Processing and Service Fee",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "1870",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Travel Insurance",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "1380",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Lead Local Coordinator",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "17590",
+                "attachment": true,
+                "info": true
+              }
+            },
+            {
+              "requirementLine": "Assistant Coordinators",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "10680",
+                "attachment": true,
+                "info": true
+              }
+            },
+            {
+              "requirementLine": "Airport Representatives",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "8080",
+                "attachment": true,
+                "info": true
+              }
+            },
+            {
+              "requirementLine": "Local SIM Cards with Data",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "1670",
+                "attachment": true,
+                "info": true
+              }
+            }
+          ]
+        },
+        {
+          "name": "LocalPro Thailand Services",
+          "content": [
+            {
+              "requirementLine": "Deluxe Twin Room",
+              "information": {
+                "status": "declined",
+                "unitPrice": "20660",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Executive Suite",
+              "information": {
+                "status": "declined",
+                "unitPrice": "27660",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Extra Bed with Breakfast",
+              "information": {
+                "status": "declined",
+                "unitPrice": "5260",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Porterage and Welcome Drink",
+              "information": {
+                "status": "declined",
+                "unitPrice": "940",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Outbound Economy Class Airfare",
+              "information": {
+                "status": "declined",
+                "unitPrice": "35370",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Return Economy Class Airfare",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "declined",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Outbound Buisness Class Airfare",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "declined",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Group Air Ticketing and Manifest Management",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "declined",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Arrival Airport Transfer by 45-Seater Coach",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "declined",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Departure Airport Transfer by 45-Seater Coach",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "declined",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Full-Day Coach Disposal",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "declined",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "VIP Sedan Airport Transfers",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "declined",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Gala Dinner Venue Rental",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "declined",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Stage, Backdrop and Basic Branding",
+              "information": {
+                "status": "declined",
+                "unitPrice": "220050",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "LED Wall 24ft X 10ft",
+              "information": {
+                "status": "declined",
+                "unitPrice": "281050",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Professional Sound System",
+              "information": {
+                "status": "declined",
+                "unitPrice": "161370",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Event Photography and Highlight Video",
+              "information": {
+                "status": "declined",
+                "unitPrice": "178350",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Tourist Visa Government Fee",
+              "information": {
+                "status": "declined",
+                "unitPrice": "8940",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Visa Processing and Service Fee",
+              "information": {
+                "status": "declined",
+                "unitPrice": "1800",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Travel Insurance",
+              "information": {
+                "status": "declined",
+                "unitPrice": "1550",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Lead Local Coordinator",
+              "information": {
+                "status": "declined",
+                "unitPrice": "22960",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Assistant Coordinators",
+              "information": {
+                "status": "declined",
+                "unitPrice": "11490",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Airport Representatives",
+              "information": {
+                "status": "declined",
+                "unitPrice": "10550",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "requirementLine": "Local SIM Cards with Data",
+              "information": {
+                "status": "declined",
+                "unitPrice": "1800",
+                "attachment": false,
+                "info": false
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "vendorResponses": [
     {
       "name": "Hotels",

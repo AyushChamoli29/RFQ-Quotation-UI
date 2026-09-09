@@ -3,31 +3,38 @@ import Data from "@/data/mockData.json";
 import { computed, defineProps, ref, watch } from "vue";
 import { useHistoryStore } from "@/store/auditHistory";
 import { useFlagsStore } from "@/store/flag";
+import { useVendorStore } from "@/store/requirementsVendor";
 const historyStore = useHistoryStore();
 const flags = useFlagsStore();
+const vendorsStore = useVendorStore();
 const props = defineProps({
   name: String,
   value: Object,
 });
+(function updateCurrentVendors() {
+  vendorsStore.currentVendors.push({
+    type: props.name,
+    VendorList: props.value.vendors,
+  });
+})();
 const name = ref(props.name);
 const data = ref(props.value);
 const vendors = computed(() => {
-  return props.value.vendors.map((item) => {
-    for (const element of Data.vendor_portal) {
-      if (element.id === item) {
-        return element.name;
-      }
-    }
+  const category = vendorsStore.currentVendors.find((item) => {
+    return item.type === props.name;
+  });
+  return category.VendorList.map((id) => {
+    const vendor = Data.vendor_portal.find((element) => {
+      return element.id === id;
+    });
+    return vendor.name;
   });
 });
-const searchList = [...props.value.searchList];
+const searchList = ref([...props.value.searchList]);
 const searchValue = ref("");
 const hiddenItems = ref({});
 const showDetails = (key) => {
   hiddenItems.value[key] = !hiddenItems.value[key];
-};
-const deleteVendor = (index) => {
-  vendors.value.splice(index, 1);
 };
 const searchFlag = ref(false);
 const showSearchResults = (search) => {
@@ -48,8 +55,18 @@ const closeSearchResults = () => {
   searchFlag.value = false;
 };
 const addToVendor = (name, index) => {
-  vendors.value.push(name);
-  searchList.splice(index, 1);
+  const category = vendorsStore.currentVendors.find((item) => {
+    return item.type === props.name;
+  });
+  const vendor = Data.vendor_portal.find((element) => {
+    return element.name === name;
+  });
+  if (category && vendor) {
+    category.VendorList.push(vendor.id);
+  }
+  searchList.value = searchList.value.filter((item) => {
+    return item.name !== name;
+  });
   closeSearchResults();
   historyStore.historyEntry({
     actor: flags.selectedActor.name,
@@ -57,9 +74,31 @@ const addToVendor = (name, index) => {
     action: "Vendor allocated to category",
     vendor: name,
     category: props.name,
-    detail: `${name} added to ${props.name} (primary category:)`,
+    detail: `${name} added to ${props.name} (primary category:${vendor.type})`,
   });
+  console.log(vendorsStore.currentVendors);
 };
+const deleteVendor = (item, index) => {
+  const category = vendorsStore.currentVendors.find((element) => {
+    return element.type === props.name;
+  });
+  category.VendorList.splice(index, 1);
+  historyStore.historyEntry({
+    actor: flags.selectedActor.name,
+    roleOrCompany: flags.selectedActor.role,
+    action: "Vendor removed from category allocation",
+    vendor: item,
+    category: props.name,
+  });
+  console.log(vendorsStore.currentVendors);
+};
+vendorsStore.totalVendors = computed(() => {
+  let sum = 0;
+  for (const element of vendorsStore.currentVendors) {
+    sum += element.VendorList.length;
+  }
+  return sum;
+});
 </script>
 
 <template>
@@ -78,7 +117,7 @@ const addToVendor = (name, index) => {
         >
         <span
           class="text-[11px] bg-[#eeecfb] text-[#3f3ba6] p-1 rounded-lg font-bold px-2"
-          >{{ data.vendors.length }} vendors allocated</span
+          >{{ vendors.length }} vendors allocated</span
         >
       </div>
       <div class="text-[11px] tracking-wider text-[#6b7090] mr-5">
@@ -144,7 +183,7 @@ const addToVendor = (name, index) => {
           </span>
           <span
             class="bg-[#5b4fe024] text-[#3f3ba6] text-center h-5 w-5 rounded-full cursor-pointer relative group"
-            @click="deleteVendor(index)"
+            @click="deleteVendor(item, index)"
             >x
             <span
               class="absolute hidden group-hover:block top-full left-1 z-5 w-max bg-black text-white p-1"
@@ -183,7 +222,7 @@ const addToVendor = (name, index) => {
           </div>
         </div>
       </div>
-      <p v-if="data.vendors.length <= 1" class="mt-1 text-[#b46a06]">
+      <p v-if="vendors.length <= 1" class="mt-1 text-[#b46a06]">
         ⚠ Only one vendor invited for a category with mandatory items — consider
         adding a second vendor for competitive quotes.
       </p>
