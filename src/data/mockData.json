@@ -597,7 +597,7 @@
         }
       ]
     },
-    "Local Liasion": {
+    "Local Liaison": {
       "defaultMargin": "15",
       "vendors": ["V11", "V12"],
       "list": [
@@ -1006,41 +1006,56 @@
       "detail": "RFQ-2026-0142 sent to Grand Marina Hotel, deadline 20 Jun 2026, 06:00 pm"
     }
   ],
-  "requirementLines": [
-    "Deluxe Twin Room",
-    "Executive Suite",
-    "Extra Bed with Breakfast",
-    "Porterage and Welcome Drink",
-    "Outbound Economy Class Airfare",
-    "Return Economy Class Airfare",
-    "Outbound Business Class Airfare",
-    "Group Air Ticketing and Manifest Management",
-    "Arrival Airport Transfer by 45-Seater Coach",
-    "Departure Airport Transfer by 45-Seater Coach",
-    "Full-Day Coach Disposal",
-    "VIP Sedan Airport Transfers",
-    "Gala Dinner Venue Rental",
-    "Stage, Backdrop and Basic Branding",
-    "LED Wall 24ft x 10ft",
-    "Professional Sound System",
-    "Event Photography and Highlight Video",
-    "Tourist Visa Government Fee",
-    "Visa Processing and Service Fee",
-    "Travel Insurance",
-    "Lead Local Coordinator",
-    "Assistant Coordinators",
-    "Airport Representatives",
-    "Local SIM Cards with Data"
-  ],
+  "requirementLines": {
+    "Hotels": [
+      "Deluxe Twin Room",
+      "Executive Suite",
+      "Extra bed with Breakfast",
+      "Porterage and Welcome Drink"
+    ],
+    "Flights": [
+      "Outbound Economy Class Airfare",
+      "Return Economy Class Airfare",
+      "Outbound Buisness Class Airfare",
+      "Group Air Ticketing and Manifest Management"
+    ],
+    "Ground Transportation": [
+      "Arrival Airport Transfer by 45-Seater Coach",
+      "Departure Airport Transfer by 45-Seater Coach",
+      "Full-Day Coach Disposal",
+      "VIP Sedan Airport Tranfers"
+    ],
+    "Event Management including AV": [
+      "Gala Dinner Venue Rental",
+      "Stage, Backdrop and Basic Branding",
+      "LED Wall 24ft X 10ft",
+      "Professional Sound System",
+      "Event Photography and Highlight Video"
+    ],
+    "Visa Management": [
+      "Tourist Visa Government Fee",
+      "Visa Processing and Service Fee",
+      "Travel Insurance"
+    ],
+    "Local Liason": [
+      "Lead Local Coordinator",
+      "Assistant Coordinators",
+      "Airport Representatives",
+      "Local SIM Cards with Data"
+    ]
+  },
   "vendorPricing": [
     {
       "category": "Hotels",
       "vendorsPrices": [
         {
-          "name": "Grand Marina Hotel",
+          "requirementLine": "Deluxe Twin Room",
+          "quantity": "180",
+          "unit": "room-nights",
+          "mandatory": true,
           "content": [
             {
-              "requirementLine": "Deluxe Twin Room",
+              "name": "Grand Marina Hotel",
               "information": {
                 "status": "submitted",
                 "unitPrice": "15690",
@@ -1049,219 +1064,7 @@
               }
             },
             {
-              "requirementLine": "Executive Suite",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "26010",
-                "attachment": true,
-                "info": true
-              }
-            },
-            {
-              "requirementLine": "Extra Bed with Breakfast",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "3990",
-                "attachment": true,
-                "info": true
-              }
-            },
-            {
-              "requirementLine": "Porterage and Welcome Drink",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "880",
-                "attachment": true,
-                "info": true
-              }
-            },
-            {
-              "requirementLine": "Outbound Economy Class Airfare",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "31440",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Return Economy Class Airfare",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "31110",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Outbound Buisness Class Airfare",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "86030",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Group Air Ticketing and Manifest Management",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "880",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Arrival Airport Transfer by 45-Seater Coach",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "20410",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Departure Airport Transfer by 45-Seater Coach",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "19180",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Full-Day Coach Disposal",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "35300",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "VIP Sedan Airport Transfers",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "6740",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Gala Dinner Venue Rental",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "533700",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Stage, Backdrop and Basic Branding",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "237150",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "LED Wall 24ft X 10ft",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "326150",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Professional Sound System",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "173910",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Event Photography and Highlight Video",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "171970",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Tourist Visa Government Fee",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "8460",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Visa Processing and Service Fee",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "1920",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Travel Insurance",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "1470",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Lead Local Coordinator",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "21940",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Assistant Coordinators",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "12120",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Airport Representatives",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "10080",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Local SIM Cards with Data",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "1900",
-                "attachment": false,
-                "info": false
-              }
-            }
-          ]
-        },
-        {
-          "name": "Sunset Bay Resort & Spa",
-          "content": [
-            {
-              "requirementLine": "Deluxe Twin Room",
+              "name": "Sunset Bay Resort & Spa",
               "information": {
                 "status": "submitted",
                 "unitPrice": "16860",
@@ -1270,219 +1073,7 @@
               }
             },
             {
-              "requirementLine": "Executive Suite",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "27380",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Extra Bed with Breakfast",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "4290",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Porterage and Welcome Drink",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "930",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Outbound Economy Class Airfare",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "35680",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Return Economy Class Airfare",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "29640",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Outbound Buisness Class Airfare",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "97660",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Group Air Ticketing and Manifest Management",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "840",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Arrival Airport Transfer by 45-Seater Coach",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "23160",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Departure Airport Transfer by 45-Seater Coach",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "18280",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Full-Day Coach Disposal",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "40060",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "VIP Sedan Airport Transfers",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "6420",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Gala Dinner Venue Rental",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "563400",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Stage, Backdrop and Basic Branding",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "222300",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "LED Wall 24ft X 10ft",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "344300",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Professional Sound System",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "163020",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Event Photography and Highlight Video",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "181540",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Tourist Visa Government Fee",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "9010",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Visa Processing and Service Fee",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "1780",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Travel Insurance",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "1570",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Lead Local Coordinator",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "23160",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Assistant Coordinators",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "11360",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Airport Representatives",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "10640",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Local SIM Cards with Data",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "1780",
-                "attachment": false,
-                "info": false
-              }
-            }
-          ]
-        },
-        {
-          "name": "Ocean Pearl Hotel Pattaya",
-          "content": [
-            {
-              "requirementLine": "Deluxe Twin Room",
+              "name": "Ocean Pearl Hotel Pattaya",
               "information": {
                 "status": "submitted",
                 "unitPrice": "18200",
@@ -1491,7 +1082,114 @@
               }
             },
             {
-              "requirementLine": "Executive Suite",
+              "name": "CityLine Transport",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "19210",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Destination Connect DMC",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "19390",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "EventSphere Productions",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "19570",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "GlobalVisa Facilitation",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "19750",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Horizon Charter Airways",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "19930",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "LocalPro Thailand Services",
+              "information": {
+                "status": "declined",
+                "unitPrice": "20410",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Pattaya Premier Coaches",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "20300",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "SkyBridge Airlines",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "20480",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Stellar Events Co.",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "20660",
+                "attachment": false,
+                "info": false
+              }
+            }
+          ]
+        },
+        {
+          "requirementLine": "Executive Suite",
+          "quantity": "20",
+          "unit": "room-nights",
+          "mandatory": false,
+          "content": [
+            {
+              "name": "Grand Marina Hotel",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "26010",
+                "attachment": true,
+                "info": true
+              }
+            },
+            {
+              "name": "Sunset Bay Resort & Spa",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "27380",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Ocean Pearl Hotel Pattaya",
               "information": {
                 "status": "submitted",
                 "unitPrice": "29040",
@@ -1500,7 +1198,114 @@
               }
             },
             {
-              "requirementLine": "Extra Bed with Breakfast",
+              "name": "CityLine Transport",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "30130",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Destination Connect DMC",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "29820",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "EventSphere Productions",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "29510",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "GlobalVisa Facilitation",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "29200",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Horizon Charter Airways",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "28900",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "LocalPro Thailand Services",
+              "information": {
+                "status": "declined",
+                "unitPrice": "20410",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Pattaya Premier Coaches",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "28280",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "SkyBridge Airlines",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "27970",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Stellar Events Co.",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "27660",
+                "attachment": false,
+                "info": false
+              }
+            }
+          ]
+        },
+        {
+          "requirementLine": "Extra Bed with Breakfast",
+          "quantity": "40",
+          "unit": "bed-nights",
+          "mandatory": false,
+          "content": [
+            {
+              "name": "Grand Marina Hotel",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "3990",
+                "attachment": true,
+                "info": true
+              }
+            },
+            {
+              "name": "Sunset Bay Resort & Spa",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "4290",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Ocean Pearl Hotel Pattaya",
               "information": {
                 "status": "submitted",
                 "unitPrice": "4630",
@@ -1509,7 +1314,114 @@
               }
             },
             {
-              "requirementLine": "Porterage and Welcome Drink",
+              "name": "CityLine Transport",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "4890",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Destination Connect DMC",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "4940",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "EventSphere Productions",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "4980",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "GlobalVisa Facilitation",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "5030",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Horizon Charter Airways",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "5070",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "LocalPro Thailand Services",
+              "information": {
+                "status": "declined",
+                "unitPrice": "20410",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Pattaya Premier Coaches",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "5170",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "SkyBridge Airlines",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "5210",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Stellar Events Co.",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "5260",
+                "attachment": false,
+                "info": false
+              }
+            }
+          ]
+        },
+        {
+          "requirementLine": "Porterage and Welcome Drink",
+          "quantity": "100",
+          "unit": "pax",
+          "mandatory": false,
+          "content": [
+            {
+              "name": "Grand Marina Hotel",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "880",
+                "attachment": true,
+                "info": true
+              }
+            },
+            {
+              "name": "Sunset Bay Resort & Spa",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "930",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Ocean Pearl Hotel Pattaya",
               "information": {
                 "status": "submitted",
                 "unitPrice": "990",
@@ -1518,181 +1430,82 @@
               }
             },
             {
-              "requirementLine": "Outbound Economy Class Airfare",
+              "name": "CityLine Transport",
               "information": {
                 "status": "submitted",
-                "unitPrice": "34740",
+                "unitPrice": "1020",
                 "attachment": false,
                 "info": false
               }
             },
             {
-              "requirementLine": "Return Economy Class Airfare",
+              "name": "Destination Connect DMC",
               "information": {
                 "status": "submitted",
-                "unitPrice": "30630",
+                "unitPrice": "1010",
                 "attachment": false,
                 "info": false
               }
             },
             {
-              "requirementLine": "Outbound Buisness Class Airfare",
+              "name": "EventSphere Productions",
               "information": {
                 "status": "submitted",
-                "unitPrice": "95080",
+                "unitPrice": "1000",
                 "attachment": false,
                 "info": false
               }
             },
             {
-              "requirementLine": "Group Air Ticketing and Manifest Management",
+              "name": "GlobalVisa Facilitation",
               "information": {
                 "status": "submitted",
-                "unitPrice": "870",
+                "unitPrice": "990",
                 "attachment": false,
                 "info": false
               }
             },
             {
-              "requirementLine": "Arrival Airport Transfer by 45-Seater Coach",
+              "name": "Horizon Charter Airways",
               "information": {
                 "status": "submitted",
-                "unitPrice": "22350",
+                "unitPrice": "980",
                 "attachment": false,
                 "info": false
               }
             },
             {
-              "requirementLine": "Departure Airport Transfer by 45-Seater Coach",
+              "name": "LocalPro Thailand Services",
               "information": {
-                "status": "submitted",
-                "unitPrice": "19090",
+                "status": "declined",
+                "unitPrice": "20410",
                 "attachment": false,
                 "info": false
               }
             },
             {
-              "requirementLine": "Full-Day Coach Disposal",
+              "name": "Pattaya Premier Coaches",
               "information": {
                 "status": "submitted",
-                "unitPrice": "38660",
+                "unitPrice": "960",
                 "attachment": false,
                 "info": false
               }
             },
             {
-              "requirementLine": "VIP Sedan Airport Transfers",
+              "name": "SkyBridge Airlines",
               "information": {
                 "status": "submitted",
-                "unitPrice": "6710",
+                "unitPrice": "950",
                 "attachment": false,
                 "info": false
               }
             },
             {
-              "requirementLine": "Gala Dinner Venue Rental",
+              "name": "Stellar Events Co.",
               "information": {
                 "status": "submitted",
-                "unitPrice": "548550",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Stage, Backdrop and Basic Branding",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "229730",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "LED Wall 24ft X 10ft",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "335230",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Professional Sound System",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "168470",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Event Photography and Highlight Video",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "176760",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Tourist Visa Government Fee",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "8700",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Visa Processing and Service Fee",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "1860",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Travel Insurance",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "1510",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Lead Local Coordinator",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "22350",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Assistant Coordinators",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "11870",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Airport Representatives",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "10270",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Local SIM Cards with Data",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "1860",
+                "unitPrice": "940",
                 "attachment": false,
                 "info": false
               }
@@ -1705,267 +1518,76 @@
       "category": "Flights",
       "vendorsPrices": [
         {
-          "name": "SkyBridge Airlines",
+          "requirementLine": "Outbound Economy Class Airfare",
+          "quantity": "114",
+          "unit": "pax",
+          "mandatory": true,
           "content": [
             {
-              "requirementLine": "Deluxe Twin Room",
+              "name": "Grand Marina Hotel",
               "information": {
                 "status": "submitted",
-                "unitPrice": "20480",
+                "unitPrice": "34110",
                 "attachment": false,
                 "info": false
               }
             },
             {
-              "requirementLine": "Executive Suite",
+              "name": "Sunset Bay Resort & Spa",
               "information": {
                 "status": "submitted",
-                "unitPrice": "27970",
+                "unitPrice": "35680",
                 "attachment": false,
                 "info": false
               }
             },
             {
-              "requirementLine": "Extra Bed with Breakfast",
+              "name": "Ocean Pearl Hotel Pattaya",
               "information": {
                 "status": "submitted",
-                "unitPrice": "5210",
+                "unitPrice": "34740",
                 "attachment": false,
                 "info": false
               }
             },
             {
-              "requirementLine": "Porterage and Welcome Drink",
+              "name": "CityLine Transport",
               "information": {
                 "status": "submitted",
-                "unitPrice": "940",
+                "unitPrice": "31440",
                 "attachment": false,
                 "info": false
               }
             },
             {
-              "requirementLine": "Outbound Economy Class Airfare",
+              "name": "Destination Connect DMC",
               "information": {
                 "status": "submitted",
-                "unitPrice": "27100",
-                "attachment": true,
-                "info": true
-              }
-            },
-            {
-              "requirementLine": "Return Economy Class Airfare",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "27870",
-                "attachment": true,
-                "info": true
-              }
-            },
-            {
-              "requirementLine": "Outbound Buisness Class Airfare",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "74180",
-                "attachment": true,
-                "info": true
-              }
-            },
-            {
-              "requirementLine": "Group Air Ticketing and Manifest Management",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "790",
-                "attachment": true,
-                "info": true
-              }
-            },
-            {
-              "requirementLine": "Arrival Airport Transfer by 45-Seater Coach",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "22760",
+                "unitPrice": "33170",
                 "attachment": false,
                 "info": false
               }
             },
             {
-              "requirementLine": "Departure Airport Transfer by 45-Seater Coach",
+              "name": "EventSphere Productions",
               "information": {
                 "status": "submitted",
-                "unitPrice": "18690",
+                "unitPrice": "33490",
                 "attachment": false,
                 "info": false
               }
             },
             {
-              "requirementLine": "Full-Day Coach Disposal",
+              "name": "GlobalVisa Facilitation",
               "information": {
                 "status": "submitted",
-                "unitPrice": "39360",
+                "unitPrice": "33800",
                 "attachment": false,
                 "info": false
               }
             },
             {
-              "requirementLine": "VIP Sedan Airport Transfers",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "6570",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Gala Dinner Venue Rental",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "558450",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Stage, Backdrop and Basic Branding",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "224780",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "LED Wall 24ft X 10ft",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "341280",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Professional Sound System",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "164840",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Event Photography and Highlight Video",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "179950",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Tourist Visa Government Fee",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "8860",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Visa Processing and Service Fee",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "1820",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Travel Insurance",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "1540",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Lead Local Coordinator",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "22760",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Assistant Coordinators",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "11620",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Airport Representatives",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "10460",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Local SIM Cards with Data",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "1820",
-                "attachment": false,
-                "info": false
-              }
-            }
-          ]
-        },
-        {
-          "name": "Horizon Charter Airways",
-          "content": [
-            {
-              "requirementLine": "Deluxe Twin Room",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "19930",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Executive Suite",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "28900",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Extra Bed with Breakfast",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "5070",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Porterage and Welcome Drink",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "980",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Outbound Economy Class Airfare",
+              "name": "Horizon Charter Airways",
               "information": {
                 "status": "submitted",
                 "unitPrice": "29130",
@@ -1974,7 +1596,114 @@
               }
             },
             {
-              "requirementLine": "Return Economy Class Airfare",
+              "name": "LocalPro Thailand Services",
+              "information": {
+                "status": "declined",
+                "unitPrice": "20410",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Pattaya Premier Coaches",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "35060",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "SkyBridge Airlines",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "27100",
+                "attachment": true,
+                "info": true
+              }
+            },
+            {
+              "name": "Stellar Events Co.",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "35370",
+                "attachment": false,
+                "info": false
+              }
+            }
+          ]
+        },
+        {
+          "requirementLine": "Return Economy Class Airfare",
+          "quantity": "114",
+          "unit": "pax",
+          "mandatory": true,
+          "content": [
+            {
+              "name": "Grand Marina Hotel",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "31290",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Sunset Bay Resort & Spa",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "29640",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Ocean Pearl Hotel Pattaya",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "30630",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "CityLine Transport",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "31110",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Destination Connect DMC",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "32280",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "EventSphere Productions",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "31950",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "GlobalVisa Facilitation",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "31620",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Horizon Charter Airways",
               "information": {
                 "status": "submitted",
                 "unitPrice": "29340",
@@ -1983,7 +1712,114 @@
               }
             },
             {
-              "requirementLine": "Outbound Buisness Class Airfare",
+              "name": "LocalPro Thailand Services",
+              "information": {
+                "status": "declined",
+                "unitPrice": "20410",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Pattaya Premier Coaches",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "30300",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "SkyBridge Airlines",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "27870",
+                "attachment": true,
+                "info": true
+              }
+            },
+            {
+              "name": "Stellar Events Co.",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "29970",
+                "attachment": false,
+                "info": false
+              }
+            }
+          ]
+        },
+        {
+          "requirementLine": "Outbound Buisness Class Airfare",
+          "quantity": "6",
+          "unit": "pax",
+          "mandatory": false,
+          "content": [
+            {
+              "name": "Grand Marina Hotel",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "93370",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Sunset Bay Resort & Spa",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "97660",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Ocean Pearl Hotel Pattaya",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "95080",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "CityLine Transport",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "86030",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Destination Connect DMC",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "90790",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "EventSphere Productions",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "91650",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "GlobalVisa Facilitation",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "92510",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Horizon Charter Airways",
               "information": {
                 "status": "submitted",
                 "unitPrice": "79720",
@@ -1992,7 +1828,114 @@
               }
             },
             {
-              "requirementLine": "Group Air Ticketing and Manifest Management",
+              "name": "LocalPro Thailand Services",
+              "information": {
+                "status": "declined",
+                "unitPrice": "20410",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Pattaya Premier Coaches",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "95940",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "SkyBridge Airlines",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "74180",
+                "attachment": true,
+                "info": true
+              }
+            },
+            {
+              "name": "Stellar Events Co.",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "96800",
+                "attachment": false,
+                "info": false
+              }
+            }
+          ]
+        },
+        {
+          "requirementLine": "Group Air Ticketing and Manifest Management",
+          "quantity": "120",
+          "unit": "pax",
+          "mandatory": true,
+          "content": [
+            {
+              "name": "Grand Marina Hotel",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "890",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Sunset Bay Resort & Spa",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "840",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Ocean Pearl Hotel Pattaya",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "870",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "CityLine Transport",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "880",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Destination Connect DMC",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "910",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "EventSphere Productions",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "910",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "GlobalVisa Facilitation",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "900",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Horizon Charter Airways",
               "information": {
                 "status": "submitted",
                 "unitPrice": "830",
@@ -2001,145 +1944,37 @@
               }
             },
             {
-              "requirementLine": "Arrival Airport Transfer by 45-Seater Coach",
+              "name": "LocalPro Thailand Services",
               "information": {
-                "status": "submitted",
-                "unitPrice": "22140",
+                "status": "declined",
+                "unitPrice": "20410",
                 "attachment": false,
                 "info": false
               }
             },
             {
-              "requirementLine": "Departure Airport Transfer by 45-Seater Coach",
+              "name": "Pattaya Premier Coaches",
               "information": {
                 "status": "submitted",
-                "unitPrice": "19300",
+                "unitPrice": "860",
                 "attachment": false,
                 "info": false
               }
             },
             {
-              "requirementLine": "Full-Day Coach Disposal",
+              "name": "SkyBridge Airlines",
               "information": {
                 "status": "submitted",
-                "unitPrice": "38300",
-                "attachment": false,
-                "info": false
+                "unitPrice": "790",
+                "attachment": true,
+                "info": true
               }
             },
             {
-              "requirementLine": "VIP Sedan Airport Transfers",
+              "name": "Stellar Events Co.",
               "information": {
                 "status": "submitted",
-                "unitPrice": "6780",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Gala Dinner Venue Rental",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "538650",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Stage, Backdrop and Basic Branding",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "234680",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "LED Wall 24ft X 10ft",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "329180",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Professional Sound System",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "172100",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Event Photography and Highlight Video",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "173570",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Tourist Visa Government Fee",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "8540",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Visa Processing and Service Fee",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "1900",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Travel Insurance",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "1480",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Lead Local Coordinator",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "22140",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Assistant Coordinators",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "11990",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Airport Representatives",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "10170",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Local SIM Cards with Data",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "1880",
+                "unitPrice": "940",
                 "attachment": false,
                 "info": false
               }
@@ -2152,411 +1987,31 @@
       "category": "Ground Transportation",
       "vendorsPrices": [
         {
-          "name": "CityLine Transport",
+          "requirementLine": "Arrival Airport Transfer by 45-Seater Coach",
+          "quantity": "3",
+          "unit": "coach",
+          "mandatory": true,
           "content": [
             {
-              "requirementLine": "Deluxe Twin Room",
+              "name": "Grand Marina Hotel",
               "information": {
                 "status": "submitted",
-                "unitPrice": "19210",
+                "unitPrice": "21940",
                 "attachment": false,
                 "info": false
               }
             },
             {
-              "requirementLine": "Executive Suite",
+              "name": "Sunset Bay Resort & Spa",
               "information": {
                 "status": "submitted",
-                "unitPrice": "30130",
+                "unitPrice": "23160",
                 "attachment": false,
                 "info": false
               }
             },
             {
-              "requirementLine": "Extra Bed with Breakfast",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "4890",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Porterage and Welcome Drink",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "1020",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Outbound Economy Class Airfare",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "33170",
-                "attachment": true,
-                "info": true
-              }
-            },
-            {
-              "requirementLine": "Return Economy Class Airfare",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "32280",
-                "attachment": true,
-                "info": true
-              }
-            },
-            {
-              "requirementLine": "Outbound Buisness Class Airfare",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "90790",
-                "attachment": true,
-                "info": true
-              }
-            },
-            {
-              "requirementLine": "Group Air Ticketing and Manifest Management",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "910",
-                "attachment": true,
-                "info": true
-              }
-            },
-            {
-              "requirementLine": "Arrival Airport Transfer by 45-Seater Coach",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "17590",
-                "attachment": true,
-                "info": true
-              }
-            },
-            {
-              "requirementLine": "Departure Airport Transfer by 45-Seater Coach",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "17190",
-                "attachment": true,
-                "info": true
-              }
-            },
-            {
-              "requirementLine": "Full-Day Coach Disposal",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "30430",
-                "attachment": true,
-                "info": true
-              }
-            },
-            {
-              "requirementLine": "VIP Sedan Airport Transfers",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "6040",
-                "attachment": true,
-                "info": true
-              }
-            },
-            {
-              "requirementLine": "Gala Dinner Venue Rental",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "496350",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Stage, Backdrop and Basic Branding",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "233330",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "LED Wall 24ft X 10ft",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "303330",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Professional Sound System",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "171110",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Event Photography and Highlight Video",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "159940",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Tourist Visa Government Fee",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "7360",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Visa Processing and Service Fee",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "1760",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Travel Insurance",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "1280",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Lead Local Coordinator",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "20410",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Assistant Coordinators",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "11930",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Airport Representatives",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "9380",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Local SIM Cards with Data",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "1870",
-                "attachment": false,
-                "info": false
-              }
-            }
-          ]
-        },
-        {
-          "name": "Pattaya Premier Coaches",
-          "content": [
-            {
-              "requirementLine": "Deluxe Twin Room",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "20300",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Executive Suite",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "28280",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Extra Bed with Breakfast",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "5170",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Porterage and Welcome Drink",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "960",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Outbound Economy Class Airfare",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "35060",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Return Economy Class Airfare",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "30300",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Outbound Buisness Class Airfare",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "95940",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Group Air Ticketing and Manifest Management",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "860",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Arrival Airport Transfer by 45-Seater Coach",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "18910",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Departure Airport Transfer by 45-Seater Coach",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "18090",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Full-Day Coach Disposal",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "32700",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "VIP Sedan Airport Transfers",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "6360",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Gala Dinner Venue Rental",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "553500",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Stage, Backdrop and Basic Branding",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "227250",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "LED Wall 24ft X 10ft",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "338250",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Professional Sound System",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "166650",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Event Photography and Highlight Video",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "178350",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Tourist Visa Government Fee",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "8780",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Visa Processing and Service Fee",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "1840",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Travel Insurance",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "1520",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Lead Local Coordinator",
+              "name": "Ocean Pearl Hotel Pattaya",
               "information": {
                 "status": "submitted",
                 "unitPrice": "22550",
@@ -2565,28 +2020,430 @@
               }
             },
             {
-              "requirementLine": "Assistant Coordinators",
+              "name": "CityLine Transport",
               "information": {
                 "status": "submitted",
-                "unitPrice": "11740",
+                "unitPrice": "17590",
+                "attachment": true,
+                "info": true
+              }
+            },
+            {
+              "name": "Destination Connect DMC",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "20410",
                 "attachment": false,
                 "info": false
               }
             },
             {
-              "requirementLine": "Airport Representatives",
+              "name": "EventSphere Productions",
               "information": {
                 "status": "submitted",
-                "unitPrice": "10360",
+                "unitPrice": "21530",
                 "attachment": false,
                 "info": false
               }
             },
             {
-              "requirementLine": "Local SIM Cards with Data",
+              "name": "GlobalVisa Facilitation",
               "information": {
                 "status": "submitted",
-                "unitPrice": "1840",
+                "unitPrice": "21740",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Horizon Charter Airways",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "22140",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "LocalPro Thailand Services",
+              "information": {
+                "status": "declined",
+                "unitPrice": "20410",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Pattaya Premier Coaches",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "18910",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "SkyBridge Airlines",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "22760",
+                "attachment": true,
+                "info": true
+              }
+            },
+            {
+              "name": "Stellar Events Co.",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "22960",
+                "attachment": false,
+                "info": false
+              }
+            }
+          ]
+        },
+        {
+          "requirementLine": "Departure Airport Transfer by 45-Seater Coach",
+          "quantity": "3",
+          "unit": "coach",
+          "mandatory": true,
+          "content": [
+            {
+              "name": "Grand Marina Hotel",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "19500",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Sunset Bay Resort & Spa",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "18280",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Ocean Pearl Hotel Pattaya",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "18890",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "CityLine Transport",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "17190",
+                "attachment": true,
+                "info": true
+              }
+            },
+            {
+              "name": "Destination Connect DMC",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "19180",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "EventSphere Productions",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "19910",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "GlobalVisa Facilitation",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "19700",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Horizon Charter Airways",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "19300",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "LocalPro Thailand Services",
+              "information": {
+                "status": "declined",
+                "unitPrice": "20410",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Pattaya Premier Coaches",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "18090",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "SkyBridge Airlines",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "18690",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Stellar Events Co.",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "18480",
+                "attachment": false,
+                "info": false
+              }
+            }
+          ]
+        },
+        {
+          "requirementLine": "Full-Day Coach Disposal",
+          "quantity": "6",
+          "unit": "coach-day",
+          "mandatory": false,
+          "content": [
+            {
+              "name": "Grand Marina Hotel",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "37950",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Sunset Bay Resort & Spa",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "40060",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Ocean Pearl Hotel Pattaya",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "39010",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "CityLine Transport",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "30430",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Destination Connect DMC",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "35300",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "EventSphere Productions",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "37250",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "GlobalVisa Facilitation",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "37600",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Horizon Charter Airways",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "38300",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "LocalPro Thailand Services",
+              "information": {
+                "status": "declined",
+                "unitPrice": "20410",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Pattaya Premier Coaches",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "32700",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "SkyBridge Airlines",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "39360",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Stellar Events Co.",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "39710",
+                "attachment": false,
+                "info": false
+              }
+            }
+          ]
+        },
+        {
+          "requirementLine": "VIP Sedan Airport Transfers",
+          "quantity": "12",
+          "unit": "trip",
+          "mandatory": false,
+          "content": [
+            {
+              "name": "Grand Marina Hotel",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "6850",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Sunset Bay Resort & Spa",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "6420",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Ocean Pearl Hotel Pattaya",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "6640",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "CityLine Transport",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "6040",
+                "attachment": true,
+                "info": true
+              }
+            },
+            {
+              "name": "Destination Connect DMC",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "6740",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "EventSphere Productions",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "6990",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "GlobalVisa Facilitation",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "6920",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Horizon Charter Airways",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "6780",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "LocalPro Thailand Services",
+              "information": {
+                "status": "declined",
+                "unitPrice": "20410",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Pattaya Premier Coaches",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "6360",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "SkyBridge Airlines",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "6570",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Stellar Events Co.",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "6490",
                 "attachment": false,
                 "info": false
               }
@@ -2599,118 +2456,58 @@
       "category": "Event Management including AV",
       "vendorsPrices": [
         {
-          "name": "EventSphere Productions",
+          "requirementLine": "Gala Dinner Venue Rental",
+          "quantity": "1",
+          "unit": "lot",
+          "mandatory": true,
           "content": [
             {
-              "requirementLine": "Deluxe Twin Room",
+              "name": "Grand Marina Hotel",
               "information": {
                 "status": "submitted",
-                "unitPrice": "19570",
+                "unitPrice": "533700",
                 "attachment": false,
                 "info": false
               }
             },
             {
-              "requirementLine": "Executive Suite",
+              "name": "Sunset Bay Resort & Spa",
               "information": {
                 "status": "submitted",
-                "unitPrice": "29510",
+                "unitPrice": "563400",
                 "attachment": false,
                 "info": false
               }
             },
             {
-              "requirementLine": "Extra Bed with Breakfast",
+              "name": "Ocean Pearl Hotel Pattaya",
               "information": {
                 "status": "submitted",
-                "unitPrice": "4980",
+                "unitPrice": "548550",
                 "attachment": false,
                 "info": false
               }
             },
             {
-              "requirementLine": "Porterage and Welcome Drink",
+              "name": "CityLine Transport",
               "information": {
                 "status": "submitted",
-                "unitPrice": "1000",
+                "unitPrice": "496350",
                 "attachment": false,
                 "info": false
               }
             },
             {
-              "requirementLine": "Outbound Economy Class Airfare",
+              "name": "Destination Connect DMC",
               "information": {
                 "status": "submitted",
-                "unitPrice": "33800",
+                "unitPrice": "523800",
                 "attachment": false,
                 "info": false
               }
             },
             {
-              "requirementLine": "Return Economy Class Airfare",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "31620",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Outbound Buisness Class Airfare",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "92510",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Group Air Ticketing and Manifest Management",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "900",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Arrival Airport Transfer by 45-Seater Coach",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "21740",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Departure Airport Transfer by 45-Seater Coach",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "19700",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Full-Day Coach Disposal",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "37600",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "VIP Sedan Airport Transfers",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "6920",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Gala Dinner Venue Rental",
+              "name": "EventSphere Productions",
               "information": {
                 "status": "submitted",
                 "unitPrice": "427950",
@@ -2719,7 +2516,114 @@
               }
             },
             {
-              "requirementLine": "Stage, Backdrop and Basic Branding",
+              "name": "GlobalVisa Facilitation",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "528750",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Horizon Charter Airways",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "538650",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "LocalPro Thailand Services",
+              "information": {
+                "status": "declined",
+                "unitPrice": "20410",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Pattaya Premier Coaches",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "553500",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "SkyBridge Airlines",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "558450",
+                "attachment": true,
+                "info": true
+              }
+            },
+            {
+              "name": "Stellar Events Co.",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "459900",
+                "attachment": false,
+                "info": false
+              }
+            }
+          ]
+        },
+        {
+          "requirementLine": "Stage, Backdrop and Basic Branding",
+          "quantity": "1",
+          "unit": "lot",
+          "mandatory": true,
+          "content": [
+            {
+              "name": "Grand Marina Hotel",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "237150",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Sunset Bay Resort & Spa",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "222300",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Ocean Pearl Hotel Pattaya",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "229730",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "CityLine Transport",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "233330",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Destination Connect DMC",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "242100",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "EventSphere Productions",
               "information": {
                 "status": "submitted",
                 "unitPrice": "209030",
@@ -2728,16 +2632,230 @@
               }
             },
             {
-              "requirementLine": "LED Wall 24ft X 10ft",
+              "name": "GlobalVisa Facilitation",
               "information": {
                 "status": "submitted",
-                "unitPrice": "261530",
-                "attachment": true,
-                "info": true
+                "unitPrice": "239630",
+                "attachment": false,
+                "info": false
               }
             },
             {
-              "requirementLine": "Professional Sound System",
+              "name": "Horizon Charter Airways",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "234680",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "LocalPro Thailand Services",
+              "information": {
+                "status": "declined",
+                "unitPrice": "20410",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Pattaya Premier Coaches",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "227250",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "SkyBridge Airlines",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "224780",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Stellar Events Co.",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "220050",
+                "attachment": false,
+                "info": false
+              }
+            }
+          ]
+        },
+        {
+          "requirementLine": "LED Wall 24ft X 10ft",
+          "quantity": "1",
+          "unit": "lot",
+          "mandatory": false,
+          "content": [
+            {
+              "name": "Grand Marina Hotel",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "326150",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Sunset Bay Resort & Spa",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "344300",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Ocean Pearl Hotel Pattaya",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "335230",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "CityLine Transport",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "303330",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Destination Connect DMC",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "320100",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "EventSphere Productions",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "261530",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "GlobalVisa Facilitation",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "323130",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Horizon Charter Airways",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "329180",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "LocalPro Thailand Services",
+              "information": {
+                "status": "declined",
+                "unitPrice": "20410",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Pattaya Premier Coaches",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "338250",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "SkyBridge Airlines",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "341280",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Stellar Events Co.",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "281050",
+                "attachment": false,
+                "info": false
+              }
+            }
+          ]
+        },
+        {
+          "requirementLine": "Professional Sound System",
+          "quantity": "1",
+          "unit": "lot",
+          "mandatory": true,
+          "content": [
+            {
+              "name": "Grand Marina Hotel",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "173910",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Sunset Bay Resort & Spa",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "163020",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Ocean Pearl Hotel Pattaya",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "168470",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "CityLine Transport",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "171110",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Destination Connect DMC",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "177540",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "EventSphere Productions",
               "information": {
                 "status": "submitted",
                 "unitPrice": "153290",
@@ -2746,7 +2864,114 @@
               }
             },
             {
-              "requirementLine": "Event Photography and Highlight Video",
+              "name": "GlobalVisa Facilitation",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "175730",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Horizon Charter Airways",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "172100",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "LocalPro Thailand Services",
+              "information": {
+                "status": "declined",
+                "unitPrice": "20410",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Pattaya Premier Coaches",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "166650",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "SkyBridge Airlines",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "164840",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Stellar Events Co.",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "161370",
+                "attachment": false,
+                "info": false
+              }
+            }
+          ]
+        },
+        {
+          "requirementLine": "Event Photography and Highlight Video",
+          "quantity": "1",
+          "unit": "lot",
+          "mandatory": false,
+          "content": [
+            {
+              "name": "Grand Marina Hotel",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "171970",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Sunset Bay Resort & Spa",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "181540",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Ocean Pearl Hotel Pattaya",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "176760",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "CityLine Transport",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "159940",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Destination Connect DMC",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "177540",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "EventSphere Productions",
               "information": {
                 "status": "submitted",
                 "unitPrice": "137900",
@@ -2755,285 +2980,55 @@
               }
             },
             {
-              "requirementLine": "Tourist Visa Government Fee",
+              "name": "GlobalVisa Facilitation",
               "information": {
                 "status": "submitted",
-                "unitPrice": "8380",
+                "unitPrice": "170380",
                 "attachment": false,
                 "info": false
               }
             },
             {
-              "requirementLine": "Visa Processing and Service Fee",
+              "name": "Horizon Charter Airways",
               "information": {
                 "status": "submitted",
-                "unitPrice": "1940",
+                "unitPrice": "173570",
                 "attachment": false,
                 "info": false
               }
             },
             {
-              "requirementLine": "Travel Insurance",
+              "name": "LocalPro Thailand Services",
               "information": {
-                "status": "submitted",
-                "unitPrice": "1460",
+                "status": "declined",
+                "unitPrice": "20410",
                 "attachment": false,
                 "info": false
               }
             },
             {
-              "requirementLine": "Lead Local Coordinator",
+              "name": "Pattaya Premier Coaches",
               "information": {
                 "status": "submitted",
-                "unitPrice": "21530",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Assistant Coordinators",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "12370",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Airport Representatives",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "9890",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Local SIM Cards with Data",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "1940",
-                "attachment": false,
-                "info": false
-              }
-            }
-          ]
-        },
-        {
-          "name": "Stellar Events Co.",
-          "content": [
-            {
-              "requirementLine": "Deluxe Twin Room",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "20660",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Executive Suite",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "27660",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Extra Bed with Breakfast",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "5260",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Porterage and Welcome Drink",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "940",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Outbound Economy Class Airfare",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "35370",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Return Economy Class Airfare",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "29970",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Outbound Buisness Class Airfare",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "96800",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Group Air Ticketing and Manifest Management",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "850",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Arrival Airport Transfer by 45-Seater Coach",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "22960",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Departure Airport Transfer by 45-Seater Coach",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "18480",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Full-Day Coach Disposal",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "39710",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "VIP Sedan Airport Transfers",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "6490",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Gala Dinner Venue Rental",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "459900",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Stage, Backdrop and Basic Branding",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "220050",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "LED Wall 24ft X 10ft",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "281050",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Professional Sound System",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "161370",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Event Photography and Highlight Video",
-              "information": {
-                "status": "awaiting",
                 "unitPrice": "178350",
                 "attachment": false,
                 "info": false
               }
             },
             {
-              "requirementLine": "Tourist Visa Government Fee",
+              "name": "SkyBridge Airlines",
               "information": {
                 "status": "submitted",
-                "unitPrice": "8940",
+                "unitPrice": "179950",
                 "attachment": false,
                 "info": false
               }
             },
             {
-              "requirementLine": "Visa Processing and Service Fee",
+              "name": "Stellar Events Co.",
               "information": {
-                "status": "submitted",
-                "unitPrice": "1800",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Travel Insurance",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "1550",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Lead Local Coordinator",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "22960",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Assistant Coordinators",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "11490",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Airport Representatives",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "10550",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Local SIM Cards with Data",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "1800",
+                "status": "awaiting",
+                "unitPrice": "161370",
                 "attachment": false,
                 "info": false
               }
@@ -3046,163 +3041,67 @@
       "category": "Visa Management",
       "vendorsPrices": [
         {
-          "name": "GlobalVisa Facilitation",
+          "requirementLine": "Tourist Visa Government Fee",
+          "quantity": "120",
+          "unit": "pax",
+          "mandatory": true,
           "content": [
             {
-              "requirementLine": "Deluxe Twin Room",
+              "name": "Grand Marina Hotel",
               "information": {
                 "status": "submitted",
-                "unitPrice": "19750",
+                "unitPrice": "8460",
                 "attachment": false,
                 "info": false
               }
             },
             {
-              "requirementLine": "Executive Suite",
+              "name": "Sunset Bay Resort & Spa",
               "information": {
                 "status": "submitted",
-                "unitPrice": "29200",
+                "unitPrice": "9010",
                 "attachment": false,
                 "info": false
               }
             },
             {
-              "requirementLine": "Extra Bed with Breakfast",
+              "name": "Ocean Pearl Hotel Pattaya",
               "information": {
                 "status": "submitted",
-                "unitPrice": "5030",
+                "unitPrice": "8700",
                 "attachment": false,
                 "info": false
               }
             },
             {
-              "requirementLine": "Porterage and Welcome Drink",
+              "name": "CityLine Transport",
               "information": {
                 "status": "submitted",
-                "unitPrice": "990",
+                "unitPrice": "7360",
                 "attachment": false,
                 "info": false
               }
             },
             {
-              "requirementLine": "Outbound Economy Class Airfare",
+              "name": "Destination Connect DMC",
               "information": {
                 "status": "submitted",
-                "unitPrice": "34110",
+                "unitPrice": "7940",
                 "attachment": false,
                 "info": false
               }
             },
             {
-              "requirementLine": "Return Economy Class Airfare",
+              "name": "EventSphere Productions",
               "information": {
                 "status": "submitted",
-                "unitPrice": "31290",
+                "unitPrice": "8380",
                 "attachment": false,
                 "info": false
               }
             },
             {
-              "requirementLine": "Outbound Buisness Class Airfare",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "93370",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Group Air Ticketing and Manifest Management",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "890",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Arrival Airport Transfer by 45-Seater Coach",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "21940",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Departure Airport Transfer by 45-Seater Coach",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "19500",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Full-Day Coach Disposal",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "37950",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "VIP Sedan Airport Transfers",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "6850",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Gala Dinner Venue Rental",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "528750",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Stage, Backdrop and Basic Branding",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "239630",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "LED Wall 24ft X 10ft",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "345749",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Professional Sound System",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "188031",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Event Photography and Highlight Video",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "170380",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Tourist Visa Government Fee",
+              "name": "GlobalVisa Facilitation",
               "information": {
                 "status": "submitted",
                 "unitPrice": "6850",
@@ -3211,7 +3110,114 @@
               }
             },
             {
-              "requirementLine": "Visa Processing and Service Fee",
+              "name": "Horizon Charter Airways",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "8540",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "LocalPro Thailand Services",
+              "information": {
+                "status": "declined",
+                "unitPrice": "20410",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Pattaya Premier Coaches",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "8780",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "SkyBridge Airlines",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "8860",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Stellar Events Co.",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "8940",
+                "attachment": false,
+                "info": false
+              }
+            }
+          ]
+        },
+        {
+          "requirementLine": "Visa Processing and Service Fee",
+          "quantity": "120",
+          "unit": "pax",
+          "mandatory": true,
+          "content": [
+            {
+              "name": "Grand Marina Hotel",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "1920",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Sunset Bay Resort & Spa",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "1780",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Ocean Pearl Hotel Pattaya",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "8700",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "CityLine Transport",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "1760",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Destination Connect DMC",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "1870",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "EventSphere Productions",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "1940",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "GlobalVisa Facilitation",
               "information": {
                 "status": "submitted",
                 "unitPrice": "1670",
@@ -3220,7 +3226,114 @@
               }
             },
             {
-              "requirementLine": "Travel Insurance",
+              "name": "Horizon Charter Airways",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "1900",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "LocalPro Thailand Services",
+              "information": {
+                "status": "declined",
+                "unitPrice": "20410",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Pattaya Premier Coaches",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "1840",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "SkyBridge Airlines",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "1820",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Stellar Events Co.",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "1800",
+                "attachment": false,
+                "info": false
+              }
+            }
+          ]
+        },
+        {
+          "requirementLine": "Travel Insurance",
+          "quantity": "120",
+          "unit": "pax",
+          "mandatory": false,
+          "content": [
+            {
+              "name": "Grand Marina Hotel",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "1460",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Sunset Bay Resort & Spa",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "1470",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Ocean Pearl Hotel Pattaya",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "1510",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "CityLine Transport",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "1280",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Destination Connect DMC",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "1380",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "EventSphere Productions",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "1460",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "GlobalVisa Facilitation",
               "information": {
                 "status": "submitted",
                 "unitPrice": "1190",
@@ -3229,37 +3342,46 @@
               }
             },
             {
-              "requirementLine": "Lead Local Coordinator",
+              "name": "Horizon Charter Airways",
               "information": {
                 "status": "submitted",
-                "unitPrice": "21740",
+                "unitPrice": "1480",
                 "attachment": false,
                 "info": false
               }
             },
             {
-              "requirementLine": "Assistant Coordinators",
+              "name": "LocalPro Thailand Services",
               "information": {
-                "status": "submitted",
-                "unitPrice": "12250",
+                "status": "declined",
+                "unitPrice": "20410",
                 "attachment": false,
                 "info": false
               }
             },
             {
-              "requirementLine": "Airport Representatives",
+              "name": "Pattaya Premier Coaches",
               "information": {
                 "status": "submitted",
-                "unitPrice": "9990",
+                "unitPrice": "1520",
                 "attachment": false,
                 "info": false
               }
             },
             {
-              "requirementLine": "Local SIM Cards with Data",
+              "name": "SkyBridge Airlines",
               "information": {
                 "status": "submitted",
-                "unitPrice": "1920",
+                "unitPrice": "1540",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Stellar Events Co.",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "1550",
                 "attachment": false,
                 "info": false
               }
@@ -3272,190 +3394,49 @@
       "category": "Local Liaison",
       "vendorsPrices": [
         {
-          "name": "Destination Connect DMC",
+          "requirementLine": "Lead Local Coordinator",
+          "quantity": "5",
+          "unit": "day",
+          "mandatory": true,
           "content": [
             {
-              "requirementLine": "Deluxe Twin Room",
+              "name": "Grand Marina Hotel",
               "information": {
                 "status": "submitted",
-                "unitPrice": "19390",
+                "unitPrice": "21940",
                 "attachment": false,
                 "info": false
               }
             },
             {
-              "requirementLine": "Executive Suite",
+              "name": "Sunset Bay Resort & Spa",
               "information": {
                 "status": "submitted",
-                "unitPrice": "29820",
+                "unitPrice": "23160",
                 "attachment": false,
                 "info": false
               }
             },
             {
-              "requirementLine": "Extra Bed with Breakfast",
+              "name": "Ocean Pearl Hotel Pattaya",
               "information": {
                 "status": "submitted",
-                "unitPrice": "4940",
+                "unitPrice": "22350",
                 "attachment": false,
                 "info": false
               }
             },
             {
-              "requirementLine": "Porterage and Welcome Drink",
+              "name": "CityLine Transport",
               "information": {
                 "status": "submitted",
-                "unitPrice": "1010",
+                "unitPrice": "20410",
                 "attachment": false,
                 "info": false
               }
             },
             {
-              "requirementLine": "Outbound Economy Class Airfare",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "33490",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Return Economy Class Airfare",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "31950",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Outbound Buisness Class Airfare",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "91650",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Group Air Ticketing and Manifest Management",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "910",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Arrival Airport Transfer by 45-Seater Coach",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "21530",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Departure Airport Transfer by 45-Seater Coach",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "19910",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Full-Day Coach Disposal",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "37250",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "VIP Sedan Airport Transfers",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "6990",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Gala Dinner Venue Rental",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "523800",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Stage, Backdrop and Basic Branding",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "242100",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "LED Wall 24ft X 10ft",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "320100",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Professional Sound System",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "177540",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Event Photography and Highlight Video",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "168780",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Tourist Visa Government Fee",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "7940",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Visa Processing and Service Fee",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "1870",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Travel Insurance",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "1380",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Lead Local Coordinator",
+              "name": "Destination Connect DMC",
               "information": {
                 "status": "submitted",
                 "unitPrice": "17590",
@@ -3464,7 +3445,114 @@
               }
             },
             {
-              "requirementLine": "Assistant Coordinators",
+              "name": "EventSphere Productions",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "21530",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "GlobalVisa Facilitation",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "21740",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Horizon Charter Airways",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "22140",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "LocalPro Thailand Services",
+              "information": {
+                "status": "declined",
+                "unitPrice": "20410",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Pattaya Premier Coaches",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "22550",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "SkyBridge Airlines",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "22760",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Stellar Events Co.",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "22960",
+                "attachment": false,
+                "info": false
+              }
+            }
+          ]
+        },
+        {
+          "requirementLine": "Assistant Coordinators",
+          "quantity": "10",
+          "unit": "day",
+          "mandatory": false,
+          "content": [
+            {
+              "name": "Grand Marina Hotel",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "12120",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Sunset Bay Resort & Spa",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "11360",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Ocean Pearl Hotel Pattaya",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "11870",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "CityLine Transport",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "11930",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Destination Connect DMC",
               "information": {
                 "status": "submitted",
                 "unitPrice": "10680",
@@ -3473,7 +3561,114 @@
               }
             },
             {
-              "requirementLine": "Airport Representatives",
+              "name": "EventSphere Productions",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "12370",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "GlobalVisa Facilitation",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "12250",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Horizon Charter Airways",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "11990",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "LocalPro Thailand Services",
+              "information": {
+                "status": "declined",
+                "unitPrice": "20410",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Pattaya Premier Coaches",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "11740",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "SkyBridge Airlines",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "11620",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Stellar Events Co.",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "11490",
+                "attachment": false,
+                "info": false
+              }
+            }
+          ]
+        },
+        {
+          "requirementLine": "Airport Representatives",
+          "quantity": "15",
+          "unit": "shift",
+          "mandatory": false,
+          "content": [
+            {
+              "name": "Grand Marina Hotel",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "10080",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Sunset Bay Resort & Spa",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "10640",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Ocean Pearl Hotel Pattaya",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "10270",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "CityLine Transport",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "9380",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Destination Connect DMC",
               "information": {
                 "status": "submitted",
                 "unitPrice": "8080",
@@ -3482,231 +3677,180 @@
               }
             },
             {
-              "requirementLine": "Local SIM Cards with Data",
+              "name": "EventSphere Productions",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "9890",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "GlobalVisa Facilitation",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "9990",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Horizon Charter Airways",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "10170",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "LocalPro Thailand Services",
+              "information": {
+                "status": "declined",
+                "unitPrice": "20410",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Pattaya Premier Coaches",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "10360",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "SkyBridge Airlines",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "10460",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Stellar Events Co.",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "10550",
+                "attachment": false,
+                "info": false
+              }
+            }
+          ]
+        },
+        {
+          "requirementLine": "Local SIM Cards with Data",
+          "quantity": "15",
+          "unit": "unit",
+          "mandatory": false,
+          "content": [
+            {
+              "name": "Grand Marina Hotel",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "1900",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Sunset Bay Resort & Spa",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "1780",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Ocean Pearl Hotel Pattaya",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "1860",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "CityLine Transport",
+              "information": {
+                "status": "submitted",
+                "unitPrice": "1870",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Destination Connect DMC",
               "information": {
                 "status": "submitted",
                 "unitPrice": "1670",
                 "attachment": true,
                 "info": true
               }
-            }
-          ]
-        },
-        {
-          "name": "LocalPro Thailand Services",
-          "content": [
-            {
-              "requirementLine": "Deluxe Twin Room",
-              "information": {
-                "status": "declined",
-                "unitPrice": "20660",
-                "attachment": false,
-                "info": false
-              }
             },
             {
-              "requirementLine": "Executive Suite",
-              "information": {
-                "status": "declined",
-                "unitPrice": "27660",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Extra Bed with Breakfast",
-              "information": {
-                "status": "declined",
-                "unitPrice": "5260",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Porterage and Welcome Drink",
-              "information": {
-                "status": "declined",
-                "unitPrice": "940",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Outbound Economy Class Airfare",
-              "information": {
-                "status": "declined",
-                "unitPrice": "35370",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Return Economy Class Airfare",
+              "name": "EventSphere Productions",
               "information": {
                 "status": "submitted",
-                "unitPrice": "declined",
+                "unitPrice": "1940",
                 "attachment": false,
                 "info": false
               }
             },
             {
-              "requirementLine": "Outbound Buisness Class Airfare",
+              "name": "GlobalVisa Facilitation",
               "information": {
                 "status": "submitted",
-                "unitPrice": "declined",
+                "unitPrice": "1920",
                 "attachment": false,
                 "info": false
               }
             },
             {
-              "requirementLine": "Group Air Ticketing and Manifest Management",
+              "name": "Horizon Charter Airways",
               "information": {
                 "status": "submitted",
-                "unitPrice": "declined",
+                "unitPrice": "1880",
                 "attachment": false,
                 "info": false
               }
             },
             {
-              "requirementLine": "Arrival Airport Transfer by 45-Seater Coach",
+              "name": "LocalPro Thailand Services",
+              "information": {
+                "status": "declined",
+                "unitPrice": "20410",
+                "attachment": false,
+                "info": false
+              }
+            },
+            {
+              "name": "Pattaya Premier Coaches",
               "information": {
                 "status": "submitted",
-                "unitPrice": "declined",
+                "unitPrice": "1840",
                 "attachment": false,
                 "info": false
               }
             },
             {
-              "requirementLine": "Departure Airport Transfer by 45-Seater Coach",
+              "name": "SkyBridge Airlines",
               "information": {
                 "status": "submitted",
-                "unitPrice": "declined",
+                "unitPrice": "10460",
                 "attachment": false,
                 "info": false
               }
             },
             {
-              "requirementLine": "Full-Day Coach Disposal",
+              "name": "Stellar Events Co.",
               "information": {
                 "status": "submitted",
-                "unitPrice": "declined",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "VIP Sedan Airport Transfers",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "declined",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Gala Dinner Venue Rental",
-              "information": {
-                "status": "submitted",
-                "unitPrice": "declined",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Stage, Backdrop and Basic Branding",
-              "information": {
-                "status": "declined",
-                "unitPrice": "220050",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "LED Wall 24ft X 10ft",
-              "information": {
-                "status": "declined",
-                "unitPrice": "281050",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Professional Sound System",
-              "information": {
-                "status": "declined",
-                "unitPrice": "161370",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Event Photography and Highlight Video",
-              "information": {
-                "status": "declined",
-                "unitPrice": "178350",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Tourist Visa Government Fee",
-              "information": {
-                "status": "declined",
-                "unitPrice": "8940",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Visa Processing and Service Fee",
-              "information": {
-                "status": "declined",
-                "unitPrice": "1800",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Travel Insurance",
-              "information": {
-                "status": "declined",
-                "unitPrice": "1550",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Lead Local Coordinator",
-              "information": {
-                "status": "declined",
-                "unitPrice": "22960",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Assistant Coordinators",
-              "information": {
-                "status": "declined",
-                "unitPrice": "11490",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Airport Representatives",
-              "information": {
-                "status": "declined",
                 "unitPrice": "10550",
-                "attachment": false,
-                "info": false
-              }
-            },
-            {
-              "requirementLine": "Local SIM Cards with Data",
-              "information": {
-                "status": "declined",
-                "unitPrice": "1800",
                 "attachment": false,
                 "info": false
               }
@@ -3714,754 +3858,6 @@
           ]
         }
       ]
-    }
-  ],
-  "vendorResponses": [
-    {
-      "name": "Hotels",
-      "margin": "12",
-      "quotationComparison": {
-        "vendors": [
-          {
-            "name": "Grand Marina Hotel",
-            "type": "submitted",
-            "time": "on time"
-          },
-          {
-            "name": "Sunset Bay Resort & Spa",
-            "type": "submitted",
-            "time": "on time"
-          },
-          {
-            "name": "Ocean Pearl Hotel Pattaya",
-            "type": "submitted",
-            "time": "on time"
-          }
-        ],
-        "tableData": {
-          "data": [
-            {
-              "name": "Deluxe Twin Room",
-              "quantity": "180",
-              "unit": "room-nights",
-              "mandatory": true,
-              "quotations": [
-                {
-                  "status": "submitted",
-                  "vendorName": "Grand Marina Hotel",
-                  "unitPrice": "15690",
-                  "tax": "7",
-                  "total": "3021894",
-                  "attachment": true,
-                  "info": true
-                },
-                {
-                  "status": "submitted",
-                  "vendorName": "Sunset Bay Resort & Spa",
-                  "unitPrice": "16860",
-                  "tax": "7",
-                  "total": "3247236",
-                  "attachment": false,
-                  "info": false
-                },
-                {
-                  "status": "submitted",
-                  "vendorName": "Ocean Pearl Hotel Pattaya",
-                  "unitPrice": "18200",
-                  "tax": "7",
-                  "total": "3505320",
-                  "attachment": false,
-                  "info": false
-                }
-              ]
-            },
-            {
-              "name": "Executive Suite",
-              "quantity": "20",
-              "unit": "room-nights",
-              "mandatory": false,
-              "quotations": [
-                {
-                  "status": "submitted",
-                  "vendorName": "Grand Marina Hotel",
-                  "unitPrice": "26010",
-                  "tax": "7",
-                  "total": "556614",
-                  "attachment": true,
-                  "info": true
-                },
-                {
-                  "status": "submitted",
-                  "vendorName": "Sunset Bay Resort & Spa",
-                  "unitPrice": "27380",
-                  "tax": "7",
-                  "total": "585932",
-                  "attachment": false,
-                  "info": false
-                },
-                {
-                  "status": "submitted",
-                  "vendorName": "Ocean Pearl Hotel Pattaya",
-                  "unitPrice": "29040",
-                  "tax": "7",
-                  "total": "621456",
-                  "attachment": false,
-                  "info": false
-                }
-              ]
-            },
-            {
-              "name": "Extra Bed with Breakfast",
-              "quantity": "40",
-              "unit": "bed-nights",
-              "mandatory": false,
-              "quotations": [
-                {
-                  "status": "submitted",
-                  "vendorName": "Grand Marina Hotel",
-                  "unitPrice": "3990",
-                  "tax": "7",
-                  "total": "170772",
-                  "attachment": true,
-                  "info": true
-                },
-                {
-                  "status": "submitted",
-                  "vendorName": "Sunset Bay Resort & Spa",
-                  "unitPrice": "4290",
-                  "tax": "7",
-                  "total": "183612",
-                  "attachment": false,
-                  "info": false
-                },
-                {
-                  "status": "submitted",
-                  "vendorName": "Ocean Pearl Hotel Pattaya",
-                  "unitPrice": "4630",
-                  "tax": "7",
-                  "total": "198164",
-                  "attachment": false,
-                  "info": false
-                }
-              ]
-            },
-            {
-              "name": "Porterage and Welcome Drink",
-              "quantity": "100",
-              "unit": "pax",
-              "mandatory": false,
-              "quotations": [
-                {
-                  "status": "submitted",
-                  "vendorName": "Grand Marina Hotel",
-                  "unitPrice": "880",
-                  "tax": "7",
-                  "total": "94160",
-                  "attachment": true,
-                  "info": true
-                },
-                {
-                  "status": "submitted",
-                  "vendorName": "Sunset Bay Resort & Spa",
-                  "unitPrice": "930",
-                  "tax": "7",
-                  "total": "99510",
-                  "attachment": false,
-                  "info": false
-                },
-                {
-                  "status": "submitted",
-                  "vendorName": "Ocean Pearl Hotel Pattaya",
-                  "unitPrice": "990",
-                  "tax": "7",
-                  "total": "105930",
-                  "attachment": false,
-                  "info": false
-                }
-              ]
-            }
-          ]
-        }
-      },
-      "clarifications": false
-    },
-    {
-      "name": "Flights",
-      "margin": "8",
-      "quotationComparison": {
-        "vendors": [
-          {
-            "name": "SkyBridge Airlines",
-            "type": "submitted",
-            "time": "on time"
-          },
-          {
-            "name": "Horizon Charter Airways",
-            "type": "submitted",
-            "time": "on time"
-          }
-        ],
-        "tableData": {
-          "data": [
-            {
-              "name": "Outbound Economy Class Airfare",
-              "quantity": "114",
-              "unit": "pax",
-              "mandatory": true,
-              "quotations": [
-                {
-                  "status": "submitted",
-                  "vendorName": "SkyBridge Airlines",
-                  "unitPrice": "27100",
-                  "tax": "7",
-                  "total": "3305658",
-                  "attachment": true,
-                  "info": true
-                },
-                {
-                  "status": "submitted",
-                  "vendorName": "Horizon Charter Airways",
-                  "unitPrice": "29130",
-                  "tax": "7",
-                  "total": "3553277",
-                  "attachment": false,
-                  "info": false
-                }
-              ]
-            },
-            {
-              "name": "Return Economy Class Airfare",
-              "quantity": "114",
-              "unit": "pax",
-              "mandatory": true,
-              "quotations": [
-                {
-                  "status": "submitted",
-                  "vendorName": "SkyBridge Airlines",
-                  "unitPrice": "27870",
-                  "tax": "7",
-                  "total": "3399583",
-                  "attachment": true,
-                  "info": true
-                },
-                {
-                  "status": "submitted",
-                  "vendorName": "Horizon Charter Airways",
-                  "unitPrice": "29340",
-                  "tax": "7",
-                  "total": "3578893",
-                  "attachment": false,
-                  "info": false
-                }
-              ]
-            },
-            {
-              "name": "Outbound Business Class Airfare",
-              "quantity": "6",
-              "unit": "pax",
-              "mandatory": false,
-              "quotations": [
-                {
-                  "status": "submitted",
-                  "vendorName": "SkyBridge Airlines",
-                  "unitPrice": "74180",
-                  "tax": "7",
-                  "total": "476236",
-                  "attachment": true,
-                  "info": true
-                },
-                {
-                  "status": "submitted",
-                  "vendorName": "Horizon Charter Airways",
-                  "unitPrice": "79720",
-                  "tax": "7",
-                  "total": "511802",
-                  "attachment": false,
-                  "info": false
-                }
-              ]
-            },
-            {
-              "name": "Group Air Ticketing and Manifest Management",
-              "quantity": "120",
-              "unit": "pax",
-              "mandatory": true,
-              "quotations": [
-                {
-                  "status": "submitted",
-                  "vendorName": "SkyBridge Airlines",
-                  "unitPrice": "790",
-                  "tax": "7",
-                  "total": "101436",
-                  "attachment": true,
-                  "info": true
-                },
-                {
-                  "status": "submitted",
-                  "vendorName": "Horizon Charter Airways",
-                  "unitPrice": "830",
-                  "tax": "7",
-                  "total": "106572",
-                  "attachment": false,
-                  "info": false
-                }
-              ]
-            }
-          ]
-        }
-      },
-      "clarifications": true
-    },
-    {
-      "name": "Group Transportation",
-      "margin": "12",
-      "quotationComparison": {
-        "vendors": [
-          {
-            "name": "CityLine Transport",
-            "type": "submitted",
-            "time": "on time"
-          },
-          {
-            "name": "Pattaya Premier Coaches",
-            "type": "submitted",
-            "time": "late"
-          }
-        ],
-        "tableData": {
-          "data": [
-            {
-              "name": "Arrival Airport Transfer by 45-Seater Coach",
-              "quantity": "3",
-              "unit": "coach",
-              "mandatory": true,
-              "quotations": [
-                {
-                  "status": "submitted",
-                  "vendorName": "CityLine Transport",
-                  "unitPrice": "17590",
-                  "tax": "7",
-                  "total": "56464",
-                  "attachment": true,
-                  "info": true
-                },
-                {
-                  "status": "submitted",
-                  "vendorName": "Pattaya Premier Coaches",
-                  "unitPrice": "18910",
-                  "tax": "7",
-                  "total": "60701",
-                  "attachment": false,
-                  "info": false
-                }
-              ]
-            },
-            {
-              "name": "Departure Airport Transfer by 45-Seater Coach",
-              "quantity": "3",
-              "unit": "coach",
-              "mandatory": true,
-              "quotations": [
-                {
-                  "status": "submitted",
-                  "vendorName": "CityLine Transport",
-                  "unitPrice": "17190",
-                  "tax": "7",
-                  "total": "55180",
-                  "attachment": true,
-                  "info": true
-                },
-                {
-                  "status": "submitted",
-                  "vendorName": "Pattaya Premier Coaches",
-                  "unitPrice": "18090",
-                  "tax": "7",
-                  "total": "58069",
-                  "attachment": false,
-                  "info": false
-                }
-              ]
-            },
-            {
-              "name": "Full-Day Coach Disposal",
-              "quantity": "6",
-              "unit": "coach-day",
-              "mandatory": false,
-              "quotations": [
-                {
-                  "status": "submitted",
-                  "vendorName": "CityLine Transport",
-                  "unitPrice": "30430",
-                  "tax": "7",
-                  "total": "195361",
-                  "attachment": true,
-                  "info": true
-                },
-                {
-                  "status": "submitted",
-                  "vendorName": "Pattaya Premier Coaches",
-                  "unitPrice": "32700",
-                  "tax": "7",
-                  "total": "209934",
-                  "attachment": false,
-                  "info": false
-                }
-              ]
-            },
-            {
-              "name": "VIP Sedan Airport Tranfers",
-              "quantity": "12",
-              "unit": "trip",
-              "mandatory": false,
-              "quotations": [
-                {
-                  "status": "submitted",
-                  "vendorName": "CityLine Transport",
-                  "unitPrice": "6040",
-                  "tax": "7",
-                  "total": "77554",
-                  "attachment": true,
-                  "info": true
-                },
-                {
-                  "status": "submitted",
-                  "vendorName": "Pattaya Premier Coaches",
-                  "unitPrice": "6360",
-                  "tax": "7",
-                  "total": "81662",
-                  "attachment": false,
-                  "info": false
-                }
-              ]
-            }
-          ]
-        }
-      },
-      "clarifications": false
-    },
-    {
-      "name": "Event Management including AV",
-      "margin": "16",
-      "quotationComparison": {
-        "vendors": [
-          {
-            "name": "EventSphere Productions",
-            "type": "submitted",
-            "time": "on time"
-          },
-          {
-            "name": "Stellar Events Co.",
-            "type": "partially submitted",
-            "time": "on time"
-          }
-        ],
-        "tableData": {
-          "data": [
-            {
-              "name": "Gala Dinner Venue Rental",
-              "quantity": "1",
-              "unit": "lot",
-              "mandatory": true,
-              "quotations": [
-                {
-                  "status": "submitted",
-                  "vendorName": "EventSphere Productions",
-                  "unitPrice": "427950",
-                  "tax": "7",
-                  "total": "457907",
-                  "attachment": true,
-                  "info": true
-                },
-                {
-                  "status": "submitted",
-                  "vendorName": "Stellar Events Co.",
-                  "unitPrice": "459900",
-                  "tax": "7",
-                  "total": "492093",
-                  "attachment": false,
-                  "info": false
-                }
-              ]
-            },
-            {
-              "name": "Stage, Backdrop and Basic Branding",
-              "quantity": "1",
-              "unit": "lot",
-              "mandatory": true,
-              "quotations": [
-                {
-                  "status": "submitted",
-                  "vendorName": "EventSphere Productions",
-                  "unitPrice": "209030",
-                  "tax": "7",
-                  "total": "223662",
-                  "attachment": true,
-                  "info": true
-                },
-                {
-                  "status": "submitted",
-                  "vendorName": "Stellar Events Co.",
-                  "unitPrice": "220050",
-                  "tax": "7",
-                  "total": "235454",
-                  "attachment": false,
-                  "info": false
-                }
-              ]
-            },
-            {
-              "name": "LED Wall 24ft X 10ft",
-              "quantity": "1",
-              "unit": "lot",
-              "mandatory": false,
-              "quotations": [
-                {
-                  "status": "submitted",
-                  "vendorName": "EventSphere Productions",
-                  "unitPrice": "261530",
-                  "tax": "7",
-                  "total": "279837",
-                  "attachment": true,
-                  "info": true
-                },
-                {
-                  "status": "submitted",
-                  "vendorName": "Stellar Events Co.",
-                  "unitPrice": "281050",
-                  "tax": "7",
-                  "total": "300724",
-                  "attachment": false,
-                  "info": false
-                }
-              ]
-            },
-            {
-              "name": "Professional Sound System",
-              "quantity": "1",
-              "unit": "lot",
-              "mandatory": true,
-              "quotations": [
-                {
-                  "status": "submitted",
-                  "vendorName": "EventSphere Productions",
-                  "unitPrice": "153290",
-                  "tax": "7",
-                  "total": "164020",
-                  "attachment": true,
-                  "info": true
-                },
-                {
-                  "status": "submitted",
-                  "vendorName": "Stellar Events Co.",
-                  "unitPrice": "161370",
-                  "tax": "7",
-                  "total": "172666",
-                  "attachment": false,
-                  "info": false
-                }
-              ]
-            },
-            {
-              "name": "Event Photography and Highlight Video",
-              "quantity": "1",
-              "unit": "lot",
-              "mandatory": false,
-              "quotations": [
-                {
-                  "status": "submitted",
-                  "vendorName": "EventSphere Productions",
-                  "unitPrice": "137900",
-                  "tax": "7",
-                  "total": "147553",
-                  "attachment": true,
-                  "info": true
-                },
-                {
-                  "status": "awaiting",
-                  "vendorName": "Stellar Events Co."
-                }
-              ]
-            }
-          ]
-        }
-      },
-      "clarifications": false
-    },
-    {
-      "name": "Visa Management",
-      "margin": "10",
-      "quotationComparison": {
-        "vendors": [
-          {
-            "name": "GlobalVisa Facilitation",
-            "type": "submitted",
-            "time": "on time"
-          }
-        ],
-        "tableData": {
-          "data": [
-            {
-              "name": "Tourist Visa Government Fee",
-              "quantity": "120",
-              "unit": "pax",
-              "mandatory": true,
-              "quotations": [
-                {
-                  "status": "submitted",
-                  "vendorName": "GlobalVisa Facilitation",
-                  "unitPrice": "7280",
-                  "tax": "7",
-                  "total": "934752",
-                  "attachment": true,
-                  "info": true
-                }
-              ]
-            },
-            {
-              "name": "Visa Processing and Service Fee",
-              "quantity": "120",
-              "unit": "pax",
-              "mandatory": true,
-              "quotations": [
-                {
-                  "status": "submitted",
-                  "vendorName": "GlobalVisa Facilitation",
-                  "unitPrice": "1780",
-                  "tax": "7",
-                  "total": "228552",
-                  "attachment": true,
-                  "info": true
-                }
-              ]
-            },
-            {
-              "name": "Travel Insurance",
-              "quantity": "120",
-              "unit": "pax",
-              "mandatory": false,
-              "quotations": [
-                {
-                  "status": "submitted",
-                  "vendorName": "GlobalVisa Facilitation",
-                  "unitPrice": "1260",
-                  "tax": "7",
-                  "total": "161784",
-                  "attachment": true,
-                  "info": true
-                }
-              ]
-            }
-          ]
-        }
-      },
-      "clarifications": false
-    },
-    {
-      "name": "Local Liaison",
-      "margin": "15",
-      "quotationComparison": {
-        "vendors": [
-          {
-            "name": "Destination Connect DMC",
-            "type": "submitted",
-            "time": "on time"
-          },
-          {
-            "name": "LocalPro Thailand Services",
-            "type": "declined",
-            "time": "on time"
-          }
-        ],
-        "tableData": {
-          "data": [
-            {
-              "name": "Lead Local Coordinator",
-              "quantity": "5",
-              "unit": "day",
-              "mandatory": true,
-              "quotations": [
-                {
-                  "status": "submitted",
-                  "vendorName": "Destination Connect DMC",
-                  "unitPrice": "17590",
-                  "tax": "7",
-                  "total": "94107",
-                  "attachment": true,
-                  "info": true
-                },
-                {
-                  "status": "declined",
-                  "vendorName": "LocalPro Thailand Services"
-                }
-              ]
-            },
-            {
-              "name": "Assistant Coordinators",
-              "quantity": "10",
-              "unit": "day",
-              "mandatory": false,
-              "quotations": [
-                {
-                  "status": "submitted",
-                  "vendorName": "Destination Connect DMC",
-                  "unitPrice": "10680",
-                  "tax": "7",
-                  "total": "114276",
-                  "attachment": true,
-                  "info": true
-                },
-                {
-                  "status": "declined",
-                  "vendorName": "LocalPro Thailand Services"
-                }
-              ]
-            },
-            {
-              "name": "Airport Representatives",
-              "quantity": "12",
-              "unit": "shift",
-              "mandatory": false,
-              "quotations": [
-                {
-                  "status": "submitted",
-                  "vendorName": "Destination Connect DMC",
-                  "unitPrice": "8080",
-                  "tax": "7",
-                  "total": "103747",
-                  "attachment": true,
-                  "info": true
-                },
-                {
-                  "status": "declined",
-                  "vendorName": "LocalPro Thailand Services"
-                }
-              ]
-            },
-            {
-              "name": "Local SIM Cards with Data",
-              "quantity": "15",
-              "unit": "unit",
-              "mandatory": false,
-              "quotations": [
-                {
-                  "status": "submitted",
-                  "vendorName": "Destination Connect DMC",
-                  "unitPrice": "1670",
-                  "tax": "7",
-                  "total": "26804",
-                  "attachment": true,
-                  "info": true
-                },
-                {
-                  "status": "declined",
-                  "vendorName": "LocalPro Thailand Services"
-                }
-              ]
-            }
-          ]
-        }
-      },
-      "clarifications": false
     }
   ]
 }

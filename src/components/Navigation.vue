@@ -2,9 +2,11 @@
 import { RouterLink, useRoute } from "vue-router";
 import { useFlagsStore } from "@/store/flag";
 import { useHistoryStore } from "@/store/auditHistory";
+import { useVendorStore } from "@/store/requirementsVendor";
 const route = useRoute();
 const flags = useFlagsStore();
 const historyStore = useHistoryStore();
+const vendorsStore = useVendorStore();
 </script>
 
 <template>
@@ -48,7 +50,7 @@ const historyStore = useHistoryStore();
           :class="
             route.name === 'vendorResponses' ? 'bg-[#5b4fe0]' : 'bg-[#9ba0c0]'
           "
-          >12</span
+          >{{ vendorsStore.totalVendors }}</span
         >
       </div></RouterLink
     >

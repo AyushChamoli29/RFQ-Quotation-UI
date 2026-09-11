@@ -1,28 +1,49 @@
 <script setup>
-import { defineProps } from "vue";
+import Data from "@/data/mockData.json";
+import { computed, defineProps, onMounted } from "vue";
 import VendorSelection from "./VendorSelection.vue";
+import { useFlagsStore } from "@/store/flag.js";
+import { useHistoryStore } from "@/store/auditHistory.js";
+import { useVendorStore } from "@/store/requirementsVendor.js";
+import VendorResponsesEntry from "./VendorResponsesEntry.vue";
+const flags = useFlagsStore();
+const historyStore = useHistoryStore();
+const vendorsStore = useVendorStore();
 const prop = defineProps({
   data: Object,
 });
+// console.log(vendorsStore.currentVendors);
+const vendorsToBeDisplayed = computed(() => {
+  let vendorSelected = [];
+  for (const element of vendorsStore.currentVendors) {
+    if (element.type === prop.data.category) {
+      vendorSelected = element.VendorList;
+    }
+  }
+  vendorSelected = vendorSelected.map((item) => {
+    for (const element of Data.vendor_portal) {
+      if (element.id === item) {
+        return element.name;
+      }
+    }
+  });
+  return vendorSelected;
+});
+console.log(vendorsToBeDisplayed.value);
 </script>
 
 <template>
   <!-- Heading -->
   <div class="flex justify-between px-5 py-4">
     <div class="text-[#6b7090] text-[13px] font-bold">
-      {{ prop.data.name.toUpperCase() }} &mdash; QUOTATION COMPARISON
+      {{ prop.data.category.toUpperCase() }} &mdash; QUOTATION COMPARISON
     </div>
-    <div class="flex gap-3 text-xs">
+    <div class="flex gap-3 text-xs" v-if="vendorsToBeDisplayed.length">
       <div
-        v-for="item in prop.data.quotationComparison.vendors"
+        v-for="item in vendorsToBeDisplayed"
         class="bg-[#e1f6f1] text-[#0d8f7a] text-[11px] font-bold p-1 px-2 rounded-4xl h-max"
-        :class="{
-          'bg-[#fdf1de] text-[#b46a06]': item.type === 'partially submitted',
-          'bg-[#fbe6e8] text-[#c02d3c]': item.type === 'declined',
-        }"
       >
-        {{ item.name }}: <span>{{ item.type }}</span> {{ " "
-        }}<span v-if="item.time !== 'on time'">{{ item.time }}</span>
+        {{ item }}
       </div>
     </div>
   </div>
@@ -32,82 +53,40 @@ const prop = defineProps({
       <thead>
         <tr class="text-[#6b7090] text-[11px] text-left">
           <th class="p-2">PARTICULAR</th>
-          <th
-            v-for="item in prop.data.quotationComparison.vendors"
-            class="px-2"
-          >
-            {{ item.name.toUpperCase() }}
+          <th v-for="item in vendorsToBeDisplayed" class="px-2">
+            {{ item.toUpperCase() }}
           </th>
         </tr>
       </thead>
       <tbody>
         <tr
-          v-for="item in prop.data.quotationComparison.tableData.data"
+          v-for="item in prop.data.vendorsPrices"
           class="text-left text-xs border-t border-slate-200"
         >
           <td class="py-5 px-2">
-            <span class="font-bold">{{ item.name }}</span> <br />
+            <span class="font-bold">{{ item.requirementLine }}</span> <br />
             <span class="text-[#6b7090]"
               >QTY {{ item.quantity }} {{ item.unit }}
               <span v-if="item.mandatory">&middot; mandatory</span></span
             >
           </td>
-          <td
-            v-for="(entry, index) in item.quotations"
-            class="px-2"
-            :class="{
-              'bg-[#e1f6f1] border border-[#bfe9de]': index === 0,
-              'bg-[#fbfaef] border border-slate-200': index === 1,
-              'bg-white': entry.status !== 'submitted',
-            }"
-          >
-            <div v-if="entry.status === 'submitted'">
-              <span class="font-bold font-mono">{{
-                Number(entry.total).toLocaleString("en-IN", {
-                  style: "currency",
-                  currency: "INR",
-                  minimumFractionDigits: 0,
-                })
-              }}</span>
-              <br />
-              <span class="text-[#6b7090]"
-                ><span class="font-mono">{{
-                  Number(entry.unitPrice).toLocaleString("en-IN", {
-                    style: "currency",
-                    currency: "INR",
-                    minimumFractionDigits: 0,
-                  })
-                }}</span
-                >/{{ item.unit }} &middot; tax {{ entry.tax }}%
-                <span v-if="entry.attachment">&middot; 📎</span>
-                <br />
-                {{ entry.info ? "Standard group terms apply." : "" }}</span
-              >
-            </div>
-            <div
-              v-else-if="entry.status === 'awaiting'"
-              class="text-[#9ba0c0] italic text-[13px]"
-            >
-              Awaiting
-            </div>
-            <div
-              v-else-if="entry.status === 'declined'"
-              class="text-[#9ba0c0] italic text-[13px]"
-            >
-              Declined
-            </div>
-          </td>
+          <VendorResponsesEntry
+            :data="item.content"
+            :category="prop.data.category"
+            :quantity="item.quantity"
+            :unit="item.unit"
+          />
         </tr>
       </tbody>
     </table>
   </div>
   <br />
   <!-- Vendor Selection -->
-  <div class="border-b border-slate-200">
+  <!-- <div class="border-b border-slate-200">
     <VendorSelection :data="prop.data" />
-  </div>
+  </div> -->
   <!-- Clarifications -->
-  <div class="p-5 pb-5">
+  <!-- <div class="p-5 pb-5">
     <p class="text-[#6b7090] text-[13px] font-bold">CLARIFICATIONS</p>
     <br />
     <div v-if="!prop.data.clarifications" class="text-[#6b7090] text-[12.5px]">
@@ -123,5 +102,5 @@ const prop = defineProps({
         time.
       </p>
     </div>
-  </div>
+  </div> -->
 </template>

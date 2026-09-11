@@ -1,6 +1,6 @@
 <script setup>
 import Data from "@/data/mockData.json";
-import { computed, defineProps, ref, watch } from "vue";
+import { computed, defineProps, onMounted, ref, watch } from "vue";
 import { useHistoryStore } from "@/store/auditHistory";
 import { useFlagsStore } from "@/store/flag";
 import { useVendorStore } from "@/store/requirementsVendor";
@@ -11,18 +11,24 @@ const props = defineProps({
   name: String,
   value: Object,
 });
-(function updateCurrentVendors() {
-  vendorsStore.currentVendors.push({
-    type: props.name,
-    VendorList: props.value.vendors,
-  });
-})();
+onMounted(() => {
+  const exists = vendorsStore.currentVendors.find(
+    (item) => item.type === props.name,
+  );
+  if (!exists) {
+    vendorsStore.currentVendors.push({
+      type: props.name,
+      VendorList: [...props.value.vendors],
+    });
+  }
+});
 const name = ref(props.name);
 const data = ref(props.value);
 const vendors = computed(() => {
   const category = vendorsStore.currentVendors.find((item) => {
     return item.type === props.name;
   });
+  if (!category) return [];
   return category.VendorList.map((id) => {
     const vendor = Data.vendor_portal.find((element) => {
       return element.id === id;
@@ -54,7 +60,7 @@ watch(searchValue, (newSearch) => {
 const closeSearchResults = () => {
   searchFlag.value = false;
 };
-const addToVendor = (name, index) => {
+const addToVendor = (name) => {
   const category = vendorsStore.currentVendors.find((item) => {
     return item.type === props.name;
   });
@@ -173,7 +179,7 @@ vendorsStore.totalVendors = computed(() => {
         an RFQ scoped only to {{ name }}. Search across the full vendor master,
         or add a brand-new vendor on the fly.
       </p>
-      <div class="flex gap-2 mb-1 flex-wrap">
+      <div v-if="vendors.length >= 1" class="flex gap-2 mb-1 flex-wrap">
         <div
           v-for="(item, index) in vendors"
           class="bg-[#f7f6fe] text-[#3f3ba6] flex justify-center items-center gap-2 px-2 py-1 rounded-xl outline outline-slate-200"
@@ -192,6 +198,9 @@ vendorsStore.totalVendors = computed(() => {
           >
         </div>
       </div>
+      <p v-else class="text-[#9ba0c0] text-[12.5px]">
+        No vendors allocated yet.
+      </p>
       <!-- Requirement Search -->
       <div class="relative">
         <input
@@ -222,9 +231,13 @@ vendorsStore.totalVendors = computed(() => {
           </div>
         </div>
       </div>
-      <p v-if="vendors.length <= 1" class="mt-1 text-[#b46a06]">
+      <p v-if="vendors.length === 1" class="mt-1 text-[#b46a06]">
         ⚠ Only one vendor invited for a category with mandatory items — consider
         adding a second vendor for competitive quotes.
+      </p>
+      <p v-else-if="vendors.length < 1" class="mt-1 text-[#b46a06]">
+        ⚠ No vendor allocated — this category will not be included when the RFQ
+        is sent.
       </p>
     </div>
   </div>

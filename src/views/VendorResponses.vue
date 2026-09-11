@@ -25,7 +25,7 @@ const flags = useFlagsStore();
   </div>
   <div
     v-if="flags.simulateFlag"
-    v-for="item in data.vendorResponses"
+    v-for="item in data.vendorPricing"
     class="bg-white rounded-xl h-max"
   >
     <VendorResponsesBox :data="item" />
