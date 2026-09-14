@@ -36,10 +36,20 @@ const vendors = computed(() => {
     return vendor.name;
   });
 });
-const searchList = ref([...props.value.searchList]);
+const searchList = computed(() => {
+  const categoryVendor = vendorsStore.currentVendors.find(
+    (element) => element.type === props.name,
+  );
+  if (!categoryVendor) return [];
+  return Data.vendor_portal.filter((item) => {
+    return !categoryVendor.VendorList.includes(item.id);
+  });
+});
 const searchValue = ref("");
+const arrow = ref(false);
 const hiddenItems = ref({});
 const showDetails = (key) => {
+  arrow.value = !arrow.value;
   hiddenItems.value[key] = !hiddenItems.value[key];
 };
 const searchFlag = ref(false);
@@ -115,7 +125,8 @@ vendorsStore.totalVendors = computed(() => {
       @click="showDetails(name)"
     >
       <div class="flex items-center justify-start gap-3 px-4 py-3">
-        <span class="font-bold text-[9px]">▹</span
+        <span v-if="arrow" class="font-bold text-[#9ba0c0] text-[9px]">▹</span
+        ><span v-if="!arrow" class="font-bold text-[#9ba0c0] text-[9px]">▾</span
         ><span class="font-bold">{{ name }}</span
         ><span
           class="px-2 outline outline-slate-300 rounded-lg bg-[#eef0f8] text-[11px] text-[#6b7090] font-bold"

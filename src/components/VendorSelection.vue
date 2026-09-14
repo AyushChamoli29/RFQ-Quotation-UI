@@ -1,14 +1,22 @@
 <script setup>
-import { defineProps } from "vue";
+import { computed, defineProps } from "vue";
 import VendorSelectionEntry from "./VendorSelectionEntry.vue";
+import { useVendorStore } from "@/store/requirementsVendor.js";
 const prop = defineProps({
   data: Object,
+});
+const vendorsStore = useVendorStore();
+const vendor = computed(() => {
+  const found = vendorsStore.currentVendors.find(
+    (item) => item.type === prop.data.category,
+  );
+  return found ? found.VendorList : [];
 });
 </script>
 
 <template>
   <div class="text-[#6b7090] text-[13px] font-bold px-5">
-    VENDOR SELECTION FOR {{ prop.data.name.toUpperCase() }}
+    VENDOR SELECTION FOR {{ prop.data.category.toUpperCase() }}
   </div>
   <br />
   <div>
@@ -25,12 +33,13 @@ const prop = defineProps({
       </thead>
       <tbody class="text-[13px]">
         <tr
-          v-for="item in prop.data.quotationComparison.tableData.data"
-          class="border-t border-slate-200 "
+          v-for="item in prop.data.vendorsPrices"
+          class="border-t border-slate-200"
         >
           <VendorSelectionEntry
             :data1="item"
-            :data2="prop.data.margin"
+            :data2="prop.data.defaultMargin"
+            :data3="vendor"
           />
         </tr>
       </tbody>

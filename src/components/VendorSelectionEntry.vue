@@ -1,21 +1,46 @@
 <script setup>
-import { computed, defineProps, ref } from "vue";
+import { computed, defineProps, ref, watch } from "vue";
+import Data from "@/data/mockData.json";
 const prop = defineProps({
   data1: Object,
   data2: String,
+  data3: Array,
 });
-const data1 = { ...prop.data1 };
-const vendors = data1.quotations.filter((item) => {
-  if (item.status === "submitted") {
-    return item.vendorName;
+const vendorsName = computed(() => {
+  const result = [];
+  for (const id of prop.data3) {
+    for (const vendor of Data.vendor_portal) {
+      if (vendor.id === id) {
+        result.push(vendor.name);
+      }
+    }
   }
+  return result;
+});
+const vendors = computed(() => {
+  return prop.data1.content.filter(
+    (item) =>
+      vendorsName.value.includes(item.name) &&
+      item.information.status === "submitted",
+  );
 });
 const award = ref("No award");
-const margin = ref(Number(prop.data2) || 0);
+const margin = ref(0);
+watch(
+  () => prop.data2,
+  (newMargin) => {
+    margin.value = Number(newMargin) || 0;
+  },
+  { immediate: true },
+);
 const base = computed(() => {
-  for (const element of data1.quotations) {
-    if (award.value === element.vendorName) {
-      return Number(element.total);
+  for (const element of prop.data1.content) {
+    if (award.value.toLowerCase() === element.name.toLowerCase()) {
+      return Math.round(
+        Number(element.information.unitPrice) *
+          Number(prop.data1.quantity) *
+          1.07,
+      );
     }
   }
   return 0;
@@ -50,15 +75,15 @@ const sellingTotalCurrency = computed(() => {
 </script>
 
 <template>
-  <td class="py-4 px-8">{{ data1.name }}</td>
+  <td class="py-4 px-8">{{ data1.requirementLine }}</td>
   <td>
     <select
       class="outline outline-slate-200 rounded-sm w-8/10 text-[12.5px] p-2"
       v-model="award"
     >
       <option value="No award">No award</option>
-      <option v-for="item in vendors" :value="item.vendorName">
-        {{ item.vendorName }}
+      <option v-for="item in vendors" :value="item.name">
+        {{ item.name }}
       </option>
     </select>
   </td>

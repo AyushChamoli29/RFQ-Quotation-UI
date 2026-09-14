@@ -110,62 +110,98 @@
     {
       "id": "V1",
       "name": "Grand Marina Hotel",
-      "type": "Hotels"
+      "type": "Hotels",
+      "customer": "Nattapong S.",
+      "email": "sales@grandmarinapattaya.example",
+      "status": "submitted"
     },
     {
       "id": "V2",
       "name": "Sunset Bay Resort & Spa",
-      "type": "Hotels"
+      "type": "Hotels",
+      "customer": "Kanya P.",
+      "email": "groups@sunsetbayresort.example",
+      "status": "submitted"
     },
     {
       "id": "V3",
       "name": "Ocean Pearl Hotel Pattaya",
-      "type": "Hotels"
+      "type": "Hotels",
+      "customer": "Somchai T.",
+      "email": "mice@oceanpearl.example",
+      "status": "submitted"
     },
     {
       "id": "V4",
       "name": "SkyBridge Airlines",
-      "type": "Flights"
+      "type": "Flights",
+      "customer": "Anurag Mehta",
+      "email": "groupdesk@skybridgeair.example",
+      "status": "submitted"
     },
     {
       "id": "V5",
       "name": "Horizon Charter Airways",
-      "type": "Flights"
+      "type": "Flights",
+      "customer": "Priya Nair",
+      "email": "charter@horizonair.example",
+      "status": "submitted"
     },
     {
       "id": "V6",
       "name": "CityLine Transport",
-      "type": "Ground Transportation"
+      "type": "Ground Transportation",
+      "customer": "Wichai R.",
+      "email": "ops@citylinetransport.example",
+      "status": "submitted"
     },
     {
       "id": "V7",
       "name": "Pattaya Premier Coaches",
-      "type": "Ground Transportation"
+      "type": "Ground Transportation",
+      "customer": "Suda M.",
+      "email": "bookings@premiercoaches.example",
+      "status": "submitted"
     },
     {
       "id": "V8",
       "name": "EventSphere Productions",
-      "type": "Event Management including AV"
+      "type": "Event Management including AV",
+      "customer": "Rahul Kapoor",
+      "email": "events@eventsphere.example",
+      "status": "submitted"
     },
     {
       "id": "V9",
       "name": "Stellar Events Co.",
-      "type": "Event Management including AV"
+      "type": "Event Management including AV",
+      "customer": "Meera Iyer",
+      "email": "produnction@stellarevents.example",
+      "status": "partially submitted"
     },
     {
       "id": "V10",
       "name": "GlobalVisa Facilitation",
-      "type": "Visa Management"
+      "type": "Visa Management",
+      "customer": "Karan Sethi",
+      "email": "corporate@globalvisa.example",
+      "status": "submitted"
     },
     {
       "id": "V11",
       "name": "Destination Connect DMC",
-      "type": "Local Liaison"
+      "type": "Local Liaison",
+      "customer": "Ploy K.",
+      "email": "dmc@destinationconnect.example",
+      "status": "submitted"
     },
     {
       "id": "V12",
       "name": "LocalPro Thailand Services",
-      "type": "Local Liaison"
+      "type": "Local Liaison",
+      "customer": "Anong W.",
+      "email": "support@localprothailand.example",
+      "status": "declined"
     }
   ],
   "recentActivity": {
@@ -209,56 +245,6 @@
           "unit": "pax",
           "requirement": "Optional"
         }
-      ],
-      "searchList": [
-        {
-          "name": "CityLine Transport",
-          "type": "Ground Transportation",
-          "customer": "Wichai R.",
-          "email": "ops@citylinetransport.example"
-        },
-        {
-          "name": "Destination Connect DMC",
-          "type": "Local Liaison",
-          "customer": "Ploy K.",
-          "email": "dmc@destinationconnect.example"
-        },
-        {
-          "name": "EventSphere Productions",
-          "type": "Event Management including AV",
-          "customer": "Rahul Kapoor",
-          "email": "events@eventsphere.example"
-        },
-        {
-          "name": "GlobalVisa Facilitation",
-          "type": "Visa Management",
-          "customer": "Karan Sethi",
-          "email": "corporate@globalvisa.example"
-        },
-        {
-          "name": "Horizon Charter Airways",
-          "type": "Flights",
-          "customer": "Priya Nair",
-          "email": "charter@horizonair.example"
-        },
-        {
-          "name": "LocalPro Thailand Services",
-          "type": "Local Liaison",
-          "customer": "Anong W.",
-          "email": "support@localprothailand.example"
-        },
-        {
-          "name": "Pattaya Premier Coaches",
-          "type": "Ground Transportation",
-          "customer": "Suda M.",
-          "email": "bookings@premiercoaches.example"
-        },
-        {
-          "name": "SkyBridge Airlines",
-          "type": "Flights",
-          "customer": "Anurag Mehta",
-          "email": "groupdesk@skybridgeair.example"
-        }
       ]
     },
     "Flights": {
@@ -293,56 +279,6 @@
           "unit": "pax",
           "requirement": "Mandatory"
         }
-      ],
-      "searchList": [
-        {
-          "name": "CityLine Transport",
-          "type": "Ground Transportation",
-          "customer": "Wichai R.",
-          "email": "ops@citylinetransport.example"
-        },
-        {
-          "name": "Destination Connect DMC",
-          "type": "Local Liaison",
-          "customer": "Ploy K.",
-          "email": "dmc@destinationconnect.example"
-        },
-        {
-          "name": "EventSphere Productions",
-          "type": "Event Management including AV",
-          "customer": "Rahul Kapoor",
-          "email": "events@eventsphere.example"
-        },
-        {
-          "name": "GlobalVisa Facilitation",
-          "type": "Visa Management",
-          "customer": "Karan Sethi",
-          "email": "corporate@globalvisa.example"
-        },
-        {
-          "name": "Grand Marina Hotel",
-          "type": "Hotels",
-          "customer": "Nattapong S.",
-          "email": "sales@grandmarinapattaya.example"
-        },
-        {
-          "name": "LocalPro Thailand Services",
-          "type": "Local Liaison",
-          "customer": "Anong W.",
-          "email": "support@localprothailand.example"
-        },
-        {
-          "name": "Ocean Pearl Hotel Pattaya",
-          "type": "Hotels",
-          "customer": "Somchai T.",
-          "email": "mice@oceanpearl.example"
-        },
-        {
-          "name": "Pattaya Premier Coaches",
-          "type": "Ground Transportation",
-          "customer": "Suda M.",
-          "email": "bookings@premiercoaches.example"
-        }
       ]
     },
     "Ground Transportation": {
@@ -376,56 +312,6 @@
           "quantity": "12",
           "unit": "trip",
           "requirement": "Optional"
-        }
-      ],
-      "searchList": [
-        {
-          "name": "Destination Connect DMC",
-          "type": "Local Liaison",
-          "customer": "Ploy K.",
-          "email": "dmc@destinationconnect.example"
-        },
-        {
-          "name": "EventSphere Productions",
-          "type": "Event Management including AV",
-          "customer": "Rahul Kapoor",
-          "email": "events@eventsphere.example"
-        },
-        {
-          "name": "GlobalVisa Facilitation",
-          "type": "Visa Management",
-          "customer": "Karan Sethi",
-          "email": "corporate@globalvisa.example"
-        },
-        {
-          "name": "Grand Marina Hotel",
-          "type": "Hotels",
-          "customer": "Nattapong S.",
-          "email": "sales@grandmarinapattaya.example"
-        },
-        {
-          "name": "Horizon Charter Airways",
-          "type": "Flights",
-          "customer": "Priya Nair",
-          "email": "charter@horizonair.example"
-        },
-        {
-          "name": "LocalPro Thailand Services",
-          "type": "Local Liaison",
-          "customer": "Anong W.",
-          "email": "support@localprothailand.example"
-        },
-        {
-          "name": "Ocean Pearl Hotel Pattaya",
-          "type": "Hotels",
-          "customer": "Somchai T.",
-          "email": "mice@oceanpearl.example"
-        },
-        {
-          "name": "SkyBridge Airlines",
-          "type": "Flights",
-          "customer": "Anurag Mehta",
-          "email": "groupdesk@skybridgeair.example"
         }
       ]
     },
@@ -468,56 +354,6 @@
           "unit": "lot",
           "requirement": "Optional"
         }
-      ],
-      "searchList": [
-        {
-          "name": "CityLine Transport",
-          "type": "Ground Transportation",
-          "customer": "Wichai R.",
-          "email": "ops@citylinetransport.example"
-        },
-        {
-          "name": "Destination Connect DMC",
-          "type": "Local Liaison",
-          "customer": "Ploy K.",
-          "email": "dmc@destinationconnect.example"
-        },
-        {
-          "name": "GlobalVisa Facilitation",
-          "type": "Visa Management",
-          "customer": "Karan Sethi",
-          "email": "corporate@globalvisa.example"
-        },
-        {
-          "name": "Grand Marina Hotel",
-          "type": "Hotels",
-          "customer": "Nattapong S.",
-          "email": "sales@grandmarinapattaya.example"
-        },
-        {
-          "name": "Horizon Charter Airways",
-          "type": "Flights",
-          "customer": "Priya Nair",
-          "email": "charter@horizonair.example"
-        },
-        {
-          "name": "LocalPro Thailand Services",
-          "type": "Local Liaison",
-          "customer": "Anong W.",
-          "email": "support@localprothailand.example"
-        },
-        {
-          "name": "Ocean Pearl Hotel Pattaya",
-          "type": "Hotels",
-          "customer": "Somchai T.",
-          "email": "mice@oceanpearl.example"
-        },
-        {
-          "name": "Pattaya Premier Coaches",
-          "type": "Ground Transportation",
-          "customer": "Suda M.",
-          "email": "bookings@premiercoaches.example"
-        }
       ]
     },
     "Visa Management": {
@@ -544,56 +380,6 @@
           "quantity": "120",
           "unit": "pax",
           "requirement": "Optional"
-        }
-      ],
-      "searchList": [
-        {
-          "name": "CityLine Transport",
-          "type": "Ground Transportation",
-          "customer": "Wichai R.",
-          "email": "ops@citylinetransport.example"
-        },
-        {
-          "name": "Destination Connect DMC",
-          "type": "Local Liaison",
-          "customer": "Ploy K.",
-          "email": "dmc@destinationconnect.example"
-        },
-        {
-          "name": "EventSphere Productions",
-          "type": "Event Management including AV",
-          "customer": "Rahul Kapoor",
-          "email": "events@eventsphere.example"
-        },
-        {
-          "name": "Grand Marina Hotel",
-          "type": "Hotels",
-          "customer": "Nattapong S.",
-          "email": "sales@grandmarinapattaya.example"
-        },
-        {
-          "name": "Horizon Charter Airways",
-          "type": "Flights",
-          "customer": "Priya Nair",
-          "email": "charter@horizonair.example"
-        },
-        {
-          "name": "LocalPro Thailand Services",
-          "type": "Local Liaison",
-          "customer": "Anong W.",
-          "email": "support@localprothailand.example"
-        },
-        {
-          "name": "Ocean Pearl Hotel Pattaya",
-          "type": "Hotels",
-          "customer": "Somchai T.",
-          "email": "mice@oceanpearl.example"
-        },
-        {
-          "name": "Pattaya Premier Coaches",
-          "type": "Ground Transportation",
-          "customer": "Suda M.",
-          "email": "bookings@premiercoaches.example"
         }
       ]
     },
@@ -628,56 +414,6 @@
           "quantity": "15",
           "unit": "unit",
           "requirement": "Optional"
-        }
-      ],
-      "searchList": [
-        {
-          "name": "CityLine Transport",
-          "type": "Ground Transportation",
-          "customer": "Wichai R.",
-          "email": "ops@citylinetransport.example"
-        },
-        {
-          "name": "EventSphere Productions",
-          "type": "Event Management including AV",
-          "customer": "Rahul Kapoor",
-          "email": "events@eventsphere.example"
-        },
-        {
-          "name": "GlobalVisa Facilitation",
-          "type": "Visa Management",
-          "customer": "Karan Sethi",
-          "email": "corporate@globalvisa.example"
-        },
-        {
-          "name": "Grand Marina Hotel",
-          "type": "Hotels",
-          "customer": "Nattapong S.",
-          "email": "sales@grandmarinapattaya.example"
-        },
-        {
-          "name": "Horizon Charter Airways",
-          "type": "Flights",
-          "customer": "Priya Nair",
-          "email": "charter@horizonair.example"
-        },
-        {
-          "name": "Ocean Pearl Hotel Pattaya",
-          "type": "Hotels",
-          "customer": "Somchai T.",
-          "email": "mice@oceanpearl.example"
-        },
-        {
-          "name": "Pattaya Premier Coaches",
-          "type": "Ground Transportation",
-          "customer": "Suda M.",
-          "email": "bookings@premiercoaches.example"
-        },
-        {
-          "name": "SkyBridge Airlines",
-          "type": "Flights",
-          "customer": "Anurag Mehta",
-          "email": "groupdesk@skybridgeair.example"
         }
       ]
     }
@@ -1047,6 +783,8 @@
   "vendorPricing": [
     {
       "category": "Hotels",
+      "clarification": false,
+      "defaultMargin": "12",
       "vendorsPrices": [
         {
           "requirementLine": "Deluxe Twin Room",
@@ -1516,6 +1254,8 @@
     },
     {
       "category": "Flights",
+      "clarification": true,
+      "defaultMargin": "8",
       "vendorsPrices": [
         {
           "requirementLine": "Outbound Economy Class Airfare",
@@ -1985,6 +1725,8 @@
     },
     {
       "category": "Ground Transportation",
+      "defaultMargin": "12",
+      "clarification": false,
       "vendorsPrices": [
         {
           "requirementLine": "Arrival Airport Transfer by 45-Seater Coach",
@@ -2454,6 +2196,8 @@
     },
     {
       "category": "Event Management including AV",
+      "defaultMargin": "16",
+      "clarification": false,
       "vendorsPrices": [
         {
           "requirementLine": "Gala Dinner Venue Rental",
@@ -3039,6 +2783,8 @@
     },
     {
       "category": "Visa Management",
+      "defaultMargin": "10",
+      "clarification": false,
       "vendorsPrices": [
         {
           "requirementLine": "Tourist Visa Government Fee",
@@ -3392,6 +3138,8 @@
     },
     {
       "category": "Local Liaison",
+      "defaultMargin": "15",
+      "clarification": false,
       "vendorsPrices": [
         {
           "requirementLine": "Lead Local Coordinator",

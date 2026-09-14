@@ -36,14 +36,13 @@ const content = computed(() => {
   >
     <div v-if="entry.information.status === 'submitted'">
       <span class="font-bold font-mono">{{
-        (Number(entry.information.unitPrice) * prop.quantity).toLocaleString(
-          "en-IN",
-          {
-            style: "currency",
-            currency: "INR",
-            minimumFractionDigits: 0,
-          },
-        )
+        Math.round(
+          Number(entry.information.unitPrice) * prop.quantity * 1.07,
+        ).toLocaleString("en-IN", {
+          style: "currency",
+          currency: "INR",
+          minimumFractionDigits: 0,
+        })
       }}</span>
       <br />
       <span class="text-[#6b7090]"
