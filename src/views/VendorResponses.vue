@@ -3,9 +3,7 @@ import data from "@/data/mockData.json";
 import { RouterLink } from "vue-router";
 import VendorResponsesBox from "@/components/VendorResponsesBox.vue";
 import { useFlagsStore } from "@/store/flag";
-import { useVendorStore } from "@/store/requirementsVendor";
 const flags = useFlagsStore();
-const vendorsStore = useVendorStore();
 </script>
 
 <template>

@@ -1,6 +1,6 @@
 <script setup>
 import Data from "@/data/mockData.json";
-import { computed, defineProps, onMounted, ref, watch } from "vue";
+import { computed, defineProps, ref, watch } from "vue";
 import { useHistoryStore } from "@/store/auditHistory";
 import { useFlagsStore } from "@/store/flag";
 import { useVendorStore } from "@/store/requirementsVendor";
@@ -11,17 +11,6 @@ const props = defineProps({
   name: String,
   value: Object,
 });
-onMounted(() => {
-  const exists = vendorsStore.currentVendors.find(
-    (item) => item.type === props.name,
-  );
-  if (!exists) {
-    vendorsStore.currentVendors.push({
-      type: props.name,
-      VendorList: [...props.value.vendors],
-    });
-  }
-});
 const name = ref(props.name);
 const data = ref(props.value);
 const vendors = computed(() => {
@@ -29,9 +18,9 @@ const vendors = computed(() => {
     return item.type === props.name;
   });
   if (!category) return [];
-  return category.VendorList.map((id) => {
+  return category.VendorList.map((obj) => {
     const vendor = Data.vendor_portal.find((element) => {
-      return element.id === id;
+      return element.id === obj.id;
     });
     return vendor.name;
   });
@@ -42,7 +31,7 @@ const searchList = computed(() => {
   );
   if (!categoryVendor) return [];
   return Data.vendor_portal.filter((item) => {
-    return !categoryVendor.VendorList.includes(item.id);
+    return !categoryVendor.VendorList.some((vendor) => vendor.id === item.id);
   });
 });
 const searchValue = ref("");
@@ -78,7 +67,7 @@ const addToVendor = (name) => {
     return element.name === name;
   });
   if (category && vendor) {
-    category.VendorList.push(vendor.id);
+    category.VendorList.push({ id: vendor.id, simulated: false });
   }
   searchList.value = searchList.value.filter((item) => {
     return item.name !== name;
@@ -92,13 +81,18 @@ const addToVendor = (name) => {
     category: props.name,
     detail: `${name} added to ${props.name} (primary category:${vendor.type})`,
   });
-  console.log(vendorsStore.currentVendors);
 };
 const deleteVendor = (item, index) => {
   const category = vendorsStore.currentVendors.find((element) => {
     return element.type === props.name;
   });
-  category.VendorList.splice(index, 1);
+  if (category.VendorList[index].simulated === false) {
+    category.VendorList.splice(index, 1);
+  } else {
+    alert(
+      `${item} has already submitted a quotation for this RFQ and cannot be silently removed. Exclude their quote at the award stage instead, or discuss a formal withdrawal with them first.`,
+    );
+  }
   historyStore.historyEntry({
     actor: flags.selectedActor.name,
     roleOrCompany: flags.selectedActor.role,
@@ -106,7 +100,6 @@ const deleteVendor = (item, index) => {
     vendor: item,
     category: props.name,
   });
-  console.log(vendorsStore.currentVendors);
 };
 vendorsStore.totalVendors = computed(() => {
   let sum = 0;

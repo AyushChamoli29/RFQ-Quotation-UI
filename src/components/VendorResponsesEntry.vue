@@ -14,13 +14,21 @@ const content = computed(() => {
     (item) => item.type === prop.category,
   );
   if (!category) return [];
-  const vendorNames = category.VendorList.map((id) => {
+  const vendorNames = category.VendorList.map((obj) => {
     const vendor = Data.vendor_portal.find((element) => {
-      return element.id === id;
+      return element.id === obj.id;
     });
-    return vendor.name;
+    return { name: vendor.name, simulated: obj.simulated };
   });
-  return prop.data.filter((item) => vendorNames.includes(item.name));
+  return prop.data
+    .filter((item) => vendorNames.some((element) => element.name === item.name))
+    .map((item) => {
+      const vendors = vendorNames.find((vendor) => vendor.name === item.name);
+      return {
+        ...item,
+        simulated: vendors.simulated,
+      };
+    });
 });
 </script>
 
@@ -34,7 +42,10 @@ const content = computed(() => {
       'bg-white': entry.information.status !== 'submitted',
     }"
   >
-    <div v-if="entry.information.status === 'submitted'">
+    <div v-if="!entry.simulated" class="text-[#9ba0c0] italic text-[13px]">
+      Awaiting
+    </div>
+    <div v-else-if="entry.information.status === 'submitted'">
       <span class="font-bold font-mono">{{
         Math.round(
           Number(entry.information.unitPrice) * prop.quantity * 1.07,

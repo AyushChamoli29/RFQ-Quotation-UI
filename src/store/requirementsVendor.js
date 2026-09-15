@@ -6,27 +6,81 @@ export const useVendorStore = defineStore("vendor", () => {
   const currentVendors = ref([
     {
       type: "Hotels",
-      VendorList: ["V1", "V2", "V3"],
+      VendorList: [
+        {
+          id: "V1",
+          simulated: true,
+        },
+        {
+          id: "V2",
+          simulated: true,
+        },
+        {
+          id: "V3",
+          simulated: true,
+        },
+      ],
     },
     {
       type: "Flights",
-      VendorList: ["V4", "V5"],
+      VendorList: [
+        {
+          id: "V4",
+          simulated: true,
+        },
+        {
+          id: "V5",
+          simulated: true,
+        },
+      ],
     },
     {
       type: "Ground Transportation",
-      VendorList: ["V6", "V7"],
+      VendorList: [
+        {
+          id: "V6",
+          simulated: true,
+        },
+        {
+          id: "V7",
+          simulated: true,
+        },
+      ],
     },
     {
       type: "Event Management including AV",
-      VendorList: ["V8", "V9"],
+      VendorList: [
+        {
+          id: "V8",
+          simulated: true,
+        },
+        {
+          id: "V9",
+          simulated: true,
+        },
+      ],
     },
     {
       type: "Visa Management",
-      VendorList: ["V10"],
+      VendorList: [
+        {
+          id: "V10",
+          simulated: true,
+        },
+      ],
     },
     {
       type: "Local Liaison",
-      VendorList: ["V11", "V12"],
+      VendorList: [
+        {
+          id: "V11",
+          simulated: true,
+        },
+        {
+          id: "V12",
+          simulated: true,
+        },
+      ],
     },
   ]);
   return { totalVendors, currentVendors };

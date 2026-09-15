@@ -1,7 +1,6 @@
 <script setup>
 import RequirementTable from "@/components/RequirementTable.vue";
 import data from "@/data/mockData.json";
-import { defineEmits } from "vue";
 const deadline = data.big_card.deadline;
 </script>
 
@@ -19,7 +18,9 @@ const deadline = data.big_card.deadline;
           class="flex text-[11px] w-1/3 justify-between mr-2 py-2 border-b border-dashed border-slate-300"
         >
           <label class="text-[#6b7090]">RFQ number</label>
-          <p class="font-bold tracking-wider">{{ data.big_card.rfq_no }}</p>
+          <p class="tracking-wider font-mono">
+            {{ data.big_card.rfq_no }}
+          </p>
         </div>
         <div
           class="flex text-xs w-1/3 py-1 mr-2 border-b border-dashed border-slate-300"

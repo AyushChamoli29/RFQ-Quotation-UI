@@ -8,9 +8,9 @@ const prop = defineProps({
 });
 const vendorsName = computed(() => {
   const result = [];
-  for (const id of prop.data3) {
+  for (const obj of prop.data3) {
     for (const vendor of Data.vendor_portal) {
-      if (vendor.id === id) {
+      if (vendor.id === obj.id) {
         result.push(vendor.name);
       }
     }

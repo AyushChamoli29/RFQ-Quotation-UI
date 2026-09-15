@@ -1,13 +1,9 @@
 <script setup>
 import Data from "@/data/mockData.json";
-import { computed, defineProps, onMounted } from "vue";
+import { computed, defineProps } from "vue";
 import VendorSelection from "./VendorSelection.vue";
-import { useFlagsStore } from "@/store/flag.js";
-import { useHistoryStore } from "@/store/auditHistory.js";
 import { useVendorStore } from "@/store/requirementsVendor.js";
 import VendorResponsesEntry from "./VendorResponsesEntry.vue";
-const flags = useFlagsStore();
-const historyStore = useHistoryStore();
 const vendorsStore = useVendorStore();
 const prop = defineProps({
   data: Object,
@@ -19,11 +15,14 @@ const vendorsToBeDisplayed = computed(() => {
       vendorSelected = element.VendorList;
     }
   }
-
-  vendorSelected = vendorSelected.map((item) => {
+  vendorSelected = vendorSelected.map((obj) => {
     for (const element of Data.vendor_portal) {
-      if (element.id === item) {
-        return { name: element.name, status: element.status };
+      if (element.id === obj.id) {
+        return {
+          name: element.name,
+          status: element.status,
+          simulated: obj.simulated,
+        };
       }
     }
   });
