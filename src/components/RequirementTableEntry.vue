@@ -88,7 +88,7 @@ const deleteVendor = (item, index) => {
   });
   if (category.VendorList[index].simulated === false) {
     category.VendorList.splice(index, 1);
-  } else {
+  } else if (category.VendorList[index].simulated === true) {
     alert(
       `${item} has already submitted a quotation for this RFQ and cannot be silently removed. Exclude their quote at the award stage instead, or discuss a formal withdrawal with them first.`,
     );

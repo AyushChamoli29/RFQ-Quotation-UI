@@ -33,29 +33,37 @@ const vendorsToBeDisplayed = computed(() => {
 <template>
   <div v-if="vendorsToBeDisplayed.length >= 1">
     <!-- Heading -->
-    <div class="flex justify-between px-5 py-4">
+    <div class="flex justify-between px-5 py-4 flex-wrap">
       <div class="text-[#6b7090] text-[13px] font-bold">
         {{ prop.data.category.toUpperCase() }} &mdash; QUOTATION COMPARISON
       </div>
-      <div class="flex gap-3 text-xs" v-if="vendorsToBeDisplayed.length">
+      <div
+        class="flex gap-3 text-xs flex-wrap"
+        v-if="vendorsToBeDisplayed.length"
+      >
         <div
           v-for="item in vendorsToBeDisplayed"
           class="bg-[#e1f6f1] text-[#0d8f7a] text-[11px] font-bold p-1 px-2 rounded-4xl h-max"
           :class="[
             {
               'bg-[#fdf1de] text-[#b46a06]':
-                item.status === 'partially submitted',
+                item.status === 'partially submitted' && item.simulated,
             },
-            { 'bg-[#fbe6e8] text-[#c02d3c]': item.status === 'declined' },
+            {
+              'bg-[#fbe6e8] text-[#c02d3c]':
+                item.status === 'declined' && item.simulated,
+            },
+            { 'bg-[#eef0f8] text-[#6b7090]': !item.simulated },
           ]"
         >
-          {{ item.name }} : {{ item.status }}
+          {{ item.name }} : <span v-if="item.simulated">{{ item.status }}</span
+          ><span v-if="!item.simulated">sent</span>
         </div>
       </div>
     </div>
     <!-- Table -->
-    <div>
-      <table class="w-full border-t border-b border-slate-200">
+    <div class="overflow-x-auto">
+      <table class="w-full border-t border-b border-slate-200 min-w-max">
         <thead>
           <tr class="text-[#6b7090] text-[11px] text-left">
             <th class="p-2">PARTICULAR</th>

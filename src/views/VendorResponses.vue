@@ -8,7 +8,7 @@ const flags = useFlagsStore();
 
 <template>
   <div
-    v-if="!flags.simulateFlag"
+    v-if="!(flags.simulateFlag || flags.allocateFlag)"
     class="text-sm h-47 w-full p-5 flex flex-col gap-3 justify-center items-center bg-white outline outline-slate-200 rounded-lg"
   >
     <span class="text-4xl">📭</span>
@@ -24,7 +24,7 @@ const flags = useFlagsStore();
     </p>
   </div>
   <div
-    v-if="flags.simulateFlag"
+    v-if="flags.simulateFlag || flags.allocateFlag"
     v-for="item in data.vendorPricing"
     class="bg-white rounded-xl h-max"
   >

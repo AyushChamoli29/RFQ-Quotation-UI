@@ -30,6 +30,7 @@ const content = computed(() => {
       };
     });
 });
+console.log(content.value);
 </script>
 
 <template>
@@ -45,7 +46,9 @@ const content = computed(() => {
     <div v-if="!entry.simulated" class="text-[#9ba0c0] italic text-[13px]">
       Awaiting
     </div>
-    <div v-else-if="entry.information.status === 'submitted'">
+    <div
+      v-else-if="entry.information.status === 'submitted' && entry.simulated"
+    >
       <span class="font-bold font-mono">{{
         Math.round(
           Number(entry.information.unitPrice) * prop.quantity * 1.07,

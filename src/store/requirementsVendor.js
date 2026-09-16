@@ -9,15 +9,15 @@ export const useVendorStore = defineStore("vendor", () => {
       VendorList: [
         {
           id: "V1",
-          simulated: true,
+          simulated: false,
         },
         {
           id: "V2",
-          simulated: true,
+          simulated: false,
         },
         {
           id: "V3",
-          simulated: true,
+          simulated: false,
         },
       ],
     },
@@ -26,11 +26,11 @@ export const useVendorStore = defineStore("vendor", () => {
       VendorList: [
         {
           id: "V4",
-          simulated: true,
+          simulated: false,
         },
         {
           id: "V5",
-          simulated: true,
+          simulated: false,
         },
       ],
     },
@@ -39,11 +39,11 @@ export const useVendorStore = defineStore("vendor", () => {
       VendorList: [
         {
           id: "V6",
-          simulated: true,
+          simulated: false,
         },
         {
           id: "V7",
-          simulated: true,
+          simulated: false,
         },
       ],
     },
@@ -52,11 +52,11 @@ export const useVendorStore = defineStore("vendor", () => {
       VendorList: [
         {
           id: "V8",
-          simulated: true,
+          simulated: false,
         },
         {
           id: "V9",
-          simulated: true,
+          simulated: false,
         },
       ],
     },
@@ -65,7 +65,7 @@ export const useVendorStore = defineStore("vendor", () => {
       VendorList: [
         {
           id: "V10",
-          simulated: true,
+          simulated: false,
         },
       ],
     },
@@ -74,11 +74,11 @@ export const useVendorStore = defineStore("vendor", () => {
       VendorList: [
         {
           id: "V11",
-          simulated: true,
+          simulated: false,
         },
         {
           id: "V12",
-          simulated: true,
+          simulated: false,
         },
       ],
     },

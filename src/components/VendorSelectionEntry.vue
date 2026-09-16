@@ -11,18 +11,24 @@ const vendorsName = computed(() => {
   for (const obj of prop.data3) {
     for (const vendor of Data.vendor_portal) {
       if (vendor.id === obj.id) {
-        result.push(vendor.name);
+        result.push({ name: vendor.name, simulated: obj.simulated });
       }
     }
   }
   return result;
 });
 const vendors = computed(() => {
-  return prop.data1.content.filter(
-    (item) =>
-      vendorsName.value.includes(item.name) &&
-      item.information.status === "submitted",
-  );
+  return prop.data1.content.filter((item) => {
+    for (const element of vendorsName.value) {
+      if (
+        element.name.toLowerCase() === item.name.toLowerCase() &&
+        element.simulated &&
+        item.information.status === "submitted"
+      ) {
+        return element.name;
+      }
+    }
+  });
 });
 const award = ref("No award");
 const margin = ref(0);
@@ -86,6 +92,7 @@ const sellingTotalCurrency = computed(() => {
         {{ item.name }}
       </option>
     </select>
+    <!-- <div v-if="vendors.length > 0" class="text-[#b46a06]">No quotes yet</div> -->
   </td>
   <td>
     <input
