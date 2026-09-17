@@ -30,7 +30,6 @@ const content = computed(() => {
       };
     });
 });
-console.log(content.value);
 </script>
 
 <template>
