@@ -22,11 +22,6 @@ const currentTime = new Date().toLocaleTimeString("en-IN", {
 });
 const allocateVendors = () => {
   flags.allocateFlag = true;
-  for (const element1 of vendorsStore.currentVendors) {
-    for (const element2 of element1.VendorList) {
-      element2.simulated = false;
-    }
-  }
   router.push({ name: "vendorResponses" });
   for (const element of data.auditHistoryAllocate) {
     historyStore.history.push({

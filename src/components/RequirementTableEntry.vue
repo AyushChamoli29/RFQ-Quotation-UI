@@ -59,18 +59,18 @@ watch(searchValue, (newSearch) => {
 const closeSearchResults = () => {
   searchFlag.value = false;
 };
-const addToVendor = (name) => {
+const addToVendor = (id, name) => {
   const category = vendorsStore.currentVendors.find((item) => {
     return item.type === props.name;
   });
   const vendor = Data.vendor_portal.find((element) => {
-    return element.name === name;
+    return element.id === id;
   });
   if (category && vendor) {
     category.VendorList.push({ id: vendor.id, simulated: false });
   }
   searchList.value = searchList.value.filter((item) => {
-    return item.name !== name;
+    return item.id !== id;
   });
   closeSearchResults();
   historyStore.historyEntry({
@@ -222,7 +222,7 @@ vendorsStore.totalVendors = computed(() => {
           <div
             v-for="(search, index) in searchList"
             class="p-2 border-t border-slate-200"
-            @click="addToVendor(search.name, index)"
+            @click="addToVendor(search.id, search.name)"
           >
             <span class="font-bold">{{ search.name }}</span
             ><span

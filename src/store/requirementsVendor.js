@@ -25,11 +25,11 @@ export const useVendorStore = defineStore("vendor", () => {
       type: "Flights",
       VendorList: [
         {
-          id: "V4",
+          id: "V8",
           simulated: false,
         },
         {
-          id: "V5",
+          id: "V11",
           simulated: false,
         },
       ],
@@ -38,11 +38,11 @@ export const useVendorStore = defineStore("vendor", () => {
       type: "Ground Transportation",
       VendorList: [
         {
-          id: "V6",
+          id: "V4",
           simulated: false,
         },
         {
-          id: "V7",
+          id: "V10",
           simulated: false,
         },
       ],
@@ -51,11 +51,11 @@ export const useVendorStore = defineStore("vendor", () => {
       type: "Event Management including AV",
       VendorList: [
         {
-          id: "V8",
+          id: "V6",
           simulated: false,
         },
         {
-          id: "V9",
+          id: "V12",
           simulated: false,
         },
       ],
@@ -64,7 +64,7 @@ export const useVendorStore = defineStore("vendor", () => {
       type: "Visa Management",
       VendorList: [
         {
-          id: "V10",
+          id: "V7",
           simulated: false,
         },
       ],
@@ -73,11 +73,11 @@ export const useVendorStore = defineStore("vendor", () => {
       type: "Local Liaison",
       VendorList: [
         {
-          id: "V11",
+          id: "V5",
           simulated: false,
         },
         {
-          id: "V12",
+          id: "V9",
           simulated: false,
         },
       ],

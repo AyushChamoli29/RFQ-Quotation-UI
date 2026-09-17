@@ -1,4 +1,5 @@
 <script setup>
+import CostingBox from "@/components/CostingBox.vue";
 import { RouterLink } from "vue-router";
 </script>
 
@@ -45,4 +46,5 @@ import { RouterLink } from "vue-router";
       tab, then apply awarded rates to costing
     </p>
   </div>
+  <CostingBox />
 </template>

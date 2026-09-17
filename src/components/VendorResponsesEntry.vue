@@ -14,16 +14,16 @@ const content = computed(() => {
     (item) => item.type === prop.category,
   );
   if (!category) return [];
-  const vendorNames = category.VendorList.map((obj) => {
+  const vendorIds = category.VendorList.map((obj) => {
     const vendor = Data.vendor_portal.find((element) => {
       return element.id === obj.id;
     });
-    return { name: vendor.name, simulated: obj.simulated };
+    return { id: vendor.id, simulated: obj.simulated };
   });
   return prop.data
-    .filter((item) => vendorNames.some((element) => element.name === item.name))
+    .filter((item) => vendorIds.some((element) => element.id === item.id))
     .map((item) => {
-      const vendors = vendorNames.find((vendor) => vendor.name === item.name);
+      const vendors = vendorIds.find((vendor) => vendor.id === item.id);
       return {
         ...item,
         simulated: vendors.simulated,
@@ -37,8 +37,8 @@ const content = computed(() => {
     v-for="(entry, index) in content"
     class="px-2"
     :class="{
-      'bg-[#e1f6f1] border border-[#bfe9de]': index === 0,
-      'bg-[#fbfaef] border border-slate-200': index === 1,
+      'bg-[#e1f6f1] border border-[#bfe9de]': index === 0 && entry.simulated,
+      'bg-[#fbfaef] border border-slate-200': index === 1 && entry.simulated,
       'bg-white': entry.information.status !== 'submitted',
     }"
   >

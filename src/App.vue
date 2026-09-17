@@ -11,7 +11,7 @@ flags.selectedName = "Priya Sharma";
   <Header />
   <br /><br /><br />
   <div class="flex flex-col gap-6 mt-1 mb-5 px-31">
-    <RouterView :actor="selectedActorName" />
+    <RouterView />
     <br />
     <Footer />
   </div>

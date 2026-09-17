@@ -20,13 +20,13 @@ const vendorsName = computed(() => {
 const vendors = computed(() => {
   return prop.data1.content.filter((item) => {
     for (const element of vendorsName.value) {
-      if (
-        element.name.toLowerCase() === item.name.toLowerCase() &&
-        element.simulated &&
-        item.information.status === "submitted"
-      ) {
-        return element.name;
-      }
+      return vendorsName.value.some((element) => {
+        return (
+          element.name.toLowerCase() === item.name.toLowerCase() &&
+          element.simulated &&
+          item.information.status === "submitted"
+        );
+      });
     }
   });
 });
@@ -92,7 +92,9 @@ const sellingTotalCurrency = computed(() => {
         {{ item.name }}
       </option>
     </select>
-    <!-- <div v-if="vendors.length > 0" class="text-[#b46a06]">No quotes yet</div> -->
+    <div v-if="vendors.length === 0" class="text-[#b46a06] text-[11px] m-1">
+      No quotes yet
+    </div>
   </td>
   <td>
     <input
