@@ -40,6 +40,7 @@ const vendor = computed(() => {
             :data1="item"
             :data2="prop.data.defaultMargin"
             :data3="vendor"
+            :category="prop.data.category"
           />
         </tr>
       </tbody>

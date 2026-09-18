@@ -5,6 +5,14 @@ import data from "@/data/mockData.json";
 export const useFlagsStore = defineStore("flag", () => {
   const simulateFlag = ref(false);
   const allocateFlag = ref(false);
+  const costingFlag = ref(false);
+  const sendToCorporateFlag = ref(false);
   const selectedActor = ref({ ...data.actor[0] });
-  return { simulateFlag, allocateFlag, selectedActor };
+  return {
+    simulateFlag,
+    allocateFlag,
+    costingFlag,
+    sendToCorporateFlag,
+    selectedActor,
+  };
 });
