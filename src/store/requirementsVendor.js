@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
-import { ref } from "vue";
+import { ref, computed } from "vue";
+import Data from "@/data/mockData.json";
 
 export const useVendorStore = defineStore("vendor", () => {
   const totalVendors = ref(12);
@@ -83,5 +84,19 @@ export const useVendorStore = defineStore("vendor", () => {
       ],
     },
   ]);
-  return { totalVendors, currentVendors };
+  const vendorsSelected = computed(() => {
+    let tempSet = new Set();
+    for (const element1 of currentVendors.value) {
+      for (const element2 of element1.VendorList) {
+        for (const item of Data.vendor_portal) {
+          if (element2.id === item.id) {
+            tempSet.add({ ...element2, status: item.status });
+          }
+        }
+      }
+    }
+    return tempSet;
+  });
+
+  return { totalVendors, currentVendors, vendorsSelected };
 });

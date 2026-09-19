@@ -2,8 +2,10 @@
 import { computed } from "vue";
 import { useFlagsStore } from "@/store/flag";
 import { useAwardedStore } from "@/store/awardedLines";
+import { useHistoryStore } from "@/store/auditHistory";
 const Flag = useFlagsStore();
 const awardedStore = useAwardedStore();
+const historyStore = useHistoryStore();
 const grandFinal = computed(() => {
   let ans = 0;
   for (const element of Object.values(awardedStore.awardedLines)) {
@@ -15,18 +17,25 @@ const grandFinal = computed(() => {
     minimumFractionDigits: 0,
   });
 });
-const currentDate = new Date().toLocaleDateString("en-IN", {
-  day: "2-digit",
-  month: "short",
-  year: "numeric",
-});
-const currentTime = new Date().toLocaleTimeString("en-IN", {
-  hour: "2-digit",
-  minute: "2-digit",
-  hour12: true,
-});
 const sendToCorporate = () => {
   Flag.sendToCorporateFlag = true;
+  Flag.progress = 7;
+  Flag.currentDate = new Date().toLocaleDateString("en-IN", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+  });
+  Flag.currentTime = new Date().toLocaleTimeString("en-IN", {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: true,
+  });
+  historyStore.historyEntry({
+    actor: Flag.selectedActor.name,
+    roleOrCompany: Flag.selectedActor.role,
+    action: "Quotation sent to corporate",
+    detail: `Cipla Limited - costing v${awardedStore.costVersions}, final amount ${grandFinal.value}`,
+  });
 };
 </script>
 
@@ -96,9 +105,9 @@ const sendToCorporate = () => {
           </tr>
         </tbody>
         <tfoot>
-          <tr class="border-t border-[#eef0f8]">
+          <tr>
             <td></td>
-            <td class="text-right font-bold pr-4">Grand Total</td>
+            <td class="text-right font-bold pr-4 text-xs">Grand Total</td>
             <td class="text-left font-mono font-bold text-[#3f3ba6]">
               {{ grandFinal }}
             </td>
@@ -106,6 +115,7 @@ const sendToCorporate = () => {
         </tfoot>
       </table>
     </div>
+    <br />
     <div class="bg-[#eef0f8] text-[#3a3f58] text-xs py-3 px-4 rounded-lg mt-2">
       Rates to remain valid for 15 days from submission. Quotes to be inclusive
       of applicable local taxes unless marked otherwise.
@@ -116,14 +126,15 @@ const sendToCorporate = () => {
           >Not yet sent to the corporate contact.</span
         >
         <span v-if="Flag.sendToCorporateFlag"
-          >Sent to corporate on {{ currentDate }}, {{ currentTime }}.</span
+          >Sent to corporate on {{ Flag.currentDate }},
+          {{ Flag.currentTime }}.</span
         >
       </div>
       <div
         class="font-[650] text-[13px] p-2 rounded-lg cursor-pointer"
         :class="
           Flag.sendToCorporateFlag
-            ? 'bg-white text-[#3a3f58] border border-[#e3e5f0]'
+            ? 'bg-white text-[#3a3f58] border border-[#e3e5f0] hover:bg-[#eef0f8]'
             : 'bg-[#0d8f7a] text-white'
         "
         @click="sendToCorporate"

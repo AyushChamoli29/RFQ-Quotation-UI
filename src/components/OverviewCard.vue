@@ -38,15 +38,15 @@ const responseDeadlineTime = new Date(
       </div>
       <div class="flex flex-col items-end gap-1">
         <div
-          v-if="!flags.simulateFlag"
-          class="text-[11px] text-slate-500 font-bold h-6 w-20 p-1 flex justify-center items-center gap-1 rounded-lg bg-[#F4F5FA]"
+          v-if="flags.progress < 2"
+          class="text-[11px] text-slate-500 font-bold h-6 w-20 p-1 flex justify-center items-center gap-1 rounded-xl bg-[#F4F5FA]"
         >
           <span class="text-[17px]">&#9679;</span>
           <span>{{ data.big_card.status1 }}</span>
         </div>
         <div
           v-else
-          class="text-[11px] font-bold h-6 w-20 p-1 flex justify-center items-center gap-1 rounded-lg text-[#c02d3c] bg-[#fbe6e8]"
+          class="text-[11px] font-bold h-6 w-20 p-1 flex justify-center items-center gap-1 rounded-xl text-[#c02d3c] bg-[#fbe6e8]"
         >
           <span class="text-[17px]">&#9679;</span>
           <span>{{ data.big_card.status2 }}</span>
@@ -61,105 +61,24 @@ const responseDeadlineTime = new Date(
     </div>
     <!-- TimeLine -->
     <div class="flex text-[11px] flex-wrap">
-      <div class="flex gap-2 justify-center items-center">
+      <div class="flex items-center" v-for="(value, index) in data.timeline">
         <span
-          v-if="!flags.simulateFlag"
-          class="h-6 w-6 flex justify-center items-center rounded-full bg-[#5957db] text-white"
+          class="h-6 w-6 flex justify-center items-center rounded-full border-2 border-[#e3e5f0] mr-3 font-semibold"
+          :class="{
+            'bg-[#5b4fe0] text-white': flags.progress === index + 1,
+            'bg-white text-[#6b7090]': flags.progress < index + 1,
+            'bg-[#0d8f7a] text-white': flags.progress > index + 1,
+          }"
+          >{{ flags.progress > index + 1 ? "✓" : index + 1 }}</span
         >
-          1
-        </span>
-        <span
-          v-if="flags.simulateFlag"
-          class="h-6 w-6 flex justify-center items-center rounded-full bg-[#0d8f7a] text-white"
-        >
-          ✓
-        </span>
+        <span class="mr-2 text-[#6b7090] font-semibold text-[11.5px]">{{
+          value
+        }}</span>
         <div
-          class="font-medium"
-          :class="flags.simulateFlag ? 'text-slate-500' : 'text-black'"
-        >
-          Draft
-        </div>
-        <div
-          class="h-1/10 w-10"
-          :class="flags.simulateFlag ? 'bg-[#0d8f7a]' : 'bg-slate-200'"
+          v-if="index < 6"
+          class="h-1/10 w-8"
+          :class="[flags.progress > index ? 'bg-[#0d8f7a]' : 'bg-[#e3e5f0]']"
         ></div>
-      </div>
-      <div class="flex gap-2 justify-center items-center">
-        <span
-          v-if="!flags.simulateFlag"
-          class="h-6 w-6 text-[11px] font-bold flex justify-center items-center rounded-full bg-white text-slate-400 outline outline-slate-300"
-        >
-          2
-        </span>
-        <span
-          v-if="flags.simulateFlag"
-          class="h-6 w-6 flex justify-center items-center rounded-full bg-[#0d8f7a] text-white"
-        >
-          ✓
-        </span>
-        <div class="text-slate-500 font-medium">Sent to vendors</div>
-        <div
-          class="h-1/10 w-10"
-          :class="flags.simulateFlag ? 'bg-[#0d8f7a]' : 'bg-slate-200'"
-        ></div>
-      </div>
-      <div class="flex gap-2 justify-center items-center">
-        <span
-          class="h-6 w-6 text-[11px] font-bold flex justify-center items-center rounded-full"
-          :class="
-            flags.simulateFlag
-              ? 'bg-[#5957db] text-white'
-              : 'bg-white text-slate-400 outline outline-slate-300'
-          "
-        >
-          3
-        </span>
-        <div
-          class="font-medium"
-          :class="flags.simulateFlag ? 'text-black' : 'text-slate-500'"
-        >
-          Responses recieved
-        </div>
-        <div
-          class="h-1/10 w-10"
-          :class="flags.simulateFlag ? 'bg-[#0d8f7a]' : 'bg-slate-200'"
-        ></div>
-      </div>
-      <div class="flex gap-2 justify-center items-center">
-        <span
-          class="h-6 w-6 text-[11px] font-bold flex justify-center items-center rounded-full bg-white text-slate-400 outline outline-slate-300"
-        >
-          4
-        </span>
-        <div class="text-slate-500 font-medium">Under evaluation</div>
-        <div class="h-1/10 w-10 bg-slate-200"></div>
-      </div>
-      <div class="flex gap-2 justify-center items-center">
-        <span
-          class="h-6 w-6 text-[11px] font-bold flex justify-center items-center rounded-full bg-white text-slate-400 outline outline-slate-300"
-        >
-          5
-        </span>
-        <div class="text-slate-500 font-medium">Awarded</div>
-        <div class="h-1/10 w-10 bg-slate-200"></div>
-      </div>
-      <div class="flex gap-2 justify-center items-center">
-        <span
-          class="h-6 w-6 text-[11px] font-bold flex justify-center items-center rounded-full bg-white text-slate-400 outline outline-slate-300"
-        >
-          6
-        </span>
-        <div class="text-slate-500 font-medium">Costing applied</div>
-        <div class="h-1/10 w-10 bg-slate-200"></div>
-      </div>
-      <div class="flex gap-2 justify-center items-center">
-        <span
-          class="h-6 w-6 text-[11px] font-bold flex justify-center items-center rounded-full bg-white text-slate-400 outline outline-slate-300"
-        >
-          7
-        </span>
-        <div class="text-slate-500 font-medium">Sent to corporate</div>
       </div>
     </div>
   </div>

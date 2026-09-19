@@ -20,15 +20,48 @@ const currentTime = new Date().toLocaleTimeString("en-IN", {
   minute: "2-digit",
   hour12: true,
 });
+const findVendorName = (id) => {
+  for (const element of data.vendor_portal) {
+    if (element.id === id) {
+      return element.name;
+    }
+  }
+};
 const allocateVendors = () => {
   flags.allocateFlag = true;
+  flags.progress = 2;
   router.push({ name: "vendorResponses" });
-  for (const element of data.auditHistoryAllocate) {
-    historyStore.history.push({
-      ...element,
-      time: `${currentDate}, ${currentTime}`,
-    });
+  for (let i = 0; i < vendorsStore.currentVendors.length; i++) {
+    for (let j = 0; j < vendorsStore.currentVendors[i].VendorList.length; j++) {
+      const vendorName = findVendorName(
+        vendorsStore.currentVendors[i].VendorList[j].id,
+      );
+      const existing = historyStore.history.find((item) => {
+        return (
+          item.vendor === vendorName &&
+          item.action === "RFQ invitation dispatched"
+        );
+      });
+      if (existing) {
+        existing.category = `${existing.category}, ${vendorsStore.currentVendors[i].type}`;
+      } else {
+        historyStore.historyEntry({
+          actor: flags.selectedActor.name,
+          roleOrCompany: flags.selectedActor.role,
+          action: "RFQ invitation dispatched",
+          category: vendorsStore.currentVendors[i].type,
+          vendor: vendorName,
+          detail: `RFQ-2026-0142 sent to ${findVendorName(vendorsStore.currentVendors[i].VendorList[j].id)}, deadline 20 Jun 2026, 06:00 pm`,
+        });
+      }
+    }
   }
+  historyStore.historyEntry({
+    actor: flags.selectedActor.name,
+    roleOrCompany: flags.selectedActor.role,
+    action: "RFQ dispatched",
+    detail: `RFQ-2026-0142 sent to ${vendorsStore.totalVendors} vendor(s) across 6 categories`,
+  });
 };
 </script>
 
@@ -38,13 +71,19 @@ const allocateVendors = () => {
       <div class="text-[13px] text-[#6b7090] tracking-wide font-bold px-3">
         REQUIREMENT LINE ITEMS & VENDOR ALLOCATION
       </div>
-      <div
+      <button
         v-if="!flags.simulateFlag"
-        class="bg-[#4d3fc9] text-white font-bold text-[13px] p-2 rounded-lg cursor-pointer"
+        class="bg-[#4d3fc9] text-white font-bold text-[13px] p-2 rounded-lg"
+        :class="
+          vendorsStore.totalVendors === 0
+            ? 'opacity-50 cursor-not-allowed'
+            : 'cursor-pointer'
+        "
+        :disabled="vendorsStore.totalVendors === 0"
         @click="allocateVendors"
       >
         Send RFQ to allocated vendors({{ vendorsStore.totalVendors }})
-      </div>
+      </button>
       <div
         v-if="flags.simulateFlag"
         class="text-[11px] bg-[#e1f6f1] text-[#0d8f7a] p-1 rounded-xl font-bold"

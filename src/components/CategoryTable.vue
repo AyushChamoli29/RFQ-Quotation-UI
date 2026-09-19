@@ -1,7 +1,39 @@
 <script setup>
+import { ref } from "vue";
 import data from "@/data/mockData.json";
 import { useFlagsStore } from "@/store/flag";
+import { useVendorStore } from "@/store/requirementsVendor";
+import { useAwardedStore } from "@/store/awardedLines";
 const flags = useFlagsStore();
+const vendorsStore = useVendorStore();
+const awardedStore = useAwardedStore();
+const getVendorCount = (category) => {
+  for (const element of vendorsStore.currentVendors) {
+    if (element.type === category) {
+      return element.VendorList.length;
+    }
+  }
+  return 0;
+};
+const getAwardedCount = (category) => {
+  for (const [key, value] of Object.entries(awardedStore.awardedLines)) {
+    if (key === category) {
+      return Object.keys(value.data).length;
+    }
+  }
+  return 0;
+};
+const status = (progress) => {
+  let msg = ref("");
+  if (progress === 1) {
+    msg.value = "Not sent";
+  } else if (progress === 2) {
+    msg.value = "Awaiting response";
+  } else {
+    msg.value = "Under evaluation";
+  }
+  return msg;
+};
 </script>
 
 <template>
@@ -22,28 +54,37 @@ const flags = useFlagsStore();
       </thead>
       <tbody>
         <tr
-          v-for="[key, value] in Object.entries(data.category_table.category)"
-          class="border-t border-[#F4F5FA]"
+          v-for="[category, lines] in Object.entries(data.category_table)"
+          class="border-t border-slate-200"
         >
-          <td class="p-3 pl-5 text-left text-[13px] font-bold">
-            {{ key }}
+          <td class="px-3 py-3 font-bold">{{ category }}</td>
+          <td class="px-3 py-3">{{ lines }}</td>
+          <td class="px-3 py-3">{{ getVendorCount(category) }}</td>
+          <td class="px-3 py-3 font-mono">
+            {{
+              flags.progress >= 3
+                ? getVendorCount(category) + "/" + getVendorCount(category)
+                : "0/" + getVendorCount(category)
+            }}
           </td>
-          <td class="p-3 text-left">{{ value.lines }}</td>
-          <td class="p-3 text-left">{{ value.vendors_invited }}</td>
-          <td class="p-3 text-left">
-            {{ flags.simulateFlag ? value.responses2 : value.responses1 }}
+          <td class="px-3 py-2 font-mono">
+            {{
+              flags.progress >= 6
+                ? getAwardedCount(category) + "/" + lines
+                : "0/" + lines
+            }}
           </td>
-          <td class="p-3 text-left">{{ value.awarded_lines }}</td>
           <td>
-            <span
-              class="p-1 px-2 font-bold text-[11px] rounded-lg"
-              :class="
-                flags.simulateFlag
-                  ? 'bg-[#eeecfb] text-[#3f3ba6]'
-                  : 'bg-[#F4F5FA] text-slate-500'
-              "
-              >{{ flags.simulateFlag ? value.status2 : value.status1 }}</span
+            <div
+              class="w-max h-max px-2 py-1 rounded-2xl font-bold text-[11px]"
+              :class="{
+                'bg-[#eef0f8] text-[#6b7090]': flags.progress === 1,
+                'bg-[#fdf1de] text-[#b46a06]': flags.progress === 2,
+                'bg-[#eeecfb] text-[#3f3ba6]': flags.progress >= 3,
+              }"
             >
+              {{ status(flags.progress) }}
+            </div>
           </td>
         </tr>
       </tbody>

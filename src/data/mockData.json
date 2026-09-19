@@ -13,6 +13,15 @@
       "role": "Approver"
     }
   ],
+  "timeline": [
+    "Draft",
+    "Sent to vendors",
+    "Responses recieved",
+    "Under evaluation",
+    "Awarded",
+    "Costing applied",
+    "Sent to corporate"
+  ],
   "big_card": {
     "rfq_no": "RFQ-2026-0142",
     "mice_no": "MICE-20260628-1233-7989",
@@ -26,85 +35,13 @@
     "deadline": "2026-06-20T18:00:00",
     "query_type": "Package"
   },
-  "summary_cards": [
-    {
-      "title": "Requirement Lines",
-      "amount": "24",
-      "msg": "across 6 categories"
-    },
-    {
-      "title": "Vendors Invited",
-      "amount": "12",
-      "msg": "of 12 in vendor master"
-    },
-    {
-      "title": "Responded",
-      "amount": "0",
-      "msg": "0 declined"
-    },
-    {
-      "title": "Final Quotation (Latest)",
-      "amount": null,
-      "msg": "not yet applied"
-    }
-  ],
   "category_table": {
-    "category": {
-      "Hotels": {
-        "lines": "4",
-        "vendors_invited": "3",
-        "responses1": "0/3",
-        "responses2": "3/3",
-        "awarded_lines": "0/4",
-        "status1": "Not sent",
-        "status2": "Under evaluation"
-      },
-      "Flights": {
-        "lines": "4",
-        "vendors_invited": "2",
-        "responses1": "0/2",
-        "responses2": "2/2",
-        "awarded_lines": "0/4",
-        "status1": "Not sent",
-        "status2": "Under evaluation"
-      },
-      "Ground Transportation": {
-        "lines": "4",
-        "vendors_invited": "2",
-        "responses1": "0/2",
-        "responses2": "2/2",
-        "awarded_lines": "0/4",
-        "status1": "Not sent",
-        "status2": "Under evaluation"
-      },
-      "Event Management including AV": {
-        "lines": "5",
-        "vendors_invited": "2",
-        "responses1": "0/2",
-        "responses2": "2/2",
-        "awarded_lines": "0/5",
-        "status1": "Not sent",
-        "status2": "Under evaluation"
-      },
-      "Visa Management": {
-        "lines": "3",
-        "vendors_invited": "1",
-        "responses1": "0/1",
-        "responses2": "1/1",
-        "awarded_lines": "0/3",
-        "status1": "Not sent",
-        "status2": "Under evaluation"
-      },
-      "Local Liaison": {
-        "lines": "4",
-        "vendors_invited": "2",
-        "responses1": "0/2",
-        "responses2": "2/2",
-        "awarded_lines": "0/4",
-        "status1": "Not sent",
-        "status2": "Under evaluation"
-      }
-    }
+    "Hotels": 4,
+    "Flights": 4,
+    "Ground Transportation": 4,
+    "Event Management including AV": 5,
+    "Visa Management": 3,
+    "Local Liaison": 4
   },
   "vendor_portal": [
     {
@@ -204,14 +141,6 @@
       "status": "partially submitted"
     }
   ],
-  "recentActivity": {
-    "Vendor submissions simulated": "Priya Sharma (RFQ / Procurement Manager)",
-    "Clarification answered": "Priya Sharma (RFQ / Procurement Manager) · Flights · SkyBridge Airlines",
-    "Clarification question raised": "Anurag Mehta (SkyBridge Airlines) · Flights · SkyBridge Airlines",
-    "Vendor declined category": "Anong W. (LocalPro Thailand Services) · Local Liaison · LocalPro Thailand Services",
-    "Vendor portal accessed": "Anong W. (LocalPro Thailand Services) · Local Liaison · LocalPro Thailand Services",
-    "Vendor submitted quotation": " Ploy K. (Destination Connect DMC) · Local Liaison · Destination Connect DMC"
-  },
   "requirementTable": {
     "Hotels": {
       "defaultMargin": "12",
@@ -634,112 +563,6 @@
       "category": "Hotels",
       "vendor": "Grand Marina Hotel",
       "detail": "Secure link opened (simulated)"
-    }
-  ],
-  "auditHistoryAllocate": [
-    {
-      "actor": "Priya Sharma",
-      "roleOrCompany": "RFQ/Procurement Manager",
-      "action": "RFQ dispatched",
-      "category": "",
-      "vendor": "",
-      "detail": "RFQ-2026-0142 sent to 12 vendor(s) across 6 categories"
-    },
-    {
-      "actor": "Priya Sharma",
-      "roleOrCompany": "RFQ/Procurement Manager",
-      "action": "RFQ invitation dispatched",
-      "category": "Local Liaison",
-      "vendor": "LocalPro Thailand Services",
-      "detail": "RFQ-2026-0142 sent to LocalPro Thailand Services, deadline 20 Jun 2026, 06:00 pm"
-    },
-    {
-      "actor": "Priya Sharma",
-      "roleOrCompany": "RFQ/Procurement Manager",
-      "action": "RFQ invitation dispatched",
-      "category": "Local Liaison",
-      "vendor": "Destination Connect DMC",
-      "detail": "RFQ-2026-0142 sent to Destination Connect DMC, deadline 20 Jun 2026, 06:00 pm"
-    },
-    {
-      "actor": "Priya Sharma",
-      "roleOrCompany": "RFQ/Procurement Manager",
-      "action": "RFQ invitation dispatched",
-      "category": "Visa Management",
-      "vendor": "GlobalVisa Facilitation",
-      "detail": "RFQ-2026-0142 sent to GlobalVisa Facilitation, deadline 20 Jun 2026, 06:00 pm"
-    },
-    {
-      "actor": "Priya Sharma",
-      "roleOrCompany": "RFQ/Procurement Manager",
-      "action": "RFQ invitation dispatched",
-      "category": "Event Management including AV",
-      "vendor": "Stellar Events Co.",
-      "detail": "RFQ-2026-0142 sent to Stellar Events Co., deadline 20 Jun 2026, 06:00 pm"
-    },
-    {
-      "actor": "Priya Sharma",
-      "roleOrCompany": "RFQ/Procurement Manager",
-      "action": "RFQ invitation dispatched",
-      "category": "Event Management including AV",
-      "vendor": "EventSphere Productions",
-      "detail": "RFQ-2026-0142 sent to EventSphere Productions, deadline 20 Jun 2026, 06:00 pm"
-    },
-    {
-      "actor": "Priya Sharma",
-      "roleOrCompany": "RFQ/Procurement Manager",
-      "action": "RFQ invitation dispatched",
-      "category": "Ground Transportation",
-      "vendor": "Pattaya Premier Coaches",
-      "detail": "RFQ-2026-0142 sent to Pattaya Premier Coaches, deadline 20 Jun 2026, 06:00 pm"
-    },
-    {
-      "actor": "Priya Sharma",
-      "roleOrCompany": "RFQ/Procurement Manager",
-      "action": "RFQ invitation dispatched",
-      "category": "Ground Transportation",
-      "vendor": "CityLine Transport",
-      "detail": "RFQ-2026-0142 sent to CityLine Transport, deadline 20 Jun 2026, 06:00 pm"
-    },
-    {
-      "actor": "Priya Sharma",
-      "roleOrCompany": "RFQ/Procurement Manager",
-      "action": "RFQ invitation dispatched",
-      "category": "Flights",
-      "vendor": "Horizon Charter Airways",
-      "detail": "RFQ-2026-0142 sent to Horizon Charter Airways, deadline 20 Jun 2026, 06:00 pm"
-    },
-    {
-      "actor": "Priya Sharma",
-      "roleOrCompany": "RFQ/Procurement Manager",
-      "action": "RFQ invitation dispatched",
-      "category": "Flights",
-      "vendor": "SkyBridge Airlines",
-      "detail": "RFQ-2026-0142 sent to SkyBridge Airlines, deadline 20 Jun 2026, 06:00 pm"
-    },
-    {
-      "actor": "Priya Sharma",
-      "roleOrCompany": "RFQ/Procurement Manager",
-      "action": "RFQ invitation dispatched",
-      "category": "Hotels",
-      "vendor": "Ocean Pearl Hotel Pattaya",
-      "detail": "RFQ-2026-0142 sent to Ocean Pearl Hotel Pattaya, deadline 20 Jun 2026, 06:00 pm"
-    },
-    {
-      "actor": "Priya Sharma",
-      "roleOrCompany": "RFQ/Procurement Manager",
-      "action": "RFQ invitation dispatched",
-      "category": "Hotels",
-      "vendor": "Sunset Bay Resort & Spa",
-      "detail": "RFQ-2026-0142 sent to Sunset Bay Resort & Spa, deadline 20 Jun 2026, 06:00 pm"
-    },
-    {
-      "actor": "Priya Sharma",
-      "roleOrCompany": "RFQ/Procurement Manager",
-      "action": "RFQ invitation dispatched",
-      "category": "Hotels",
-      "vendor": "Grand Marina Hotel",
-      "detail": "RFQ-2026-0142 sent to Grand Marina Hotel, deadline 20 Jun 2026, 06:00 pm"
     }
   ],
   "requirementLines": {

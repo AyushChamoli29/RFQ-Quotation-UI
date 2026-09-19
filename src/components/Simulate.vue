@@ -17,8 +17,23 @@ const currentTime = new Date().toLocaleTimeString("en-IN", {
   minute: "2-digit",
   hour12: true,
 });
+const findVendorName = (id) => {
+  for (const element of data.vendor_portal) {
+    if (element.id === id) {
+      return element.name;
+    }
+  }
+};
+const findActor = (id) => {
+  for (const element of data.vendor_portal) {
+    if (element.id === id) {
+      return element.customer;
+    }
+  }
+};
 const simulateVendors = () => {
   flags.simulateFlag = true;
+  flags.progress = 3;
   for (const element1 of vendorsStore.currentVendors) {
     for (const element2 of element1.VendorList) {
       if (element2.simulated === false) {
@@ -26,11 +41,28 @@ const simulateVendors = () => {
       }
     }
   }
-  for (const element of data.auditHistorySimulate.toReversed()) {
-    historyStore.history.unshift({
-      ...element,
-      time: `${currentDate}, ${currentTime}`,
-    });
+  for (let i = 0; i < vendorsStore.currentVendors.length; i++) {
+    for (let j = 0; j < vendorsStore.currentVendors[i].VendorList.length; j++) {
+      const vendorName = findVendorName(
+        vendorsStore.currentVendors[i].VendorList[j].id,
+      );
+      historyStore.historyEntry({
+        actor: findActor(vendorsStore.currentVendors[i].VendorList[j].id),
+        roleOrCompany: vendorName,
+        action: "Vendor portal accessed",
+        category: vendorsStore.currentVendors[i].type,
+        vendor: vendorName,
+        detail: "Secure link opened(simulated)",
+      });
+      historyStore.historyEntry({
+        actor: findActor(vendorsStore.currentVendors[i].VendorList[j].id),
+        roleOrCompany: vendorName,
+        action: "Vendor submitted quotation",
+        category: vendorsStore.currentVendors[i].type,
+        vendor: vendorName,
+        detail: "line item(s) quoted",
+      });
+    }
   }
 };
 </script>

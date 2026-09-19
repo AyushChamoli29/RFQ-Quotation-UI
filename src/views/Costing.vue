@@ -1,11 +1,13 @@
 <script setup>
-import { computed, ref } from "vue";
+import { computed } from "vue";
 import CostingBox from "@/components/CostingBox.vue";
 import { RouterLink } from "vue-router";
+import { useHistoryStore } from "@/store/auditHistory";
 import { useAwardedStore } from "@/store/awardedLines";
 import { useFlagsStore } from "@/store/flag";
 const Flag = useFlagsStore();
 const awardedStore = useAwardedStore();
+const historyStore = useHistoryStore();
 const grandBase = computed(() => {
   let ans = 0;
   for (const element of Object.values(awardedStore.awardedLines)) {
@@ -25,17 +27,28 @@ const grandFinal = computed(() => {
   for (const element of Object.values(awardedStore.awardedLines)) {
     ans += element.final;
   }
-  return ans;
+  return Number(ans).toLocaleString("en-IN", {
+    style: "currency",
+    currency: "INR",
+    minimumFractionDigits: 0,
+  });
 });
 const showCosting = () => {
   if (awardedStore.awarded.length > 0) {
     Flag.costingFlag = true;
+    Flag.progress = 6;
     awardedStore.costVersions++;
   } else {
     alert(
       "No awarded line items yet — select vendors in Vendor Responses first.",
     );
   }
+  historyStore.historyEntry({
+    actor: Flag.selectedActor.name,
+    roleOrCompany: Flag.selectedActor.role,
+    action: "Costing version applied",
+    detail: `Costing v${awardedStore.costVersions} created from ${awardedStore.awarded.length} awarded line item(s) - final amount ${grandFinal.value}`,
+  });
 };
 const currentDate = new Date().toLocaleDateString("en-IN", {
   day: "2-digit",
@@ -47,7 +60,7 @@ const currentTime = new Date().toLocaleTimeString("en-IN", {
   minute: "2-digit",
   hour12: true,
 });
-console.log(awardedStore.awarded);
+console.log(historyStore.history);
 </script>
 
 <template>
@@ -141,13 +154,7 @@ console.log(awardedStore.awarded);
       </div>
       <div>
         Final amount
-        <span class="text-[#3f3ba6] font-bold text-base">{{
-          Number(grandFinal).toLocaleString("en-IN", {
-            style: "currency",
-            currency: "INR",
-            minimumFractionDigits: 0,
-          })
-        }}</span>
+        <span class="text-[#3f3ba6] font-bold text-base">{{ grandFinal }}</span>
       </div>
     </div>
   </div>
