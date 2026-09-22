@@ -1,20 +1,15 @@
 <script setup>
 import data from "@/data/mockData.json";
-import { ref, watch } from "vue";
-import { RouterLink } from "vue-router";
+import { computed, ref, watch } from "vue";
+import { RouterLink, useRoute } from "vue-router";
 import { useFlagsStore } from "@/store/flag";
 const flags = useFlagsStore();
-const flag = ref("agent");
-const agent = () => {
-  if (flag.value !== "agent") {
-    flag.value = "agent";
-  }
-};
-const vendor = () => {
-  if (flag.value !== "vendor") {
-    flag.value = "vendor";
-  }
-};
+
+const route = useRoute();
+
+const activeSpace = computed(() => {
+  return route.matched[0]?.name || "agentWorkspace";
+});
 const actor = [...data.actor];
 const selectedActor = ref(actor[0]);
 watch(selectedActor, (newActor) => {
@@ -49,7 +44,8 @@ watch(selectedActor, (newActor) => {
           @click="agent"
           class="p-2 pl-3"
           :class="{
-            'bg-white text-[#373593] px-4 rounded-3xl': flag === 'agent',
+            'bg-white text-[#373593] px-4 rounded-3xl':
+              activeSpace === 'agentWorkspace',
           }"
         >
           Agent Workspace
@@ -60,7 +56,8 @@ watch(selectedActor, (newActor) => {
           @click="vendor"
           class="p-2 pr-3"
           :class="{
-            'bg-white text-[#373593] px-4 rounded-3xl': flag === 'vendor',
+            'bg-white text-[#373593] px-4 rounded-3xl':
+              activeSpace === 'vendorPortal',
           }"
         >
           Vendor Portal
@@ -70,13 +67,13 @@ watch(selectedActor, (newActor) => {
     <div class="text-white flex gap-2 text-xs justify-center items-center">
       <p
         class="text-slate-300 text-[11px]"
-        :class="{ hidden: flag === 'vendor' }"
+        :class="{ hidden: activeSpace === 'vendorPortal' }"
       >
         Acting as
       </p>
       <div
         class="outline outline-white/50 py-2 px-1 rounded-md bg-[#ffffff24]"
-        :class="{ hidden: flag === 'vendor' }"
+        :class="{ hidden: activeSpace === 'vendorPortal' }"
       >
         <select id="acting" v-model="selectedActor">
           <option v-for="item in actor" class="text-black" :value="item">

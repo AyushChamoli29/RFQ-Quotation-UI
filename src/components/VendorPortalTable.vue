@@ -37,56 +37,66 @@ const findDetail = (lineName, category) => {
 </script>
 
 <template>
-  <div class="bg-white p-3 pt-5 rounded-lg">
+  <div class="bg-white rounded-xl border border-slate-200 p-4">
     <p class="ml-3 mb-5 font-bold">{{ vendorType(prop.vendorName) }}</p>
-    <table class="w-full text-xs text-left">
+    <table class="w-full text-xs">
       <thead
-        class="text-[#6b7090] font-semibold text-[11.5px] border-b border-slate-200"
+        class="text-[#6b7090] font-semibold text-[11.5px] border-b border-slate-200 text-left"
       >
         <tr>
-          <th class="px-4 py-3">PARTICULAR</th>
-          <th class="px-4 py-3">QTY</th>
-          <th class="px-4 py-3">RATE (&#8377;)</th>
-          <th class="px-4 py-3">TAX %</th>
-          <th class="px-4 py-3">AVAILABILTY</th>
-          <th class="px-4 py-3">REMARKS</th>
-          <th class="px-4 py-3">ATTACHMENT</th>
+          <th class="px-4 py-3 w-3/10">PARTICULAR</th>
+          <th class="px-4 py-3 w-1/10">QTY</th>
+          <th class="px-4 py-3 w-1.5/10">RATE (&#8377;)</th>
+          <th class="px-4 py-3 w-1.5/10">TAX %</th>
+          <th class="px-4 py-3 w-1.5/10">AVAILABILTY</th>
+          <th class="px-4 py-3 w-1/10">REMARKS</th>
+          <th class="px-4 py-3 w-1/10">ATTACHMENT</th>
         </tr>
       </thead>
       <tbody class="divide-y divide-slate-200">
         <tr v-for="item in objNeeded(prop.vendorName).vendorsPrices">
-          <td class="py-3 pl-2">
-            <span class="font-bold">{{ item.requirementLine }}</span> <br />
-            <span class="text-[#6b7090] text-[11.5px]">{{
-              findDetail(item.requirementLine, vendorType(prop.vendorName))
-            }}</span>
+          <td class="py-4 pl-4 align-middle">
+            <div class="font-bold">{{ item.requirementLine }}</div>
+            <div class="text-[#6b7090] text-[11.5px] mt-1">
+              {{
+                findDetail(item.requirementLine, vendorType(prop.vendorName))
+              }}
+            </div>
           </td>
-          <td class="font-mono">{{ item.quantity }} {{ item.unit }}</td>
-          <td>
+          <td class="font-mono py-4 align-middle">
+            {{ item.quantity }} {{ item.unit }}
+          </td>
+          <td class="p-4 align-middle">
             <div
-              class="flex items-center border border-slate-200 rounded-lg p-2"
+              class="flex items-center border border-slate-200 rounded-lg p-2 w-35"
             >
               {{ rateFinder(prop.vendorName, item.content) }}
             </div>
           </td>
-          <td>
+          <td class="p-4 align-middle">
             <div
-              class="flex items-center border border-slate-200 rounded-lg p-2"
+              class="flex items-center border border-slate-200 rounded-lg p-2 w-35"
             >
               7
             </div>
           </td>
-          <td>
+          <td class="p-4 align-middle">
             <div
-              class="flex items-center border border-slate-200 rounded-lg p-2 text-[#6b7090]"
+              class="flex items-center border border-slate-200 rounded-lg p-2 text-[#6b7090] w-35"
             >
               <select disabled>
                 <option value="Quoted">Quoted</option>
               </select>
             </div>
           </td>
-          <td>Standard group terms</td>
-          <td>proposal_v1.pdf</td>
+          <td class="p-4 align-middle">
+            <div
+              class="flex items-center border border-slate-200 rounded-lg p-2 w-35"
+            >
+              Standard group terms
+            </div>
+          </td>
+          <td class="p-4 align-middle">proposal_v1.pdf</td>
         </tr>
       </tbody>
     </table>

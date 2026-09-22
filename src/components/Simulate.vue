@@ -8,16 +8,6 @@ const flags = useFlagsStore();
 const historyStore = useHistoryStore();
 const vendorsStore = useVendorStore();
 const emit = defineEmits(["simulate-vendors"]);
-// const currentDate = new Date().toLocaleDateString("en-IN", {
-//   day: "2-digit",
-//   month: "short",
-//   year: "numeric",
-// });
-// const currentTime = new Date().toLocaleTimeString("en-IN", {
-//   hour: "2-digit",
-//   minute: "2-digit",
-//   hour12: true,
-// });
 const findVendorName = (id) => {
   for (const element of data.vendor_portal) {
     if (element.id === id) {

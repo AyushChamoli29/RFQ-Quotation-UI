@@ -1,12 +1,15 @@
 <script setup>
 import data from "@/data/mockData.json";
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import { useFlagsStore } from "@/store/flag";
-import { useVendorStore } from "@/store/requirementsVendor";
 import VendorPortalBox from "@/components/VendorPortalBox.vue";
+import { useVendorportalStore } from "@/store/VendorPortalStore";
 const flag = useFlagsStore();
-const vendorsStore = useVendorStore();
-const vendorName = ref("select a vendor");
+const vendorPortal = useVendorportalStore();
+const vendorName = ref("");
+onMounted(() => {
+  vendorName.value = vendorPortal.vendorSelected;
+});
 </script>
 
 <template>
@@ -18,7 +21,7 @@ const vendorName = ref("select a vendor");
         <p class="text-xs font-[650]">Simulate secure vendor acess link for</p>
         <select
           class="text-[13px] outline outline-slate-200 p-2 rounded-lg mt-1"
-          v-model="vendorName"
+          v-model="vendorPortal.vendorSelected"
         >
           <option value="select a vendor">
             &mdash; Select a vendor &mdash;
@@ -35,7 +38,7 @@ const vendorName = ref("select a vendor");
     </div>
     <div>
       <div
-        v-if="vendorName === 'select a vendor'"
+        v-if="vendorPortal.vendorSelected === 'select a vendor'"
         class="h-40 w-full ml-2 p-5 flex flex-col gap-2 justify-center items-center bg-white outline outline-slate-200 rounded-lg"
       >
         <span class="text-4xl">🔗</span>
@@ -44,7 +47,9 @@ const vendorName = ref("select a vendor");
         </p>
       </div>
       <div
-        v-if="vendorName !== 'select a vendor' && flag.progress < 2"
+        v-if="
+          vendorPortal.vendorSelected !== 'select a vendor' && flag.progress < 2
+        "
         class="h-50 w-full ml-2 p-5 flex flex-col gap-2 justify-center items-center bg-white outline outline-slate-200 rounded-lg"
       >
         <span class="text-4xl">📭</span>
@@ -54,8 +59,13 @@ const vendorName = ref("select a vendor");
           been dispatched yet.
         </p>
       </div>
-      <div v-if="vendorName !== 'select a vendor' && flag.progress >= 2">
-        <VendorPortalBox :vendorName="vendorName" />
+      <div
+        v-if="
+          vendorPortal.vendorSelected !== 'select a vendor' &&
+          flag.progress >= 2
+        "
+      >
+        <VendorPortalBox :vendorName="vendorPortal.vendorSelected" />
       </div>
     </div>
   </div>

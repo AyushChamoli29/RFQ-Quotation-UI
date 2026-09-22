@@ -23,12 +23,14 @@ const getAwardedCount = (category) => {
   }
   return 0;
 };
-const status = (progress) => {
+const status = (progress, awarded, total) => {
   let msg = ref("");
   if (progress === 1) {
     msg.value = "Not sent";
   } else if (progress === 2) {
     msg.value = "Awaiting response";
+  } else if (awarded === total) {
+    msg.value = "Fully awarded";
   } else {
     msg.value = "Under evaluation";
   }
@@ -69,7 +71,7 @@ const status = (progress) => {
           </td>
           <td class="px-3 py-2 font-mono">
             {{
-              flags.progress >= 6
+              flags.progress >= 3
                 ? getAwardedCount(category) + "/" + lines
                 : "0/" + lines
             }}
@@ -80,10 +82,13 @@ const status = (progress) => {
               :class="{
                 'bg-[#eef0f8] text-[#6b7090]': flags.progress === 1,
                 'bg-[#fdf1de] text-[#b46a06]': flags.progress === 2,
-                'bg-[#eeecfb] text-[#3f3ba6]': flags.progress >= 3,
+                'bg-[#e1f6f1] text-[#0d8f7a]':
+                  getAwardedCount(category) === lines,
+                'bg-[#eeecfb] text-[#3f3ba6]':
+                  flags.progress >= 3 && getAwardedCount(category) !== lines,
               }"
             >
-              {{ status(flags.progress) }}
+              {{ status(flags.progress, getAwardedCount(category), lines) }}
             </div>
           </td>
         </tr>

@@ -14,12 +14,9 @@ const router = createRouter({
     {
       path: "/",
       name: "agentWorkspace",
+      redirect: "overview",
       component: AgentWorkspace,
       children: [
-        {
-          path: "",
-          redirect: "overview",
-        },
         {
           path: "overview",
           name: "overview",
