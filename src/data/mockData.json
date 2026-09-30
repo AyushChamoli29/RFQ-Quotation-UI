@@ -45,7 +45,7 @@
   },
   "vendor_portal": [
     {
-      "id": "V1",
+      "id": "v1",
       "name": "Grand Marina Hotel",
       "type": "Hotels",
       "customer": "Nattapong S.",
@@ -53,7 +53,7 @@
       "status": "submitted"
     },
     {
-      "id": "V2",
+      "id": "v2",
       "name": "Sunset Bay Resort & Spa",
       "type": "Hotels",
       "customer": "Kanya P.",
@@ -61,7 +61,7 @@
       "status": "submitted"
     },
     {
-      "id": "V3",
+      "id": "v3",
       "name": "Ocean Pearl Hotel Pattaya",
       "type": "Hotels",
       "customer": "Somchai T.",
@@ -69,7 +69,7 @@
       "status": "submitted"
     },
     {
-      "id": "V4",
+      "id": "v4",
       "name": "CityLine Transport",
       "type": "Ground Transportation",
       "customer": "Wichai R.",
@@ -77,7 +77,7 @@
       "status": "submitted"
     },
     {
-      "id": "V5",
+      "id": "v5",
       "name": "Destination Connect DMC",
       "type": "Local Liaison",
       "customer": "Ploy K.",
@@ -85,7 +85,7 @@
       "status": "submitted"
     },
     {
-      "id": "V6",
+      "id": "v6",
       "name": "EventSphere Productions",
       "type": "Event Management including AV",
       "customer": "Rahul Kapoor",
@@ -93,7 +93,7 @@
       "status": "submitted"
     },
     {
-      "id": "V7",
+      "id": "v7",
       "name": "GlobalVisa Facilitation",
       "type": "Visa Management",
       "customer": "Karan Sethi",
@@ -101,7 +101,7 @@
       "status": "submitted"
     },
     {
-      "id": "V8",
+      "id": "v8",
       "name": "Horizon Charter Airways",
       "type": "Flights",
       "customer": "Priya Nair",
@@ -109,7 +109,7 @@
       "status": "submitted"
     },
     {
-      "id": "V9",
+      "id": "v9",
       "name": "LocalPro Thailand Services",
       "type": "Local Liaison",
       "customer": "Anong W.",
@@ -142,9 +142,8 @@
     }
   ],
   "requirementTable": {
-    "Hotels": {
+    "c1": {
       "defaultMargin": "12",
-      "vendors": ["V1", "V2", "V3"],
       "list": [
         {
           "room": "Deluxe Twin Room",
@@ -176,9 +175,8 @@
         }
       ]
     },
-    "Flights": {
+    "c2": {
       "defaultMargin": "8",
-      "vendors": ["V4", "V5"],
       "list": [
         {
           "room": "Outbound Economy Class Airfare",
@@ -210,9 +208,8 @@
         }
       ]
     },
-    "Ground Transportation": {
+    "c3": {
       "defaultMargin": "12",
-      "vendors": ["V6", "V7"],
       "list": [
         {
           "room": "Arrival Airport Transfer by 45-seater Coach",
@@ -244,9 +241,8 @@
         }
       ]
     },
-    "Event Management including AV": {
+    "c4": {
       "defaultMargin": "16",
-      "vendors": ["V8", "V9"],
       "list": [
         {
           "room": "Gala Dinner Venue Rental",
@@ -285,9 +281,8 @@
         }
       ]
     },
-    "Visa Management": {
+    "c5": {
       "defaultMargin": "10",
-      "vendors": ["V10"],
       "list": [
         {
           "room": "Tourist Visa Government Fee",
@@ -312,9 +307,8 @@
         }
       ]
     },
-    "Local Liaison": {
+    "c6": {
       "defaultMargin": "15",
-      "vendors": ["V11", "V12"],
       "list": [
         {
           "room": "Lead Local Coordinator",
@@ -483,6 +477,7 @@
   },
   "vendorPricing": [
     {
+      "categoryID": "c1",
       "category": "Hotels",
       "clarification": false,
       "defaultMargin": "12",
@@ -494,7 +489,7 @@
           "mandatory": true,
           "content": [
             {
-              "id": "V1",
+              "id": "v1",
               "name": "Grand Marina Hotel",
               "information": {
                 "status": "submitted",
@@ -504,7 +499,7 @@
               }
             },
             {
-              "id": "V2",
+              "id": "v2",
               "name": "Sunset Bay Resort & Spa",
               "information": {
                 "status": "submitted",
@@ -514,7 +509,7 @@
               }
             },
             {
-              "id": "V3",
+              "id": "v3",
               "name": "Ocean Pearl Hotel Pattaya",
               "information": {
                 "status": "submitted",
@@ -524,7 +519,7 @@
               }
             },
             {
-              "id": "V4",
+              "id": "v6",
               "name": "CityLine Transport",
               "information": {
                 "status": "submitted",
@@ -534,7 +529,7 @@
               }
             },
             {
-              "id": "V5",
+              "id": "v11",
               "name": "Destination Connect DMC",
               "information": {
                 "status": "submitted",
@@ -544,7 +539,7 @@
               }
             },
             {
-              "id": "V6",
+              "id": "v8",
               "name": "EventSphere Productions",
               "information": {
                 "status": "submitted",
@@ -554,7 +549,7 @@
               }
             },
             {
-              "id": "V7",
+              "id": "v10",
               "name": "GlobalVisa Facilitation",
               "information": {
                 "status": "submitted",
@@ -564,7 +559,7 @@
               }
             },
             {
-              "id": "V8",
+              "id": "v5",
               "name": "Horizon Charter Airways",
               "information": {
                 "status": "submitted",
@@ -574,7 +569,7 @@
               }
             },
             {
-              "id": "V9",
+              "id": "v12",
               "name": "LocalPro Thailand Services",
               "information": {
                 "status": "declined",
@@ -584,7 +579,7 @@
               }
             },
             {
-              "id": "V10",
+              "id": "v7",
               "name": "Pattaya Premier Coaches",
               "information": {
                 "status": "submitted",
@@ -594,7 +589,7 @@
               }
             },
             {
-              "id": "V11",
+              "id": "v4",
               "name": "SkyBridge Airlines",
               "information": {
                 "status": "submitted",
@@ -604,7 +599,7 @@
               }
             },
             {
-              "id": "V12",
+              "id": "v9",
               "name": "Stellar Events Co.",
               "information": {
                 "status": "submitted",
@@ -622,7 +617,7 @@
           "mandatory": false,
           "content": [
             {
-              "id": "V1",
+              "id": "v1",
               "name": "Grand Marina Hotel",
               "information": {
                 "status": "submitted",
@@ -632,7 +627,7 @@
               }
             },
             {
-              "id": "V2",
+              "id": "v2",
               "name": "Sunset Bay Resort & Spa",
               "information": {
                 "status": "submitted",
@@ -642,7 +637,7 @@
               }
             },
             {
-              "id": "V3",
+              "id": "v3",
               "name": "Ocean Pearl Hotel Pattaya",
               "information": {
                 "status": "submitted",
@@ -652,7 +647,7 @@
               }
             },
             {
-              "id": "V4",
+              "id": "v6",
               "name": "CityLine Transport",
               "information": {
                 "status": "submitted",
@@ -662,7 +657,7 @@
               }
             },
             {
-              "id": "V5",
+              "id": "v11",
               "name": "Destination Connect DMC",
               "information": {
                 "status": "submitted",
@@ -672,7 +667,7 @@
               }
             },
             {
-              "id": "V6",
+              "id": "v8",
               "name": "EventSphere Productions",
               "information": {
                 "status": "submitted",
@@ -682,7 +677,7 @@
               }
             },
             {
-              "id": "V7",
+              "id": "v10",
               "name": "GlobalVisa Facilitation",
               "information": {
                 "status": "submitted",
@@ -692,7 +687,7 @@
               }
             },
             {
-              "id": "V8",
+              "id": "v5",
               "name": "Horizon Charter Airways",
               "information": {
                 "status": "submitted",
@@ -702,7 +697,7 @@
               }
             },
             {
-              "id": "V9",
+              "id": "v12",
               "name": "LocalPro Thailand Services",
               "information": {
                 "status": "declined",
@@ -712,7 +707,7 @@
               }
             },
             {
-              "id": "V10",
+              "id": "v7",
               "name": "Pattaya Premier Coaches",
               "information": {
                 "status": "submitted",
@@ -722,7 +717,7 @@
               }
             },
             {
-              "id": "V11",
+              "id": "v4",
               "name": "SkyBridge Airlines",
               "information": {
                 "status": "submitted",
@@ -732,7 +727,7 @@
               }
             },
             {
-              "id": "V12",
+              "id": "v9",
               "name": "Stellar Events Co.",
               "information": {
                 "status": "submitted",
@@ -750,7 +745,7 @@
           "mandatory": false,
           "content": [
             {
-              "id": "V1",
+              "id": "v1",
               "name": "Grand Marina Hotel",
               "information": {
                 "status": "submitted",
@@ -760,7 +755,7 @@
               }
             },
             {
-              "id": "V2",
+              "id": "v2",
               "name": "Sunset Bay Resort & Spa",
               "information": {
                 "status": "submitted",
@@ -770,7 +765,7 @@
               }
             },
             {
-              "id": "V3",
+              "id": "v3",
               "name": "Ocean Pearl Hotel Pattaya",
               "information": {
                 "status": "submitted",
@@ -780,7 +775,7 @@
               }
             },
             {
-              "id": "V4",
+              "id": "v6",
               "name": "CityLine Transport",
               "information": {
                 "status": "submitted",
@@ -790,7 +785,7 @@
               }
             },
             {
-              "id": "V5",
+              "id": "v11",
               "name": "Destination Connect DMC",
               "information": {
                 "status": "submitted",
@@ -800,7 +795,7 @@
               }
             },
             {
-              "id": "V6",
+              "id": "v8",
               "name": "EventSphere Productions",
               "information": {
                 "status": "submitted",
@@ -810,7 +805,7 @@
               }
             },
             {
-              "id": "V7",
+              "id": "v10",
               "name": "GlobalVisa Facilitation",
               "information": {
                 "status": "submitted",
@@ -820,7 +815,7 @@
               }
             },
             {
-              "id": "V8",
+              "id": "v5",
               "name": "Horizon Charter Airways",
               "information": {
                 "status": "submitted",
@@ -830,7 +825,7 @@
               }
             },
             {
-              "id": "V9",
+              "id": "v12",
               "name": "LocalPro Thailand Services",
               "information": {
                 "status": "declined",
@@ -840,7 +835,7 @@
               }
             },
             {
-              "id": "V10",
+              "id": "v7",
               "name": "Pattaya Premier Coaches",
               "information": {
                 "status": "submitted",
@@ -850,7 +845,7 @@
               }
             },
             {
-              "id": "V11",
+              "id": "v4",
               "name": "SkyBridge Airlines",
               "information": {
                 "status": "submitted",
@@ -860,7 +855,7 @@
               }
             },
             {
-              "id": "V12",
+              "id": "v9",
               "name": "Stellar Events Co.",
               "information": {
                 "status": "submitted",
@@ -878,7 +873,7 @@
           "mandatory": false,
           "content": [
             {
-              "id": "V1",
+              "id": "v1",
               "name": "Grand Marina Hotel",
               "information": {
                 "status": "submitted",
@@ -888,7 +883,7 @@
               }
             },
             {
-              "id": "V2",
+              "id": "v2",
               "name": "Sunset Bay Resort & Spa",
               "information": {
                 "status": "submitted",
@@ -898,7 +893,7 @@
               }
             },
             {
-              "id": "V3",
+              "id": "v3",
               "name": "Ocean Pearl Hotel Pattaya",
               "information": {
                 "status": "submitted",
@@ -908,7 +903,7 @@
               }
             },
             {
-              "id": "V4",
+              "id": "v6",
               "name": "CityLine Transport",
               "information": {
                 "status": "submitted",
@@ -918,7 +913,7 @@
               }
             },
             {
-              "id": "V5",
+              "id": "v11",
               "name": "Destination Connect DMC",
               "information": {
                 "status": "submitted",
@@ -928,7 +923,7 @@
               }
             },
             {
-              "id": "V6",
+              "id": "v8",
               "name": "EventSphere Productions",
               "information": {
                 "status": "submitted",
@@ -938,7 +933,7 @@
               }
             },
             {
-              "id": "V7",
+              "id": "v10",
               "name": "GlobalVisa Facilitation",
               "information": {
                 "status": "submitted",
@@ -948,7 +943,7 @@
               }
             },
             {
-              "id": "V8",
+              "id": "v5",
               "name": "Horizon Charter Airways",
               "information": {
                 "status": "submitted",
@@ -958,7 +953,7 @@
               }
             },
             {
-              "id": "V9",
+              "id": "v12",
               "name": "LocalPro Thailand Services",
               "information": {
                 "status": "declined",
@@ -968,7 +963,7 @@
               }
             },
             {
-              "id": "V10",
+              "id": "v7",
               "name": "Pattaya Premier Coaches",
               "information": {
                 "status": "submitted",
@@ -978,7 +973,7 @@
               }
             },
             {
-              "id": "V11",
+              "id": "v4",
               "name": "SkyBridge Airlines",
               "information": {
                 "status": "submitted",
@@ -988,7 +983,7 @@
               }
             },
             {
-              "id": "V12",
+              "id": "v9",
               "name": "Stellar Events Co.",
               "information": {
                 "status": "submitted",
@@ -1002,6 +997,7 @@
       ]
     },
     {
+      "categoryID": "c2",
       "category": "Flights",
       "clarification": true,
       "defaultMargin": "8",
@@ -1013,7 +1009,7 @@
           "mandatory": true,
           "content": [
             {
-              "id": "V1",
+              "id": "v1",
               "name": "Grand Marina Hotel",
               "information": {
                 "status": "submitted",
@@ -1023,7 +1019,7 @@
               }
             },
             {
-              "id": "V2",
+              "id": "v2",
               "name": "Sunset Bay Resort & Spa",
               "information": {
                 "status": "submitted",
@@ -1033,7 +1029,7 @@
               }
             },
             {
-              "id": "V3",
+              "id": "v3",
               "name": "Ocean Pearl Hotel Pattaya",
               "information": {
                 "status": "submitted",
@@ -1043,7 +1039,7 @@
               }
             },
             {
-              "id": "V4",
+              "id": "v6",
               "name": "CityLine Transport",
               "information": {
                 "status": "submitted",
@@ -1053,7 +1049,7 @@
               }
             },
             {
-              "id": "V5",
+              "id": "v11",
               "name": "Destination Connect DMC",
               "information": {
                 "status": "submitted",
@@ -1063,7 +1059,7 @@
               }
             },
             {
-              "id": "V6",
+              "id": "v8",
               "name": "EventSphere Productions",
               "information": {
                 "status": "submitted",
@@ -1073,7 +1069,7 @@
               }
             },
             {
-              "id": "V7",
+              "id": "v10",
               "name": "GlobalVisa Facilitation",
               "information": {
                 "status": "submitted",
@@ -1083,7 +1079,7 @@
               }
             },
             {
-              "id": "V8",
+              "id": "v5",
               "name": "Horizon Charter Airways",
               "information": {
                 "status": "submitted",
@@ -1093,7 +1089,7 @@
               }
             },
             {
-              "id": "V9",
+              "id": "v12",
               "name": "LocalPro Thailand Services",
               "information": {
                 "status": "declined",
@@ -1103,7 +1099,7 @@
               }
             },
             {
-              "id": "V10",
+              "id": "v7",
               "name": "Pattaya Premier Coaches",
               "information": {
                 "status": "submitted",
@@ -1113,7 +1109,7 @@
               }
             },
             {
-              "id": "V11",
+              "id": "v4",
               "name": "SkyBridge Airlines",
               "information": {
                 "status": "submitted",
@@ -1123,7 +1119,7 @@
               }
             },
             {
-              "id": "V12",
+              "id": "v9",
               "name": "Stellar Events Co.",
               "information": {
                 "status": "submitted",
@@ -1141,7 +1137,7 @@
           "mandatory": true,
           "content": [
             {
-              "id": "V1",
+              "id": "v1",
               "name": "Grand Marina Hotel",
               "information": {
                 "status": "submitted",
@@ -1151,7 +1147,7 @@
               }
             },
             {
-              "id": "V2",
+              "id": "v2",
               "name": "Sunset Bay Resort & Spa",
               "information": {
                 "status": "submitted",
@@ -1161,7 +1157,7 @@
               }
             },
             {
-              "id": "V3",
+              "id": "v3",
               "name": "Ocean Pearl Hotel Pattaya",
               "information": {
                 "status": "submitted",
@@ -1171,7 +1167,7 @@
               }
             },
             {
-              "id": "V4",
+              "id": "v6",
               "name": "CityLine Transport",
               "information": {
                 "status": "submitted",
@@ -1181,7 +1177,7 @@
               }
             },
             {
-              "id": "V5",
+              "id": "v11",
               "name": "Destination Connect DMC",
               "information": {
                 "status": "submitted",
@@ -1191,7 +1187,7 @@
               }
             },
             {
-              "id": "V6",
+              "id": "v8",
               "name": "EventSphere Productions",
               "information": {
                 "status": "submitted",
@@ -1201,7 +1197,7 @@
               }
             },
             {
-              "id": "V7",
+              "id": "v10",
               "name": "GlobalVisa Facilitation",
               "information": {
                 "status": "submitted",
@@ -1211,7 +1207,7 @@
               }
             },
             {
-              "id": "V8",
+              "id": "v5",
               "name": "Horizon Charter Airways",
               "information": {
                 "status": "submitted",
@@ -1221,7 +1217,7 @@
               }
             },
             {
-              "id": "V9",
+              "id": "v12",
               "name": "LocalPro Thailand Services",
               "information": {
                 "status": "declined",
@@ -1231,7 +1227,7 @@
               }
             },
             {
-              "id": "V10",
+              "id": "v7",
               "name": "Pattaya Premier Coaches",
               "information": {
                 "status": "submitted",
@@ -1241,7 +1237,7 @@
               }
             },
             {
-              "id": "V11",
+              "id": "v4",
               "name": "SkyBridge Airlines",
               "information": {
                 "status": "submitted",
@@ -1251,7 +1247,7 @@
               }
             },
             {
-              "id": "V12",
+              "id": "v9",
               "name": "Stellar Events Co.",
               "information": {
                 "status": "submitted",
@@ -1269,7 +1265,7 @@
           "mandatory": false,
           "content": [
             {
-              "id": "V1",
+              "id": "v1",
               "name": "Grand Marina Hotel",
               "information": {
                 "status": "submitted",
@@ -1279,7 +1275,7 @@
               }
             },
             {
-              "id": "V2",
+              "id": "v2",
               "name": "Sunset Bay Resort & Spa",
               "information": {
                 "status": "submitted",
@@ -1289,7 +1285,7 @@
               }
             },
             {
-              "id": "V3",
+              "id": "v3",
               "name": "Ocean Pearl Hotel Pattaya",
               "information": {
                 "status": "submitted",
@@ -1299,7 +1295,7 @@
               }
             },
             {
-              "id": "V4",
+              "id": "v6",
               "name": "CityLine Transport",
               "information": {
                 "status": "submitted",
@@ -1309,7 +1305,7 @@
               }
             },
             {
-              "id": "V5",
+              "id": "v11",
               "name": "Destination Connect DMC",
               "information": {
                 "status": "submitted",
@@ -1319,7 +1315,7 @@
               }
             },
             {
-              "id": "V6",
+              "id": "v8",
               "name": "EventSphere Productions",
               "information": {
                 "status": "submitted",
@@ -1329,7 +1325,7 @@
               }
             },
             {
-              "id": "V7",
+              "id": "v10",
               "name": "GlobalVisa Facilitation",
               "information": {
                 "status": "submitted",
@@ -1339,7 +1335,7 @@
               }
             },
             {
-              "id": "V8",
+              "id": "v5",
               "name": "Horizon Charter Airways",
               "information": {
                 "status": "submitted",
@@ -1349,7 +1345,7 @@
               }
             },
             {
-              "id": "V9",
+              "id": "v12",
               "name": "LocalPro Thailand Services",
               "information": {
                 "status": "declined",
@@ -1359,7 +1355,7 @@
               }
             },
             {
-              "id": "V10",
+              "id": "v7",
               "name": "Pattaya Premier Coaches",
               "information": {
                 "status": "submitted",
@@ -1369,7 +1365,7 @@
               }
             },
             {
-              "id": "V11",
+              "id": "v4",
               "name": "SkyBridge Airlines",
               "information": {
                 "status": "submitted",
@@ -1379,7 +1375,7 @@
               }
             },
             {
-              "id": "V12",
+              "id": "v9",
               "name": "Stellar Events Co.",
               "information": {
                 "status": "submitted",
@@ -1397,7 +1393,7 @@
           "mandatory": true,
           "content": [
             {
-              "id": "V1",
+              "id": "v1",
               "name": "Grand Marina Hotel",
               "information": {
                 "status": "submitted",
@@ -1407,7 +1403,7 @@
               }
             },
             {
-              "id": "V2",
+              "id": "v2",
               "name": "Sunset Bay Resort & Spa",
               "information": {
                 "status": "submitted",
@@ -1417,7 +1413,7 @@
               }
             },
             {
-              "id": "V3",
+              "id": "v3",
               "name": "Ocean Pearl Hotel Pattaya",
               "information": {
                 "status": "submitted",
@@ -1427,7 +1423,7 @@
               }
             },
             {
-              "id": "V4",
+              "id": "v6",
               "name": "CityLine Transport",
               "information": {
                 "status": "submitted",
@@ -1437,7 +1433,7 @@
               }
             },
             {
-              "id": "V5",
+              "id": "v11",
               "name": "Destination Connect DMC",
               "information": {
                 "status": "submitted",
@@ -1447,7 +1443,7 @@
               }
             },
             {
-              "id": "V6",
+              "id": "v8",
               "name": "EventSphere Productions",
               "information": {
                 "status": "submitted",
@@ -1457,7 +1453,7 @@
               }
             },
             {
-              "id": "V7",
+              "id": "v10",
               "name": "GlobalVisa Facilitation",
               "information": {
                 "status": "submitted",
@@ -1467,7 +1463,7 @@
               }
             },
             {
-              "id": "V8",
+              "id": "v5",
               "name": "Horizon Charter Airways",
               "information": {
                 "status": "submitted",
@@ -1477,7 +1473,7 @@
               }
             },
             {
-              "id": "V9",
+              "id": "v12",
               "name": "LocalPro Thailand Services",
               "information": {
                 "status": "declined",
@@ -1487,7 +1483,7 @@
               }
             },
             {
-              "id": "V10",
+              "id": "v7",
               "name": "Pattaya Premier Coaches",
               "information": {
                 "status": "submitted",
@@ -1497,7 +1493,7 @@
               }
             },
             {
-              "id": "V11",
+              "id": "v4",
               "name": "SkyBridge Airlines",
               "information": {
                 "status": "submitted",
@@ -1507,7 +1503,7 @@
               }
             },
             {
-              "id": "V12",
+              "id": "v9",
               "name": "Stellar Events Co.",
               "information": {
                 "status": "submitted",
@@ -1521,6 +1517,7 @@
       ]
     },
     {
+      "categoryID": "c3",
       "category": "Ground Transportation",
       "defaultMargin": "12",
       "clarification": false,
@@ -1532,7 +1529,7 @@
           "mandatory": true,
           "content": [
             {
-              "id": "V1",
+              "id": "v1",
               "name": "Grand Marina Hotel",
               "information": {
                 "status": "submitted",
@@ -1542,7 +1539,7 @@
               }
             },
             {
-              "id": "V2",
+              "id": "v2",
               "name": "Sunset Bay Resort & Spa",
               "information": {
                 "status": "submitted",
@@ -1552,7 +1549,7 @@
               }
             },
             {
-              "id": "V3",
+              "id": "v3",
               "name": "Ocean Pearl Hotel Pattaya",
               "information": {
                 "status": "submitted",
@@ -1562,7 +1559,7 @@
               }
             },
             {
-              "id": "V4",
+              "id": "v6",
               "name": "CityLine Transport",
               "information": {
                 "status": "submitted",
@@ -1572,7 +1569,7 @@
               }
             },
             {
-              "id": "V5",
+              "id": "v11",
               "name": "Destination Connect DMC",
               "information": {
                 "status": "submitted",
@@ -1582,7 +1579,7 @@
               }
             },
             {
-              "id": "V6",
+              "id": "v8",
               "name": "EventSphere Productions",
               "information": {
                 "status": "submitted",
@@ -1592,7 +1589,7 @@
               }
             },
             {
-              "id": "V7",
+              "id": "v10",
               "name": "GlobalVisa Facilitation",
               "information": {
                 "status": "submitted",
@@ -1602,7 +1599,7 @@
               }
             },
             {
-              "id": "V8",
+              "id": "v5",
               "name": "Horizon Charter Airways",
               "information": {
                 "status": "submitted",
@@ -1612,7 +1609,7 @@
               }
             },
             {
-              "id": "V9",
+              "id": "v12",
               "name": "LocalPro Thailand Services",
               "information": {
                 "status": "declined",
@@ -1622,7 +1619,7 @@
               }
             },
             {
-              "id": "V10",
+              "id": "v7",
               "name": "Pattaya Premier Coaches",
               "information": {
                 "status": "submitted",
@@ -1632,7 +1629,7 @@
               }
             },
             {
-              "id": "V11",
+              "id": "v4",
               "name": "SkyBridge Airlines",
               "information": {
                 "status": "submitted",
@@ -1642,7 +1639,7 @@
               }
             },
             {
-              "id": "V12",
+              "id": "v9",
               "name": "Stellar Events Co.",
               "information": {
                 "status": "submitted",
@@ -1660,7 +1657,7 @@
           "mandatory": true,
           "content": [
             {
-              "id": "V1",
+              "id": "v1",
               "name": "Grand Marina Hotel",
               "information": {
                 "status": "submitted",
@@ -1670,7 +1667,7 @@
               }
             },
             {
-              "id": "V2",
+              "id": "v2",
               "name": "Sunset Bay Resort & Spa",
               "information": {
                 "status": "submitted",
@@ -1680,7 +1677,7 @@
               }
             },
             {
-              "id": "V3",
+              "id": "v3",
               "name": "Ocean Pearl Hotel Pattaya",
               "information": {
                 "status": "submitted",
@@ -1690,7 +1687,7 @@
               }
             },
             {
-              "id": "V4",
+              "id": "v6",
               "name": "CityLine Transport",
               "information": {
                 "status": "submitted",
@@ -1700,7 +1697,7 @@
               }
             },
             {
-              "id": "V5",
+              "id": "v11",
               "name": "Destination Connect DMC",
               "information": {
                 "status": "submitted",
@@ -1710,7 +1707,7 @@
               }
             },
             {
-              "id": "V6",
+              "id": "v8",
               "name": "EventSphere Productions",
               "information": {
                 "status": "submitted",
@@ -1720,7 +1717,7 @@
               }
             },
             {
-              "id": "V7",
+              "id": "v10",
               "name": "GlobalVisa Facilitation",
               "information": {
                 "status": "submitted",
@@ -1730,7 +1727,7 @@
               }
             },
             {
-              "id": "V8",
+              "id": "v5",
               "name": "Horizon Charter Airways",
               "information": {
                 "status": "submitted",
@@ -1740,7 +1737,7 @@
               }
             },
             {
-              "id": "V9",
+              "id": "v12",
               "name": "LocalPro Thailand Services",
               "information": {
                 "status": "declined",
@@ -1750,7 +1747,7 @@
               }
             },
             {
-              "id": "V10",
+              "id": "v7",
               "name": "Pattaya Premier Coaches",
               "information": {
                 "status": "submitted",
@@ -1760,7 +1757,7 @@
               }
             },
             {
-              "id": "V11",
+              "id": "v4",
               "name": "SkyBridge Airlines",
               "information": {
                 "status": "submitted",
@@ -1770,7 +1767,7 @@
               }
             },
             {
-              "id": "V12",
+              "id": "v9",
               "name": "Stellar Events Co.",
               "information": {
                 "status": "submitted",
@@ -1788,7 +1785,7 @@
           "mandatory": false,
           "content": [
             {
-              "id": "V1",
+              "id": "v1",
               "name": "Grand Marina Hotel",
               "information": {
                 "status": "submitted",
@@ -1798,7 +1795,7 @@
               }
             },
             {
-              "id": "V2",
+              "id": "v2",
               "name": "Sunset Bay Resort & Spa",
               "information": {
                 "status": "submitted",
@@ -1808,7 +1805,7 @@
               }
             },
             {
-              "id": "V3",
+              "id": "v3",
               "name": "Ocean Pearl Hotel Pattaya",
               "information": {
                 "status": "submitted",
@@ -1818,7 +1815,7 @@
               }
             },
             {
-              "id": "V4",
+              "id": "v6",
               "name": "CityLine Transport",
               "information": {
                 "status": "submitted",
@@ -1828,7 +1825,7 @@
               }
             },
             {
-              "id": "V5",
+              "id": "v11",
               "name": "Destination Connect DMC",
               "information": {
                 "status": "submitted",
@@ -1838,7 +1835,7 @@
               }
             },
             {
-              "id": "V6",
+              "id": "v8",
               "name": "EventSphere Productions",
               "information": {
                 "status": "submitted",
@@ -1848,7 +1845,7 @@
               }
             },
             {
-              "id": "V7",
+              "id": "v10",
               "name": "GlobalVisa Facilitation",
               "information": {
                 "status": "submitted",
@@ -1858,7 +1855,7 @@
               }
             },
             {
-              "id": "V8",
+              "id": "v5",
               "name": "Horizon Charter Airways",
               "information": {
                 "status": "submitted",
@@ -1868,7 +1865,7 @@
               }
             },
             {
-              "id": "V9",
+              "id": "v12",
               "name": "LocalPro Thailand Services",
               "information": {
                 "status": "declined",
@@ -1878,7 +1875,7 @@
               }
             },
             {
-              "id": "V10",
+              "id": "v7",
               "name": "Pattaya Premier Coaches",
               "information": {
                 "status": "submitted",
@@ -1888,7 +1885,7 @@
               }
             },
             {
-              "id": "V11",
+              "id": "v4",
               "name": "SkyBridge Airlines",
               "information": {
                 "status": "submitted",
@@ -1898,7 +1895,7 @@
               }
             },
             {
-              "id": "V12",
+              "id": "v9",
               "name": "Stellar Events Co.",
               "information": {
                 "status": "submitted",
@@ -1916,7 +1913,7 @@
           "mandatory": false,
           "content": [
             {
-              "id": "V1",
+              "id": "v1",
               "name": "Grand Marina Hotel",
               "information": {
                 "status": "submitted",
@@ -1926,7 +1923,7 @@
               }
             },
             {
-              "id": "V2",
+              "id": "v2",
               "name": "Sunset Bay Resort & Spa",
               "information": {
                 "status": "submitted",
@@ -1936,7 +1933,7 @@
               }
             },
             {
-              "id": "V3",
+              "id": "v3",
               "name": "Ocean Pearl Hotel Pattaya",
               "information": {
                 "status": "submitted",
@@ -1946,7 +1943,7 @@
               }
             },
             {
-              "id": "V4",
+              "id": "v6",
               "name": "CityLine Transport",
               "information": {
                 "status": "submitted",
@@ -1956,7 +1953,7 @@
               }
             },
             {
-              "id": "V5",
+              "id": "v11",
               "name": "Destination Connect DMC",
               "information": {
                 "status": "submitted",
@@ -1966,7 +1963,7 @@
               }
             },
             {
-              "id": "V6",
+              "id": "v8",
               "name": "EventSphere Productions",
               "information": {
                 "status": "submitted",
@@ -1976,7 +1973,7 @@
               }
             },
             {
-              "id": "V7",
+              "id": "v10",
               "name": "GlobalVisa Facilitation",
               "information": {
                 "status": "submitted",
@@ -1986,7 +1983,7 @@
               }
             },
             {
-              "id": "V8",
+              "id": "v5",
               "name": "Horizon Charter Airways",
               "information": {
                 "status": "submitted",
@@ -1996,7 +1993,7 @@
               }
             },
             {
-              "id": "V9",
+              "id": "v12",
               "name": "LocalPro Thailand Services",
               "information": {
                 "status": "declined",
@@ -2006,7 +2003,7 @@
               }
             },
             {
-              "id": "V10",
+              "id": "v7",
               "name": "Pattaya Premier Coaches",
               "information": {
                 "status": "submitted",
@@ -2016,7 +2013,7 @@
               }
             },
             {
-              "id": "V11",
+              "id": "v4",
               "name": "SkyBridge Airlines",
               "information": {
                 "status": "submitted",
@@ -2026,7 +2023,7 @@
               }
             },
             {
-              "id": "V12",
+              "id": "v9",
               "name": "Stellar Events Co.",
               "information": {
                 "status": "submitted",
@@ -2040,6 +2037,7 @@
       ]
     },
     {
+      "categoryID": "c4",
       "category": "Event Management including AV",
       "defaultMargin": "16",
       "clarification": false,
@@ -2051,7 +2049,7 @@
           "mandatory": true,
           "content": [
             {
-              "id": "V1",
+              "id": "v1",
               "name": "Grand Marina Hotel",
               "information": {
                 "status": "submitted",
@@ -2061,7 +2059,7 @@
               }
             },
             {
-              "id": "V2",
+              "id": "v2",
               "name": "Sunset Bay Resort & Spa",
               "information": {
                 "status": "submitted",
@@ -2071,7 +2069,7 @@
               }
             },
             {
-              "id": "V3",
+              "id": "v3",
               "name": "Ocean Pearl Hotel Pattaya",
               "information": {
                 "status": "submitted",
@@ -2081,7 +2079,7 @@
               }
             },
             {
-              "id": "V4",
+              "id": "v6",
               "name": "CityLine Transport",
               "information": {
                 "status": "submitted",
@@ -2091,7 +2089,7 @@
               }
             },
             {
-              "id": "V5",
+              "id": "v11",
               "name": "Destination Connect DMC",
               "information": {
                 "status": "submitted",
@@ -2101,7 +2099,7 @@
               }
             },
             {
-              "id": "V6",
+              "id": "v8",
               "name": "EventSphere Productions",
               "information": {
                 "status": "submitted",
@@ -2111,7 +2109,7 @@
               }
             },
             {
-              "id": "V7",
+              "id": "v10",
               "name": "GlobalVisa Facilitation",
               "information": {
                 "status": "submitted",
@@ -2121,7 +2119,7 @@
               }
             },
             {
-              "id": "V8",
+              "id": "v5",
               "name": "Horizon Charter Airways",
               "information": {
                 "status": "submitted",
@@ -2131,7 +2129,7 @@
               }
             },
             {
-              "id": "V9",
+              "id": "v12",
               "name": "LocalPro Thailand Services",
               "information": {
                 "status": "declined",
@@ -2141,7 +2139,7 @@
               }
             },
             {
-              "id": "V10",
+              "id": "v7",
               "name": "Pattaya Premier Coaches",
               "information": {
                 "status": "submitted",
@@ -2151,7 +2149,7 @@
               }
             },
             {
-              "id": "V11",
+              "id": "v4",
               "name": "SkyBridge Airlines",
               "information": {
                 "status": "submitted",
@@ -2161,7 +2159,7 @@
               }
             },
             {
-              "id": "V12",
+              "id": "v9",
               "name": "Stellar Events Co.",
               "information": {
                 "status": "submitted",
@@ -2179,7 +2177,7 @@
           "mandatory": true,
           "content": [
             {
-              "id": "V1",
+              "id": "v1",
               "name": "Grand Marina Hotel",
               "information": {
                 "status": "submitted",
@@ -2189,7 +2187,7 @@
               }
             },
             {
-              "id": "V2",
+              "id": "v2",
               "name": "Sunset Bay Resort & Spa",
               "information": {
                 "status": "submitted",
@@ -2199,7 +2197,7 @@
               }
             },
             {
-              "id": "V3",
+              "id": "v3",
               "name": "Ocean Pearl Hotel Pattaya",
               "information": {
                 "status": "submitted",
@@ -2209,7 +2207,7 @@
               }
             },
             {
-              "id": "V4",
+              "id": "v6",
               "name": "CityLine Transport",
               "information": {
                 "status": "submitted",
@@ -2219,7 +2217,7 @@
               }
             },
             {
-              "id": "V5",
+              "id": "v11",
               "name": "Destination Connect DMC",
               "information": {
                 "status": "submitted",
@@ -2229,7 +2227,7 @@
               }
             },
             {
-              "id": "V6",
+              "id": "v8",
               "name": "EventSphere Productions",
               "information": {
                 "status": "submitted",
@@ -2239,7 +2237,7 @@
               }
             },
             {
-              "id": "V7",
+              "id": "v10",
               "name": "GlobalVisa Facilitation",
               "information": {
                 "status": "submitted",
@@ -2249,7 +2247,7 @@
               }
             },
             {
-              "id": "V8",
+              "id": "v5",
               "name": "Horizon Charter Airways",
               "information": {
                 "status": "submitted",
@@ -2259,7 +2257,7 @@
               }
             },
             {
-              "id": "V9",
+              "id": "v12",
               "name": "LocalPro Thailand Services",
               "information": {
                 "status": "declined",
@@ -2269,7 +2267,7 @@
               }
             },
             {
-              "id": "V10",
+              "id": "v7",
               "name": "Pattaya Premier Coaches",
               "information": {
                 "status": "submitted",
@@ -2279,7 +2277,7 @@
               }
             },
             {
-              "id": "V11",
+              "id": "v4",
               "name": "SkyBridge Airlines",
               "information": {
                 "status": "submitted",
@@ -2289,7 +2287,7 @@
               }
             },
             {
-              "id": "V12",
+              "id": "v9",
               "name": "Stellar Events Co.",
               "information": {
                 "status": "submitted",
@@ -2307,7 +2305,7 @@
           "mandatory": false,
           "content": [
             {
-              "id": "V1",
+              "id": "v1",
               "name": "Grand Marina Hotel",
               "information": {
                 "status": "submitted",
@@ -2317,7 +2315,7 @@
               }
             },
             {
-              "id": "V2",
+              "id": "v2",
               "name": "Sunset Bay Resort & Spa",
               "information": {
                 "status": "submitted",
@@ -2327,7 +2325,7 @@
               }
             },
             {
-              "id": "V3",
+              "id": "v3",
               "name": "Ocean Pearl Hotel Pattaya",
               "information": {
                 "status": "submitted",
@@ -2337,7 +2335,7 @@
               }
             },
             {
-              "id": "V4",
+              "id": "v6",
               "name": "CityLine Transport",
               "information": {
                 "status": "submitted",
@@ -2347,7 +2345,7 @@
               }
             },
             {
-              "id": "V5",
+              "id": "v11",
               "name": "Destination Connect DMC",
               "information": {
                 "status": "submitted",
@@ -2357,7 +2355,7 @@
               }
             },
             {
-              "id": "V6",
+              "id": "v8",
               "name": "EventSphere Productions",
               "information": {
                 "status": "submitted",
@@ -2367,7 +2365,7 @@
               }
             },
             {
-              "id": "V7",
+              "id": "v10",
               "name": "GlobalVisa Facilitation",
               "information": {
                 "status": "submitted",
@@ -2377,7 +2375,7 @@
               }
             },
             {
-              "id": "V8",
+              "id": "v5",
               "name": "Horizon Charter Airways",
               "information": {
                 "status": "submitted",
@@ -2387,7 +2385,7 @@
               }
             },
             {
-              "id": "V9",
+              "id": "v12",
               "name": "LocalPro Thailand Services",
               "information": {
                 "status": "declined",
@@ -2397,7 +2395,7 @@
               }
             },
             {
-              "id": "V10",
+              "id": "v7",
               "name": "Pattaya Premier Coaches",
               "information": {
                 "status": "submitted",
@@ -2407,7 +2405,7 @@
               }
             },
             {
-              "id": "V11",
+              "id": "v4",
               "name": "SkyBridge Airlines",
               "information": {
                 "status": "submitted",
@@ -2417,7 +2415,7 @@
               }
             },
             {
-              "id": "V12",
+              "id": "v9",
               "name": "Stellar Events Co.",
               "information": {
                 "status": "submitted",
@@ -2435,7 +2433,7 @@
           "mandatory": true,
           "content": [
             {
-              "id": "V1",
+              "id": "v1",
               "name": "Grand Marina Hotel",
               "information": {
                 "status": "submitted",
@@ -2445,7 +2443,7 @@
               }
             },
             {
-              "id": "V2",
+              "id": "v2",
               "name": "Sunset Bay Resort & Spa",
               "information": {
                 "status": "submitted",
@@ -2455,7 +2453,7 @@
               }
             },
             {
-              "id": "V3",
+              "id": "v3",
               "name": "Ocean Pearl Hotel Pattaya",
               "information": {
                 "status": "submitted",
@@ -2465,7 +2463,7 @@
               }
             },
             {
-              "id": "V4",
+              "id": "v6",
               "name": "CityLine Transport",
               "information": {
                 "status": "submitted",
@@ -2475,7 +2473,7 @@
               }
             },
             {
-              "id": "V5",
+              "id": "v11",
               "name": "Destination Connect DMC",
               "information": {
                 "status": "submitted",
@@ -2485,7 +2483,7 @@
               }
             },
             {
-              "id": "V6",
+              "id": "v8",
               "name": "EventSphere Productions",
               "information": {
                 "status": "submitted",
@@ -2495,7 +2493,7 @@
               }
             },
             {
-              "id": "V7",
+              "id": "v10",
               "name": "GlobalVisa Facilitation",
               "information": {
                 "status": "submitted",
@@ -2505,7 +2503,7 @@
               }
             },
             {
-              "id": "V8",
+              "id": "v5",
               "name": "Horizon Charter Airways",
               "information": {
                 "status": "submitted",
@@ -2515,7 +2513,7 @@
               }
             },
             {
-              "id": "V9",
+              "id": "v12",
               "name": "LocalPro Thailand Services",
               "information": {
                 "status": "declined",
@@ -2525,7 +2523,7 @@
               }
             },
             {
-              "id": "V10",
+              "id": "v5",
               "name": "Pattaya Premier Coaches",
               "information": {
                 "status": "submitted",
@@ -2535,7 +2533,7 @@
               }
             },
             {
-              "id": "V11",
+              "id": "v4",
               "name": "SkyBridge Airlines",
               "information": {
                 "status": "submitted",
@@ -2545,7 +2543,7 @@
               }
             },
             {
-              "id": "V12",
+              "id": "v9",
               "name": "Stellar Events Co.",
               "information": {
                 "status": "submitted",
@@ -2563,7 +2561,7 @@
           "mandatory": false,
           "content": [
             {
-              "id": "V1",
+              "id": "v1",
               "name": "Grand Marina Hotel",
               "information": {
                 "status": "submitted",
@@ -2573,7 +2571,7 @@
               }
             },
             {
-              "id": "V2",
+              "id": "v2",
               "name": "Sunset Bay Resort & Spa",
               "information": {
                 "status": "submitted",
@@ -2583,7 +2581,7 @@
               }
             },
             {
-              "id": "V3",
+              "id": "v3",
               "name": "Ocean Pearl Hotel Pattaya",
               "information": {
                 "status": "submitted",
@@ -2593,7 +2591,7 @@
               }
             },
             {
-              "id": "V4",
+              "id": "v6",
               "name": "CityLine Transport",
               "information": {
                 "status": "submitted",
@@ -2603,7 +2601,7 @@
               }
             },
             {
-              "id": "V5",
+              "id": "v11",
               "name": "Destination Connect DMC",
               "information": {
                 "status": "submitted",
@@ -2613,7 +2611,7 @@
               }
             },
             {
-              "id": "V6",
+              "id": "v8",
               "name": "EventSphere Productions",
               "information": {
                 "status": "submitted",
@@ -2623,7 +2621,7 @@
               }
             },
             {
-              "id": "V7",
+              "id": "v10",
               "name": "GlobalVisa Facilitation",
               "information": {
                 "status": "submitted",
@@ -2633,7 +2631,7 @@
               }
             },
             {
-              "id": "V8",
+              "id": "v5",
               "name": "Horizon Charter Airways",
               "information": {
                 "status": "submitted",
@@ -2643,7 +2641,7 @@
               }
             },
             {
-              "id": "V9",
+              "id": "v12",
               "name": "LocalPro Thailand Services",
               "information": {
                 "status": "declined",
@@ -2653,7 +2651,7 @@
               }
             },
             {
-              "id": "V10",
+              "id": "v7",
               "name": "Pattaya Premier Coaches",
               "information": {
                 "status": "submitted",
@@ -2663,7 +2661,7 @@
               }
             },
             {
-              "id": "V11",
+              "id": "v4",
               "name": "SkyBridge Airlines",
               "information": {
                 "status": "submitted",
@@ -2673,7 +2671,7 @@
               }
             },
             {
-              "id": "V12",
+              "id": "v9",
               "name": "Stellar Events Co.",
               "information": {
                 "status": "awaiting",
@@ -2687,6 +2685,7 @@
       ]
     },
     {
+      "categoryID": "c5",
       "category": "Visa Management",
       "defaultMargin": "10",
       "clarification": false,
@@ -2698,7 +2697,7 @@
           "mandatory": true,
           "content": [
             {
-              "id": "V1",
+              "id": "v1",
               "name": "Grand Marina Hotel",
               "information": {
                 "status": "submitted",
@@ -2708,7 +2707,7 @@
               }
             },
             {
-              "id": "V2",
+              "id": "v2",
               "name": "Sunset Bay Resort & Spa",
               "information": {
                 "status": "submitted",
@@ -2718,7 +2717,7 @@
               }
             },
             {
-              "id": "V3",
+              "id": "v3",
               "name": "Ocean Pearl Hotel Pattaya",
               "information": {
                 "status": "submitted",
@@ -2728,7 +2727,7 @@
               }
             },
             {
-              "id": "V4",
+              "id": "v6",
               "name": "CityLine Transport",
               "information": {
                 "status": "submitted",
@@ -2738,7 +2737,7 @@
               }
             },
             {
-              "id": "V5",
+              "id": "v11",
               "name": "Destination Connect DMC",
               "information": {
                 "status": "submitted",
@@ -2748,7 +2747,7 @@
               }
             },
             {
-              "id": "V6",
+              "id": "v8",
               "name": "EventSphere Productions",
               "information": {
                 "status": "submitted",
@@ -2758,7 +2757,7 @@
               }
             },
             {
-              "id": "V7",
+              "id": "v10",
               "name": "GlobalVisa Facilitation",
               "information": {
                 "status": "submitted",
@@ -2768,7 +2767,7 @@
               }
             },
             {
-              "id": "V8",
+              "id": "v5",
               "name": "Horizon Charter Airways",
               "information": {
                 "status": "submitted",
@@ -2778,7 +2777,7 @@
               }
             },
             {
-              "id": "V9",
+              "id": "v12",
               "name": "LocalPro Thailand Services",
               "information": {
                 "status": "declined",
@@ -2788,7 +2787,7 @@
               }
             },
             {
-              "id": "V10",
+              "id": "v7",
               "name": "Pattaya Premier Coaches",
               "information": {
                 "status": "submitted",
@@ -2798,7 +2797,7 @@
               }
             },
             {
-              "id": "V11",
+              "id": "v4",
               "name": "SkyBridge Airlines",
               "information": {
                 "status": "submitted",
@@ -2808,7 +2807,7 @@
               }
             },
             {
-              "id": "V12",
+              "id": "v9",
               "name": "Stellar Events Co.",
               "information": {
                 "status": "submitted",
@@ -2826,7 +2825,7 @@
           "mandatory": true,
           "content": [
             {
-              "id": "V1",
+              "id": "v1",
               "name": "Grand Marina Hotel",
               "information": {
                 "status": "submitted",
@@ -2836,7 +2835,7 @@
               }
             },
             {
-              "id": "V2",
+              "id": "v2",
               "name": "Sunset Bay Resort & Spa",
               "information": {
                 "status": "submitted",
@@ -2846,7 +2845,7 @@
               }
             },
             {
-              "id": "V3",
+              "id": "v3",
               "name": "Ocean Pearl Hotel Pattaya",
               "information": {
                 "status": "submitted",
@@ -2856,7 +2855,7 @@
               }
             },
             {
-              "id": "V4",
+              "id": "v6",
               "name": "CityLine Transport",
               "information": {
                 "status": "submitted",
@@ -2866,7 +2865,7 @@
               }
             },
             {
-              "id": "V5",
+              "id": "v11",
               "name": "Destination Connect DMC",
               "information": {
                 "status": "submitted",
@@ -2876,7 +2875,7 @@
               }
             },
             {
-              "id": "V6",
+              "id": "v8",
               "name": "EventSphere Productions",
               "information": {
                 "status": "submitted",
@@ -2886,7 +2885,7 @@
               }
             },
             {
-              "id": "V7",
+              "id": "v10",
               "name": "GlobalVisa Facilitation",
               "information": {
                 "status": "submitted",
@@ -2896,7 +2895,7 @@
               }
             },
             {
-              "id": "V8",
+              "id": "v5",
               "name": "Horizon Charter Airways",
               "information": {
                 "status": "submitted",
@@ -2906,7 +2905,7 @@
               }
             },
             {
-              "id": "V9",
+              "id": "v12",
               "name": "LocalPro Thailand Services",
               "information": {
                 "status": "declined",
@@ -2916,7 +2915,7 @@
               }
             },
             {
-              "id": "V10",
+              "id": "v7",
               "name": "Pattaya Premier Coaches",
               "information": {
                 "status": "submitted",
@@ -2926,7 +2925,7 @@
               }
             },
             {
-              "id": "V11",
+              "id": "v4",
               "name": "SkyBridge Airlines",
               "information": {
                 "status": "submitted",
@@ -2936,7 +2935,7 @@
               }
             },
             {
-              "id": "V12",
+              "id": "v9",
               "name": "Stellar Events Co.",
               "information": {
                 "status": "submitted",
@@ -2954,7 +2953,7 @@
           "mandatory": false,
           "content": [
             {
-              "id": "V1",
+              "id": "v1",
               "name": "Grand Marina Hotel",
               "information": {
                 "status": "submitted",
@@ -2964,7 +2963,7 @@
               }
             },
             {
-              "id": "V2",
+              "id": "v2",
               "name": "Sunset Bay Resort & Spa",
               "information": {
                 "status": "submitted",
@@ -2974,7 +2973,7 @@
               }
             },
             {
-              "id": "V3",
+              "id": "v3",
               "name": "Ocean Pearl Hotel Pattaya",
               "information": {
                 "status": "submitted",
@@ -2984,7 +2983,7 @@
               }
             },
             {
-              "id": "V4",
+              "id": "v6",
               "name": "CityLine Transport",
               "information": {
                 "status": "submitted",
@@ -2994,7 +2993,7 @@
               }
             },
             {
-              "id": "V5",
+              "id": "v11",
               "name": "Destination Connect DMC",
               "information": {
                 "status": "submitted",
@@ -3004,7 +3003,7 @@
               }
             },
             {
-              "id": "V6",
+              "id": "v8",
               "name": "EventSphere Productions",
               "information": {
                 "status": "submitted",
@@ -3014,7 +3013,7 @@
               }
             },
             {
-              "id": "V7",
+              "id": "v10",
               "name": "GlobalVisa Facilitation",
               "information": {
                 "status": "submitted",
@@ -3024,7 +3023,7 @@
               }
             },
             {
-              "id": "V8",
+              "id": "v5",
               "name": "Horizon Charter Airways",
               "information": {
                 "status": "submitted",
@@ -3034,7 +3033,7 @@
               }
             },
             {
-              "id": "V9",
+              "id": "v12",
               "name": "LocalPro Thailand Services",
               "information": {
                 "status": "declined",
@@ -3044,7 +3043,7 @@
               }
             },
             {
-              "id": "V10",
+              "id": "v7",
               "name": "Pattaya Premier Coaches",
               "information": {
                 "status": "submitted",
@@ -3054,7 +3053,7 @@
               }
             },
             {
-              "id": "V11",
+              "id": "v4",
               "name": "SkyBridge Airlines",
               "information": {
                 "status": "submitted",
@@ -3064,7 +3063,7 @@
               }
             },
             {
-              "id": "V12",
+              "id": "v9",
               "name": "Stellar Events Co.",
               "information": {
                 "status": "submitted",
@@ -3078,6 +3077,7 @@
       ]
     },
     {
+      "categoryID": "c6",
       "category": "Local Liaison",
       "defaultMargin": "15",
       "clarification": false,
@@ -3089,7 +3089,7 @@
           "mandatory": true,
           "content": [
             {
-              "id": "V1",
+              "id": "v1",
               "name": "Grand Marina Hotel",
               "information": {
                 "status": "submitted",
@@ -3099,7 +3099,7 @@
               }
             },
             {
-              "id": "V2",
+              "id": "v2",
               "name": "Sunset Bay Resort & Spa",
               "information": {
                 "status": "submitted",
@@ -3109,7 +3109,7 @@
               }
             },
             {
-              "id": "V3",
+              "id": "v3",
               "name": "Ocean Pearl Hotel Pattaya",
               "information": {
                 "status": "submitted",
@@ -3119,7 +3119,7 @@
               }
             },
             {
-              "id": "V4",
+              "id": "v6",
               "name": "CityLine Transport",
               "information": {
                 "status": "submitted",
@@ -3129,7 +3129,7 @@
               }
             },
             {
-              "id": "V5",
+              "id": "v11",
               "name": "Destination Connect DMC",
               "information": {
                 "status": "submitted",
@@ -3139,7 +3139,7 @@
               }
             },
             {
-              "id": "V6",
+              "id": "v8",
               "name": "EventSphere Productions",
               "information": {
                 "status": "submitted",
@@ -3149,7 +3149,7 @@
               }
             },
             {
-              "id": "V7",
+              "id": "v10",
               "name": "GlobalVisa Facilitation",
               "information": {
                 "status": "submitted",
@@ -3159,7 +3159,7 @@
               }
             },
             {
-              "id": "V8",
+              "id": "v5",
               "name": "Horizon Charter Airways",
               "information": {
                 "status": "submitted",
@@ -3169,7 +3169,7 @@
               }
             },
             {
-              "id": "V9",
+              "id": "v12",
               "name": "LocalPro Thailand Services",
               "information": {
                 "status": "declined",
@@ -3179,7 +3179,7 @@
               }
             },
             {
-              "id": "V10",
+              "id": "v7",
               "name": "Pattaya Premier Coaches",
               "information": {
                 "status": "submitted",
@@ -3189,7 +3189,7 @@
               }
             },
             {
-              "id": "V11",
+              "id": "v4",
               "name": "SkyBridge Airlines",
               "information": {
                 "status": "submitted",
@@ -3199,7 +3199,7 @@
               }
             },
             {
-              "id": "V12",
+              "id": "v9",
               "name": "Stellar Events Co.",
               "information": {
                 "status": "submitted",
@@ -3217,7 +3217,7 @@
           "mandatory": false,
           "content": [
             {
-              "id": "V1",
+              "id": "v1",
               "name": "Grand Marina Hotel",
               "information": {
                 "status": "submitted",
@@ -3227,7 +3227,7 @@
               }
             },
             {
-              "id": "V2",
+              "id": "v2",
               "name": "Sunset Bay Resort & Spa",
               "information": {
                 "status": "submitted",
@@ -3237,7 +3237,7 @@
               }
             },
             {
-              "id": "V3",
+              "id": "v3",
               "name": "Ocean Pearl Hotel Pattaya",
               "information": {
                 "status": "submitted",
@@ -3247,7 +3247,7 @@
               }
             },
             {
-              "id": "V4",
+              "id": "v6",
               "name": "CityLine Transport",
               "information": {
                 "status": "submitted",
@@ -3257,7 +3257,7 @@
               }
             },
             {
-              "id": "V5",
+              "id": "v11",
               "name": "Destination Connect DMC",
               "information": {
                 "status": "submitted",
@@ -3267,7 +3267,7 @@
               }
             },
             {
-              "id": "V6",
+              "id": "v8",
               "name": "EventSphere Productions",
               "information": {
                 "status": "submitted",
@@ -3277,7 +3277,7 @@
               }
             },
             {
-              "id": "V7",
+              "id": "v10",
               "name": "GlobalVisa Facilitation",
               "information": {
                 "status": "submitted",
@@ -3287,7 +3287,7 @@
               }
             },
             {
-              "id": "V8",
+              "id": "v5",
               "name": "Horizon Charter Airways",
               "information": {
                 "status": "submitted",
@@ -3297,7 +3297,7 @@
               }
             },
             {
-              "id": "V9",
+              "id": "v12",
               "name": "LocalPro Thailand Services",
               "information": {
                 "status": "declined",
@@ -3307,7 +3307,7 @@
               }
             },
             {
-              "id": "V10",
+              "id": "v7",
               "name": "Pattaya Premier Coaches",
               "information": {
                 "status": "submitted",
@@ -3317,7 +3317,7 @@
               }
             },
             {
-              "id": "V11",
+              "id": "v4",
               "name": "SkyBridge Airlines",
               "information": {
                 "status": "submitted",
@@ -3327,7 +3327,7 @@
               }
             },
             {
-              "id": "V12",
+              "id": "v9",
               "name": "Stellar Events Co.",
               "information": {
                 "status": "submitted",
@@ -3345,7 +3345,7 @@
           "mandatory": false,
           "content": [
             {
-              "id": "V1",
+              "id": "v1",
               "name": "Grand Marina Hotel",
               "information": {
                 "status": "submitted",
@@ -3355,7 +3355,7 @@
               }
             },
             {
-              "id": "V2",
+              "id": "v2",
               "name": "Sunset Bay Resort & Spa",
               "information": {
                 "status": "submitted",
@@ -3365,7 +3365,7 @@
               }
             },
             {
-              "id": "V3",
+              "id": "v3",
               "name": "Ocean Pearl Hotel Pattaya",
               "information": {
                 "status": "submitted",
@@ -3375,7 +3375,7 @@
               }
             },
             {
-              "id": "V4",
+              "id": "v6",
               "name": "CityLine Transport",
               "information": {
                 "status": "submitted",
@@ -3385,7 +3385,7 @@
               }
             },
             {
-              "id": "V5",
+              "id": "v11",
               "name": "Destination Connect DMC",
               "information": {
                 "status": "submitted",
@@ -3395,7 +3395,7 @@
               }
             },
             {
-              "id": "V6",
+              "id": "v8",
               "name": "EventSphere Productions",
               "information": {
                 "status": "submitted",
@@ -3405,7 +3405,7 @@
               }
             },
             {
-              "id": "V7",
+              "id": "v10",
               "name": "GlobalVisa Facilitation",
               "information": {
                 "status": "submitted",
@@ -3415,7 +3415,7 @@
               }
             },
             {
-              "id": "V8",
+              "id": "v5",
               "name": "Horizon Charter Airways",
               "information": {
                 "status": "submitted",
@@ -3425,7 +3425,7 @@
               }
             },
             {
-              "id": "V9",
+              "id": "v12",
               "name": "LocalPro Thailand Services",
               "information": {
                 "status": "declined",
@@ -3435,7 +3435,7 @@
               }
             },
             {
-              "id": "V10",
+              "id": "v7",
               "name": "Pattaya Premier Coaches",
               "information": {
                 "status": "submitted",
@@ -3445,7 +3445,7 @@
               }
             },
             {
-              "id": "V11",
+              "id": "v4",
               "name": "SkyBridge Airlines",
               "information": {
                 "status": "submitted",
@@ -3455,7 +3455,7 @@
               }
             },
             {
-              "id": "V12",
+              "id": "v9",
               "name": "Stellar Events Co.",
               "information": {
                 "status": "submitted",
@@ -3473,7 +3473,7 @@
           "mandatory": false,
           "content": [
             {
-              "id": "V1",
+              "id": "v1",
               "name": "Grand Marina Hotel",
               "information": {
                 "status": "submitted",
@@ -3483,7 +3483,7 @@
               }
             },
             {
-              "id": "V2",
+              "id": "v2",
               "name": "Sunset Bay Resort & Spa",
               "information": {
                 "status": "submitted",
@@ -3493,7 +3493,7 @@
               }
             },
             {
-              "id": "V3",
+              "id": "v3",
               "name": "Ocean Pearl Hotel Pattaya",
               "information": {
                 "status": "submitted",
@@ -3503,7 +3503,7 @@
               }
             },
             {
-              "id": "V4",
+              "id": "v6",
               "name": "CityLine Transport",
               "information": {
                 "status": "submitted",
@@ -3513,7 +3513,7 @@
               }
             },
             {
-              "id": "V5",
+              "id": "v11",
               "name": "Destination Connect DMC",
               "information": {
                 "status": "submitted",
@@ -3523,7 +3523,7 @@
               }
             },
             {
-              "id": "V6",
+              "id": "v8",
               "name": "EventSphere Productions",
               "information": {
                 "status": "submitted",
@@ -3533,7 +3533,7 @@
               }
             },
             {
-              "id": "V7",
+              "id": "v10",
               "name": "GlobalVisa Facilitation",
               "information": {
                 "status": "submitted",
@@ -3543,7 +3543,7 @@
               }
             },
             {
-              "id": "V8",
+              "id": "v5",
               "name": "Horizon Charter Airways",
               "information": {
                 "status": "submitted",
@@ -3553,7 +3553,7 @@
               }
             },
             {
-              "id": "V9",
+              "id": "v12",
               "name": "LocalPro Thailand Services",
               "information": {
                 "status": "declined",
@@ -3563,7 +3563,7 @@
               }
             },
             {
-              "id": "V10",
+              "id": "v7",
               "name": "Pattaya Premier Coaches",
               "information": {
                 "status": "submitted",
@@ -3573,7 +3573,7 @@
               }
             },
             {
-              "id": "V11",
+              "id": "v4",
               "name": "SkyBridge Airlines",
               "information": {
                 "status": "submitted",
@@ -3583,7 +3583,7 @@
               }
             },
             {
-              "id": "V12",
+              "id": "v9",
               "name": "Stellar Events Co.",
               "information": {
                 "status": "submitted",

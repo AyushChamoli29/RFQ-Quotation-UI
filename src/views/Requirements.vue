@@ -1,7 +1,9 @@
 <script setup>
 import RequirementTable from "@/components/RequirementTable.vue";
-import data from "@/data/mockData.json";
-const deadline = data.big_card.deadline;
+import { useRFQMainStore } from "@/store/RFQStoreMain";
+// import { useRFQStore } from "@/store/RFQStore";
+// const rfq = useRFQStore();
+const rfq = useRFQMainStore();
 </script>
 
 <template>
@@ -18,19 +20,19 @@ const deadline = data.big_card.deadline;
           class="flex text-[11px] w-1/3 justify-between mr-2 py-2 border-b border-dashed border-slate-300"
         >
           <label class="text-[#6b7090]">RFQ number</label>
-          <p class="tracking-wider font-mono">
-            {{ data.big_card.rfq_no }}
+          <p class="tracking-wider font-mono font-black">
+            {{ rfq.rfqDetails.rfq_no }}
           </p>
         </div>
         <div
           class="flex text-xs w-1/3 py-1 mr-2 border-b border-dashed border-slate-300"
         >
           <label class="text-[#6b7090]">Group</label>
-          <p class="font-bold">{{ data.big_card.mice_no }}</p>
+          <p class="font-bold">{{ rfq.rfqDetails.mice_no }}</p>
         </div>
         <div class="flex text-xs w-1/3 justify-between">
           <label class="text-[#6b7090]">Query type</label>
-          <p class="font-bold">{{ data.big_card.query_type }}</p>
+          <p class="font-bold">Package</p>
         </div>
       </div>
     </div>
@@ -39,7 +41,7 @@ const deadline = data.big_card.deadline;
       <input
         type="datetime-local"
         id="date"
-        v-model="deadline"
+        v-model="rfq.rfqDeadline"
         class="w-full outline outline-slate-300 p-2 mt-1 rounded-lg"
       />
     </div>

@@ -1,19 +1,22 @@
 <script setup>
 import data from "@/data/mockData.json";
 import { ref, onMounted } from "vue";
-import { useFlagsStore } from "@/store/flag";
 import VendorPortalBox from "@/components/VendorPortalBox.vue";
-import { useVendorportalStore } from "@/store/VendorPortalStore";
-const flag = useFlagsStore();
-const vendorPortal = useVendorportalStore();
-const vendorName = ref("");
-onMounted(() => {
-  vendorName.value = vendorPortal.vendorSelected;
-});
+import { useRFQMainStore } from "@/store/RFQStoreMain";
+const rfq = useRFQMainStore();
+function getvendorName(vid) {
+  if (vid === "select a vendor") return "";
+
+  const vendor = rfq.vendors.find((v) => v.id === vid);
+  return vendor.name;
+}
 </script>
 
 <template>
-  <div class="flex flex-col" :class="flag.progress >= 2 ? 'gap-0' : 'gap-5'">
+  <div
+    class="flex flex-col"
+    :class="rfq.rfqStatus !== 'draft' ? 'gap-0' : 'gap-5'"
+  >
     <div
       class="flex bg-white p-5 mt-5 ml-2 rounded-xl gap-5 justify-start items-center outline outline-slate-200"
     >
@@ -21,12 +24,12 @@ onMounted(() => {
         <p class="text-xs font-[650]">Simulate secure vendor acess link for</p>
         <select
           class="text-[13px] outline outline-slate-200 p-2 rounded-lg mt-1"
-          v-model="vendorPortal.vendorSelected"
+          v-model="rfq.vendorSelected"
         >
           <option value="select a vendor">
             &mdash; Select a vendor &mdash;
           </option>
-          <option v-for="item in data.vendor_portal" :value="item.name">
+          <option v-for="item in rfq.vendors" :value="item.id">
             {{ item.name }} ({{ item.type }})
           </option>
         </select>
@@ -38,7 +41,7 @@ onMounted(() => {
     </div>
     <div>
       <div
-        v-if="vendorPortal.vendorSelected === 'select a vendor'"
+        v-if="rfq.vendorSelected === 'select a vendor'"
         class="h-40 w-full ml-2 p-5 flex flex-col gap-2 justify-center items-center bg-white outline outline-slate-200 rounded-lg"
       >
         <span class="text-4xl">🔗</span>
@@ -47,25 +50,24 @@ onMounted(() => {
         </p>
       </div>
       <div
-        v-if="
-          vendorPortal.vendorSelected !== 'select a vendor' && flag.progress < 2
+        v-else-if="
+          rfq.vendorSelected !== 'select a vendor' && rfq.rfqStatus === 'draft'
         "
         class="h-50 w-full ml-2 p-5 flex flex-col gap-2 justify-center items-center bg-white outline outline-slate-200 rounded-lg"
       >
         <span class="text-4xl">📭</span>
         <p class="font-bold text-xl">No active RFQ invitations</p>
         <p class="font-normal text-slate-500 text-base">
-          {{ vendor }} has not been allocated to this RFQ, or the RFQ has not
-          been dispatched yet.
+          {{ getvendorName(rfq.vendorSelected) }} has not been allocated to this
+          RFQ, or the RFQ has not been dispatched yet.
         </p>
       </div>
       <div
-        v-if="
-          vendorPortal.vendorSelected !== 'select a vendor' &&
-          flag.progress >= 2
+        v-else-if="
+          rfq.vendorSelected !== 'select a vendor' && rfq.rfqStatus !== 'draft'
         "
       >
-        <VendorPortalBox :vendorName="vendorPortal.vendorSelected" />
+        <VendorPortalBox :vendorid="rfq.vendorSelected" />
       </div>
     </div>
   </div>

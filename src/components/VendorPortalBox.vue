@@ -1,9 +1,11 @@
 <script setup>
-import { defineProps } from "vue";
+import { defineProps, ref, onMounted } from "vue";
+import { useRFQMainStore } from "@/store/RFQStoreMain.js";
 import VendorPortalTable from "./VendorPortalTable.vue";
 import VendorPortalCard from "./VendorPortalCard.vue";
+const rfq = useRFQMainStore();
 const prop = defineProps({
-  vendorName: String,
+  vendorid: String,
 });
 const currentDate = new Date().toLocaleDateString("en-IN", {
   day: "2-digit",
@@ -15,6 +17,13 @@ const currentTime = new Date().toLocaleTimeString("en-IN", {
   minute: "2-digit",
   hour12: true,
 });
+function getvendorName(vid) {
+  for (const element of rfq.vendors) {
+    if (vid !== "select a vendor" && vid === element.id) {
+      return element.name;
+    }
+  }
+}
 </script>
 
 <template>
@@ -23,17 +32,19 @@ const currentTime = new Date().toLocaleTimeString("en-IN", {
   >
     🔒 <span class="font-bold">Confidential quotation request.</span> This link
     is unique to
-    {{ prop.vendorName }}
+    {{ getvendorName(prop.vendorid) }}
     and must not be shared. You can see only the requirement scoped to your
     invitation.
   </div>
   <br />
   <div class="flex flex-col gap-5 ml-2">
     <VendorPortalCard />
-    <VendorPortalTable :vendorName="prop.vendorName" />
+    <VendorPortalTable :vendorid="prop.vendorid" />
     <div class="bg-white text-xs p-4 h-max flex flex-col gap-2">
       <p class="text-[#3a3f58] font-bold">General proposal / covering note</p>
-      <textarea class="w-full h-20 border border-slate-200 py-2 px-4 rounded-lg">
+      <textarea
+        class="w-full h-20 border border-slate-200 py-2 px-4 rounded-lg"
+      >
 Pleased to support this movement &mdash; happy to discuss further.</textarea
       >
       <p class="text-[#3a3f58] font-bold">
@@ -42,15 +53,35 @@ Pleased to support this movement &mdash; happy to discuss further.</textarea
       <span class="text-[#3a3f58] font-bold">&mdash;</span>
     </div>
     <div
+      v-if="rfq.rfqStatus === 'simulated'"
       class="bg-white rounded-xl p-4 px-6 text-xs flex justify-between items-center"
     >
       <div class="text-[#6b7090]">
         Submitted on {{ currentDate }}, {{ currentTime }}
       </div>
       <div
-        class="text-[#3a3f58] font-bold w-max border border-[#e3e5f0] hover:bg-[#ebecf7] py-3 px-4 rounded-lg"
+        class="text-[#3a3f58] font-bold w-max border border-[#e3e5f0] hover:bg-[#ebecf7] py-3 px-4 rounded-lg cursor-pointer"
       >
         Download Acknowledgement
+      </div>
+    </div>
+    <div
+      v-if="rfq.rfqStatus === 'allocated'"
+      class="bg-white rounded-xl p-4 px-6 text-xs flex justify-between items-center"
+    >
+      <div class="text-[#6b7090]">
+        Save as draft any time &mdash; submitting locks your quotation for this
+        RFQ.
+      </div>
+      <div
+        class="text-[#3a3f58] font-bold w-max border border-[#e3e5f0] hover:bg-[#ebecf7] py-3 px-4 rounded-lg cursor-pointer"
+      >
+        Save draft
+      </div>
+      <div
+        class="py-3 px-4 rounded-lg font-bold text-white bg-[#4d3fc9] cursor-pointer"
+      >
+        Submit quotation
       </div>
     </div>
   </div>

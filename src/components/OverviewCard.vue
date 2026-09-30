@@ -1,21 +1,35 @@
 <script setup>
-import data from "@/data/mockData.json";
+import { useRFQStore } from "@/store/RFQStore";
+import { useRFQMainStore } from "@/store/RFQStoreMain";
+const rfq = useRFQMainStore();
 import { useFlagsStore } from "@/store/flag";
 const flags = useFlagsStore();
-const responseDeadlineDate = new Date(
-  data.big_card.deadline,
-).toLocaleDateString("en-IN", {
-  day: "2-digit",
-  month: "long",
-  year: "numeric",
-});
-const responseDeadlineTime = new Date(
-  data.big_card.deadline,
-).toLocaleTimeString("en-IN", {
-  hour: "2-digit",
-  minute: "2-digit",
-  hour12: true,
-});
+const responseDeadlineDate = new Date(rfq.rfqDeadline).toLocaleDateString(
+  "en-IN",
+  {
+    day: "2-digit",
+    month: "long",
+    year: "numeric",
+  },
+);
+const responseDeadlineTime = new Date(rfq.rfqDeadline).toLocaleTimeString(
+  "en-IN",
+  {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: true,
+  },
+);
+const timeline = [
+  "Draft",
+  "Sent to vendors",
+  "Responses recieved",
+  "Under evaluation",
+  "Awarded",
+  "Costing applied",
+  "Sent to corporate",
+];
+// console.log(rfq.allocation);
 </script>
 
 <template>
@@ -24,16 +38,16 @@ const responseDeadlineTime = new Date(
     <div class="flex justify-between h-23">
       <div class="flex flex-col gap-1">
         <div class="text-[11px] text-slate-500 font-bold flex gap-2">
-          <span class="tracking-wider">RFQ {{ data.big_card.rfq_no }}</span>
+          <span class="tracking-wider">RFQ {{ rfq.rfqDetails.rfq_no }}</span>
           &middot;
-          <span class="tracking-wider">{{ data.big_card.mice_no }}</span>
+          <span class="tracking-wider">{{ rfq.rfqDetails.mice_no }}</span>
         </div>
-        <p class="font-bold text-xl">{{ data.big_card.name }}</p>
+        <p class="font-bold text-xl">{{ rfq.rfqDetails.group }}</p>
         <p class="text-[13px] text-slate-500 font-normal">
-          <span>{{ data.big_card.company_name }}</span> &middot;
-          <span>{{ data.big_card.address }}</span> &middot;
-          <span>{{ data.big_card["day/night"] }}</span> &middot;
-          <span>{{ data.big_card.travellers }}</span>
+          <span>{{ rfq.rfqDetails.company }}</span> &middot;
+          <span>{{ rfq.rfqDetails.destination }}</span> &middot;
+          <span>{{ rfq.rfqDetails.time }}</span> &middot;
+          <span>{{ rfq.rfqDetails.travellers }}</span>
         </p>
       </div>
       <div class="flex flex-col items-end gap-1">
@@ -42,14 +56,14 @@ const responseDeadlineTime = new Date(
           class="text-[11px] text-slate-500 font-bold h-6 w-20 p-1 flex justify-center items-center gap-1 rounded-xl bg-[#F4F5FA]"
         >
           <span class="text-[17px]">&#9679;</span>
-          <span>{{ data.big_card.status1 }}</span>
+          <span>Not sent</span>
         </div>
         <div
           v-else
           class="text-[11px] font-bold h-6 w-20 p-1 flex justify-center items-center gap-1 rounded-xl text-[#c02d3c] bg-[#fbe6e8]"
         >
           <span class="text-[17px]">&#9679;</span>
-          <span>{{ data.big_card.status2 }}</span>
+          <span>Overdue</span>
         </div>
         <p class="text-xs text-slate-600 font-normal">
           Response deadline :
@@ -61,7 +75,7 @@ const responseDeadlineTime = new Date(
     </div>
     <!-- TimeLine -->
     <div class="flex text-[11px] flex-wrap">
-      <div class="flex items-center" v-for="(value, index) in data.timeline">
+      <div class="flex items-center" v-for="(value, index) in timeline">
         <span
           class="h-6 w-6 flex justify-center items-center rounded-full border-2 border-[#e3e5f0] mr-3 font-semibold"
           :class="{

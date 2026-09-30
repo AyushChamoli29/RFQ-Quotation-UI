@@ -1,12 +1,19 @@
 <script setup>
 import data from "@/data/mockData.json";
+import { useRouter } from "vue-router";
 import { ref } from "vue";
 import { useHistoryStore } from "@/store/auditHistory";
 import { useFlagsStore } from "@/store/flag";
 import { useVendorStore } from "@/store/requirementsVendor";
+import { useAllocationStore } from "@/store/AllocationStore";
+import VendorResponses from "@/views/VendorResponses.vue";
+import { useRFQMainStore } from "@/store/RFQStoreMain";
+const rfq = useRFQMainStore();
 const flags = useFlagsStore();
+const router = useRouter();
 const historyStore = useHistoryStore();
 const vendorsStore = useVendorStore();
+const allocationStore = useAllocationStore();
 const emit = defineEmits(["simulate-vendors"]);
 const findVendorName = (id) => {
   for (const element of data.vendor_portal) {
@@ -44,62 +51,95 @@ const findQuotedLines = (vendor) => {
 const simulateVendors = () => {
   flags.simulateFlag = true;
   flags.progress = 3;
-  for (const element1 of vendorsStore.currentVendors) {
-    for (const element2 of element1.VendorList) {
-      if (element2.simulated === false) {
-        element2.simulated = true;
+  rfq.rfqStatus = "simulated";
+  for (const categoryObj of rfq.categories) {
+    rfq.extractQuotation(categoryObj.id);
+  }
+  for (const [vendorid, quotation] of Object.entries(rfq.workingQuotation)) {
+    let hasNull = false;
+    let hasValue = false;
+
+    for (const id of Object.keys(quotation)) {
+      if (quotation[id] === null) {
+        hasNull = true;
+      } else {
+        hasValue = true;
+      }
+    }
+
+    let finalStatus = "";
+
+    if (hasValue && hasNull) {
+      finalStatus = "partially submitted"; //  mixed case
+    } else if (hasValue) {
+      finalStatus = "submitted"; // all filled
+    } else {
+      finalStatus = "declined"; // all null
+    }
+
+    for (const element of rfq.allocation) {
+      for (const item of element.vendorList) {
+        if (item.vendorid === vendorid) {
+          item.status = finalStatus;
+        }
       }
     }
   }
-  for (let i = 0; i < vendorsStore.currentVendors.length; i++) {
-    for (let j = 0; j < vendorsStore.currentVendors[i].VendorList.length; j++) {
-      const vendorName = findVendorName(
-        vendorsStore.currentVendors[i].VendorList[j].id,
-      );
-      const { total, quoted } = findQuotedLines(vendorName);
-      historyStore.historyEntry({
-        actor: findActor(vendorsStore.currentVendors[i].VendorList[j].id),
-        roleOrCompany: vendorName,
-        action: "Vendor portal accessed",
-        category: vendorsStore.currentVendors[i].type,
-        vendor: vendorName,
-        detail: "Secure link opened (simulated)",
-      });
-      historyStore.historyEntry({
-        actor: findActor(vendorsStore.currentVendors[i].VendorList[j].id),
-        roleOrCompany: vendorName,
-        action: "Vendor submitted quotation",
-        category: vendorsStore.currentVendors[i].type,
-        vendor: vendorName,
-        detail: `${quoted}/${total} line item(s) quoted`,
-      });
-    }
-  }
-  historyStore.historyEntry({
-    actor: "Anurag Mehta",
-    roleOrCompany: "SkyBridge Airlines",
-    action: "Clarification question raised",
-    category: "Flights",
-    vendor: "SkyBridge Airlines",
-    detail:
-      "Please confirm whether the return sector is a same-day or next-day connection.",
-  });
-  historyStore.historyEntry({
-    actor: "Priya Sharma",
-    roleOrCompany: "RFQ / Procurement Manager",
-    action: "Clarification answered",
-    category: "Flights",
-    vendor: "SkyBridge Airlines",
-    detail:
-      "Same-day connection required; onward departure not before 20:00 local time.",
-  });
-  historyStore.historyEntry({
-    actor: "Priya Sharma",
-    roleOrCompany: "RFQ / Procurement Manager",
-    action: "Vendor submission simulated",
-    detail:
-      "Demo shortcut used to populate realistic responses, including a decline, a partial quote, a late submission and a clarification.",
-  });
+  router.push({ name: "vendorResponses" });
+  // Object.entries(allocationStore.simulatedVendors).forEach(([key]) => {
+  //   allocationStore.simulatedVendors[key] = [
+  //     ...allocationStore.allocation[key],
+  //   ];
+  // });
+  // for (let i = 0; i < vendorsStore.currentVendors.length; i++) {
+  //   for (let j = 0; j < vendorsStore.currentVendors[i].VendorList.length; j++) {
+  //     const vendorName = findVendorName(
+  //       vendorsStore.currentVendors[i].VendorList[j].id,
+  //     );
+  //     const { total, quoted } = findQuotedLines(vendorName);
+  //     historyStore.historyEntry({
+  //       actor: findActor(vendorsStore.currentVendors[i].VendorList[j].id),
+  //       roleOrCompany: vendorName,
+  //       action: "Vendor portal accessed",
+  //       category: vendorsStore.currentVendors[i].type,
+  //       vendor: vendorName,
+  //       detail: "Secure link opened (simulated)",
+  //     });
+  //     historyStore.historyEntry({
+  //       actor: findActor(vendorsStore.currentVendors[i].VendorList[j].id),
+  //       roleOrCompany: vendorName,
+  //       action: "Vendor submitted quotation",
+  //       category: vendorsStore.currentVendors[i].type,
+  //       vendor: vendorName,
+  //       detail: `${quoted}/${total} line item(s) quoted`,
+  //     });
+  //   }
+  // }
+  // historyStore.historyEntry({
+  //   actor: "Anurag Mehta",
+  //   roleOrCompany: "SkyBridge Airlines",
+  //   action: "Clarification question raised",
+  //   category: "Flights",
+  //   vendor: "SkyBridge Airlines",
+  //   detail:
+  //     "Please confirm whether the return sector is a same-day or next-day connection.",
+  // });
+  // historyStore.historyEntry({
+  //   actor: "Priya Sharma",
+  //   roleOrCompany: "RFQ / Procurement Manager",
+  //   action: "Clarification answered",
+  //   category: "Flights",
+  //   vendor: "SkyBridge Airlines",
+  //   detail:
+  //     "Same-day connection required; onward departure not before 20:00 local time.",
+  // });
+  // historyStore.historyEntry({
+  //   actor: "Priya Sharma",
+  //   roleOrCompany: "RFQ / Procurement Manager",
+  //   action: "Vendor submission simulated",
+  //   detail:
+  //     "Demo shortcut used to populate realistic responses, including a decline, a partial quote, a late submission and a clarification.",
+  // });
 };
 </script>
 

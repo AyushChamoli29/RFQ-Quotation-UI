@@ -1,37 +1,69 @@
 <script setup>
-import Data from "@/data/mockData.json";
+// import data from "@/data/mockData.json";
 import { computed, defineProps, ref, watch } from "vue";
-import { useHistoryStore } from "@/store/auditHistory";
-import { useFlagsStore } from "@/store/flag";
-import { useVendorStore } from "@/store/requirementsVendor";
-const historyStore = useHistoryStore();
-const flags = useFlagsStore();
-const vendorsStore = useVendorStore();
+// import { useHistoryStore } from "@/store/auditHistory";
+// import { useFlagsStore } from "@/store/flag";
+// import { useVendorStore } from "@/store/requirementsVendor";
+import { useAllocationStore } from "@/store/AllocationStore";
+import { useRFQMainStore } from "@/store/RFQStoreMain";
+const rfq = useRFQMainStore();
+const allocationStore = useAllocationStore();
+// const historyStore = useHistoryStore();
+// const flags = useFlagsStore();
+// const vendorsStore = useVendorStore();
 const props = defineProps({
-  name: String,
-  value: Object,
+  id: String,
+  value: Array,
 });
-const name = ref(props.name);
-const data = ref(props.value);
+const CategoryName = computed(() => {
+  for (const categoryObj of rfq.categories) {
+    if (categoryObj.id === props.id) {
+      return categoryObj.name;
+    }
+  }
+});
+const CategoryDefaultMargin = computed(() => {
+  for (const element of rfq.categories) {
+    if (element.id === props.id) {
+      return element.defaultMargin;
+    }
+  }
+});
 const vendors = computed(() => {
-  const category = vendorsStore.currentVendors.find((item) => {
-    return item.type === props.name;
-  });
+  const category = rfq.allocation.find((obj) => obj.id === props.id);
+
   if (!category) return [];
-  return category.VendorList.map((obj) => {
-    const vendor = Data.vendor_portal.find((element) => {
-      return element.id === obj.id;
-    });
-    return vendor.name;
-  });
+
+  return category.vendorList
+    .map((vendorObj) => {
+      const vendorDetails = rfq.vendors.find(
+        (v) => v.id === vendorObj.vendorid,
+      );
+
+      if (!vendorDetails) return null;
+
+      return {
+        id: vendorDetails.id,
+        name: vendorDetails.name,
+        status: vendorObj.status,
+      };
+    })
+    .filter(Boolean);
 });
-const searchList = computed(() => {
-  const categoryVendor = vendorsStore.currentVendors.find(
-    (element) => element.type === props.name,
-  );
-  if (!categoryVendor) return [];
-  return Data.vendor_portal.filter((item) => {
-    return !categoryVendor.VendorList.some((vendor) => vendor.id === item.id);
+const baseSearchList = computed(() => {
+  const category = rfq.allocation.find((obj) => obj.id === props.id);
+
+  if (!category) return [];
+
+  const selectedVendorIds = category.vendorList.map((v) => v.vendorid);
+
+  return rfq.vendors.filter((vendor) => {
+    const isAlreadySelected = selectedVendorIds.includes(vendor.id);
+
+    const isSameCategory =
+      vendor.type.toLowerCase() === CategoryName.value.toLowerCase();
+
+    return !isAlreadySelected && isSameCategory;
   });
 });
 const searchValue = ref("");
@@ -42,72 +74,79 @@ const showDetails = (key) => {
   hiddenItems.value[key] = !hiddenItems.value[key];
 };
 const searchFlag = ref(false);
-const showSearchResults = (search) => {
-  searchFlag.value = true;
-  searchList.value = props.value.searchList.filter((item) => {
+const searchList = computed(() => {
+  const search = searchValue.value.trim().toLowerCase();
+
+  if (!search) return baseSearchList.value;
+
+  return baseSearchList.value.filter((item) => {
     return (
-      item.name.toLowerCase().includes(search.toLowerCase()) ||
-      item.type.toLowerCase().includes(search.toLowerCase()) ||
-      item.customer.toLowerCase().includes(search.toLowerCase()) ||
-      item.email.toLowerCase().includes(search.toLowerCase())
+      item.name.toLowerCase().includes(search) ||
+      item.type?.toLowerCase().includes(search) ||
+      item.customer?.toLowerCase().includes(search) ||
+      item.email?.toLowerCase().includes(search)
     );
   });
-};
+});
 watch(searchValue, (newSearch) => {
-  showSearchResults(newSearch);
+  searchFlag.value = !!newSearch;
 });
 const closeSearchResults = () => {
   searchFlag.value = false;
 };
-const addToVendor = (id, name) => {
-  const category = vendorsStore.currentVendors.find((item) => {
-    return item.type === props.name;
-  });
-  const vendor = Data.vendor_portal.find((element) => {
-    return element.id === id;
-  });
-  if (category && vendor) {
-    category.VendorList.push({ id: vendor.id, simulated: false });
-  }
-  searchList.value = searchList.value.filter((item) => {
-    return item.id !== id;
-  });
-  closeSearchResults();
-  historyStore.historyEntry({
-    actor: flags.selectedActor.name,
-    roleOrCompany: flags.selectedActor.role,
-    action: "Vendor allocated to category",
-    vendor: name,
-    category: props.name,
-    detail: `${name} added to ${props.name} (primary category:${vendor.type})`,
-  });
+const addVendor = (searchID, categoryID) => {
+  allocationStore.addVendor(searchID, categoryID);
+  searchFlag.value = false;
 };
-const deleteVendor = (item, index) => {
-  const category = vendorsStore.currentVendors.find((element) => {
-    return element.type === props.name;
-  });
-  if (category.VendorList[index].simulated === false) {
-    category.VendorList.splice(index, 1);
-  } else if (category.VendorList[index].simulated === true) {
-    alert(
-      `${item} has already submitted a quotation for this RFQ and cannot be silently removed. Exclude their quote at the award stage instead, or discuss a formal withdrawal with them first.`,
-    );
-  }
-  historyStore.historyEntry({
-    actor: flags.selectedActor.name,
-    roleOrCompany: flags.selectedActor.role,
-    action: "Vendor removed from category allocation",
-    vendor: item,
-    category: props.name,
-  });
-};
-vendorsStore.totalVendors = computed(() => {
-  let sum = 0;
-  for (const element of vendorsStore.currentVendors) {
-    sum += element.VendorList.length;
-  }
-  return sum;
-});
+// const addToVendor = (id, name) => {
+//   const category = vendorsStore.currentVendors.find((item) => {
+//     return item.type === props.name;
+//   });
+//   const vendor = Data.vendor_portal.find((element) => {
+//     return element.id === id;
+//   });
+//   if (category && vendor) {
+//     category.VendorList.push({ id: vendor.id, simulated: false });
+//   }
+//   searchList.value = searchList.value.filter((item) => {
+//     return item.id !== id;
+//   });
+//   closeSearchResults();
+//   historyStore.historyEntry({
+//     actor: flags.selectedActor.name,
+//     roleOrCompany: flags.selectedActor.role,
+//     action: "Vendor allocated to category",
+//     vendor: name,
+//     category: props.name,
+//     detail: `${name} added to ${props.name} (primary category:${vendor.type})`,
+//   });
+// };
+// const deleteVendor = (item, index) => {
+//   const category = vendorsStore.currentVendors.find((element) => {
+//     return element.type === props.name;
+//   });
+//   if (category.VendorList[index].simulated === false) {
+//     category.VendorList.splice(index, 1);
+//   } else if (category.VendorList[index].simulated === true) {
+//     alert(
+//       `${item} has already submitted a quotation for this RFQ and cannot be silently removed. Exclude their quote at the award stage instead, or discuss a formal withdrawal with them first.`,
+//     );
+//   }
+//   historyStore.historyEntry({
+//     actor: flags.selectedActor.name,
+//     roleOrCompany: flags.selectedActor.role,
+//     action: "Vendor removed from category allocation",
+//     vendor: item,
+//     category: props.name,
+//   });
+// };
+// vendorsStore.totalVendors = computed(() => {
+//   let sum = 0;
+//   for (const element of vendorsStore.currentVendors) {
+//     sum += element.VendorList.length;
+//   }
+//   return sum;
+// });
 </script>
 
 <template>
@@ -115,15 +154,15 @@ vendorsStore.totalVendors = computed(() => {
     <!-- Initial Data -->
     <div
       class="flex justify-between items-center hover:bg-[#f4f5fa]"
-      @click="showDetails(name)"
+      @click="showDetails(props.id)"
     >
       <div class="flex items-center justify-start gap-3 px-4 py-3">
         <span v-if="arrow" class="font-bold text-[#9ba0c0] text-[9px]">▹</span
         ><span v-if="!arrow" class="font-bold text-[#9ba0c0] text-[9px]">▾</span
-        ><span class="font-bold">{{ name }}</span
+        ><span class="font-bold">{{ CategoryName }}</span
         ><span
           class="px-2 outline outline-slate-300 rounded-lg bg-[#eef0f8] text-[11px] text-[#6b7090] font-bold"
-          >{{ data.list.length }} lines</span
+          >{{ props.value.length }} lines</span
         >
         <span
           class="text-[11px] bg-[#eeecfb] text-[#3f3ba6] p-1 rounded-lg font-bold px-2"
@@ -131,12 +170,12 @@ vendorsStore.totalVendors = computed(() => {
         >
       </div>
       <div class="text-[11px] tracking-wider text-[#6b7090] mr-5">
-        Default margin {{ data.defaultMargin }}%
+        Default margin {{ CategoryDefaultMargin }}%
       </div>
     </div>
   </div>
   <!-- Requirement Table -->
-  <div :class="hiddenItems[name] ? 'hidden' : 'block'" class="text-xs">
+  <div :class="hiddenItems[props.id] ? 'hidden' : 'block'" class="text-xs">
     <div class="p-5">
       <table class="w-full table-fixed">
         <thead class="text-[10px] tracking-wider text-[#6b7090]">
@@ -148,17 +187,13 @@ vendorsStore.totalVendors = computed(() => {
           </tr>
         </thead>
         <tbody>
-          <tr v-for="item in data.list" class="border-t border-slate-200">
+          <tr v-for="item in props.value" class="border-t border-slate-200">
             <td class="py-4 pl-5">
               <div>
-                <span
-                  v-if="item.requirement === 'Mandatory'"
-                  class="text-red-600"
-                  >*</span
-                >
-                <span class="font-bold ml-5">{{ item.room }}</span>
+                <span v-if="item.isMandatory" class="text-red-600">*</span>
+                <span class="font-bold ml-5">{{ item.name }}</span>
               </div>
-              <div class="ml-5 text-[#6b7090]">{{ item.details }}</div>
+              <div class="ml-5 text-[#6b7090]">{{ item.information }}</div>
             </td>
             <td>{{ item.quantity }}</td>
             <td>{{ item.unit }}</td>
@@ -166,10 +201,9 @@ vendorsStore.totalVendors = computed(() => {
               <span
                 class="p-1 bg-[#eef0f8] text-[#6b7090] font-bold rounded-lg"
                 :class="{
-                  'text-[#c02d3c] bg-[#fbe6e8]':
-                    item.requirement === 'Mandatory',
+                  'text-[#c02d3c] bg-[#fbe6e8]': item.isMandatory,
                 }"
-                >{{ item.requirement }}</span
+                >{{ item.isMandatory ? "Mandatory" : "Optional" }}</span
               >
             </td>
           </tr>
@@ -180,24 +214,24 @@ vendorsStore.totalVendors = computed(() => {
     <div class="ml-5 mb-5">
       <p class="mb-1">
         Vendor allocation for this category — each vendor added below receives
-        an RFQ scoped only to {{ name }}. Search across the full vendor master,
-        or add a brand-new vendor on the fly.
+        an RFQ scoped only to {{ CategoryName }}. Search across the full vendor
+        master, or add a brand-new vendor on the fly.
       </p>
       <div v-if="vendors.length >= 1" class="flex gap-2 mb-1 flex-wrap">
         <div
-          v-for="(item, index) in vendors"
+          v-for="item in vendors"
           class="bg-[#f7f6fe] text-[#3f3ba6] flex justify-center items-center gap-2 px-2 py-1 rounded-xl outline outline-slate-200"
         >
           <span class="font-bold">
-            {{ item }}
+            {{ item.name }}
           </span>
           <span
             class="bg-[#5b4fe024] text-[#3f3ba6] text-center h-5 w-5 rounded-full cursor-pointer relative group"
-            @click="deleteVendor(item, index)"
+            @click="rfq.deleteVendor(item.id, props.id)"
             >x
             <span
               class="absolute hidden group-hover:block top-full left-1 z-5 w-max bg-black text-white p-1"
-              >Remove {{ item }}</span
+              >Remove {{ item.name }}</span
             ></span
           >
         </div>
@@ -212,17 +246,20 @@ vendorsStore.totalVendors = computed(() => {
           placeholder="Search or add a vendor by name..."
           class="w-1/4 p-2 outline outline-slate-300 rounded-md mt-2"
           v-model="searchValue"
-          @click="showSearchResults(searchValue)"
+          @focus="searchFlag = true"
         />
         <div
           v-if="searchFlag"
           class="absolute top-full left-0 bg-white max-h-60 overflow-y-auto rounded-lg outline outline-slate-300"
         >
           <button @click="closeSearchResults" class="pl-2 text-sm">X</button>
+          <div v-if="searchList.length === 0" class="font-bold p-2 text-sm">
+            All vendors for this category are already allocated
+          </div>
           <div
-            v-for="(search, index) in searchList"
+            v-for="search in searchList"
             class="p-2 border-t border-slate-200"
-            @click="addToVendor(search.id, search.name)"
+            @click="rfq.addVendor(search.id, props.id)"
           >
             <span class="font-bold">{{ search.name }}</span
             ><span

@@ -1,44 +1,43 @@
 <script setup>
 import data from "@/data/mockData.json";
-import { defineProps } from "vue";
+import { useRFQMainStore } from "@/store/RFQStoreMain";
+import { defineProps, ref, computed } from "vue";
+const rfq = useRFQMainStore();
 const prop = defineProps({
-  vendorName: String,
+  vendorid: String,
 });
-const vendorType = (vendorName) => {
-  for (const element of data.vendor_portal) {
-    if (element.name === vendorName) {
+const vendorType = (vendorid) => {
+  for (const element of rfq.vendors) {
+    if (element.id === vendorid) {
       return element.type;
     }
   }
 };
-const objNeeded = (vendorName) => {
-  return data.vendorPricing.find((item) => {
-    return item.category.toLowerCase() === vendorType(vendorName).toLowerCase();
-  });
-};
-const rateFinder = (name, tempArray) => {
-  for (const element of tempArray) {
-    if (element.name === name) {
-      return element.information.unitPrice;
+const requirementLines = computed(() => {
+  const vendor = rfq.vendors.find((v) => v.id === prop.vendorid);
+  if (!vendor) return [];
+
+  const category = rfq.categories.find(
+    (c) => c.name.toLowerCase() === vendor.type.toLowerCase(),
+  );
+  if (!category) return [];
+
+  return rfq.requirements.filter((line) => line.categoryId === category.id);
+});
+const tempObj = ref({});
+onMounted(() => {
+  for (const vendorid of Object.keys(rfq.workingQuotation)) {
+    if (vendorid === prop.vendorid) {
+      tempObj.value = rfq.workingQuotation[vendorid];
     }
   }
-};
-const findDetail = (lineName, category) => {
-  for (const [key, value] of Object.entries(data.requirementTable)) {
-    if (key.toLowerCase() === category.toLowerCase()) {
-      for (const element of value.list) {
-        if (element.room.toLowerCase() === lineName.toLowerCase()) {
-          return element.details;
-        }
-      }
-    }
-  }
-};
+});
+console.log(tempObj.value);
 </script>
 
 <template>
   <div class="bg-white rounded-xl border border-slate-200 p-4">
-    <p class="ml-3 mb-5 font-bold">{{ vendorType(prop.vendorName) }}</p>
+    <p class="ml-3 mb-5 font-bold">{{ vendorType(prop.vendorid) }}</p>
     <table class="w-full text-xs">
       <thead
         class="text-[#6b7090] font-semibold text-[11.5px] border-b border-slate-200 text-left"
@@ -54,23 +53,31 @@ const findDetail = (lineName, category) => {
         </tr>
       </thead>
       <tbody class="divide-y divide-slate-200">
-        <tr v-for="item in objNeeded(prop.vendorName).vendorsPrices">
+        <tr v-for="line in requirementLines">
           <td class="py-4 pl-4 align-middle">
-            <div class="font-bold">{{ item.requirementLine }}</div>
+            <div class="font-bold">{{ line.name }}</div>
             <div class="text-[#6b7090] text-[11.5px] mt-1">
-              {{
-                findDetail(item.requirementLine, vendorType(prop.vendorName))
-              }}
+              {{ line.information }}
             </div>
           </td>
           <td class="font-mono py-4 align-middle">
-            {{ item.quantity }} {{ item.unit }}
+            {{ line.quantity }} {{ line.unit }}
           </td>
           <td class="p-4 align-middle">
             <div
+              v-if="rfq.rfqStatus === 'simulated'"
               class="flex items-center border border-slate-200 rounded-lg p-2 w-35"
             >
-              {{ rateFinder(prop.vendorName, item.content) }}
+              {{ rfq.workingQuotation[prop.vendorid][line.id] }}
+            </div>
+            <div
+              v-if="rfq.rfqStatus === 'allocated'"
+              class="flex items-center border border-slate-200 rounded-lg p-2 w-35"
+            >
+              <input
+                type="number"
+                v-model="rfq.workingQuotation[prop.vendorid][line.id]"
+              />
             </div>
           </td>
           <td class="p-4 align-middle">
@@ -86,6 +93,8 @@ const findDetail = (lineName, category) => {
             >
               <select disabled>
                 <option value="Quoted">Quoted</option>
+                <option value="Not available">Not available</option>
+                <option value="Alternative offered">Alternative offered</option>
               </select>
             </div>
           </td>

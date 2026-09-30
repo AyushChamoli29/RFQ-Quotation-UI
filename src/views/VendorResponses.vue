@@ -1,14 +1,31 @@
 <script setup>
-import data from "@/data/mockData.json";
 import { RouterLink } from "vue-router";
+import { computed, ref } from "vue";
 import VendorResponsesBox from "@/components/VendorResponsesBox.vue";
+// import { useVendorStore } from "@/store/VendorStore";
+import { useRFQMainStore } from "@/store/RFQStoreMain";
 import { useFlagsStore } from "@/store/flag";
 const flags = useFlagsStore();
+const rfq = useRFQMainStore();
+const data = ref(rfq.workingQuotation);
+// console.log(data.value);
+// const vendorStore = useVendorStore();
+const categoryWithVendor = computed(() => {
+  let result = [];
+  for (const categoryObj of rfq.allocation) {
+    if (categoryObj.vendorList.length >= 1) {
+      result.push(categoryObj.id);
+    }
+  }
+  return result;
+});
+// console.log(rfq.allocation);
+// console.log(rfq.workingQuotation);
 </script>
 
 <template>
   <div
-    v-if="!(flags.simulateFlag || flags.allocateFlag)"
+    v-if="rfq.rfqStatus === 'draft'"
     class="text-sm h-47 w-full p-5 flex flex-col gap-3 justify-center items-center bg-white outline outline-slate-200 rounded-lg"
   >
     <span class="text-4xl">📭</span>
@@ -24,10 +41,10 @@ const flags = useFlagsStore();
     </p>
   </div>
   <div
-    v-if="flags.simulateFlag || flags.allocateFlag"
-    v-for="item in data.vendorPricing"
+    v-if="rfq.rfqStatus !== 'draft'"
+    v-for="categoryid in categoryWithVendor"
     class="bg-white rounded-xl h-max"
   >
-    <VendorResponsesBox :data="item" />
+    <VendorResponsesBox :categoryID="categoryid" />
   </div>
 </template>

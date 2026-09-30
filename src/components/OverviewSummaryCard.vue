@@ -1,15 +1,16 @@
 <script setup>
 import { computed } from "vue";
+import { useRFQMainStore } from "@/store/RFQStoreMain";
 import { useFlagsStore } from "@/store/flag";
-import { useVendorStore } from "@/store/requirementsVendor";
-import { useAwardedStore } from "@/store/awardedLines";
+import { useAllocationStore } from "@/store/AllocationStore";
+import { useEvaluationStore } from "@/store/EvaluationStore";
 const flag = useFlagsStore();
-const awardedStore = useAwardedStore();
-const vendorsStore = useVendorStore();
-console.log(vendorsStore.vendorsSelected);
+const rfq = useRFQMainStore();
+const evaluationStore = useEvaluationStore();
+const allocationStore = useAllocationStore();
 const responded = computed(() => {
   let ans = 0;
-  for (const element of vendorsStore.vendorsSelected) {
+  for (const element of allocationStore.vendorsSelected) {
     if (element.status !== "declined") {
       ans++;
     }
@@ -18,7 +19,7 @@ const responded = computed(() => {
 });
 const declined = computed(() => {
   let ans = 0;
-  for (const element of vendorsStore.vendorsSelected) {
+  for (const element of allocationStore.vendorsSelected) {
     if (element.status === "declined") {
       ans++;
     }
@@ -27,7 +28,7 @@ const declined = computed(() => {
 });
 const grandFinal = computed(() => {
   let ans = 0;
-  for (const element of Object.values(awardedStore.awardedLines)) {
+  for (const element of Object.values(evaluationStore.awardedLines)) {
     ans += element.final;
   }
   return Number(ans).toLocaleString("en-IN", {
@@ -44,17 +45,23 @@ const grandFinal = computed(() => {
       class="bg-white py-4 p-3 pl-5 h-25 w-75 rounded-lg flex flex-col justify-between outline outline-slate-200"
     >
       <p class="text-slate-500 text-xs font-semibold">REQUIREMENT LINES</p>
-      <p class="font-semibold text-xl font-mono">24</p>
-      <p class="text-slate-500 text-xs">across 6 categories</p>
+      <p class="font-semibold text-xl font-mono">
+        {{ rfq.requirements.length }}
+      </p>
+      <p class="text-slate-500 text-xs">
+        across {{ rfq.categories.length }} categories
+      </p>
     </div>
     <div
       class="bg-white py-4 p-3 pl-5 h-25 w-75 rounded-lg flex flex-col justify-between outline outline-slate-200"
     >
       <p class="text-slate-500 text-xs font-semibold">VENDORS INVITED</p>
       <p class="font-semibold text-xl font-mono">
-        {{ vendorsStore.vendorsSelected.size }}
+        {{ allocationStore.vendorsSelected.size }}
       </p>
-      <p class="text-slate-500 text-xs">of 12 in vendor master</p>
+      <p class="text-slate-500 text-xs">
+        of {{ rfq.vendors.length }} in vendor master
+      </p>
     </div>
     <div
       class="bg-white py-4 p-3 pl-5 h-25 w-75 rounded-lg flex flex-col justify-between outline outline-slate-200"
@@ -79,7 +86,7 @@ const grandFinal = computed(() => {
       <p class="text-slate-500 text-xs">
         {{
           flag.progress >= 6
-            ? "Costing v" + awardedStore.costVersions
+            ? "Costing v" + evaluationStore.costVersions
             : "not yet applied"
         }}
       </p>

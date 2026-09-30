@@ -1,11 +1,30 @@
-<script setup></script>
+<script setup>
+import { useRFQMainStore } from "@/store/RFQStoreMain";
+const rfq = useRFQMainStore();
+const responseDeadlineDate = new Date(rfq.rfqDeadline).toLocaleDateString(
+  "en-IN",
+  {
+    day: "2-digit",
+    month: "long",
+    year: "numeric",
+  },
+);
+const responseDeadlineTime = new Date(rfq.rfqDeadline).toLocaleTimeString(
+  "en-IN",
+  {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: true,
+  },
+);
+</script>
 
 <template>
   <div class="bg-white rounded-lg p-5 flex flex-col gap-3">
     <div class="flex justify-between">
       <div>
         <p class="text-[#6b7090] font-bold text-[11px]">RFQ REFERENCE</p>
-        <p class="font-bold text-[19px]">RFQ-2026-0142</p>
+        <p class="font-bold text-[19px]">{{ rfq.rfqDetails.rfq_no }}</p>
       </div>
       <div class="text-right">
         <span
@@ -14,7 +33,9 @@
         >
         <p class="text-[#6b7090] text-xs mt-2">
           Submit by
-          <span class="font-bold text-black">20 Jun 2026, 06:00 pm</span>
+          <span class="font-bold text-black"
+            >{{ responseDeadlineDate }}, {{ responseDeadlineTime }}</span
+          >
         </p>
       </div>
     </div>
@@ -23,19 +44,23 @@
         class="border border-[#e3e5f0] bg-white w-1/4 p-4 rounded-xl flex flex-col gap-1"
       >
         <p class="text-[#6b7090] text-[11.5px] font-semibold">DESTINATION</p>
-        <p class="font-mono text-sm font-bold">Pattaya, Thailand</p>
+        <p class="font-mono text-sm font-bold">
+          {{ rfq.rfqDetails.destination }}
+        </p>
       </div>
       <div
         class="border border-[#e3e5f0] bg-white w-1/4 p-4 rounded-xl flex flex-col gap-1"
       >
         <p class="text-[#6b7090] text-[11.5px] font-semibold">DURATION</p>
-        <p class="font-mono text-sm font-bold">5D / 4N</p>
+        <p class="font-mono text-sm font-bold">{{ rfq.rfqDetails.time }}</p>
       </div>
       <div
         class="border border-[#e3e5f0] bg-white w-1/4 p-4 rounded-xl flex flex-col gap-1"
       >
         <p class="text-[#6b7090] text-[11.5px] font-semibold">TRAVELLERS</p>
-        <p class="font-mono text-sm font-bold">120</p>
+        <p class="font-mono text-sm font-bold">
+          {{ rfq.rfqDetails.travellers }}
+        </p>
       </div>
       <div
         class="border border-[#e3e5f0] bg-white w-1/4 p-4 rounded-xl flex flex-col gap-1"

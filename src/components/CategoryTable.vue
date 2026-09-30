@@ -1,23 +1,25 @@
 <script setup>
 import { ref } from "vue";
-import data from "@/data/mockData.json";
+import { useRFQStore } from "@/store/RFQStore";
+import { useRFQMainStore } from "@/store/RFQStoreMain";
 import { useFlagsStore } from "@/store/flag";
-import { useVendorStore } from "@/store/requirementsVendor";
-import { useAwardedStore } from "@/store/awardedLines";
+import { useAllocationStore } from "@/store/AllocationStore";
+import { useEvaluationStore } from "@/store/EvaluationStore";
+const rfq = useRFQMainStore();
 const flags = useFlagsStore();
-const vendorsStore = useVendorStore();
-const awardedStore = useAwardedStore();
-const getVendorCount = (category) => {
-  for (const element of vendorsStore.currentVendors) {
-    if (element.type === category) {
-      return element.VendorList.length;
+const allocationStore = useAllocationStore();
+const evaluationStore = useEvaluationStore();
+const getVendorCount = (id) => {
+  for (const [categoryID, value] of Object.entries(rfq.allocation)) {
+    if (categoryID === id) {
+      return value.length;
     }
   }
   return 0;
 };
-const getAwardedCount = (category) => {
-  for (const [key, value] of Object.entries(awardedStore.awardedLines)) {
-    if (key === category) {
+const getAwardedCount = (id) => {
+  for (const [key, value] of Object.entries(evaluationStore.awardedLines)) {
+    if (key === id) {
       return Object.keys(value.data).length;
     }
   }
@@ -36,6 +38,15 @@ const status = (progress, awarded, total) => {
   }
   return msg;
 };
+function getCategoryLine(id) {
+  let counter;
+  for (const requirementObj of rfq.requirements) {
+    if (requirementObj.categoryId === id) {
+      counter++;
+    }
+  }
+  return counter;
+}
 </script>
 
 <template>
@@ -56,41 +67,43 @@ const status = (progress, awarded, total) => {
       </thead>
       <tbody>
         <tr
-          v-for="[category, lines] in Object.entries(data.category_table)"
+          v-for="categoryObj in rfq.categories"
           class="border-t border-slate-200"
         >
-          <td class="px-3 py-3 font-bold">{{ category }}</td>
-          <td class="px-3 py-3">{{ lines }}</td>
-          <td class="px-3 py-3">{{ getVendorCount(category) }}</td>
+          <td class="px-3 py-3 font-bold">{{ categoryObj.name }}</td>
+          <td class="px-3 py-3">{{ getCategoryLine(categoryObj) }}</td>
+          <td class="px-3 py-3">{{ getVendorCount(categoryObj.id) }}</td>
           <td class="px-3 py-3 font-mono">
             {{
               flags.progress >= 3
-                ? getVendorCount(category) + "/" + getVendorCount(category)
-                : "0/" + getVendorCount(category)
+                ? getVendorCount(categoryObj.id) +
+                  "/" +
+                  getVendorCount(categoryObj.id)
+                : "0/" + getVendorCount(categoryObj.id)
             }}
           </td>
-          <td class="px-3 py-2 font-mono">
+          <!-- <td class="px-3 py-2 font-mono">
             {{
               flags.progress >= 3
-                ? getAwardedCount(category) + "/" + lines
-                : "0/" + lines
+                ? getAwardedCount(categoryID) + "/" + detail.lines
+                : "0/" + detail.lines
             }}
-          </td>
-          <td>
+          </td> -->
+          <!-- <td>
             <div
               class="w-max h-max px-2 py-1 rounded-2xl font-bold text-[11px]"
               :class="{
                 'bg-[#eef0f8] text-[#6b7090]': flags.progress === 1,
                 'bg-[#fdf1de] text-[#b46a06]': flags.progress === 2,
                 'bg-[#e1f6f1] text-[#0d8f7a]':
-                  getAwardedCount(category) === lines,
+                  getAwardedCount(categoryID) === lines,
                 'bg-[#eeecfb] text-[#3f3ba6]':
-                  flags.progress >= 3 && getAwardedCount(category) !== lines,
+                  flags.progress >= 3 && getAwardedCount(categoryID) !== lines,
               }"
             >
-              {{ status(flags.progress, getAwardedCount(category), lines) }}
+              {{ status(flags.progress, getAwardedCount(categoryID), lines) }}
             </div>
-          </td>
+          </td> -->
         </tr>
       </tbody>
     </table>

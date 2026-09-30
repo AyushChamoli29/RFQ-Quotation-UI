@@ -1,0 +1,419 @@
+{
+  "rfq": {
+    "rfq_no": "RFQ-2026-0142",
+    "mice_no": "MICE-20260628-1233-7989",
+    "group": "Geanis World – Pattaya Group",
+    "company": "Cipla Limited",
+    "destination": "Pattaya, Thailand",
+    "time": "5D / 4N",
+    "travellers": 120
+  },
+  "deadline": "2026-06-20T18:00:00",
+  "categories": [
+    { "id": "c1", "name": "Hotels", "defaultMargin": 12 },
+    { "id": "c2", "name": "Flights", "defaultMargin": 8 },
+    { "id": "c3", "name": "Ground Transportation", "defaultMargin": 12 },
+    { "id": "c4", "name": "Event Management incuding AV", "defaultMargin": 16 },
+    { "id": "c5", "name": "Visa Management", "defaultMargin": 10 },
+    { "id": "c6", "name": "Local Liaison", "defaultMargin": 15 }
+  ],
+  "requirements": [
+    {
+      "id": "r1",
+      "categoryId": "c1",
+      "name": "Deluxe Twin Room",
+      "information": "45 rooms x 4 nights, double occupancy, breakfast included",
+      "quantity": 180,
+      "unit": "room-nights",
+      "isMandatory": true
+    },
+    {
+      "id": "r2",
+      "categoryId": "c1",
+      "name": "Executive Suite",
+      "information": "5 suites x 4 nights for leadership and VIP guests",
+      "quantity": 20,
+      "unit": "room-nights",
+      "isMandatory": false
+    },
+    {
+      "id": "r3",
+      "categoryId": "c1",
+      "name": "Extra Bed with Breakfast",
+      "information": "10 extra beds x 4 nights",
+      "quantity": 40,
+      "unit": "bed-nights",
+      "isMandatory": false
+    },
+    {
+      "id": "r4",
+      "categoryId": "c1",
+      "name": "Porterage and Welcome Drink",
+      "information": "Arrival porterage plus non-alchoholic welcome drink",
+      "quantity": 100,
+      "unit": "pax",
+      "isMandatory": false
+    },
+    {
+      "id": "r5",
+      "categoryId": "c2",
+      "name": "Outbound Economy Class Airfare",
+      "information": "Group fare, checked baggage included",
+      "quantity": 114,
+      "unit": "pax",
+      "isMandatory": true
+    },
+    {
+      "id": "r6",
+      "categoryId": "c2",
+      "name": "Return Economy Class Airfare",
+      "information": "Group fare, checked baggage included",
+      "quantity": 114,
+      "unit": "pax",
+      "isMandatory": true
+    },
+    {
+      "id": "r7",
+      "categoryId": "c2",
+      "name": "Outbound Buissness Class Airfare",
+      "information": "For senior management and  VIP travellers",
+      "quantity": 6,
+      "unit": "pax",
+      "isMandatory": false
+    },
+    {
+      "id": "r8",
+      "categoryId": "c2",
+      "name": "Group Air Ticketing and Manifest Management",
+      "information": "Name list validation, ticket insurance and amendments",
+      "quantity": 120,
+      "unit": "pax",
+      "isMandatory": true
+    },
+    {
+      "id": "r9",
+      "categoryId": "c3",
+      "name": "Arrival Airport Transfer by 45-seater Coach",
+      "information": "Three coaches, hotel to airport",
+      "quantity": 3,
+      "unit": "coach",
+      "isMandatory": true
+    },
+    {
+      "id": "r10",
+      "categoryId": "c3",
+      "name": "Departure Airport Transfer by 45-seater Coach",
+      "information": "Three coaches, airport to hotel",
+      "quantity": 3,
+      "unit": "coach",
+      "isMandatory": true
+    },
+    {
+      "id": "r11",
+      "categoryId": "c3",
+      "name": "Full-Day Coach Disposal",
+      "information": "Three coaches across 2 sightseeing days",
+      "quantity": 6,
+      "unit": "coach-day",
+      "isMandatory": false
+    },
+    {
+      "id": "r12",
+      "categoryId": "c3",
+      "name": "VIP Sedan Airport Transfers",
+      "information": "Six VIP guests, arrival and departure",
+      "quantity": 12,
+      "unit": "trip",
+      "isMandatory": true
+    },
+    {
+      "id": "r13",
+      "categoryId": "c4",
+      "name": "Gala Dinner Venue Rental",
+      "information": "Exclusive venue for up to 120 guests, 6-hour use",
+      "quantity": 1,
+      "unit": "lot",
+      "isMandatory": true
+    },
+    {
+      "id": "r14",
+      "categoryId": "c4",
+      "name": "Stage, Backdrop and Basic Branding",
+      "information": "24ft x 12ft stage, printed backdrop and directional signage",
+      "quantity": 1,
+      "unit": "lot",
+      "isMandatory": true
+    },
+    {
+      "id": "r15",
+      "categoryId": "c4",
+      "name": "LED Wall 24ft x 10ft",
+      "information": "Includes processor, playback system and installation",
+      "quantity": 1,
+      "unit": "lot",
+      "isMandatory": false
+    },
+    {
+      "id": "r16",
+      "categoryId": "c4",
+      "name": "Professional Sound System",
+      "information": "FOH console, speakers, monitors and playback",
+      "quantity": 1,
+      "unit": "lot",
+      "isMandatory": true
+    },
+    {
+      "id": "r17",
+      "categoryId": "c4",
+      "name": "Event Photography and Highlight Video",
+      "information": "Two photographers, one videographer, 3-day coverage",
+      "quantity": 1,
+      "unit": "lot",
+      "isMandatory": true
+    },
+    {
+      "id": "r18",
+      "categoryId": "c5",
+      "name": "Tourist Visa Government Fee",
+      "information": "Indicative embassy/immigration fee, subject to confirmation",
+      "quantity": 120,
+      "unit": "pax",
+      "isMandatory": true
+    },
+    {
+      "id": "r19",
+      "categoryId": "c5",
+      "name": "Visa Processing and Service Fee",
+      "information": "Application review, submission tracking and status updates",
+      "quantity": 120,
+      "unit": "pax",
+      "isMandatory": true
+    },
+    {
+      "id": "r20",
+      "categoryId": "c5",
+      "name": "Travel Insurance",
+      "information": "Five-day international group travel policy",
+      "quantity": 120,
+      "unit": "pax",
+      "isMandatory": false
+    },
+    {
+      "id": "r21",
+      "categoryId": "c6",
+      "name": "Lead Local Coordinator",
+      "information": "One lead coordinator across 5 days",
+      "quantity": 5,
+      "unit": "day",
+      "isMandatory": true
+    },
+    {
+      "id": "r22",
+      "categoryId": "c6",
+      "name": "Assistant Coordinators",
+      "information": "Two assistant coordinators across 5 days",
+      "quantity": 10,
+      "unit": "day",
+      "isMandatory": true
+    },
+    {
+      "id": "r23",
+      "categoryId": "c6",
+      "name": "Airport Representatives",
+      "information": "Six representatives for arrival and departure",
+      "quantity": 12,
+      "unit": "shift",
+      "isMandatory": false
+    },
+    {
+      "id": "r24",
+      "categoryId": "c6",
+      "name": "Local SIM Cards with Data",
+      "information": "For managers, leadership team and key crew",
+      "quantity": 15,
+      "unit": "unit",
+      "isMandatory": false
+    }
+  ],
+  "vendors": [
+    {
+      "id": "v1",
+      "name": "Grand Marina Hotel",
+      "type": "Hotels",
+      "customer": "Nattapong S.",
+      "email": "sales@grandmarinapattaya.example",
+      "status": "submitted"
+    },
+    {
+      "id": "v2",
+      "name": "Sunset Bay Resort & Spa",
+      "type": "Hotels",
+      "customer": "Kanya P.",
+      "email": "groups@sunsetbayresort.example",
+      "status": "submitted"
+    },
+    {
+      "id": "v3",
+      "name": "Ocean Pearl Hotel Pattaya",
+      "type": "Hotels",
+      "customer": "Somchai T.",
+      "email": "mice@oceanpearl.example",
+      "status": "submitted"
+    },
+    {
+      "id": "v4",
+      "name": "SkyBridge Airlines",
+      "type": "Flights",
+      "customer": "Anurag Mehta",
+      "email": "groupdesk@skybridgeair.example",
+      "status": "submitted"
+    },
+    {
+      "id": "v5",
+      "name": "Horizon Charter Airways",
+      "type": "Flights",
+      "customer": "Priya Nair",
+      "email": "charter@horizonair.example",
+      "status": "submitted"
+    },
+    {
+      "id": "v6",
+      "name": "CityLine Transport",
+      "type": "Ground Transportation",
+      "customer": "Wichai R.",
+      "email": "ops@citylinetransport.example",
+      "status": "submitted"
+    },
+    {
+      "id": "v7",
+      "name": "Pattaya Premier Coaches",
+      "type": "Ground Transportation",
+      "customer": "Suda M.",
+      "email": "bookings@premiercoaches.example",
+      "status": "submitted"
+    },
+    {
+      "id": "v8",
+      "name": "EventSphere Productions",
+      "type": "Event Management including AV",
+      "customer": "Rahul Kapoor",
+      "email": "events@eventsphere.example",
+      "status": "submitted"
+    },
+    {
+      "id": "v9",
+      "name": "Stellar Events Co.",
+      "type": "Event Management including AV",
+      "customer": "Meera Iyer",
+      "email": "produnction@stellarevents.example",
+      "status": "partially submitted"
+    },
+    {
+      "id": "v10",
+      "name": "GlobalVisa Facilitation",
+      "type": "Visa Management",
+      "customer": "Karan Sethi",
+      "email": "corporate@globalvisa.example",
+      "status": "submitted"
+    },
+    {
+      "id": "v11",
+      "name": "Destination Connect DMC",
+      "type": "Local Liaison",
+      "customer": "Ploy K.",
+      "email": "dmc@destinationconnect.example",
+      "status": "submitted"
+    },
+    {
+      "id": "v12",
+      "name": "LocalPro Thailand Services",
+      "type": "Local Liaison",
+      "customer": "Anong W.",
+      "email": "support@localprothailand.example",
+      "status": "declined"
+    }
+  ],
+  "allocation": {
+    "c1": ["v1", "v2", "v3"],
+    "c2": ["v4", "v5"],
+    "c3": ["v6", "v7"],
+    "c4": ["v8", "v9"],
+    "c5": ["v10"],
+    "c6": ["v11", "v12"]
+  },
+  "quotation": {
+    "v1": {
+      "r1": 15690,
+      "r2": 26010,
+      "r3": 3990,
+      "r4": 880
+    },
+    "v2": {
+      "r1": 16860,
+      "r2": 27380,
+      "r3": 4290,
+      "r4": 930
+    },
+    "v3": {
+      "r1": 18200,
+      "r2": 29040,
+      "r3": 4630,
+      "r4": 990
+    },
+    "v4": {
+      "r5": 27100,
+      "r6": 27870,
+      "r7": 74180,
+      "r8": 790
+    },
+    "v5": {
+      "r5": 29130,
+      "r6": 29340,
+      "r7": 79720,
+      "r8": 830
+    },
+    "v6": {
+      "r9": 17590,
+      "r10": 17190,
+      "r11": 30430,
+      "r12": 6040
+    },
+    "v7": {
+      "r9": 18910,
+      "r10": 18090,
+      "r11": 32700,
+      "r12": 6360
+    },
+    "v8": {
+      "r13": 427950,
+      "r14": 209030,
+      "r15": 261530,
+      "r16": 153290,
+      "r17": 137900
+    },
+    "v9": {
+      "r13": 459900,
+      "r14": 220050,
+      "r15": 281050,
+      "r16": 161370,
+      "r17": null
+    },
+    "v10": {
+      "r18": 6850,
+      "r19": 1670,
+      "r20": 1190
+    },
+    "v11": {
+      "r21": 17590,
+      "r22": 10680,
+      "r23": 8080,
+      "r24": 1670
+    },
+    "v12": {
+      "r21": null,
+      "r22": null,
+      "r23": null,
+      "r24": null
+    }
+  }
+}
