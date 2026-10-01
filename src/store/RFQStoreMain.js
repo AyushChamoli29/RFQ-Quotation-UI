@@ -1,8 +1,10 @@
 import { defineStore } from "pinia";
 import { ref, watch } from "vue";
 import data from "@/data/NewMockData.json";
+import { useAllocationStore } from "./AllocationStore";
 
 export const useRFQMainStore = defineStore("rfq", () => {
+  const allocationStore=useAllocationStore();
   // static data
   const rfqDetails = ref({ ...data.rfq });
   const rfqDeadline = ref(data.deadline);
@@ -11,6 +13,7 @@ export const useRFQMainStore = defineStore("rfq", () => {
   const rfqStatus = ref("draft");
   const requirements = ref([...data.requirements]);
   const vendorSelected = ref("select a vendor");
+  const vendorPortalTempObj = ref({});
   //   dynamic data
   const allocation = ref(
     Object.entries(data.allocation).map(([key, value]) => ({
@@ -23,14 +26,6 @@ export const useRFQMainStore = defineStore("rfq", () => {
   );
   const baseQuotation = ref({});
   const workingQuotation = ref({});
-  const awardedLines = ref({});
-  // initial awardedLines data
-  function initialAwardedLines() {
-    requirements.value.forEach((item) => {
-      awardedLines.value[item.id] = "no award";
-    });
-  }
-  initialAwardedLines();
   const marginOfAll = ref({});
   // initial margin
   function initialMarginOfAll() {
@@ -65,8 +60,8 @@ export const useRFQMainStore = defineStore("rfq", () => {
       for (const line of requirementList) {
         const rid = line.id;
 
-        baseQuotation.value[vid][rid] = null;
-        workingQuotation.value[vid][rid] = null;
+        baseQuotation.value[vid][rid] = { price: null, tax: 7, remark: "" };
+        workingQuotation.value[vid][rid] = { price: null, tax: 7, remark: "" };
       }
     }
   }
@@ -109,8 +104,12 @@ export const useRFQMainStore = defineStore("rfq", () => {
         const price = vendorQuotation[rid];
 
         if (price != null) {
-          baseQuotation.value[vid][rid] = price;
-          workingQuotation.value[vid][rid] = price;
+          baseQuotation.value[vid][rid] = { price: price, tax: 7, remark: "" };
+          workingQuotation.value[vid][rid] = {
+            price: price,
+            tax: 7,
+            remark: "",
+          };
         }
       }
     }
@@ -119,7 +118,7 @@ export const useRFQMainStore = defineStore("rfq", () => {
   const addVendor = (vendorid, categoryid) => {
     let status = "not-sent";
 
-    if (rfqStatus.value === "allocated" || "simulated") {
+    if (rfqStatus.value === "allocated" || rfqStatus.value === "simulated") {
       status = "sent";
     }
 
@@ -147,8 +146,8 @@ export const useRFQMainStore = defineStore("rfq", () => {
     for (const line of requirementList) {
       const rid = line.id;
 
-      baseQuotation.value[vendorid][rid] = null;
-      workingQuotation.value[vendorid][rid] = null;
+      baseQuotation.value[vendorid][rid].price = null;
+      workingQuotation.value[vendorid][rid].price = null;
     }
   };
 
@@ -178,6 +177,7 @@ export const useRFQMainStore = defineStore("rfq", () => {
 
     delete baseQuotation.value[vendorid];
     delete workingQuotation.value[vendorid];
+
   };
   return {
     rfqDetails,
@@ -189,9 +189,9 @@ export const useRFQMainStore = defineStore("rfq", () => {
     allocation,
     baseQuotation,
     workingQuotation,
-    awardedLines,
     marginOfAll,
     rfqStatus,
+    vendorPortalTempObj,
     initialQuotation,
     extractQuotation,
     addVendor,

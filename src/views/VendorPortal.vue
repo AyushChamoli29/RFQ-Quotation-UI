@@ -1,15 +1,28 @@
 <script setup>
 import data from "@/data/mockData.json";
-import { ref, onMounted } from "vue";
+import { ref, onMounted, computed } from "vue";
 import VendorPortalBox from "@/components/VendorPortalBox.vue";
 import { useRFQMainStore } from "@/store/RFQStoreMain";
+import { useAllocationStore } from "@/store/AllocationStore";
 const rfq = useRFQMainStore();
+const allocationStore = useAllocationStore();
 function getvendorName(vid) {
   if (vid === "select a vendor") return "";
 
   const vendor = rfq.vendors.find((v) => v.id === vid);
   return vendor.name;
 }
+// console.log(allocationStore.vendorsSelected);
+const isVendorAllocated = computed(() => {
+  return allocationStore.vendorsSelected.has(rfq.vendorSelected);
+});
+const canShowVendorPortal = computed(() => {
+  return (
+    rfq.vendorSelected !== "select a vendor" &&
+    rfq.rfqStatus !== "draft" &&
+    isVendorAllocated.value
+  );
+});
 </script>
 
 <template>
@@ -50,9 +63,7 @@ function getvendorName(vid) {
         </p>
       </div>
       <div
-        v-else-if="
-          rfq.vendorSelected !== 'select a vendor' && rfq.rfqStatus === 'draft'
-        "
+        v-else-if="!canShowVendorPortal"
         class="h-50 w-full ml-2 p-5 flex flex-col gap-2 justify-center items-center bg-white outline outline-slate-200 rounded-lg"
       >
         <span class="text-4xl">📭</span>
@@ -62,11 +73,7 @@ function getvendorName(vid) {
           RFQ, or the RFQ has not been dispatched yet.
         </p>
       </div>
-      <div
-        v-else-if="
-          rfq.vendorSelected !== 'select a vendor' && rfq.rfqStatus !== 'draft'
-        "
-      >
+      <div v-else>
         <VendorPortalBox :vendorid="rfq.vendorSelected" />
       </div>
     </div>

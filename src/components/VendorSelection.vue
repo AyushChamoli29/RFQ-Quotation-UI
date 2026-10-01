@@ -1,7 +1,9 @@
 <script setup>
 import { computed, defineProps, ref, onMounted } from "vue";
 import { useRFQMainStore } from "@/store/RFQStoreMain.js";
+import { useAwardedStore } from "@/store/awardedLines";
 const rfq = useRFQMainStore();
+const awardedStore = useAwardedStore();
 const prop = defineProps({
   categoryID: String,
 });
@@ -27,11 +29,11 @@ function getVendors(id) {
     (item) => item.id === prop.categoryID,
   ).vendorList;
   return result.filter(
-    (item) => rfq.workingQuotation[item.vendorid][id] !== null,
+    (item) => rfq.workingQuotation[item.vendorid][id].price !== null,
   );
 }
 function calculatePrice(rid) {
-  const vid = rfq.awardedLines[rid];
+  const vid = awardedStore.awardedLines[rid];
   let quantity = ref(0);
   for (const element of rfq.requirements) {
     if (element.id === rid) {
@@ -46,7 +48,11 @@ function calculatePrice(rid) {
     };
   }
 
-  const base = rfq.workingQuotation[vid][rid] * quantity.value * 1.07 || 0;
+  const base = Math.round(
+    rfq.workingQuotation[vid][rid].price *
+      quantity.value *
+      rfq.workingQuotation[vid][rid].tax || 0,
+  );
   const margin = rfq.marginOfAll[rid] || 0;
 
   const markup = Math.round((base * margin) / 100);
@@ -65,7 +71,7 @@ function convertIntoCurrency(number) {
     minimumFractionDigits: 0,
   });
 }
-// console.log(rfq.awardedLines);
+console.log(awardedStore.awardedLines);
 </script>
 
 <template>
@@ -94,7 +100,7 @@ function convertIntoCurrency(number) {
           <td class="py-4 px-8">{{ item.name }}</td>
           <td>
             <select
-              v-model="rfq.awardedLines[item.id]"
+              v-model="awardedStore.awardedLines[item.id]"
               class="outline outline-slate-200 rounded-sm w-8/10 text-[12.5px] p-2"
             >
               <option value="no award">No award</option>

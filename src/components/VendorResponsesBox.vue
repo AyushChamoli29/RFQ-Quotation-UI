@@ -131,27 +131,30 @@ const quotes = computed(() => {
               :class="{
                 'bg-[#e1f6f1] border border-[#bfe9de]':
                   index === 0 &&
-                  (vendor.status === 'submitted' || 'partially submitted') &&
-                  rfq.workingQuotation[vendor.id]?.[line.id] !== null,
+                  (vendor.status === 'submitted' ||
+                    vendor.status === 'partially submitted') &&
+                  rfq.workingQuotation[vendor.id]?.[line.id].price !== null,
 
                 'bg-[#fbfaef] border border-slate-200':
                   index === 1 &&
-                  (vendor.status === 'submitted' || 'partially submitted') &&
-                  rfq.workingQuotation[vendor.id]?.[line.id] !== null,
+                  (vendor.status === 'submitted' ||
+                    vendor.status === 'partially submitted') &&
+                  rfq.workingQuotation[vendor.id]?.[line.id].price !== null,
               }"
             >
               <div
                 v-if="
                   vendor.status === 'submitted' &&
-                  rfq.workingQuotation[vendor.id][line.id] !== null
+                  rfq.workingQuotation[vendor.id][line.id].price !== null
                 "
               >
                 <span class="font-bold font-mono">
                   {{
                     Math.round(
-                      Number(rfq.workingQuotation[vendor.id][line.id]) *
+                      Number(rfq.workingQuotation[vendor.id][line.id].price) *
                         line.quantity *
-                        1.07,
+                        (1 +
+                          rfq.workingQuotation[vendor.id][line.id].tax / 100),
                     ).toLocaleString("en-IN", {
                       style: "currency",
                       currency: "INR",
@@ -165,7 +168,7 @@ const quotes = computed(() => {
                   <span class="font-mono">
                     {{
                       Number(
-                        rfq.workingQuotation[vendor.id][line.id],
+                        rfq.workingQuotation[vendor.id][line.id].price,
                       ).toLocaleString("en-IN", {
                         style: "currency",
                         currency: "INR",
@@ -173,14 +176,21 @@ const quotes = computed(() => {
                       })
                     }}
                   </span>
-                  /{{ line.unit }} &middot; tax 7%
+                  /{{ line.unit }} &middot; tax
+                  {{ rfq.workingQuotation[vendor.id][line.id].tax }}%
                 </span>
+                <br />
+                <span
+                  class="text-[#6b7090]"
+                  v-if="rfq.workingQuotation[vendor.id][line.id].remark"
+                  >"{{ rfq.workingQuotation[vendor.id][line.id].remark }}"</span
+                >
               </div>
 
               <div
                 v-else-if="
                   vendor.status === 'partially submitted' &&
-                  rfq.workingQuotation[vendor.id][line.id] === null
+                  rfq.workingQuotation[vendor.id][line.id].price === null
                 "
                 class="text-[#9ba0c0] italic text-[13px]"
               >
@@ -190,7 +200,7 @@ const quotes = computed(() => {
               <div
                 v-else-if="
                   vendor.status === 'sent' &&
-                  rfq.workingQuotation[vendor.id][line.id] === null
+                  rfq.workingQuotation[vendor.id][line.id].price === null
                 "
                 class="text-[#9ba0c0] italic text-[13px]"
               >
@@ -200,15 +210,16 @@ const quotes = computed(() => {
               <div
                 v-else-if="
                   vendor.status === 'partially submitted' &&
-                  rfq.workingQuotation[vendor.id][line.id] !== null
+                  rfq.workingQuotation[vendor.id][line.id].price !== null
                 "
               >
                 <span class="font-bold font-mono">
                   {{
                     Math.round(
-                      Number(rfq.workingQuotation[vendor.id][line.id]) *
+                      Number(rfq.workingQuotation[vendor.id][line.id].price) *
                         line.quantity *
-                        1.07,
+                        (1 +
+                          rfq.workingQuotation[vendor.id][line.id].tax / 100),
                     ).toLocaleString("en-IN", {
                       style: "currency",
                       currency: "INR",
@@ -222,7 +233,7 @@ const quotes = computed(() => {
                   <span class="font-mono">
                     {{
                       Number(
-                        rfq.workingQuotation[vendor.id][line.id],
+                        rfq.workingQuotation[vendor.id][line.id].price,
                       ).toLocaleString("en-IN", {
                         style: "currency",
                         currency: "INR",
@@ -230,21 +241,29 @@ const quotes = computed(() => {
                       })
                     }}
                   </span>
-                  /{{ line.unit }} &middot; tax 7%
+                  /{{ line.unit }} &middot; tax
+                  {{ rfq.workingQuotation[vendor.id][line.id].tax }}%
                 </span>
+                <br />
+                <span
+                  class="text-[#6b7090]"
+                  v-if="rfq.workingQuotation[vendor.id][line.id].remark"
+                  >"{{ rfq.workingQuotation[vendor.id][line.id].remark }}"</span
+                >
               </div>
               <div
                 v-else-if="
                   vendor.status === 'sent' &&
-                  rfq.workingQuotation[vendor.id][line.id] !== null
+                  rfq.workingQuotation[vendor.id][line.id].price !== null
                 "
               >
                 <span class="font-bold font-mono">
                   {{
                     Math.round(
-                      Number(rfq.workingQuotation[vendor.id][line.id]) *
+                      Number(rfq.workingQuotation[vendor.id][line.id].price) *
                         line.quantity *
-                        1.07,
+                        (1 +
+                          rfq.workingQuotation[vendor.id][line.id].tax / 100),
                     ).toLocaleString("en-IN", {
                       style: "currency",
                       currency: "INR",
@@ -258,7 +277,7 @@ const quotes = computed(() => {
                   <span class="font-mono">
                     {{
                       Number(
-                        rfq.workingQuotation[vendor.id][line.id],
+                        rfq.workingQuotation[vendor.id][line.id].price,
                       ).toLocaleString("en-IN", {
                         style: "currency",
                         currency: "INR",
@@ -266,8 +285,15 @@ const quotes = computed(() => {
                       })
                     }}
                   </span>
-                  /{{ line.unit }} &middot; tax 7%
+                  /{{ line.unit }} &middot; tax
+                  {{ rfq.workingQuotation[vendor.id][line.id].tax }}% &middot;
                 </span>
+                <br />
+                <span
+                  class="text-[#6b7090]"
+                  v-if="rfq.workingQuotation[vendor.id][line.id].remark"
+                  >"{{ rfq.workingQuotation[vendor.id][line.id].remark }}"</span
+                >
               </div>
 
               <div

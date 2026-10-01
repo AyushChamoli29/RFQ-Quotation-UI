@@ -1,5 +1,5 @@
 <script setup>
-import { defineProps, ref, onMounted } from "vue";
+import { defineProps, ref, onMounted, watch } from "vue";
 import { useRFQMainStore } from "@/store/RFQStoreMain.js";
 import VendorPortalTable from "./VendorPortalTable.vue";
 import VendorPortalCard from "./VendorPortalCard.vue";
@@ -24,6 +24,54 @@ function getvendorName(vid) {
     }
   }
 }
+console.log(rfq.vendorPortalTempObj);
+watch(
+  () => prop.vendorid,
+  () => {
+    const data = rfq.workingQuotation[prop.vendorid];
+
+    if (data) {
+      rfq.vendorPortalTempObj = { ...data };
+
+      for (const lineId in data) {
+        if (!rfq.vendorPortalTempObj[lineId]) {
+          rfq.vendorPortalTempObj[lineId] = {
+            price: null,
+            tax: 7,
+            remark: "",
+          };
+        }
+      }
+    }
+  },
+  { immediate: true },
+);
+const submitQuotation = () => {
+  // save data
+  rfq.workingQuotation[prop.vendorid] = {
+    ...rfq.vendorPortalTempObj,
+  };
+
+  //  update vendor status
+  for (const category of rfq.allocation) {
+    const vendor = category.vendorList.find(
+      (v) => v.vendorid === prop.vendorid,
+    );
+
+    if (vendor) {
+      vendor.status = "submitted";
+    }
+  }
+
+  // reset temp
+  const newTemp = {};
+  for (const lineId in rfq.workingQuotation[prop.vendorid]) {
+    newTemp[lineId] = { price: null, tax: 7, remark: "" };
+  }
+  rfq.vendorPortalTempObj = newTemp;
+
+  alert("Quotation is submitted");
+};
 </script>
 
 <template>
@@ -80,6 +128,7 @@ Pleased to support this movement &mdash; happy to discuss further.</textarea
       </div>
       <div
         class="py-3 px-4 rounded-lg font-bold text-white bg-[#4d3fc9] cursor-pointer"
+        @click="submitQuotation"
       >
         Submit quotation
       </div>

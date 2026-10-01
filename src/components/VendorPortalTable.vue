@@ -1,7 +1,7 @@
 <script setup>
 import data from "@/data/mockData.json";
 import { useRFQMainStore } from "@/store/RFQStoreMain";
-import { defineProps, ref, computed } from "vue";
+import { defineProps, ref, computed, onMounted } from "vue";
 const rfq = useRFQMainStore();
 const prop = defineProps({
   vendorid: String,
@@ -24,15 +24,6 @@ const requirementLines = computed(() => {
 
   return rfq.requirements.filter((line) => line.categoryId === category.id);
 });
-const tempObj = ref({});
-onMounted(() => {
-  for (const vendorid of Object.keys(rfq.workingQuotation)) {
-    if (vendorid === prop.vendorid) {
-      tempObj.value = rfq.workingQuotation[vendorid];
-    }
-  }
-});
-console.log(tempObj.value);
 </script>
 
 <template>
@@ -68,30 +59,39 @@ console.log(tempObj.value);
               v-if="rfq.rfqStatus === 'simulated'"
               class="flex items-center border border-slate-200 rounded-lg p-2 w-35"
             >
-              {{ rfq.workingQuotation[prop.vendorid][line.id] }}
+              {{ rfq.workingQuotation[prop.vendorid][line.id].price }}
             </div>
-            <div
-              v-if="rfq.rfqStatus === 'allocated'"
-              class="flex items-center border border-slate-200 rounded-lg p-2 w-35"
-            >
+            <div>
               <input
+                v-if="rfq.rfqStatus === 'allocated'"
+                class="flex items-center border border-slate-200 rounded-lg p-2 w-35"
                 type="number"
-                v-model="rfq.workingQuotation[prop.vendorid][line.id]"
+                v-model="rfq.vendorPortalTempObj[line.id].price"
               />
             </div>
           </td>
           <td class="p-4 align-middle">
             <div
+              v-if="rfq.rfqStatus === 'simulated'"
               class="flex items-center border border-slate-200 rounded-lg p-2 w-35"
             >
-              7
+              {{ rfq.workingQuotation[prop.vendorid][line.id].tax }}
+            </div>
+            <div>
+              <input
+                v-if="rfq.rfqStatus === 'allocated'"
+                class="flex items-center border border-slate-200 rounded-lg p-2 w-35"
+                type="number"
+                v-model="rfq.vendorPortalTempObj[line.id].tax"
+              />
             </div>
           </td>
           <td class="p-4 align-middle">
-            <div
-              class="flex items-center border border-slate-200 rounded-lg p-2 text-[#6b7090] w-35"
-            >
-              <select disabled>
+            <div>
+              <select
+                class="flex items-center border border-slate-200 rounded-lg p-2 w-35"
+                :class="{ disabled: rfq.rfqStatus === 'simulated' }"
+              >
                 <option value="Quoted">Quoted</option>
                 <option value="Not available">Not available</option>
                 <option value="Alternative offered">Alternative offered</option>
@@ -100,9 +100,18 @@ console.log(tempObj.value);
           </td>
           <td class="p-4 align-middle">
             <div
+              v-if="rfq.rfqStatus === 'simulated'"
               class="flex items-center border border-slate-200 rounded-lg p-2 w-35"
             >
-              Standard group terms
+              {{ rfq.workingQuotation[prop.vendorid][line.id].remark }}
+            </div>
+            <div>
+              <input
+                v-if="rfq.rfqStatus === 'allocated'"
+                class="flex items-center border border-slate-200 rounded-lg p-2 w-35"
+                type="text"
+                v-model="rfq.vendorPortalTempObj[line.id].remark"
+              />
             </div>
           </td>
           <td class="p-4 align-middle">proposal_v1.pdf</td>

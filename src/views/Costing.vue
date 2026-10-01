@@ -5,6 +5,8 @@ import { RouterLink } from "vue-router";
 import { useHistoryStore } from "@/store/auditHistory";
 import { useAwardedStore } from "@/store/awardedLines";
 import { useFlagsStore } from "@/store/flag";
+import { useRFQMainStore } from "@/store/RFQStoreMain";
+const rfq = useRFQMainStore();
 const Flag = useFlagsStore();
 const awardedStore = useAwardedStore();
 const historyStore = useHistoryStore();
@@ -35,20 +37,20 @@ const grandFinal = computed(() => {
 });
 const showCosting = () => {
   if (awardedStore.awarded.length > 0) {
-    Flag.costingFlag = true;
-    Flag.progress = 6;
+    // Flag.costingFlag = true;
+    // Flag.progress = 6;
     awardedStore.costVersions++;
   } else {
     alert(
       "No awarded line items yet — select vendors in Vendor Responses first.",
     );
   }
-  historyStore.historyEntry({
-    actor: Flag.selectedActor.name,
-    roleOrCompany: Flag.selectedActor.role,
-    action: "Costing version applied",
-    detail: `Costing v${awardedStore.costVersions} created from ${awardedStore.awarded.length} awarded line item(s) - final amount ${grandFinal.value}`,
-  });
+  // historyStore.historyEntry({
+  //   actor: Flag.selectedActor.name,
+  //   roleOrCompany: Flag.selectedActor.role,
+  //   action: "Costing version applied",
+  //   detail: `Costing v${awardedStore.costVersions} created from ${awardedStore.awarded.length} awarded line item(s) - final amount ${grandFinal.value}`,
+  // });
 };
 const currentDate = new Date().toLocaleDateString("en-IN", {
   day: "2-digit",
@@ -60,7 +62,7 @@ const currentTime = new Date().toLocaleTimeString("en-IN", {
   minute: "2-digit",
   hour12: true,
 });
-console.log(historyStore.history);
+// console.log(historyStore.history);
 </script>
 
 <template>
@@ -89,8 +91,8 @@ console.log(historyStore.history);
         </span>
       </div>
       <p class="text-xs font-normal text-[#b46a06] mt-1 mb-1">
-        ⚠ {{ 24 - awardedStore.awarded.length }} line item(s) still have no
-        awarded vendor and will be excluded.
+        ⚠ {{ rfq.requirements.length - awardedStore.awarded.length }} line
+        item(s) still have no awarded vendor and will be excluded.
       </p>
     </div>
     <div class="flex gap-2">

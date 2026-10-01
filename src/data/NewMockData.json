@@ -295,7 +295,7 @@
     {
       "id": "v8",
       "name": "EventSphere Productions",
-      "type": "Event Management including AV",
+      "type": "Event Management incuding AV",
       "customer": "Rahul Kapoor",
       "email": "events@eventsphere.example",
       "status": "submitted"
@@ -303,7 +303,7 @@
     {
       "id": "v9",
       "name": "Stellar Events Co.",
-      "type": "Event Management including AV",
+      "type": "Event Management incuding AV",
       "customer": "Meera Iyer",
       "email": "produnction@stellarevents.example",
       "status": "partially submitted"
