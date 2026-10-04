@@ -25,19 +25,21 @@ const requirement = computed(() => {
   return rfq.requirements.filter((item) => item.categoryId === prop.categoryID);
 });
 function getVendors(id) {
-  let result = rfq.allocation.find(
-    (item) => item.id === prop.categoryID,
-  ).vendorList;
-  return result.filter(
-    (item) => rfq.workingQuotation[item.vendorid][id].price !== null,
-  );
+  const category = rfq.allocation.find((item) => item.id === prop.categoryID);
+
+  if (!category) return [];
+
+  return category.vendorList.filter((item) => {
+    const vendorData = rfq.workingQuotation[item.vendorid];
+    return vendorData && vendorData[id] && vendorData[id].price !== null;
+  });
 }
 function calculatePrice(rid) {
   const vid = awardedStore.awardedLines[rid];
-  let quantity = ref(0);
+  let quantity = 0;
   for (const element of rfq.requirements) {
     if (element.id === rid) {
-      quantity.value = element.quantity;
+      quantity = element.quantity;
     }
   }
   if (!vid || vid === "no award") {
@@ -50,8 +52,8 @@ function calculatePrice(rid) {
 
   const base = Math.round(
     rfq.workingQuotation[vid][rid].price *
-      quantity.value *
-      rfq.workingQuotation[vid][rid].tax || 0,
+      quantity *
+      (1 + rfq.workingQuotation[vid][rid].tax / 100) || 0,
   );
   const margin = rfq.marginOfAll[rid] || 0;
 
@@ -71,7 +73,9 @@ function convertIntoCurrency(number) {
     minimumFractionDigits: 0,
   });
 }
-console.log(awardedStore.awardedLines);
+// console.log(awardedStore.awardedLines);
+// console.log(rfq.marginOfAll);
+// console.log(awardedStore.awardedLinesData);
 </script>
 
 <template>
@@ -127,21 +131,27 @@ console.log(awardedStore.awardedLines);
               v-model="rfq.marginOfAll[item.id]"
             />
           </td>
-          <template v-if="price = calculatePrice(item.id)">
-            <td class="font-mono">
-              {{ price.base > 0 ? convertIntoCurrency(price.base) : "-" }}
-            </td>
-            <td class="font-mono">
-              {{ price.markup ? convertIntoCurrency(price.markup) : "-" }}
-            </td>
-            <td class="font-bold font-mono">
-              {{
-                price.sellingTotal
-                  ? convertIntoCurrency(price.sellingTotal)
-                  : "-"
-              }}
-            </td>
-          </template>
+          <td class="font-mono">
+            {{
+              calculatePrice(item.id).base > 0
+                ? convertIntoCurrency(calculatePrice(item.id).base)
+                : "-"
+            }}
+          </td>
+          <td class="font-mono">
+            {{
+              calculatePrice(item.id).markup
+                ? convertIntoCurrency(calculatePrice(item.id).markup)
+                : "-"
+            }}
+          </td>
+          <td class="font-bold font-mono">
+            {{
+              calculatePrice(item.id).sellingTotal
+                ? convertIntoCurrency(calculatePrice(item.id).sellingTotal)
+                : "-"
+            }}
+          </td>
         </tr>
       </tbody>
     </table>

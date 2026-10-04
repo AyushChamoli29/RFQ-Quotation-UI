@@ -3,23 +3,14 @@ import { computed } from "vue";
 import { useFlagsStore } from "@/store/flag";
 import { useAwardedStore } from "@/store/awardedLines";
 import { useHistoryStore } from "@/store/auditHistory";
+import { useRFQMainStore } from "@/store/RFQStoreMain";
+const rfq = useRFQMainStore();
 const Flag = useFlagsStore();
 const awardedStore = useAwardedStore();
 const historyStore = useHistoryStore();
-const grandFinal = computed(() => {
-  let ans = 0;
-  for (const element of Object.values(awardedStore.awardedLines)) {
-    ans += element.final;
-  }
-  return Number(ans).toLocaleString("en-IN", {
-    style: "currency",
-    currency: "INR",
-    minimumFractionDigits: 0,
-  });
-});
 const sendToCorporate = () => {
   Flag.sendToCorporateFlag = true;
-  Flag.progress = 7;
+  // Flag.progress = 7;
   Flag.currentDate = new Date().toLocaleDateString("en-IN", {
     day: "2-digit",
     month: "short",
@@ -30,18 +21,40 @@ const sendToCorporate = () => {
     minute: "2-digit",
     hour12: true,
   });
-  historyStore.historyEntry({
-    actor: Flag.selectedActor.name,
-    roleOrCompany: Flag.selectedActor.role,
-    action: "Quotation sent to corporate",
-    detail: `Cipla Limited - costing v${awardedStore.costVersions}, final amount ${grandFinal.value}`,
-  });
+  // historyStore.historyEntry({
+  //   actor: Flag.selectedActor.name,
+  //   roleOrCompany: Flag.selectedActor.role,
+  //   action: "Quotation sent to corporate",
+  //   detail: `Cipla Limited - costing v${awardedStore.costVersions}, final amount ${grandFinal.value}`,
+  // });
 };
+function getCategoryName(id) {
+  for (const category of rfq.categories) {
+    if (category.id === id) {
+      return category.name;
+    }
+  }
+}
+function formatCurrency(value) {
+  return Number(value).toLocaleString("en-IN", {
+    style: "currency",
+    currency: "INR",
+    minimumFractionDigits: 0,
+  });
+}
+const quotationData = computed(() => rfq.costingSnapshot || []);
+const grandFinal = computed(() => {
+  let ans = 0;
+  for (const element of quotationData.value) {
+    ans += element.total;
+  }
+  return formatCurrency(ans);
+});
 </script>
 
 <template>
   <div
-    v-if="!Flag.costingFlag"
+    v-if="!rfq.costingSnapshot || rfq.costingSnapshot.length === 0"
     class="h-47 rounded-xl shadow-md shadow-slate-300 gap-1 px-5 py-4 flex flex-col bg-white outline outline-slate-200 justify-center items-center"
   >
     <span class="text-4xl">📄</span>
@@ -50,13 +63,16 @@ const sendToCorporate = () => {
       Apply awarded rates to costing before generating the corporate quotation.
     </p>
   </div>
-  <div v-if="Flag.costingFlag" class="bg-white rounded-xl p-5">
+  <div
+    v-if="rfq.costingSnapshot && rfq.costingSnapshot.length > 0"
+    class="bg-white rounded-xl p-5"
+  >
     <div class="flex justify-between">
       <div>
         <p class="text-[#6b7090] font-bold text-[11px]">QUOTATION</p>
-        <p class="text-[19px] font-bold">Geanis World &ndash; Pattaya Group</p>
+        <p class="text-[19px] font-bold">{{ rfq.rfqDetails.group }}</p>
         <span class="text-[#6b7090] text-[12.5px]"
-          >Prepared for Cipla Limited</span
+          >Prepared for {{ rfq.rfqDetails.company }}</span
         >
         &middot;
         <span class="text-[#6b7090] text-[12.5px]">Attn: Anjali Deshmukh</span>
@@ -64,13 +80,13 @@ const sendToCorporate = () => {
       <div class="text-[#6b7090] text-[12.5px] text-right">
         <p>
           Reference:
-          <span class="text-black font-bold">RFQ-2026-0142</span> (Costing v{{
-            awardedStore.costVersions
-          }})
+          <span class="text-black font-bold">{{ rfq.rfqDetails.rfq_no }}</span>
+          (Costing v{{ awardedStore.costVersions }})
         </p>
         <p>Travel: 31 Jul 2026 - 05 Aug 2026</p>
-        <span>Pattaya, Thailand</span>
-        &middot; <span>5D/4N</span> &middot; <span>120 pax</span>
+        <span>{{ rfq.rfqDetails.destination }}</span>
+        &middot; <span>{{ rfq.rfqDetails.time }}</span> &middot;
+        <span>{{ rfq.rfqDetails.travellers }} pax</span>
       </div>
     </div>
     <div>
@@ -84,18 +100,18 @@ const sendToCorporate = () => {
         </thead>
         <tbody class="text-left text-xs">
           <tr
-            v-for="[key, value] in Object.entries(awardedStore.awardedLines)"
-            :class="{ 'border-t border-[#eef0f8]': value.final > 0 }"
+            v-for="element in quotationData"
+            :class="{ 'border-t border-[#eef0f8]': element.total > 0 }"
           >
-            <td v-if="value.final > 0" class="font-bold py-2 pl-2">
-              {{ key }}
+            <td v-if="element.total > 0" class="font-bold py-2 pl-2">
+              {{ getCategoryName(element.categoryID) }}
             </td>
-            <td v-if="value.final > 0" class="pl-2">
-              {{ Object.keys(value.data).length }}
+            <td v-if="element.total > 0" class="pl-2">
+              {{ element.lines.length }}
             </td>
-            <td v-if="value.final > 0" class="font-mono font-bold">
+            <td v-if="element.total > 0" class="font-mono font-bold">
               {{
-                Number(value.final).toLocaleString("en-IN", {
+                Number(element.total).toLocaleString("en-IN", {
                   style: "currency",
                   currency: "INR",
                   minimumFractionDigits: 0,

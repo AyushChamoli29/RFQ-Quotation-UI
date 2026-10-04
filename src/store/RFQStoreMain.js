@@ -2,9 +2,11 @@ import { defineStore } from "pinia";
 import { ref, watch } from "vue";
 import data from "@/data/NewMockData.json";
 import { useAllocationStore } from "./AllocationStore";
+import { useAwardedStore } from "./awardedLines";
 
 export const useRFQMainStore = defineStore("rfq", () => {
-  const allocationStore=useAllocationStore();
+  const allocationStore = useAllocationStore();
+  const awardedStore = useAwardedStore();
   // static data
   const rfqDetails = ref({ ...data.rfq });
   const rfqDeadline = ref(data.deadline);
@@ -14,6 +16,7 @@ export const useRFQMainStore = defineStore("rfq", () => {
   const requirements = ref([...data.requirements]);
   const vendorSelected = ref("select a vendor");
   const vendorPortalTempObj = ref({});
+  const costingSnapshot = ref([]);
   //   dynamic data
   const allocation = ref(
     Object.entries(data.allocation).map(([key, value]) => ({
@@ -24,6 +27,12 @@ export const useRFQMainStore = defineStore("rfq", () => {
       })),
     })),
   );
+  const clarifications = ref([
+    {
+      ...data.clarifications,
+      qid: `c2_v4_${Date.now()}`,
+    },
+  ]);
   const baseQuotation = ref({});
   const workingQuotation = ref({});
   const marginOfAll = ref({});
@@ -177,8 +186,67 @@ export const useRFQMainStore = defineStore("rfq", () => {
 
     delete baseQuotation.value[vendorid];
     delete workingQuotation.value[vendorid];
-
   };
+  function getVendorName(vid) {
+    for (const vendor of vendors.value) {
+      if (vid === vendor.id) {
+        return vendor ? vendor.name : "";
+      }
+    }
+  }
+  function getCostingData() {
+    const result = [];
+
+    for (const category of categories.value) {
+      const categoryObj = {
+        categoryID: category.id,
+        lines: [],
+        base: 0,
+        profit: 0,
+        total: 0,
+      };
+
+      for (const line of requirements.value) {
+        if (line.categoryId !== category.id) continue;
+
+        const vid = awardedStore.awardedLines[line.id];
+        if (!vid || vid === "no award") continue;
+
+        const data = workingQuotation.value[vid]?.[line.id];
+        if (!data || data.price == null) continue;
+
+        const base = Math.round(
+          data.price * line.quantity * (1 + data.tax / 100),
+        );
+
+        const profit = Math.round((base * marginOfAll.value[line.id]) / 100);
+
+        const total = base + profit;
+
+        categoryObj.lines.push({
+          particular: line.name,
+          vendor: getVendorName(vid),
+          rate: data.price,
+          quantity: line.quantity,
+          base,
+          margin: marginOfAll.value[line.id],
+          profit,
+          total,
+        });
+
+        categoryObj.base += base;
+        categoryObj.profit += profit;
+        categoryObj.total += total;
+      }
+
+      //  only push if category has data
+      if (categoryObj.lines.length > 0) {
+        result.push(categoryObj);
+      }
+    }
+
+    return result;
+  }
   return {
     rfqDetails,
     rfqDeadline,
@@ -187,14 +255,17 @@ export const useRFQMainStore = defineStore("rfq", () => {
     requirements,
     vendorSelected,
     allocation,
+    clarifications,
     baseQuotation,
     workingQuotation,
     marginOfAll,
     rfqStatus,
     vendorPortalTempObj,
+    costingSnapshot,
     initialQuotation,
     extractQuotation,
     addVendor,
     deleteVendor,
+    getCostingData,
   };
 });

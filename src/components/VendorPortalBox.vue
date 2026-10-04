@@ -1,5 +1,5 @@
 <script setup>
-import { defineProps, ref, onMounted, watch } from "vue";
+import { defineProps, ref, onMounted, watch, computed } from "vue";
 import { useRFQMainStore } from "@/store/RFQStoreMain.js";
 import VendorPortalTable from "./VendorPortalTable.vue";
 import VendorPortalCard from "./VendorPortalCard.vue";
@@ -47,31 +47,76 @@ watch(
   { immediate: true },
 );
 const submitQuotation = () => {
-  // save data
+  const data = rfq.vendorPortalTempObj;
+
+  let filledCount = 0;
+  let totalCount = 0;
+
+  for (const lineId in data) {
+    totalCount++;
+
+    if (data[lineId].price !== null && data[lineId].price !== "") {
+      filledCount++;
+    }
+  }
+
+  // ❌ No price entered
+  if (filledCount === 0) {
+    alert("Please enter at least one line item before submitting.");
+    return;
+  }
+
+  //  Save data
   rfq.workingQuotation[prop.vendorid] = {
     ...rfq.vendorPortalTempObj,
   };
 
-  //  update vendor status
+  //  Decide status
+  let newStatus = "";
+
+  if (filledCount === totalCount) {
+    newStatus = "submitted";
+  } else {
+    newStatus = "partially submitted";
+  }
+
+  //  Update vendor status
   for (const category of rfq.allocation) {
     const vendor = category.vendorList.find(
       (v) => v.vendorid === prop.vendorid,
     );
 
     if (vendor) {
-      vendor.status = "submitted";
+      vendor.status = newStatus;
     }
   }
 
-  // reset temp
-  const newTemp = {};
-  for (const lineId in rfq.workingQuotation[prop.vendorid]) {
-    newTemp[lineId] = { price: null, tax: 7, remark: "" };
-  }
-  rfq.vendorPortalTempObj = newTemp;
-
-  alert("Quotation is submitted");
+  alert("Quotation submitted successfully");
 };
+const categoryid = computed(() => {
+  let name;
+  for (const element of rfq.vendors) {
+    if (element.id === prop.vendorid) {
+      name = element.type;
+    }
+  }
+  for (const element of rfq.categories) {
+    if (element.name === name) {
+      return element.id;
+    }
+  }
+});
+const vendorStatus = computed(() => {
+  for (const element of rfq.allocation) {
+    if (element.id === categoryid.value) {
+      for (const item of element.vendorList) {
+        if (item.vendorid === prop.vendorid) {
+          return item.status;
+        }
+      }
+    }
+  }
+});
 </script>
 
 <template>
@@ -98,10 +143,26 @@ Pleased to support this movement &mdash; happy to discuss further.</textarea
       <p class="text-[#3a3f58] font-bold">
         Attach supporting proposal document
       </p>
-      <span class="text-[#3a3f58] font-bold">&mdash;</span>
+      <span
+        v-if="
+          vendorStatus !== 'submitted' && vendorStatus !== 'partially submitted'
+        "
+        ><button class="bg-[#e9e9ee] font-semibold py-1 px-2 border mr-2">
+          Choose file</button
+        ><span>No file chosen</span></span
+      >
+      <span
+        v-if="
+          vendorStatus === 'submitted' || vendorStatus === 'partially submitted'
+        "
+        class="text-[#3a3f58] font-bold"
+        >&mdash;</span
+      >
     </div>
     <div
-      v-if="rfq.rfqStatus === 'simulated'"
+      v-if="
+        vendorStatus === 'submitted' || vendorStatus === 'partially submitted'
+      "
       class="bg-white rounded-xl p-4 px-6 text-xs flex justify-between items-center"
     >
       <div class="text-[#6b7090]">
@@ -114,7 +175,11 @@ Pleased to support this movement &mdash; happy to discuss further.</textarea
       </div>
     </div>
     <div
-      v-if="rfq.rfqStatus === 'allocated'"
+      v-if="
+        rfq.rfqStatus === 'allocated' &&
+        vendorStatus !== 'submitted' &&
+        vendorStatus !== 'partially submitted'
+      "
       class="bg-white rounded-xl p-4 px-6 text-xs flex justify-between items-center"
     >
       <div class="text-[#6b7090]">

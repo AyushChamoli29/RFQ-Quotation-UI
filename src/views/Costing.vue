@@ -1,5 +1,5 @@
 <script setup>
-import { computed } from "vue";
+import { computed, ref } from "vue";
 import CostingBox from "@/components/CostingBox.vue";
 import { RouterLink } from "vue-router";
 import { useHistoryStore } from "@/store/auditHistory";
@@ -10,40 +10,27 @@ const rfq = useRFQMainStore();
 const Flag = useFlagsStore();
 const awardedStore = useAwardedStore();
 const historyStore = useHistoryStore();
-const grandBase = computed(() => {
-  let ans = 0;
-  for (const element of Object.values(awardedStore.awardedLines)) {
-    ans += element.base;
-  }
-  return ans;
-});
-const grandProfit = computed(() => {
-  let ans = 0;
-  for (const element of Object.values(awardedStore.awardedLines)) {
-    ans += element.profit;
-  }
-  return ans;
-});
-const grandFinal = computed(() => {
-  let ans = 0;
-  for (const element of Object.values(awardedStore.awardedLines)) {
-    ans += element.final;
-  }
-  return Number(ans).toLocaleString("en-IN", {
-    style: "currency",
-    currency: "INR",
-    minimumFractionDigits: 0,
-  });
-});
 const showCosting = () => {
-  if (awardedStore.awarded.length > 0) {
-    // Flag.costingFlag = true;
-    // Flag.progress = 6;
+  // if (awardedStore.awarded.length > 0) {
+  //   // Flag.costingFlag = true;
+  //   // Flag.progress = 6;
+  //   rfq.rfqStatus = "awarded";
+  //   awardedStore.costVersions++;
+  // } else {
+  //   alert(
+  //     "No awarded line items yet — select vendors in Vendor Responses first.",
+  //   );
+  // }
+  const hasAwarded = Object.values(awardedStore.awardedLines || {}).some(
+    (v) => v !== "no award",
+  );
+
+  if (hasAwarded) {
+    rfq.rfqStatus = "awarded";
+    rfq.costingSnapshot = [...rfq.getCostingData()];
     awardedStore.costVersions++;
   } else {
-    alert(
-      "No awarded line items yet — select vendors in Vendor Responses first.",
-    );
+    alert("No awarded line items yet...");
   }
   // historyStore.historyEntry({
   //   actor: Flag.selectedActor.name,
@@ -52,6 +39,28 @@ const showCosting = () => {
   //   detail: `Costing v${awardedStore.costVersions} created from ${awardedStore.awarded.length} awarded line item(s) - final amount ${grandFinal.value}`,
   // });
 };
+const costingData = computed(() => rfq.costingSnapshot || []);
+const grandBase = computed(() => {
+  let ans = 0;
+  for (const element of costingData.value) {
+    ans += element.base;
+  }
+  return ans;
+});
+const grandProfit = computed(() => {
+  let ans = 0;
+  for (const element of costingData.value) {
+    ans += element.profit;
+  }
+  return ans;
+});
+const grandFinal = computed(() => {
+  let ans = 0;
+  for (const element of costingData.value) {
+    ans += element.total;
+  }
+  return ans;
+});
 const currentDate = new Date().toLocaleDateString("en-IN", {
   day: "2-digit",
   month: "short",
@@ -91,8 +100,14 @@ const currentTime = new Date().toLocaleTimeString("en-IN", {
         </span>
       </div>
       <p class="text-xs font-normal text-[#b46a06] mt-1 mb-1">
-        ⚠ {{ rfq.requirements.length - awardedStore.awarded.length }} line
-        item(s) still have no awarded vendor and will be excluded.
+        ⚠
+        {{
+          rfq.requirements.length -
+          Object.values(awardedStore.awardedLines).filter(
+            (v) => v !== "no award",
+          ).length
+        }}
+        line item(s) still have no awarded vendor and will be excluded.
       </p>
     </div>
     <div class="flex gap-2">
@@ -110,7 +125,7 @@ const currentTime = new Date().toLocaleTimeString("en-IN", {
     </div>
   </div>
   <div
-    v-if="!Flag.costingFlag"
+    v-if="!rfq.costingSnapshot || rfq.costingSnapshot.length === 0"
     class="flex flex-col h-47 gap-1 justify-center items-center bg-white rounded-xl outline outline-slate-200 p-5 px-7"
   >
     <span class="text-4xl">🧮</span>
@@ -123,13 +138,9 @@ const currentTime = new Date().toLocaleTimeString("en-IN", {
       tab, then apply awarded rates to costing
     </p>
   </div>
-  <div v-if="Flag.costingFlag">
-    <div
-      v-for="[key, value] in Object.entries(awardedStore.awardedLines)"
-      class="mb-5"
-      :key="key"
-    >
-      <CostingBox :category="key" :content="value" />
+  <div v-if="rfq.costingSnapshot && rfq.costingSnapshot.length > 0">
+    <div v-for="element in costingData" class="mb-5 bg-white p-5 rounded-lg">
+      <CostingBox :data="element" />
     </div>
     <div
       class="flex justify-end items-center gap-20 py-5 pr-5 mt-5 bg-white rounded-xl text-[13px] text-[#6b7090] font-mono"
@@ -137,7 +148,7 @@ const currentTime = new Date().toLocaleTimeString("en-IN", {
       <div>
         Grand base
         <span class="text-black font-bold">{{
-          Number(grandBase).toLocaleString("en-IN", {
+          grandBase.toLocaleString("en-IN", {
             style: "currency",
             currency: "INR",
             minimumFractionDigits: 0,
@@ -147,7 +158,7 @@ const currentTime = new Date().toLocaleTimeString("en-IN", {
       <div>
         Grand profit
         <span class="text-[#0d8f7a] font-bold">{{
-          Number(grandProfit).toLocaleString("en-IN", {
+          grandProfit.toLocaleString("en-IN", {
             style: "currency",
             currency: "INR",
             minimumFractionDigits: 0,
@@ -156,7 +167,13 @@ const currentTime = new Date().toLocaleTimeString("en-IN", {
       </div>
       <div>
         Final amount
-        <span class="text-[#3f3ba6] font-bold text-base">{{ grandFinal }}</span>
+        <span class="text-[#3f3ba6] font-bold text-base">{{
+          grandFinal.toLocaleString("en-IN", {
+            style: "currency",
+            currency: "INR",
+            minimumFractionDigits: 0,
+          })
+        }}</span>
       </div>
     </div>
   </div>

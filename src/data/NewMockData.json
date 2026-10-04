@@ -333,6 +333,13 @@
       "status": "declined"
     }
   ],
+  "clarifications": {
+    "cid": "c2",
+    "vid": "v4",
+    "question": "Please confirm whether the return sector is a same-day or next-day connection.",
+    "answer": "Same-day connection required; onward departure not before 20:00 local time.",
+    "status": "answered"
+  },
   "allocation": {
     "c1": ["v1", "v2", "v3"],
     "c2": ["v4", "v5"],
@@ -399,9 +406,9 @@
       "r17": null
     },
     "v10": {
-      "r18": 6850,
-      "r19": 1670,
-      "r20": 1190
+      "r18": 7280,
+      "r19": 1780,
+      "r20": 1260
     },
     "v11": {
       "r21": 17590,

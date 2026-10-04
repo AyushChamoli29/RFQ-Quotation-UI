@@ -1,5 +1,5 @@
 <script setup>
-import { computed, defineProps } from "vue";
+import { computed, defineProps, ref } from "vue";
 import VendorSelection from "./VendorSelection.vue";
 import { useRFQStore } from "@/store/RFQStore.js";
 import { useRFQMainStore } from "@/store/RFQStoreMain.js";
@@ -55,7 +55,34 @@ const quotes = computed(() => {
   }
   return result;
 });
+function vendorName(id) {
+  for (const vendor of rfq.vendors) {
+    if (vendor.id === id) {
+      return vendor.name;
+    }
+  }
+}
 // console.log(quotes.value);
+const clarificationData = computed(() => {
+  let result = [];
+  for (const element of rfq.clarifications) {
+    if (element.cid === prop.categoryID) {
+      result.push(element);
+    }
+  }
+  return result;
+});
+const clarificationAnswer = ref({});
+const sendClarificationAnswer = (questionid) => {
+  for (const element of clarificationData.value) {
+    if (element.qid === questionid) {
+      element.answer = clarificationAnswer.value[questionid];
+      element.status = "answered";
+      break;
+    }
+  }
+  clarificationAnswer.value[questionid] = "";
+};
 </script>
 
 <template>
@@ -313,22 +340,40 @@ const quotes = computed(() => {
       <VendorSelection :categoryID="prop.categoryID" />
     </div>
     <!-- Clarifications -->
-    <!-- <div class="p-5 pb-5">
-      <p class="text-[#6b7090] text-[13px] font-bold">CLARIFICATIONS</p>
+    <div class="p-5 pb-5 text-[13px]">
+      <p class="text-[#6b7090] font-bold">CLARIFICATIONS</p>
       <br />
-      <div v-if="!prop.data.clarification" class="text-[#6b7090] text-[12.5px]">
-        <p>No clarification questions raised for this category yet.</p>
+      <div v-if="clarificationData.length === 0" class="text-[#6b7090]">
+        No clarification questions raised for this category yet.
       </div>
-      <div v-if="prop.data.clarification">
-        <p class="text-[12.5px] font-[650]">
-          SkyBridge Airlines: Please confirm whether the return sector is a
-          same-day or next-day connection.
-        </p>
-        <p class="text-[12.5px] text-[#0d8f7a]">
-          ↳ Same-day connection required; onward departure not before 20:00
-          local time.
-        </p>
+      <div v-else-if="clarificationData.length >= 1">
+        <div
+          v-for="(obj, index) in clarificationData"
+          :class="{ 'border-t border-slate-200 my-2': index > 0 }"
+        >
+          <p class="font-bold">{{ vendorName(obj.vid) }}: {{ obj.question }}</p>
+          <div v-if="obj.status === 'pending'">
+            <p class="text-[#b46a06] italic mb-2">Awaiting internal response</p>
+            <div class="my-2 flex gap-3">
+              <input
+                type="text"
+                placeholder="Type a reply visible to this vendor only..."
+                class="border border-[#e3e5f0] p-2 rounded-lg w-100"
+                v-model="clarificationAnswer[obj.qid]"
+              />
+              <button
+                class="border border-[#e3e5f0] p-2 rounded-lg font-bold cursor-pointer hover:bg-[#ebecf7]"
+                @click="sendClarificationAnswer(obj.qid)"
+              >
+                Reply
+              </button>
+            </div>
+          </div>
+          <div v-else-if="obj.status === 'answered'">
+            <p class="text-[#0d8f7a]">↳ {{ obj.answer }}</p>
+          </div>
+        </div>
       </div>
-    </div> -->
+    </div>
   </div>
 </template>
