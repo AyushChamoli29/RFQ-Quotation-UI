@@ -1,6 +1,7 @@
 <script setup>
 import RequirementTable from "@/components/RequirementTable.vue";
 import { useRFQMainStore } from "@/store/RFQStoreMain";
+import { watch } from "vue";
 // import { useRFQStore } from "@/store/RFQStore";
 // const rfq = useRFQStore();
 const rfq = useRFQMainStore();

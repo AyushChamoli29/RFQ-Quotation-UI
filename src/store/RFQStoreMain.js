@@ -3,10 +3,15 @@ import { ref, watch } from "vue";
 import data from "@/data/NewMockData.json";
 import { useAllocationStore } from "./AllocationStore";
 import { useAwardedStore } from "./awardedLines";
+import { useHistoryStore } from "./auditHistory";
 
 export const useRFQMainStore = defineStore("rfq", () => {
   const allocationStore = useAllocationStore();
   const awardedStore = useAwardedStore();
+  const historyStore = useHistoryStore();
+  // actor
+  const actors = ref([...data.actor]);
+  const selectedActor = ref(actors.value[0]);
   // static data
   const rfqDetails = ref({ ...data.rfq });
   const rfqDeadline = ref(data.deadline);
@@ -123,6 +128,21 @@ export const useRFQMainStore = defineStore("rfq", () => {
       }
     }
   }
+  // finde vendor and category name by id
+  const vendorName = (id) => {
+    for (const element of vendors.value) {
+      if (element.id === id) {
+        return element.name;
+      }
+    }
+  };
+  const categoryName = (id) => {
+    for (const element of categories.value) {
+      if (element.id === id) {
+        return element.name;
+      }
+    }
+  };
   // add vendor
   const addVendor = (vendorid, categoryid) => {
     let status = "not-sent";
@@ -155,9 +175,21 @@ export const useRFQMainStore = defineStore("rfq", () => {
     for (const line of requirementList) {
       const rid = line.id;
 
-      baseQuotation.value[vendorid][rid].price = null;
-      workingQuotation.value[vendorid][rid].price = null;
+      baseQuotation.value[vendorid][rid] = { price: null, tax: 7, remark: "" };
+      workingQuotation.value[vendorid][rid] = {
+        price: null,
+        tax: 7,
+        remark: "",
+      };
     }
+    historyStore.historyEntry({
+      actor: selectedActor.value.name,
+      roleOrCompany: selectedActor.value.role,
+      action: "Vendor allocated to category",
+      vendor: vendorName(vendorid),
+      category: categoryName(categoryid),
+      detail: `${vendorName(vendorid)} added to ${categoryName(categoryid)}`,
+    });
   };
 
   const deleteVendor = (vendorid, categoryid) => {
@@ -167,7 +199,7 @@ export const useRFQMainStore = defineStore("rfq", () => {
     const vendor = category.vendorList.find((v) => v.vendorid === vendorid);
     if (!vendor) return;
 
-    // ❗ block if vendor has responded
+    //  block if vendor has responded
     if (
       vendor.status === "submitted" ||
       vendor.status === "partially submitted" ||
@@ -186,6 +218,13 @@ export const useRFQMainStore = defineStore("rfq", () => {
 
     delete baseQuotation.value[vendorid];
     delete workingQuotation.value[vendorid];
+    historyStore.historyEntry({
+      actor: selectedActor.value.name,
+      roleOrCompany: selectedActor.value.role,
+      action: "Vendor removed from category allocation",
+      vendor: vendorName(vendorid),
+      category: categoryName(categoryid),
+    });
   };
   function getVendorName(vid) {
     for (const vendor of vendors.value) {
@@ -248,6 +287,8 @@ export const useRFQMainStore = defineStore("rfq", () => {
     return result;
   }
   return {
+    actors,
+    selectedActor,
     rfqDetails,
     rfqDeadline,
     categories,
@@ -267,5 +308,7 @@ export const useRFQMainStore = defineStore("rfq", () => {
     addVendor,
     deleteVendor,
     getCostingData,
+    vendorName,
+    categoryName,
   };
 });

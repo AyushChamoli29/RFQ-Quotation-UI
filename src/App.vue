@@ -2,9 +2,9 @@
 import Header from "./components/Header.vue";
 import { RouterView } from "vue-router";
 import Footer from "./components/Footer.vue";
-import { useFlagsStore } from "./store/flag.js";
-const flags = useFlagsStore();
-flags.selectedName = "Priya Sharma";
+import { useRFQMainStore } from "./store/RFQStoreMain.js";
+const rfq = useRFQMainStore();
+rfq.selectedName = "Priya Sharma";
 </script>
 
 <template>

@@ -1,18 +1,33 @@
 <script setup>
 import data from "@/data/mockData.json";
-import { ref, onMounted, computed } from "vue";
+import { ref, onMounted, computed, watch } from "vue";
 import VendorPortalBox from "@/components/VendorPortalBox.vue";
 import { useRFQMainStore } from "@/store/RFQStoreMain";
 import { useAllocationStore } from "@/store/AllocationStore";
+import { useHistoryStore } from "@/store/auditHistory";
 const rfq = useRFQMainStore();
 const allocationStore = useAllocationStore();
+const historyStore = useHistoryStore();
 function getvendorName(vid) {
   if (vid === "select a vendor") return "";
 
   const vendor = rfq.vendors.find((v) => v.id === vid);
   return vendor.name;
 }
-// console.log(allocationStore.vendorsSelected);
+function getCategoryName(vid) {
+  if (vid === "select a vendor") return "";
+
+  const vendor = rfq.vendors.find((v) => v.id === vid);
+  return vendor.type;
+}
+// watch(
+//   [() => rfq.vendorSelected, () => rfq.rfqStatus],
+//   ([newVendor, newStatus]) => {
+//     console.log(newVendor);
+//     console.log(newStatus);
+//   },
+//   { immediate: true },
+// );
 const isVendorAllocated = computed(() => {
   return allocationStore.vendorsSelected.has(rfq.vendorSelected);
 });
@@ -23,6 +38,21 @@ const canShowVendorPortal = computed(() => {
     isVendorAllocated.value
   );
 });
+watch(
+  [() => rfq.vendorSelected, () => rfq.rfqStatus],
+  ([newVendor, newStatus]) => {
+    if (newVendor !== "select a vendor" && newStatus !== "draft") {
+      historyStore.historyEntry({
+        actor: rfq.selectedActor.name,
+        roleOrCompany: rfq.selectedActor.role,
+        action: "Vendor portal accessed",
+        category: getCategoryName(newVendor),
+        vendor: getvendorName(newVendor),
+        detail: "Secure link opened",
+      });
+    }
+  },
+);
 </script>
 
 <template>

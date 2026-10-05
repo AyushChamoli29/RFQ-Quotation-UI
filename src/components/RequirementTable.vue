@@ -1,17 +1,13 @@
 <script setup>
-import data from "@/data/mockData.json";
+import { ref } from "vue";
 import { useRouter } from "vue-router";
 import RequirementTableEntry from "./RequirementTableEntry.vue";
 import { useRFQMainStore } from "@/store/RFQStoreMain.js";
-// import { useHistoryStore } from "@/store/auditHistory.js";
-import { useFlagsStore } from "@/store/flag";
-// import { useVendorStore } from "@/store/requirementsVendor.js";
+import { useHistoryStore } from "@/store/auditHistory.js";
 import { useAllocationStore } from "@/store/AllocationStore.js";
 const rfq = useRFQMainStore();
-// const historyStore = useHistoryStore();
-const flags = useFlagsStore();
+const historyStore = useHistoryStore();
 const allocationStore = useAllocationStore();
-// const vendorsStore = useVendorStore();
 const router = useRouter();
 const currentDate = new Date().toLocaleDateString("en-IN", {
   day: "2-digit",
@@ -23,17 +19,56 @@ const currentTime = new Date().toLocaleTimeString("en-IN", {
   minute: "2-digit",
   hour12: true,
 });
-// const findVendorName = (id) => {
-//   for (const element of data.vendor_portal) {
-//     if (element.id === id) {
-//       return element.name;
-//     }
-//   }
-// };
+const vendorName = (id) => {
+  for (const element of rfq.vendors) {
+    if (element.id === id) {
+      return element.name;
+    }
+  }
+};
+const categoryName = (id) => {
+  for (const element of rfq.vendors) {
+    if (element.id === id) {
+      return element.type;
+    }
+  }
+};
 const allocateVendors = () => {
   // flags.allocateFlag = true;
+  const deadlineDate = new Date(rfq.rfqDeadline).toLocaleDateString("en-IN", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+  });
+  const deadlineTime = new Date(rfq.rfqDeadline).toLocaleTimeString("en-IN", {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: true,
+  });
   rfq.rfqStatus = "allocated";
   router.push({ name: "vendorResponses" });
+  const vendorsAllocated = [];
+  for (const element of rfq.allocation) {
+    for (const item of element.vendorList) {
+      vendorsAllocated.push(item.vendorid);
+    }
+  }
+  for (const vid of vendorsAllocated) {
+    historyStore.historyEntry({
+      actor: rfq.selectedActor.name,
+      roleOrCompany: rfq.selectedActor.role,
+      action: "RFQ invitation dispatched",
+      category: categoryName(vid),
+      vendor: vendorName(vid),
+      detail: `${rfq.rfqDetails.rfq_no} sent to ${vendorName(vid)}, deadline ${deadlineDate}, ${deadlineTime}`,
+    });
+  }
+  historyStore.historyEntry({
+    actor: rfq.selectedActor.name,
+    roleOrCompany: rfq.selectedActor.role,
+    action: "RFQ dispatched",
+    detail: `${rfq.rfqDetails.rfq_no} sent to ${vendorsAllocated.length} vendor(s) across ${rfq.categories.length} categories`,
+  });
   // for (let i = 0; i < vendorsStore.currentVendors.length; i++) {
   //   for (let j = 0; j < vendorsStore.currentVendors[i].VendorList.length; j++) {
   //     const vendorName = findVendorName(

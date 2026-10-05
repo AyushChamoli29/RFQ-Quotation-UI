@@ -8,26 +8,6 @@ const rfq = useRFQMainStore();
 const Flag = useFlagsStore();
 const awardedStore = useAwardedStore();
 const historyStore = useHistoryStore();
-const sendToCorporate = () => {
-  Flag.sendToCorporateFlag = true;
-  // Flag.progress = 7;
-  Flag.currentDate = new Date().toLocaleDateString("en-IN", {
-    day: "2-digit",
-    month: "short",
-    year: "numeric",
-  });
-  Flag.currentTime = new Date().toLocaleTimeString("en-IN", {
-    hour: "2-digit",
-    minute: "2-digit",
-    hour12: true,
-  });
-  // historyStore.historyEntry({
-  //   actor: Flag.selectedActor.name,
-  //   roleOrCompany: Flag.selectedActor.role,
-  //   action: "Quotation sent to corporate",
-  //   detail: `Cipla Limited - costing v${awardedStore.costVersions}, final amount ${grandFinal.value}`,
-  // });
-};
 function getCategoryName(id) {
   for (const category of rfq.categories) {
     if (category.id === id) {
@@ -50,6 +30,27 @@ const grandFinal = computed(() => {
   }
   return formatCurrency(ans);
 });
+const sendToCorporate = () => {
+  alert(`Quotation marked as sent to ${rfq.rfqDetails.company}`);
+  Flag.sendToCorporateFlag = true;
+  // Flag.progress = 7;
+  Flag.currentDate = new Date().toLocaleDateString("en-IN", {
+    day: "2-digit",
+    month: "short",
+    year: "numeric",
+  });
+  Flag.currentTime = new Date().toLocaleTimeString("en-IN", {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: true,
+  });
+  historyStore.historyEntry({
+    actor: rfq.selectedActor.name,
+    roleOrCompany: rfq.selectedActor.role,
+    action: "Quotation sent to corporate",
+    detail: `Cipla Limited - costing v${awardedStore.costVersions}, final amount ${grandFinal.value}`,
+  });
+};
 </script>
 
 <template>

@@ -22,7 +22,6 @@ export const useFlagsStore = defineStore("flag", () => {
       hour12: true,
     }),
   );
-  const selectedActor = ref({ ...data.actor[0] });
   return {
     progress,
     simulateFlag,
@@ -31,6 +30,5 @@ export const useFlagsStore = defineStore("flag", () => {
     sendToCorporateFlag,
     currentDate,
     currentTime,
-    selectedActor,
   };
 });

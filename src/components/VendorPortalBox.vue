@@ -3,7 +3,9 @@ import { defineProps, ref, onMounted, watch, computed } from "vue";
 import { useRFQMainStore } from "@/store/RFQStoreMain.js";
 import VendorPortalTable from "./VendorPortalTable.vue";
 import VendorPortalCard from "./VendorPortalCard.vue";
+import { useHistoryStore } from "@/store/auditHistory.js";
 const rfq = useRFQMainStore();
+const historyStore = useHistoryStore();
 const prop = defineProps({
   vendorid: String,
 });
@@ -24,6 +26,18 @@ function getvendorName(vid) {
     }
   }
 }
+function findCategoryID(vendorid) {
+  for (const element of rfq.vendors) {
+    for (const item of rfq.categories) {
+      if (
+        element.id === vendorid &&
+        element.type.toLowerCase() === item.name.toLowerCase()
+      ) {
+        return item.id;
+      }
+    }
+  }
+}
 console.log(rfq.vendorPortalTempObj);
 watch(
   () => prop.vendorid,
@@ -31,7 +45,7 @@ watch(
     const data = rfq.workingQuotation[prop.vendorid];
 
     if (data) {
-      rfq.vendorPortalTempObj = { ...data };
+      rfq.vendorPortalTempObj = JSON.parse(JSON.stringify(data));
 
       for (const lineId in data) {
         if (!rfq.vendorPortalTempObj[lineId]) {
@@ -47,24 +61,101 @@ watch(
   { immediate: true },
 );
 const submitQuotation = () => {
-  const data = rfq.vendorPortalTempObj;
+  const newData = rfq.vendorPortalTempObj;
 
   let filledCount = 0;
   let totalCount = 0;
 
-  for (const lineId in data) {
+  for (const lineId in newData) {
     totalCount++;
 
-    if (data[lineId].price !== null && data[lineId].price !== "") {
+    if (newData[lineId].price !== null && newData[lineId].price !== "") {
       filledCount++;
     }
   }
 
-  // ❌ No price entered
+  //  No price entered
   if (filledCount === 0) {
     alert("Please enter at least one line item before submitting.");
     return;
   }
+
+  const oldData = rfq.workingQuotation[prop.vendorid] || {};
+  for (const key of Object.keys(newData)) {
+    const oldLine = oldData[key] || {};
+    const newLine = newData[key] || {};
+    if (oldLine.price !== newLine.price) {
+      const line = rfq.requirements.find((r) => r.id === key);
+      const oldValue = oldLine.price === null ? "blank" : oldLine.price;
+      const newValue = newLine.price === null ? "blank" : newLine.price;
+      historyStore.historyEntry({
+        actor: rfq.selectedActor.name,
+        roleOrCompany: rfq.selectedActor.role,
+        action: "Vendor updated quotation line",
+        vendor: rfq.vendorName(prop.vendorid),
+        category: rfq.categoryName(findCategoryID(prop.vendorid)),
+        detail: `${line?.name || key} - rate: ${oldValue} => ${newValue.toLocaleString(
+          "en-IN",
+          {
+            style: "currency",
+            currency: "INR",
+            minimumFractionDigits: 0,
+          },
+        )}`,
+      });
+    }
+    if (oldLine.tax !== newLine.tax) {
+      const line = rfq.requirements.find((r) => r.id === key);
+      const oldValue = oldLine.tax;
+      const newValue = newLine.tax;
+      historyStore.historyEntry({
+        actor: rfq.selectedActor.name,
+        roleOrCompany: rfq.selectedActor.role,
+        action: "Vendor updated quotation line",
+        vendor: rfq.vendorName(prop.vendorid),
+        category: rfq.categoryName(findCategoryID(prop.vendorid)),
+        detail: `${line?.name || key} - tax %: ${oldValue} => ${newValue}`,
+      });
+    }
+    if (oldLine.remark !== newLine.remark) {
+      const line = rfq.requirements.find((r) => r.id === key);
+      const oldValue = oldLine.remark === "" ? "blank" : oldLine.remark;
+      const newValue = newLine.remark === "" ? "blank" : newLine.remark;
+      historyStore.historyEntry({
+        actor: rfq.selectedActor.name,
+        roleOrCompany: rfq.selectedActor.role,
+        action: "Vendor updated quotation line",
+        vendor: rfq.vendorName(prop.vendorid),
+        category: rfq.categoryName(findCategoryID(prop.vendorid)),
+        detail: `${line?.name || key} - remarks: "${oldValue}" => "${newValue}"`,
+      });
+    }
+  }
+
+  // this is the audit history for whenever there are changes in vendor portal, this is just for price and this is not working because in 7th line below the condition is always false because when we change something in vendorPortal temp object it reflects in rfq.workingQuotation so you have to check this later
+
+  // const oldData = rfq.workingQuotation[prop.vendorid] || {};
+  // for (const key of Object.keys(data)) {
+  //   const newLine = data[key] || {};
+  //   const oldLine = oldData[key] || {};
+  //   console.log("OLD", oldData);
+  //   console.log("NEW", data);
+  //   if (newLine.price !== oldLine.price) {
+  //     const line = rfq.requirements.find((r) => r.id === key);
+
+  //     const oldValue = oldLine.price === null ? "blank" : oldLine.price;
+
+  //     const newValue = newLine.price === null ? "blank" : newLine.price;
+  //     historyStore.historyEntry({
+  //       actor: rfq.selectedActor.name,
+  //       roleOrCompany: rfq.selectedActor.role,
+  //       action: "Vendor updated quotation line",
+  //       vendor: rfq.vendorName(prop.vendorid),
+  //       category: rfq.categoryName(findCategoryID(prop.vendorid)),
+  //       detail: `${line?.name || key} - rate: ${oldValue} => ${newValue}`,
+  //     });
+  //   }
+  // }
 
   //  Save data
   rfq.workingQuotation[prop.vendorid] = {

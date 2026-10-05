@@ -2,7 +2,9 @@
 import data from "@/data/mockData.json";
 import { useRFQMainStore } from "@/store/RFQStoreMain";
 import { defineProps, ref, computed } from "vue";
+import { useHistoryStore } from "@/store/auditHistory";
 const rfq = useRFQMainStore();
+const historyStore = useHistoryStore();
 const prop = defineProps({
   vendorid: String,
 });
@@ -50,6 +52,7 @@ const requirementLines = computed(() => {
 });
 const clarificationQuestion = ref("");
 const sendClarificationQuestion = () => {
+  if (!clarificationQuestion.value.trim()) return;
   rfq.clarifications.push({
     cid: categoryid.value,
     vid: prop.vendorid,
@@ -57,6 +60,14 @@ const sendClarificationQuestion = () => {
     question: clarificationQuestion.value,
     answer: "",
     status: "pending",
+  });
+  historyStore.historyEntry({
+    actor: rfq.selectedActor.name,
+    roleOrCompany: rfq.selectedActor.role,
+    action: "Clarification question asked",
+    vendor: rfq.vendorName(prop.vendorid),
+    category: rfq.categoryName(categoryid.value),
+    detail: clarificationQuestion.value,
   });
   alert("Question sent to the internal team.");
   clarificationQuestion.value = "";
@@ -81,6 +92,15 @@ const vendorStatus = computed(() => {
     }
   }
 });
+const changePrice = (id, event) => {
+  rfq.vendorPortalTempObj[id].price = Number(event.target.value);
+};
+const changeTax = (id, event) => {
+  rfq.vendorPortalTempObj[id].tax = Number(event.target.value);
+};
+const changeRemark = (id, event) => {
+  rfq.vendorPortalTempObj[id].remark = event.target.value;
+};
 </script>
 
 <template>
@@ -127,7 +147,8 @@ const vendorStatus = computed(() => {
                   vendorFullObj?.status === 'submitted' ||
                   vendorFullObj?.status === 'partially submitted'
                 "
-                v-model="rfq.vendorPortalTempObj[line.id].price"
+                :value="rfq.vendorPortalTempObj[line.id]?.price"
+                @change="changePrice(line.id, $event)"
               />
             </div>
           </td>
@@ -147,7 +168,8 @@ const vendorStatus = computed(() => {
                   vendorFullObj?.status === 'submitted' ||
                   vendorFullObj?.status === 'partially submitted'
                 "
-                v-model="rfq.vendorPortalTempObj[line.id].tax"
+                :value="rfq.vendorPortalTempObj[line.id]?.tax"
+                @change="changeTax(line.id, $event)"
               />
             </div>
           </td>
@@ -182,7 +204,8 @@ const vendorStatus = computed(() => {
                   vendorFullObj?.status === 'submitted' ||
                   vendorFullObj?.status === 'partially submitted'
                 "
-                v-model="rfq.vendorPortalTempObj[line.id].remark"
+                :value="rfq.vendorPortalTempObj[line.id]?.remark"
+                @change="changeRemark(line.id, $event)"
                 placeholder="Optional"
               />
             </div>
@@ -192,7 +215,11 @@ const vendorStatus = computed(() => {
       </tbody>
     </table>
     <div
-      v-if="rfq.rfqStatus === 'allocated' && vendorStatus !== 'submitted'"
+      v-if="
+        rfq.rfqStatus === 'allocated' &&
+        vendorStatus !== 'submitted' &&
+        vendorStatus !== 'partially submitted'
+      "
       class="flex flex-col gap-2 pt-4 border-t border-slate-200 pl-4"
     >
       <p class="text-xs font-bold text-[#3a3f58]">
@@ -207,7 +234,8 @@ const vendorStatus = computed(() => {
             vendorFullObj?.status === 'submitted' ||
             vendorFullObj?.status === 'partially submitted'
           "
-          v-model="clarificationQuestion"
+          :value="clarificationQuestion"
+          @input="clarificationQuestion = $event.target.value"
         />
         <button
           class="text-xs text-[#3a3f58] font-bold w-max border border-[#e3e5f0] hover:bg-[#ebecf7] py-1 px-2 rounded-lg cursor-pointer"

@@ -1,12 +1,33 @@
 <script setup>
+import { computed } from "vue";
 import { RouterLink, useRoute } from "vue-router";
 import { useFlagsStore } from "@/store/flag";
 import { useHistoryStore } from "@/store/auditHistory";
 import { useVendorStore } from "@/store/requirementsVendor";
+import { useRFQMainStore } from "@/store/RFQStoreMain";
+import { useAllocationStore } from "@/store/AllocationStore";
+import { useAwardedStore } from "@/store/awardedLines";
 const route = useRoute();
+const awardedStore = useAwardedStore();
+const allocationStore = useAllocationStore();
+const rfq = useRFQMainStore();
 const flags = useFlagsStore();
 const historyStore = useHistoryStore();
 const vendorsStore = useVendorStore();
+const vendorResponse = computed(() => {
+  let count = 0;
+  for (const vendorObj of rfq.allocation) {
+    for (const vendor of vendorObj.vendorList) {
+      if (
+        vendor.status === "submitted" ||
+        vendor.status === "partially submitted"
+      ) {
+        count++;
+      }
+    }
+  }
+  return count;
+});
 </script>
 
 <template>
@@ -45,12 +66,12 @@ const vendorsStore = useVendorStore();
       >
         Vendor Responses
         <span
-          v-if="flags.simulateFlag"
+          v-if="vendorResponse > 0"
           class="text-white text-[11px] font-bold rounded-2xl px-2"
           :class="
             route.name === 'vendorResponses' ? 'bg-[#5b4fe0]' : 'bg-[#9ba0c0]'
           "
-          >{{ vendorsStore.totalVendors }}</span
+          >{{ vendorResponse }}</span
         >
       </div></RouterLink
     >
@@ -63,6 +84,12 @@ const vendorsStore = useVendorStore();
         }"
       >
         Costing
+        <span
+          v-if="awardedStore.costVersions > 0"
+          class="text-white text-[11px] font-bold rounded-2xl px-2"
+          :class="route.name === 'costing' ? 'bg-[#5b4fe0]' : 'bg-[#9ba0c0]'"
+          >{{ awardedStore.costVersions }}</span
+        >
       </div></RouterLink
     >
     <RouterLink :to="{ name: 'corporate' }"

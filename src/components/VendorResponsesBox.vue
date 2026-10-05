@@ -4,8 +4,10 @@ import VendorSelection from "./VendorSelection.vue";
 import { useRFQStore } from "@/store/RFQStore.js";
 import { useRFQMainStore } from "@/store/RFQStoreMain.js";
 import { useAllocationStore } from "@/store/AllocationStore.js";
+import { useHistoryStore } from "@/store/auditHistory.js";
 const rfq = useRFQMainStore();
 const allocationStore = useAllocationStore();
+const historyStore = useHistoryStore();
 const prop = defineProps({
   categoryID: String,
 });
@@ -72,15 +74,25 @@ const clarificationData = computed(() => {
   }
   return result;
 });
-const clarificationAnswer = ref({});
+const clarificationAnswer = ref("");
 const sendClarificationAnswer = (questionid) => {
+  let vendorid;
   for (const element of clarificationData.value) {
     if (element.qid === questionid) {
-      element.answer = clarificationAnswer.value[questionid];
+      element.answer = clarificationAnswer.value;
       element.status = "answered";
+      vendorid = element.vid;
       break;
     }
   }
+  historyStore.historyEntry({
+    actor: rfq.selectedActor.name,
+    roleOrCompany: rfq.selectedActor.role,
+    action: "Clarification answered",
+    vendor: rfq.vendorName(vendorid),
+    category: rfq.categoryName(prop.categoryID),
+    detail: clarificationAnswer.value,
+  });
   clarificationAnswer.value[questionid] = "";
 };
 </script>
@@ -359,7 +371,8 @@ const sendClarificationAnswer = (questionid) => {
                 type="text"
                 placeholder="Type a reply visible to this vendor only..."
                 class="border border-[#e3e5f0] p-2 rounded-lg w-100"
-                v-model="clarificationAnswer[obj.qid]"
+                :value="clarificationAnswer"
+                @input="clarificationAnswer = $event.target.value"
               />
               <button
                 class="border border-[#e3e5f0] p-2 rounded-lg font-bold cursor-pointer hover:bg-[#ebecf7]"

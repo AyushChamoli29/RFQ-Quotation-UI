@@ -1,6 +1,10 @@
 <script setup>
+import { defineProps } from "vue";
 import { useHistoryStore } from "@/store/auditHistory";
 const historyStore = useHistoryStore();
+const prop = defineProps({
+  history: Array,
+});
 </script>
 
 <template>
@@ -18,10 +22,7 @@ const historyStore = useHistoryStore();
         </tr>
       </thead>
       <tbody>
-        <tr
-          v-for="item in historyStore.history"
-          class="border-t border-slate-200"
-        >
+        <tr v-for="item in prop.history" class="border-t border-slate-200">
           <td class="p-2 font-mono tracking-wider">
             {{ item.time }}
           </td>

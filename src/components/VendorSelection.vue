@@ -2,8 +2,10 @@
 import { computed, defineProps, ref, onMounted } from "vue";
 import { useRFQMainStore } from "@/store/RFQStoreMain.js";
 import { useAwardedStore } from "@/store/awardedLines";
+import { useHistoryStore } from "@/store/auditHistory";
 const rfq = useRFQMainStore();
 const awardedStore = useAwardedStore();
+const historyStore = useHistoryStore();
 const prop = defineProps({
   categoryID: String,
 });
@@ -76,6 +78,44 @@ function convertIntoCurrency(number) {
 // console.log(awardedStore.awardedLines);
 // console.log(rfq.marginOfAll);
 // console.log(awardedStore.awardedLinesData);
+function findCategoryID(vendorid) {
+  for (const element of rfq.vendors) {
+    for (const item of rfq.categories) {
+      if (
+        element.id === vendorid &&
+        element.type.toLowerCase() === item.name.toLowerCase()
+      ) {
+        return item.id;
+      }
+    }
+  }
+}
+const awardLineAudit = (id, event) => {
+  const oldVendorId = awardedStore.awardedLines[id];
+  const newVendorId = event.target.value;
+  if (oldVendorId === newVendorId) return;
+  const requirementLine = rfq.requirements.find((item) => item.id === id);
+  if (oldVendorId === "no award") {
+    historyStore.historyEntry({
+      actor: rfq.selectedActor.name,
+      roleOrCompany: rfq.selectedActor.role,
+      action: "Vendor awarded for line item",
+      category: rfq.categoryName(findCategoryID(awardedStore.awardedLines[id])),
+      vendor: rfq.vendorName(awardedStore.awardedLines[id]),
+      detail: `${requirementLine.name}`,
+    });
+  } else {
+    historyStore.historyEntry({
+      actor: rfq.selectedActor.name,
+      roleOrCompany: rfq.selectedActor.role,
+      action: "Vendor awarded for line item",
+      category: rfq.categoryName(findCategoryID(newVendorId)),
+      vendor: rfq.vendorName(newVendorId),
+      detail: `${requirementLine.name} (previously ${rfq.vendorName(oldVendorId)})`,
+    });
+  }
+  awardedStore.awardedLines[id] = newVendorId;
+};
 </script>
 
 <template>
@@ -104,7 +144,8 @@ function convertIntoCurrency(number) {
           <td class="py-4 px-8">{{ item.name }}</td>
           <td>
             <select
-              v-model="awardedStore.awardedLines[item.id]"
+              :value="awardedStore.awardedLines[item.id]"
+              @change="awardLineAudit(item.id, $event)"
               class="outline outline-slate-200 rounded-sm w-8/10 text-[12.5px] p-2"
             >
               <option value="no award">No award</option>

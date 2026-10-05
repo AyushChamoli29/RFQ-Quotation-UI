@@ -1,20 +1,14 @@
 <script setup>
-import data from "@/data/mockData.json";
-import { computed, ref, watch } from "vue";
+import { computed, watch } from "vue";
 import { RouterLink, useRoute } from "vue-router";
-import { useFlagsStore } from "@/store/flag";
-const flags = useFlagsStore();
-
+import { useRFQMainStore } from "@/store/RFQStoreMain";
+const rfq = useRFQMainStore();
 const route = useRoute();
 
 const activeSpace = computed(() => {
   return route.matched[0]?.name || "agentWorkspace";
 });
-const actor = [...data.actor];
-const selectedActor = ref(actor[0]);
-watch(selectedActor, (newActor) => {
-  flags.selectedActor = newActor;
-});
+const selectedActor = rfq.selectedActor;
 </script>
 
 <template>
@@ -72,11 +66,11 @@ watch(selectedActor, (newActor) => {
         Acting as
       </p>
       <div
-        class="outline outline-white/50 py-2 px-1 rounded-md bg-[#ffffff24]"
+        class="outline outline-white/50 rounded-md bg-[#ffffff24]"
         :class="{ hidden: activeSpace === 'vendorPortal' }"
       >
-        <select id="acting" v-model="selectedActor">
-          <option v-for="item in actor" class="text-black" :value="item">
+        <select id="acting" v-model="selectedActor" class="py-2 px-1">
+          <option v-for="item in rfq.actors" class="text-black" :value="item">
             {{ item.name }} &mdash; {{ item.role }}
           </option>
         </select>

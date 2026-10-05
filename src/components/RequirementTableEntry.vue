@@ -258,7 +258,7 @@ const addVendor = (searchID, categoryID) => {
           </div>
           <div
             v-for="search in searchList"
-            class="p-2 border-t border-slate-200"
+            class="p-2 border-t border-slate-200 cursor-pointer"
             @click="rfq.addVendor(search.id, props.id)"
           >
             <span class="font-bold">{{ search.name }}</span

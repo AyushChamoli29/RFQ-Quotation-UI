@@ -10,35 +10,6 @@ const rfq = useRFQMainStore();
 const Flag = useFlagsStore();
 const awardedStore = useAwardedStore();
 const historyStore = useHistoryStore();
-const showCosting = () => {
-  // if (awardedStore.awarded.length > 0) {
-  //   // Flag.costingFlag = true;
-  //   // Flag.progress = 6;
-  //   rfq.rfqStatus = "awarded";
-  //   awardedStore.costVersions++;
-  // } else {
-  //   alert(
-  //     "No awarded line items yet — select vendors in Vendor Responses first.",
-  //   );
-  // }
-  const hasAwarded = Object.values(awardedStore.awardedLines || {}).some(
-    (v) => v !== "no award",
-  );
-
-  if (hasAwarded) {
-    rfq.rfqStatus = "awarded";
-    rfq.costingSnapshot = [...rfq.getCostingData()];
-    awardedStore.costVersions++;
-  } else {
-    alert("No awarded line items yet...");
-  }
-  // historyStore.historyEntry({
-  //   actor: Flag.selectedActor.name,
-  //   roleOrCompany: Flag.selectedActor.role,
-  //   action: "Costing version applied",
-  //   detail: `Costing v${awardedStore.costVersions} created from ${awardedStore.awarded.length} awarded line item(s) - final amount ${grandFinal.value}`,
-  // });
-};
 const costingData = computed(() => rfq.costingSnapshot || []);
 const grandBase = computed(() => {
   let ans = 0;
@@ -71,6 +42,52 @@ const currentTime = new Date().toLocaleTimeString("en-IN", {
   minute: "2-digit",
   hour12: true,
 });
+const awardedLinesNumber = computed(() => {
+  let count = 0;
+  for (const key of Object.keys(awardedStore.awardedLines)) {
+    if (awardedStore.awardedLines[key] !== "no award") {
+      count++;
+    }
+  }
+  return count;
+});
+const showCosting = () => {
+  // if (awardedStore.awarded.length > 0) {
+  //   // Flag.costingFlag = true;
+  //   // Flag.progress = 6;
+  //   rfq.rfqStatus = "awarded";
+  //   awardedStore.costVersions++;
+  // } else {
+  //   alert(
+  //     "No awarded line items yet — select vendors in Vendor Responses first.",
+  //   );
+  // }
+  const hasAwarded = Object.values(awardedStore.awardedLines || {}).some(
+    (v) => v !== "no award",
+  );
+
+  if (hasAwarded) {
+    rfq.rfqStatus = "awarded";
+    rfq.costingSnapshot = [...rfq.getCostingData()];
+    awardedStore.costVersions++;
+  } else {
+    alert("No awarded line items yet...");
+  }
+  historyStore.historyEntry({
+    actor: rfq.selectedActor.name,
+    roleOrCompany: rfq.selectedActor.role,
+    action: "Costing version applied",
+    detail: `Costing v${awardedStore.costVersions} created from ${awardedLinesNumber.value} awarded line item(s) - final amount ${grandFinal.value.toLocaleString(
+      "en-IN",
+      {
+        style: "currency",
+        currency: "INR",
+        minimumFractionDigits: 0,
+      },
+    )}`,
+  });
+};
+
 // console.log(historyStore.history);
 </script>
 

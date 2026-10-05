@@ -1,11 +1,41 @@
 <script setup>
 import AuditHistoryTable from "@/components/AuditHistoryTable.vue";
 import { useHistoryStore } from "@/store/auditHistory";
-import { ref } from "vue";
+import { useRFQMainStore } from "@/store/RFQStoreMain";
+import { computed, ref } from "vue";
 const historyStore = useHistoryStore();
+const rfq = useRFQMainStore();
 const search = ref("");
 const category = ref("all categories");
 const actor = ref("all actors");
+const action = ref("all actions");
+const actionsOptions = computed(() => {
+  let result = new Set();
+  for (const element of historyStore.history) {
+    result.add(element.action);
+  }
+  return [...result];
+});
+const filteredAuditHistory = computed(() => {
+  return historyStore.history.filter((item) => {
+    const searchMatch =
+      search.value === "" ||
+      item.actor.toLowerCase().includes(search.value.toLowerCase()) ||
+      item.category.toLowerCase().includes(search.value.toLowerCase()) ||
+      item.vendor.toLowerCase().includes(search.value.toLowerCase()) ||
+      item.detail.toLowerCase().includes(search.value.toLowerCase());
+    const categoryMatch =
+      category.value === "all categories" ||
+      item.category.toLowerCase() === category.value.toLowerCase();
+    const actorMatch =
+      actor.value === "all actors" ||
+      item.actor.toLowerCase() === actor.value.toLowerCase();
+    const actionMatch =
+      action.value === "all actions" ||
+      item.action.toLowerCase() === action.value.toLowerCase();
+    return searchMatch && categoryMatch && actorMatch && actionMatch;
+  });
+});
 </script>
 
 <template>
@@ -17,7 +47,6 @@ const actor = ref("all actors");
       <label for="searching" class="text-xs font-semibold mb-2">Search</label>
       <input
         type="text"
-        id="searching"
         v-model="search"
         placeholder="Search actor, vendor, category, detail..."
         class="outline outline-slate-200 text-xs font-normal w-110 p-2 rounded-lg"
@@ -26,43 +55,49 @@ const actor = ref("all actors");
     <div class="flex flex-col">
       <label for="category" class="text-xs font-semibold mb-2">Category</label>
       <select
-        id="category"
         v-model="category"
         class="text-xs font-normal outline outline-slate-200 p-2 rounded-lg"
       >
         <option value="all categories">All Categories</option>
-        <option value="hotels">Hotels</option>
-        <option value="flights">Flights</option>
-        <option value="ground transportation">Ground Transportation</option>
-        <option value="event management including AV">
-          Event Management including AV
+        <option
+          v-for="category in rfq.categories"
+          :key="category.id"
+          :value="category.name"
+        >
+          {{ category.name }}
         </option>
-        <option value="visa management">Visa Management</option>
-        <option value="local liaison">Local Liaison</option>
       </select>
     </div>
     <div class="flex flex-col">
       <label for="actor" class="text-xs font-semibold mb-2">Actor</label>
       <select
-        id="actor"
         v-model="actor"
         class="text-xs font-normal outline w-45 outline-slate-200 p-2 rounded-lg"
       >
         <option value="all actors">All Actors</option>
+        <option
+          v-for="actor in rfq.actors"
+          :key="actor.name"
+          :value="actor.name"
+        >
+          {{ actor.name }}
+        </option>
       </select>
     </div>
     <div class="flex flex-col">
       <label for="action" class="text-xs font-semibold mb-2">Action</label>
       <select
-        id="action"
+        v-model="action"
         class="text-xs font-normal outline w-45 outline-slate-200 p-2 rounded-lg"
       >
         <option value="all actions">All Actions</option>
+        <option v-for="action in actionsOptions" :key="action" :value="action">
+          {{ action }}
+        </option>
       </select>
     </div>
     <div
       class="mt-6 outline outline-slate-200 p-2 px-3 text-[13px] rounded-lg font-bold hover:bg-slate-200 cursor-pointer"
-      @click="historyStore.historyEntry"
     >
       Export CSV
     </div>
@@ -80,6 +115,6 @@ const actor = ref("all actors");
     </p>
   </div>
   <div v-if="historyStore.history.length">
-    <AuditHistoryTable />
+    <AuditHistoryTable :history="filteredAuditHistory" />
   </div>
 </template>
