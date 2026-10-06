@@ -1,5 +1,5 @@
 <script setup>
-import { computed, watch } from "vue";
+import { computed } from "vue";
 import { RouterLink, useRoute } from "vue-router";
 import { useRFQMainStore } from "@/store/RFQStoreMain";
 const rfq = useRFQMainStore();

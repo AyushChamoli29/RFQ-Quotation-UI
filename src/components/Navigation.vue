@@ -1,19 +1,13 @@
 <script setup>
 import { computed } from "vue";
 import { RouterLink, useRoute } from "vue-router";
-import { useFlagsStore } from "@/store/flag";
 import { useHistoryStore } from "@/store/auditHistory";
-import { useVendorStore } from "@/store/requirementsVendor";
 import { useRFQMainStore } from "@/store/RFQStoreMain";
-import { useAllocationStore } from "@/store/AllocationStore";
 import { useAwardedStore } from "@/store/awardedLines";
 const route = useRoute();
 const awardedStore = useAwardedStore();
-const allocationStore = useAllocationStore();
 const rfq = useRFQMainStore();
-const flags = useFlagsStore();
 const historyStore = useHistoryStore();
-const vendorsStore = useVendorStore();
 const vendorResponse = computed(() => {
   let count = 0;
   for (const vendorObj of rfq.allocation) {

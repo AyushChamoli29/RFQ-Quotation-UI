@@ -1,45 +1,29 @@
 <script setup>
-import { ref } from "vue";
-import { useRFQStore } from "@/store/RFQStore";
+import { computed, ref } from "vue";
 import { useRFQMainStore } from "@/store/RFQStoreMain";
 import { useFlagsStore } from "@/store/flag";
-import { useAllocationStore } from "@/store/AllocationStore";
-import { useEvaluationStore } from "@/store/EvaluationStore";
+import { useAwardedStore } from "@/store/awardedLines";
 const rfq = useRFQMainStore();
 const flags = useFlagsStore();
-const allocationStore = useAllocationStore();
-const evaluationStore = useEvaluationStore();
-const getVendorCount = (id) => {
-  for (const [categoryID, value] of Object.entries(rfq.allocation)) {
-    if (categoryID === id) {
-      return value.length;
-    }
-  }
-  return 0;
-};
-const getAwardedCount = (id) => {
-  for (const [key, value] of Object.entries(evaluationStore.awardedLines)) {
-    if (key === id) {
-      return Object.keys(value.data).length;
-    }
-  }
-  return 0;
-};
-const status = (progress, awarded, total) => {
-  let msg = ref("");
-  if (progress === 1) {
-    msg.value = "Not sent";
-  } else if (progress === 2) {
-    msg.value = "Awaiting response";
-  } else if (awarded === total) {
-    msg.value = "Fully awarded";
-  } else {
-    msg.value = "Under evaluation";
-  }
-  return msg;
-};
+const awardedStore = useAwardedStore();
+// const getVendorCount = (id) => {
+//   for (const [categoryID, value] of Object.entries(rfq.allocation)) {
+//     if (categoryID === id) {
+//       return value.length;
+//     }
+//   }
+//   return 0;
+// };
+// const getAwardedCount = (id) => {
+//   for (const [key, value] of Object.entries(evaluationStore.awardedLines)) {
+//     if (key === id) {
+//       return Object.keys(value.data).length;
+//     }
+//   }
+//   return 0;
+// };
 function getCategoryLine(id) {
-  let counter;
+  let counter = 0;
   for (const requirementObj of rfq.requirements) {
     if (requirementObj.categoryId === id) {
       counter++;
@@ -47,6 +31,87 @@ function getCategoryLine(id) {
   }
   return counter;
 }
+const getRespondedVendorCount = computed(() => {
+  const obj = {};
+
+  rfq.categories.forEach((categoryObj) => {
+    let counter = 0;
+
+    for (const allocationObj of rfq.allocation) {
+      if (categoryObj.id === allocationObj.id) {
+        for (const vendorObj of allocationObj.vendorList) {
+          if (
+            vendorObj.status === "submitted" ||
+            vendorObj.status === "partially submitted"
+          ) {
+            counter++;
+          }
+        }
+
+        break;
+      }
+    }
+
+    obj[categoryObj.id] = counter;
+  });
+
+  return obj;
+});
+const getTotalVendorCount = computed(() => {
+  const obj = {};
+  rfq.categories.forEach((categoryObj) => {
+    for (const allocationObj of rfq.allocation) {
+      if (categoryObj.id === allocationObj.id) {
+        obj[categoryObj.id] = allocationObj.vendorList.length;
+        break;
+      }
+    }
+  });
+  return obj;
+});
+const awardedCountByCategory = computed(() => {
+  let obj = {};
+
+  rfq.categories.forEach((categoryObj) => {
+    let counter = 0;
+
+    for (const line of rfq.requirements) {
+      if (line.categoryId === categoryObj.id) {
+        if (awardedStore.awardedLines[line.id] !== "no award") {
+          counter++;
+        }
+      }
+    }
+
+    obj[categoryObj.id] = counter;
+  });
+
+  return obj;
+});
+const status = computed(() => {
+  let obj = {};
+
+  rfq.categories.forEach((categoryObj) => {
+    let tempStatus = "";
+
+    if (rfq.rfqStatus === "draft") {
+      tempStatus = "Not sent";
+    } else if (getRespondedVendorCount.value[categoryObj.id] === 0) {
+      tempStatus = "Awaiting response";
+    } else if (
+      awardedCountByCategory.value[categoryObj.id] ===
+      getCategoryLine(categoryObj.id)
+    ) {
+      tempStatus = "Fully awarded";
+    } else {
+      tempStatus = "Under evaluation";
+    }
+
+    obj[categoryObj.id] = tempStatus;
+  });
+
+  return obj;
+});
 </script>
 
 <template>
@@ -71,39 +136,41 @@ function getCategoryLine(id) {
           class="border-t border-slate-200"
         >
           <td class="px-3 py-3 font-bold">{{ categoryObj.name }}</td>
-          <td class="px-3 py-3">{{ getCategoryLine(categoryObj) }}</td>
-          <td class="px-3 py-3">{{ getVendorCount(categoryObj.id) }}</td>
+          <td class="px-3 py-3">{{ getCategoryLine(categoryObj.id) }}</td>
+          <td class="px-3 py-3">
+            {{ getTotalVendorCount[categoryObj.id] }}
+          </td>
           <td class="px-3 py-3 font-mono">
             {{
-              flags.progress >= 3
-                ? getVendorCount(categoryObj.id) +
-                  "/" +
-                  getVendorCount(categoryObj.id)
-                : "0/" + getVendorCount(categoryObj.id)
+              getRespondedVendorCount[categoryObj.id] +
+              "/" +
+              getTotalVendorCount[categoryObj.id]
             }}
           </td>
-          <!-- <td class="px-3 py-2 font-mono">
+          <td class="px-3 py-2 font-mono">
             {{
-              flags.progress >= 3
-                ? getAwardedCount(categoryID) + "/" + detail.lines
-                : "0/" + detail.lines
+              awardedCountByCategory[categoryObj.id] +
+              "/" +
+              getCategoryLine(categoryObj.id)
             }}
-          </td> -->
-          <!-- <td>
+          </td>
+          <td>
             <div
               class="w-max h-max px-2 py-1 rounded-2xl font-bold text-[11px]"
               :class="{
-                'bg-[#eef0f8] text-[#6b7090]': flags.progress === 1,
-                'bg-[#fdf1de] text-[#b46a06]': flags.progress === 2,
-                'bg-[#e1f6f1] text-[#0d8f7a]':
-                  getAwardedCount(categoryID) === lines,
+                'bg-[#eef0f8] text-[#6b7090]':
+                  status[categoryObj.id] === 'Not sent',
+                'bg-[#fdf1de] text-[#b46a06]':
+                  status[categoryObj.id] === 'Awaiting response',
                 'bg-[#eeecfb] text-[#3f3ba6]':
-                  flags.progress >= 3 && getAwardedCount(categoryID) !== lines,
+                  status[categoryObj.id] === 'Under evaluation',
+                'bg-[#e1f6f1] text-[#0d8f7a]':
+                  status[categoryObj.id] === 'Fully awarded',
               }"
             >
-              {{ status(flags.progress, getAwardedCount(categoryID), lines) }}
+              {{ status[categoryObj.id] }}
             </div>
-          </td> -->
+          </td>
         </tr>
       </tbody>
     </table>

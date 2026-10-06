@@ -27,10 +27,31 @@ const responseDeadlineTime = new Date(rfq.rfqDeadline).toLocaleTimeString(
         <p class="font-bold text-[19px]">{{ rfq.rfqDetails.rfq_no }}</p>
       </div>
       <div class="text-right">
-        <span
-          class="text-[#c02d3c] bg-[#fbe6e8] text-[11px] font-bold py-1 px-2 rounded-xl"
-          >&#x25cf; Overdue</span
+        <div
+          v-if="rfq.rfqStatus !== 'draft' && rfq.deadlineStatus === 'overdue'"
+          class="text-[11px] font-bold h-6 w-20 p-1 flex justify-center items-center gap-1 rounded-xl text-[#c02d3c] bg-[#fbe6e8]"
         >
+          <span class="text-[17px]">&#9679;</span>
+          <span>Overdue</span>
+        </div>
+        <div
+          v-else-if="
+            rfq.rfqStatus !== 'draft' && rfq.deadlineStatus === 'due today'
+          "
+          class="text-[11px] font-bold h-6 w-20 p-1 flex justify-center items-center gap-1 rounded-xl text-[#b46a06] bg-[#fdf1de]"
+        >
+          <span class="text-[17px]">&#9679;</span>
+          <span>Due today</span>
+        </div>
+        <div
+          v-else-if="
+            rfq.rfqStatus !== 'draft' && rfq.deadlineStatus === 'upcoming'
+          "
+          class="text-[11px] font-bold h-6 w-20 p-1 flex justify-center items-center gap-1 rounded-xl text-[#0d8f7a] bg-[#e1f6f1]"
+        >
+          <span class="text-[17px]">&#9679;</span>
+          <span>Upcoming</span>
+        </div>
         <p class="text-[#6b7090] text-xs mt-2">
           Submit by
           <span class="font-bold text-black"

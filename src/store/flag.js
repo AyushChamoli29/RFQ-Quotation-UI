@@ -3,7 +3,6 @@ import { ref } from "vue";
 import data from "@/data/mockData.json";
 
 export const useFlagsStore = defineStore("flag", () => {
-  const progress = ref(1);
   const simulateFlag = ref(false);
   const allocateFlag = ref(false);
   const costingFlag = ref(false);
@@ -23,7 +22,6 @@ export const useFlagsStore = defineStore("flag", () => {
     }),
   );
   return {
-    progress,
     simulateFlag,
     allocateFlag,
     costingFlag,

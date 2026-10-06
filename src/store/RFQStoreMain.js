@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { ref, watch } from "vue";
+import { ref, watch, computed } from "vue";
 import data from "@/data/NewMockData.json";
 import { useAllocationStore } from "./AllocationStore";
 import { useAwardedStore } from "./awardedLines";
@@ -13,6 +13,7 @@ export const useRFQMainStore = defineStore("rfq", () => {
   const actors = ref([...data.actor]);
   const selectedActor = ref(actors.value[0]);
   // static data
+  const progress = ref(1);
   const rfqDetails = ref({ ...data.rfq });
   const rfqDeadline = ref(data.deadline);
   const categories = ref([...data.categories]);
@@ -286,11 +287,32 @@ export const useRFQMainStore = defineStore("rfq", () => {
 
     return result;
   }
+  const deadlineStatus = computed(() => {
+    if (!rfqDeadline) return "";
+
+    const now = new Date();
+    const deadline = new Date(rfqDeadline.value);
+
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+
+    const deadlineDay = new Date(
+      deadline.getFullYear(),
+      deadline.getMonth(),
+      deadline.getDate(),
+    );
+
+    if (deadlineDay < today) return "overdue";
+    if (deadlineDay.getTime() === today.getTime()) return "due today";
+    return "upcoming";
+  });
+
   return {
     actors,
     selectedActor,
+    progress,
     rfqDetails,
     rfqDeadline,
+    deadlineStatus,
     categories,
     vendors,
     requirements,

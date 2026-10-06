@@ -62,6 +62,7 @@ const showCosting = () => {
   //     "No awarded line items yet — select vendors in Vendor Responses first.",
   //   );
   // }
+  rfq.progress = 6;
   const hasAwarded = Object.values(awardedStore.awardedLines || {}).some(
     (v) => v !== "no award",
   );

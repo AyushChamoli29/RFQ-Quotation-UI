@@ -33,7 +33,8 @@ const grandFinal = computed(() => {
 const sendToCorporate = () => {
   alert(`Quotation marked as sent to ${rfq.rfqDetails.company}`);
   Flag.sendToCorporateFlag = true;
-  // Flag.progress = 7;
+  rfq.rfqStatus = "sent to corporate";
+  rfq.progress = 7;
   Flag.currentDate = new Date().toLocaleDateString("en-IN", {
     day: "2-digit",
     month: "short",

@@ -1,10 +1,33 @@
 <script setup>
 import RequirementTable from "@/components/RequirementTable.vue";
 import { useRFQMainStore } from "@/store/RFQStoreMain";
-import { watch } from "vue";
-// import { useRFQStore } from "@/store/RFQStore";
-// const rfq = useRFQStore();
+import { useHistoryStore } from "@/store/auditHistory";
+const historyStore = useHistoryStore();
 const rfq = useRFQMainStore();
+function formateDateTime(date) {
+  const responseDeadlineDate = new Date(date).toLocaleDateString("en-IN", {
+    day: "2-digit",
+    month: "long",
+    year: "numeric",
+  });
+  const responseDeadlineTime = new Date(date).toLocaleTimeString("en-IN", {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: true,
+  });
+  return { date: responseDeadlineDate, time: responseDeadlineTime };
+}
+const changeDeadline = (event) => {
+  const oldDeadline = rfq.rfqDeadline;
+  const newDeadline = event.target.value;
+  historyStore.historyEntry({
+    actor: rfq.selectedActor.name,
+    roleOrCompany: rfq.selectedActor.role,
+    action: "RFQ deadline changed",
+    detail: `${formateDateTime(oldDeadline).date}, ${formateDateTime(oldDeadline).time} => ${formateDateTime(newDeadline).date}, ${formateDateTime(newDeadline).time}`,
+  });
+  rfq.rfqDeadline = newDeadline;
+};
 </script>
 
 <template>
@@ -42,7 +65,8 @@ const rfq = useRFQMainStore();
       <input
         type="datetime-local"
         id="date"
-        v-model="rfq.rfqDeadline"
+        :value="rfq.rfqDeadline"
+        @change="changeDeadline"
         class="w-full outline outline-slate-300 p-2 mt-1 rounded-lg"
       />
     </div>
