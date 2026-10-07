@@ -1,5 +1,5 @@
 <script setup>
-import { defineProps, ref, onMounted, watch, computed } from "vue";
+import { defineProps, watch, computed } from "vue";
 import { useRFQMainStore } from "@/store/RFQStoreMain.js";
 import VendorPortalTable from "./VendorPortalTable.vue";
 import VendorPortalCard from "./VendorPortalCard.vue";
@@ -38,7 +38,7 @@ function findCategoryID(vendorid) {
     }
   }
 }
-console.log(rfq.vendorPortalTempObj);
+// whenever selected vendor changes this runs and we have used Json.parse because we don't the changes to get reflected before the submit button is clicked so we made a deep copy
 watch(
   () => prop.vendorid,
   () => {
@@ -60,6 +60,7 @@ watch(
   },
   { immediate: true },
 );
+//
 const submitQuotation = () => {
   const newData = rfq.vendorPortalTempObj;
 
@@ -79,7 +80,9 @@ const submitQuotation = () => {
     alert("Please enter at least one line item before submitting.");
     return;
   }
+  // the above thing was to make sure that atleast one price is filled before submitting
 
+  // the below things is for the audit history because when we click on submit then all the changes done like change in price, tax, remark it is logged in audit history
   const oldData = rfq.workingQuotation[prop.vendorid] || {};
   for (const key of Object.keys(newData)) {
     const oldLine = oldData[key] || {};
@@ -131,38 +134,13 @@ const submitQuotation = () => {
       });
     }
   }
+  // till here it was audit history part
 
-  // this is the audit history for whenever there are changes in vendor portal, this is just for price and this is not working because in 7th line below the condition is always false because when we change something in vendorPortal temp object it reflects in rfq.workingQuotation so you have to check this later
-
-  // const oldData = rfq.workingQuotation[prop.vendorid] || {};
-  // for (const key of Object.keys(data)) {
-  //   const newLine = data[key] || {};
-  //   const oldLine = oldData[key] || {};
-  //   console.log("OLD", oldData);
-  //   console.log("NEW", data);
-  //   if (newLine.price !== oldLine.price) {
-  //     const line = rfq.requirements.find((r) => r.id === key);
-
-  //     const oldValue = oldLine.price === null ? "blank" : oldLine.price;
-
-  //     const newValue = newLine.price === null ? "blank" : newLine.price;
-  //     historyStore.historyEntry({
-  //       actor: rfq.selectedActor.name,
-  //       roleOrCompany: rfq.selectedActor.role,
-  //       action: "Vendor updated quotation line",
-  //       vendor: rfq.vendorName(prop.vendorid),
-  //       category: rfq.categoryName(findCategoryID(prop.vendorid)),
-  //       detail: `${line?.name || key} - rate: ${oldValue} => ${newValue}`,
-  //     });
-  //   }
-  // }
-
-  //  Save data
+  //  Save data in working quotation
   rfq.workingQuotation[prop.vendorid] = {
     ...rfq.vendorPortalTempObj,
   };
-
-  //  Decide status
+  //  Decide status according to filled count and total count
   let newStatus = "";
 
   if (filledCount === totalCount) {
@@ -184,6 +162,7 @@ const submitQuotation = () => {
 
   alert("Quotation submitted successfully");
 };
+// this is used to compute the category id of the vendor in prop or the vendor selected in vendor portal
 const categoryid = computed(() => {
   let name;
   for (const element of rfq.vendors) {
@@ -197,6 +176,7 @@ const categoryid = computed(() => {
     }
   }
 });
+// this is used to compute the vendor status from rfq allocation
 const vendorStatus = computed(() => {
   for (const element of rfq.allocation) {
     if (element.id === categoryid.value) {
@@ -223,71 +203,90 @@ const vendorStatus = computed(() => {
   <br />
   <div class="flex flex-col gap-5 ml-2">
     <VendorPortalCard />
-    <VendorPortalTable :vendorid="prop.vendorid" />
-    <div class="bg-white text-xs p-4 h-max flex flex-col gap-2">
-      <p class="text-[#3a3f58] font-bold">General proposal / covering note</p>
-      <textarea
-        class="w-full h-20 border border-slate-200 py-2 px-4 rounded-lg"
-      >
+    <VendorPortalTable
+      v-if="vendorStatus !== 'declined'"
+      :vendorid="prop.vendorid"
+    />
+    <div v-if="vendorStatus !== 'declined'">
+      <div class="bg-white text-xs p-4 h-max flex flex-col gap-2">
+        <p class="text-[#3a3f58] font-bold">General proposal / covering note</p>
+        <textarea
+          class="w-full h-20 border border-slate-200 py-2 px-4 rounded-lg"
+        >
 Pleased to support this movement &mdash; happy to discuss further.</textarea
-      >
-      <p class="text-[#3a3f58] font-bold">
-        Attach supporting proposal document
-      </p>
-      <span
-        v-if="
-          vendorStatus !== 'submitted' && vendorStatus !== 'partially submitted'
-        "
-        ><button class="bg-[#e9e9ee] font-semibold py-1 px-2 border mr-2">
-          Choose file</button
-        ><span>No file chosen</span></span
-      >
-      <span
+        >
+        <p class="text-[#3a3f58] font-bold">
+          Attach supporting proposal document
+        </p>
+        <span
+          v-if="
+            vendorStatus !== 'submitted' &&
+            vendorStatus !== 'partially submitted'
+          "
+          ><button class="bg-[#e9e9ee] font-semibold py-1 px-2 border mr-2">
+            Choose file</button
+          ><span>No file chosen</span></span
+        >
+        <span
+          v-if="
+            vendorStatus === 'submitted' ||
+            vendorStatus === 'partially submitted'
+          "
+          class="text-[#3a3f58] font-bold"
+          >&mdash;</span
+        >
+      </div>
+      <div
         v-if="
           vendorStatus === 'submitted' || vendorStatus === 'partially submitted'
         "
-        class="text-[#3a3f58] font-bold"
-        >&mdash;</span
+        class="bg-white rounded-xl p-4 px-6 text-xs flex justify-between items-center"
       >
+        <div class="text-[#6b7090]">
+          Submitted on {{ currentDate }}, {{ currentTime }}
+        </div>
+        <div
+          class="text-[#3a3f58] font-bold w-max border border-[#e3e5f0] hover:bg-[#ebecf7] py-3 px-4 rounded-lg cursor-pointer"
+        >
+          Download Acknowledgement
+        </div>
+      </div>
+      <div
+        v-if="
+          rfq.rfqStatus === 'allocated' &&
+          vendorStatus !== 'submitted' &&
+          vendorStatus !== 'partially submitted'
+        "
+        class="bg-white rounded-xl p-4 px-6 text-xs flex justify-between items-center"
+      >
+        <div class="text-[#6b7090]">
+          Save as draft any time &mdash; submitting locks your quotation for
+          this RFQ.
+        </div>
+        <div
+          class="text-[#3a3f58] font-bold w-max border border-[#e3e5f0] hover:bg-[#ebecf7] py-3 px-4 rounded-lg cursor-pointer"
+        >
+          Save draft
+        </div>
+        <div
+          class="py-3 px-4 rounded-lg font-bold text-white bg-[#4d3fc9] cursor-pointer"
+          @click="submitQuotation"
+        >
+          Submit quotation
+        </div>
+      </div>
     </div>
     <div
-      v-if="
-        vendorStatus === 'submitted' || vendorStatus === 'partially submitted'
-      "
-      class="bg-white rounded-xl p-4 px-6 text-xs flex justify-between items-center"
+      v-else-if="vendorStatus === 'declined'"
+      class="w-full h-full p-5 bg-white rounded-lg"
     >
-      <div class="text-[#6b7090]">
-        Submitted on {{ currentDate }}, {{ currentTime }}
-      </div>
       <div
-        class="text-[#3a3f58] font-bold w-max border border-[#e3e5f0] hover:bg-[#ebecf7] py-3 px-4 rounded-lg cursor-pointer"
+        class="text-[10px] font-bold h-5 w-20 p-1 flex justify-center items-center gap-1 rounded-xl text-[#c02d3c] bg-[#fbe6e8]"
       >
-        Download Acknowledgement
+        <span class="text-[15px]">&#9679;</span>
+        <span>Declined</span>
       </div>
-    </div>
-    <div
-      v-if="
-        rfq.rfqStatus === 'allocated' &&
-        vendorStatus !== 'submitted' &&
-        vendorStatus !== 'partially submitted'
-      "
-      class="bg-white rounded-xl p-4 px-6 text-xs flex justify-between items-center"
-    >
-      <div class="text-[#6b7090]">
-        Save as draft any time &mdash; submitting locks your quotation for this
-        RFQ.
-      </div>
-      <div
-        class="text-[#3a3f58] font-bold w-max border border-[#e3e5f0] hover:bg-[#ebecf7] py-3 px-4 rounded-lg cursor-pointer"
-      >
-        Save draft
-      </div>
-      <div
-        class="py-3 px-4 rounded-lg font-bold text-white bg-[#4d3fc9] cursor-pointer"
-        @click="submitQuotation"
-      >
-        Submit quotation
-      </div>
+      You declined to participate in this category
     </div>
   </div>
 </template>

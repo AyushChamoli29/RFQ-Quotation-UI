@@ -1,5 +1,5 @@
 <script setup>
-import { computed, defineProps, ref, onMounted } from "vue";
+import { computed, defineProps } from "vue";
 import { useRFQMainStore } from "@/store/RFQStoreMain.js";
 import { useAwardedStore } from "@/store/awardedLines";
 import { useHistoryStore } from "@/store/auditHistory";
@@ -9,23 +9,11 @@ const historyStore = useHistoryStore();
 const prop = defineProps({
   categoryID: String,
 });
-function categoryName(id) {
-  for (const categoryObj of rfq.categories) {
-    if (categoryObj.id === id) {
-      return categoryObj.name;
-    }
-  }
-}
-function vendorName(id) {
-  for (const vendorObj of rfq.vendors) {
-    if (vendorObj.id === id) {
-      return vendorObj.name;
-    }
-  }
-}
+// this gives an array which has those requirement lines which belong to this specific category id
 const requirement = computed(() => {
   return rfq.requirements.filter((item) => item.categoryId === prop.categoryID);
 });
+// this returns an array of vendors for the given requirement id; it includes only those vendors for which a working quotation object exists, the given requirement id exists in it, and its price is not null
 function getVendors(id) {
   const category = rfq.allocation.find((item) => item.id === prop.categoryID);
 
@@ -36,6 +24,7 @@ function getVendors(id) {
     return vendorData && vendorData[id] && vendorData[id].price !== null;
   });
 }
+// if for the given requirement id there is a vendor awarded or selected which means in awarded store awarded lines for this requirement id there is a vendor id then we will calculate its base, markup and total price and this function returns those 3 calculated things
 function calculatePrice(rid) {
   const vid = awardedStore.awardedLines[rid];
   let quantity = 0;
@@ -68,6 +57,7 @@ function calculatePrice(rid) {
     sellingTotal,
   };
 }
+// this is a function which takes a number and formats it into the currency format
 function convertIntoCurrency(number) {
   return number.toLocaleString("en-IN", {
     style: "currency",
@@ -75,9 +65,7 @@ function convertIntoCurrency(number) {
     minimumFractionDigits: 0,
   });
 }
-// console.log(awardedStore.awardedLines);
-// console.log(rfq.marginOfAll);
-// console.log(awardedStore.awardedLinesData);
+// this function takes vendor id as input and gives its category id as output
 function findCategoryID(vendorid) {
   for (const element of rfq.vendors) {
     for (const item of rfq.categories) {
@@ -90,6 +78,7 @@ function findCategoryID(vendorid) {
     }
   }
 }
+// since fro all requirements their value initially is no award this function is used to change for this specific requirement line to the vendor it has selected which is being done in the last line of this function but i am also using old vendor because i want to make an entry to the audit history whenever we change the awarded vendor for any requirement line
 const awardLineAudit = (id, event) => {
   const oldVendorId = awardedStore.awardedLines[id];
   const newVendorId = event.target.value;
@@ -120,7 +109,7 @@ const awardLineAudit = (id, event) => {
 
 <template>
   <div class="text-[#6b7090] text-[13px] font-bold px-5">
-    VENDOR SELECTION FOR {{ categoryName(prop.categoryID).toUpperCase() }}
+    VENDOR SELECTION FOR {{ rfq.categoryName(prop.categoryID).toUpperCase() }}
   </div>
   <br />
   <div>
@@ -153,7 +142,7 @@ const awardLineAudit = (id, event) => {
                 :value="vObj.vendorid"
                 v-for="vObj in getVendors(item.id)"
               >
-                {{ vendorName(vObj.vendorid) }}
+                {{ rfq.vendorName(vObj.vendorid) }}
               </option>
             </select>
             <div

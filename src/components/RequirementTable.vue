@@ -40,10 +40,11 @@ const allocateVendors = () => {
   rfq.progress = 2;
   // go to vendor responses
   router.push({ name: "vendorResponses" });
-  // this vendors allocated is an array of all those vendor id who have been allocated this is required for audit history
+  // this vendors allocated is an array of all those vendor id who have been allocated this is required for audit history and also changing their status from not-sent to sent
   const vendorsAllocated = [];
   for (const element of rfq.allocation) {
     for (const item of element.vendorList) {
+      item.status = "sent";
       vendorsAllocated.push(item.vendorid);
     }
   }
@@ -64,7 +65,7 @@ const allocateVendors = () => {
     detail: `${rfq.rfqDetails.rfq_no} sent to ${vendorsAllocated.length} vendor(s) across ${rfq.categories.length} categories`,
   });
 };
-// this requirement is
+// this requirement is an object where i have converted the requirement array into object where key is category id and value is an array which has all the requirement lines belonging to that specific category
 const requirement = rfq.requirements.reduce((acc, cur) => {
   if (!acc[cur.categoryId]) {
     acc[cur.categoryId] = [];

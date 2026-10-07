@@ -1,15 +1,14 @@
 <script setup>
-import { computed, ref } from "vue";
+import { computed } from "vue";
 import CostingBox from "@/components/CostingBox.vue";
 import { RouterLink } from "vue-router";
 import { useHistoryStore } from "@/store/auditHistory";
 import { useAwardedStore } from "@/store/awardedLines";
-import { useFlagsStore } from "@/store/flag";
 import { useRFQMainStore } from "@/store/RFQStoreMain";
 const rfq = useRFQMainStore();
-const Flag = useFlagsStore();
 const awardedStore = useAwardedStore();
 const historyStore = useHistoryStore();
+// this is the costing data to be shown derived from costing snapshot
 const costingData = computed(() => rfq.costingSnapshot || []);
 const grandBase = computed(() => {
   let ans = 0;
@@ -51,17 +50,9 @@ const awardedLinesNumber = computed(() => {
   }
   return count;
 });
+// this function finds for all requirement lines is any one awarded if atleast one is awarded it finds the costing and also entry is done in audit history, we are using costing snapshot because if we get costing and then change the awarded vendors then the earlier costing should persist instead of changing as we change the vendor
 const showCosting = () => {
-  // if (awardedStore.awarded.length > 0) {
-  //   // Flag.costingFlag = true;
-  //   // Flag.progress = 6;
-  //   rfq.rfqStatus = "awarded";
-  //   awardedStore.costVersions++;
-  // } else {
-  //   alert(
-  //     "No awarded line items yet — select vendors in Vendor Responses first.",
-  //   );
-  // }
+  // this is just for the timeline in overview
   rfq.progress = 6;
   const hasAwarded = Object.values(awardedStore.awardedLines || {}).some(
     (v) => v !== "no award",
@@ -88,8 +79,6 @@ const showCosting = () => {
     )}`,
   });
 };
-
-// console.log(historyStore.history);
 </script>
 
 <template>
@@ -158,7 +147,7 @@ const showCosting = () => {
   </div>
   <div v-if="rfq.costingSnapshot && rfq.costingSnapshot.length > 0">
     <div v-for="element in costingData" class="mb-5 bg-white p-5 rounded-lg">
-      <CostingBox :data="element" />
+      <CostingBox :categoryObj="element" />
     </div>
     <div
       class="flex justify-end items-center gap-20 py-5 pr-5 mt-5 bg-white rounded-xl text-[13px] text-[#6b7090] font-mono"

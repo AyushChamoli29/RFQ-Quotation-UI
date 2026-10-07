@@ -1,20 +1,12 @@
 <script setup>
 import { computed } from "vue";
-import { useFlagsStore } from "@/store/flag";
 import { useAwardedStore } from "@/store/awardedLines";
 import { useHistoryStore } from "@/store/auditHistory";
 import { useRFQMainStore } from "@/store/RFQStoreMain";
 const rfq = useRFQMainStore();
-const Flag = useFlagsStore();
 const awardedStore = useAwardedStore();
 const historyStore = useHistoryStore();
-function getCategoryName(id) {
-  for (const category of rfq.categories) {
-    if (category.id === id) {
-      return category.name;
-    }
-  }
-}
+// this function takes a number as input and formats it into currency format
 function formatCurrency(value) {
   return Number(value).toLocaleString("en-IN", {
     style: "currency",
@@ -22,7 +14,9 @@ function formatCurrency(value) {
     minimumFractionDigits: 0,
   });
 }
+// this is data from costing snapshot
 const quotationData = computed(() => rfq.costingSnapshot || []);
+// this is the computation of grand total
 const grandFinal = computed(() => {
   let ans = 0;
   for (const element of quotationData.value) {
@@ -30,21 +24,14 @@ const grandFinal = computed(() => {
   }
   return formatCurrency(ans);
 });
+// this is basically used to send an alert the the quotation is sent, for updating the rfq status and for entry in the audit history also
 const sendToCorporate = () => {
   alert(`Quotation marked as sent to ${rfq.rfqDetails.company}`);
-  Flag.sendToCorporateFlag = true;
+  // this flag is for the UI
+  rfq.sendToCorporateFlag = true;
   rfq.rfqStatus = "sent to corporate";
+  // this is for timeline in overview
   rfq.progress = 7;
-  Flag.currentDate = new Date().toLocaleDateString("en-IN", {
-    day: "2-digit",
-    month: "short",
-    year: "numeric",
-  });
-  Flag.currentTime = new Date().toLocaleTimeString("en-IN", {
-    hour: "2-digit",
-    minute: "2-digit",
-    hour12: true,
-  });
   historyStore.historyEntry({
     actor: rfq.selectedActor.name,
     roleOrCompany: rfq.selectedActor.role,
@@ -106,19 +93,13 @@ const sendToCorporate = () => {
             :class="{ 'border-t border-[#eef0f8]': element.total > 0 }"
           >
             <td v-if="element.total > 0" class="font-bold py-2 pl-2">
-              {{ getCategoryName(element.categoryID) }}
+              {{ rfq.categoryName(element.categoryID) }}
             </td>
             <td v-if="element.total > 0" class="pl-2">
               {{ element.lines.length }}
             </td>
             <td v-if="element.total > 0" class="font-mono font-bold">
-              {{
-                Number(element.total).toLocaleString("en-IN", {
-                  style: "currency",
-                  currency: "INR",
-                  minimumFractionDigits: 0,
-                })
-              }}
+              {{ formatCurrency(element.total) }}
             </td>
           </tr>
         </tbody>
@@ -140,25 +121,25 @@ const sendToCorporate = () => {
     </div>
     <div class="flex justify-between mt-2">
       <div class="text-[#6b7090] text-[12.5px]">
-        <span v-if="!Flag.sendToCorporateFlag"
+        <span v-if="!rfq.sendToCorporateFlag"
           >Not yet sent to the corporate contact.</span
         >
-        <span v-if="Flag.sendToCorporateFlag"
-          >Sent to corporate on {{ Flag.currentDate }},
-          {{ Flag.currentTime }}.</span
+        <span v-if="rfq.sendToCorporateFlag"
+          >Sent to corporate on {{ rfq.currentDate }},
+          {{ rfq.currentTime }}.</span
         >
       </div>
       <div
         class="font-[650] text-[13px] p-2 rounded-lg cursor-pointer"
         :class="
-          Flag.sendToCorporateFlag
+          rfq.sendToCorporateFlag
             ? 'bg-white text-[#3a3f58] border border-[#e3e5f0] hover:bg-[#eef0f8]'
             : 'bg-[#0d8f7a] text-white'
         "
         @click="sendToCorporate"
       >
-        <span v-if="!Flag.sendToCorporateFlag">Mark as sent to corporate</span>
-        <span v-else-if="Flag.sendToCorporateFlag">Re-send quotation</span>
+        <span v-if="!rfq.sendToCorporateFlag">Mark as sent to corporate</span>
+        <span v-else-if="rfq.sendToCorporateFlag">Re-send quotation</span>
       </div>
     </div>
   </div>

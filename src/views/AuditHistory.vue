@@ -9,6 +9,7 @@ const search = ref("");
 const category = ref("all categories");
 const actor = ref("all actors");
 const action = ref("all actions");
+// this computes the unique actions available for dropdown 
 const actionsOptions = computed(() => {
   let result = new Set();
   for (const element of historyStore.history) {
@@ -16,6 +17,7 @@ const actionsOptions = computed(() => {
   }
   return [...result];
 });
+// here this computes the audit history on the basis of search and filter options
 const filteredAuditHistory = computed(() => {
   return historyStore.history.filter((item) => {
     const searchMatch =

@@ -1,15 +1,10 @@
 <script setup>
 import { RouterLink } from "vue-router";
-import { computed, ref } from "vue";
+import { computed } from "vue";
 import VendorResponsesBox from "@/components/VendorResponsesBox.vue";
-// import { useVendorStore } from "@/store/VendorStore";
 import { useRFQMainStore } from "@/store/RFQStoreMain";
-import { useFlagsStore } from "@/store/flag";
-const flags = useFlagsStore();
 const rfq = useRFQMainStore();
-const data = ref(rfq.workingQuotation);
-// console.log(data.value);
-// const vendorStore = useVendorStore();
+// this returns an array of all those categoryid in which more than or equal to 1 vendor is allocated
 const categoryWithVendor = computed(() => {
   let result = [];
   for (const categoryObj of rfq.allocation) {
@@ -19,8 +14,6 @@ const categoryWithVendor = computed(() => {
   }
   return result;
 });
-// console.log(rfq.allocation);
-// console.log(rfq.workingQuotation);
 </script>
 
 <template>

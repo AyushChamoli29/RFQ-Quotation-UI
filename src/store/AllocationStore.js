@@ -1,10 +1,10 @@
 import { defineStore } from "pinia";
-import { useRFQStore } from "./RFQStore";
 import { useRFQMainStore } from "./RFQStoreMain";
-import { ref, computed } from "vue";
+import { computed } from "vue";
 
 export const useAllocationStore = defineStore("allocation", () => {
   const rfq = useRFQMainStore();
+  // list of vendors allocated in all categories
   const vendorsSelected = computed(() => {
     let tempSet = new Set();
     for (const vendorObj of rfq.allocation) {

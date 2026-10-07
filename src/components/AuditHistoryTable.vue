@@ -1,7 +1,5 @@
 <script setup>
 import { defineProps } from "vue";
-import { useHistoryStore } from "@/store/auditHistory";
-const historyStore = useHistoryStore();
 const prop = defineProps({
   history: Array,
 });

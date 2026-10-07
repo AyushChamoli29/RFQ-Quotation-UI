@@ -1,27 +1,12 @@
 <script setup>
-// import data from "@/data/mockData.json";
 import { computed, defineProps, ref, watch } from "vue";
-// import { useHistoryStore } from "@/store/auditHistory";
-// import { useFlagsStore } from "@/store/flag";
-// import { useVendorStore } from "@/store/requirementsVendor";
-import { useAllocationStore } from "@/store/AllocationStore";
 import { useRFQMainStore } from "@/store/RFQStoreMain";
 const rfq = useRFQMainStore();
-const allocationStore = useAllocationStore();
-// const historyStore = useHistoryStore();
-// const flags = useFlagsStore();
-// const vendorsStore = useVendorStore();
 const props = defineProps({
   id: String,
   value: Array,
 });
-const CategoryName = computed(() => {
-  for (const categoryObj of rfq.categories) {
-    if (categoryObj.id === props.id) {
-      return categoryObj.name;
-    }
-  }
-});
+// this is used to find the default margin of this specific category
 const CategoryDefaultMargin = computed(() => {
   for (const element of rfq.categories) {
     if (element.id === props.id) {
@@ -29,6 +14,7 @@ const CategoryDefaultMargin = computed(() => {
     }
   }
 });
+// this basically makes a an array in which each element is an object which has id, name and status of a vendor for this specific category
 const vendors = computed(() => {
   const category = rfq.allocation.find((obj) => obj.id === props.id);
 
@@ -50,6 +36,7 @@ const vendors = computed(() => {
     })
     .filter(Boolean);
 });
+// this makes an array of all those vendors who belong to this category and are not yet selected. Using this list we find the search list later when search flag becomes true
 const baseSearchList = computed(() => {
   const category = rfq.allocation.find((obj) => obj.id === props.id);
 
@@ -61,19 +48,14 @@ const baseSearchList = computed(() => {
     const isAlreadySelected = selectedVendorIds.includes(vendor.id);
 
     const isSameCategory =
-      vendor.type.toLowerCase() === CategoryName.value.toLowerCase();
+      vendor.type.toLowerCase() === rfq.categoryName(props.id).toLowerCase();
 
     return !isAlreadySelected && isSameCategory;
   });
 });
 const searchValue = ref("");
-const arrow = ref(false);
-const hiddenItems = ref({});
-const showDetails = (key) => {
-  arrow.value = !arrow.value;
-  hiddenItems.value[key] = !hiddenItems.value[key];
-};
 const searchFlag = ref(false);
+// Using the base search list and the search value we compute the new search list to be shown
 const searchList = computed(() => {
   const search = searchValue.value.trim().toLowerCase();
 
@@ -94,59 +76,14 @@ watch(searchValue, (newSearch) => {
 const closeSearchResults = () => {
   searchFlag.value = false;
 };
-const addVendor = (searchID, categoryID) => {
-  allocationStore.addVendor(searchID, categoryID);
-  searchFlag.value = false;
+// this arrow is basically a small arrow head in ui it controls its position
+const arrow = ref(false);
+// this is an initially empty object when somneone clicks on a category then showdetail is called which just makes its value true at 1st and then for subsequent clicks in just toggles it if suppose for category hotel its value is true in hidden items then i am using this object to show or hide this category
+const hiddenItems = ref({});
+const showDetails = (key) => {
+  arrow.value = !arrow.value;
+  hiddenItems.value[key] = !hiddenItems.value[key];
 };
-// const addToVendor = (id, name) => {
-//   const category = vendorsStore.currentVendors.find((item) => {
-//     return item.type === props.name;
-//   });
-//   const vendor = Data.vendor_portal.find((element) => {
-//     return element.id === id;
-//   });
-//   if (category && vendor) {
-//     category.VendorList.push({ id: vendor.id, simulated: false });
-//   }
-//   searchList.value = searchList.value.filter((item) => {
-//     return item.id !== id;
-//   });
-//   closeSearchResults();
-//   historyStore.historyEntry({
-//     actor: flags.selectedActor.name,
-//     roleOrCompany: flags.selectedActor.role,
-//     action: "Vendor allocated to category",
-//     vendor: name,
-//     category: props.name,
-//     detail: `${name} added to ${props.name} (primary category:${vendor.type})`,
-//   });
-// };
-// const deleteVendor = (item, index) => {
-//   const category = vendorsStore.currentVendors.find((element) => {
-//     return element.type === props.name;
-//   });
-//   if (category.VendorList[index].simulated === false) {
-//     category.VendorList.splice(index, 1);
-//   } else if (category.VendorList[index].simulated === true) {
-//     alert(
-//       `${item} has already submitted a quotation for this RFQ and cannot be silently removed. Exclude their quote at the award stage instead, or discuss a formal withdrawal with them first.`,
-//     );
-//   }
-//   historyStore.historyEntry({
-//     actor: flags.selectedActor.name,
-//     roleOrCompany: flags.selectedActor.role,
-//     action: "Vendor removed from category allocation",
-//     vendor: item,
-//     category: props.name,
-//   });
-// };
-// vendorsStore.totalVendors = computed(() => {
-//   let sum = 0;
-//   for (const element of vendorsStore.currentVendors) {
-//     sum += element.VendorList.length;
-//   }
-//   return sum;
-// });
 </script>
 
 <template>
@@ -159,7 +96,7 @@ const addVendor = (searchID, categoryID) => {
       <div class="flex items-center justify-start gap-3 px-4 py-3">
         <span v-if="arrow" class="font-bold text-[#9ba0c0] text-[9px]">▹</span
         ><span v-if="!arrow" class="font-bold text-[#9ba0c0] text-[9px]">▾</span
-        ><span class="font-bold">{{ CategoryName }}</span
+        ><span class="font-bold">{{ rfq.categoryName(props.id) }}</span
         ><span
           class="px-2 outline outline-slate-300 rounded-lg bg-[#eef0f8] text-[11px] text-[#6b7090] font-bold"
           >{{ props.value.length }} lines</span
@@ -214,8 +151,8 @@ const addVendor = (searchID, categoryID) => {
     <div class="ml-5 mb-5">
       <p class="mb-1">
         Vendor allocation for this category — each vendor added below receives
-        an RFQ scoped only to {{ CategoryName }}. Search across the full vendor
-        master, or add a brand-new vendor on the fly.
+        an RFQ scoped only to {{ rfq.categoryName(props.id) }}. Search across
+        the full vendor master, or add a brand-new vendor on the fly.
       </p>
       <div v-if="vendors.length >= 1" class="flex gap-2 mb-1 flex-wrap">
         <div

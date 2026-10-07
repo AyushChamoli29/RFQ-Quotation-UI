@@ -1,5 +1,4 @@
 <script setup>
-import data from "@/data/mockData.json";
 import { useRFQMainStore } from "@/store/RFQStoreMain";
 import { defineProps, ref, computed } from "vue";
 import { useHistoryStore } from "@/store/auditHistory";
@@ -15,6 +14,7 @@ const vendorType = (vendorid) => {
     }
   }
 };
+// this returns the category id of the vendor selected in vendor portal
 const categoryid = computed(() => {
   let name;
   for (const element of rfq.vendors) {
@@ -28,6 +28,7 @@ const categoryid = computed(() => {
     }
   }
 });
+// return the vendor obj of the vendor from allocation this object contains the vendor id and its status
 const vendorFullObj = computed(() => {
   for (const element of rfq.allocation) {
     if (element.id === categoryid.value) {
@@ -39,6 +40,7 @@ const vendorFullObj = computed(() => {
     }
   }
 });
+// return an array of all those requirement lines who are of the same category as that of the vendor
 const requirementLines = computed(() => {
   const vendor = rfq.vendors.find((v) => v.id === prop.vendorid);
   if (!vendor) return [];
@@ -50,7 +52,9 @@ const requirementLines = computed(() => {
 
   return rfq.requirements.filter((line) => line.categoryId === category.id);
 });
+// this stores the clarification question asked
 const clarificationQuestion = ref("");
+// this stores the clarification question in clarifications in rfq and also adds an entry in audit history and gives an alert
 const sendClarificationQuestion = () => {
   if (!clarificationQuestion.value.trim()) return;
   rfq.clarifications.push({

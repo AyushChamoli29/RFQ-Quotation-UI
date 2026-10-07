@@ -1,32 +1,25 @@
 <script setup>
-import { useAwardedStore } from "@/store/awardedLines";
 import { useRFQMainStore } from "@/store/RFQStoreMain";
 import { defineProps } from "vue";
 const prop = defineProps({
-  data: Object,
+  categoryObj: Object,
 });
 const rfq = useRFQMainStore();
-function getCategoryName() {
-  for (const category of rfq.categories) {
-    if (category.id === prop.data.categoryID) {
-      return category.name;
-    }
-  }
-}
-function formatCurrency(value) {
-  return Number(value).toLocaleString("en-IN", {
+// this function formats the given number into the currency format
+function formatCurrency(number) {
+  return Number(number).toLocaleString("en-IN", {
     style: "currency",
     currency: "INR",
     minimumFractionDigits: 0,
   });
 }
-const awardedStore = useAwardedStore();
-console.log(awardedStore.awardedLines);
 </script>
 
 <template>
-  <div v-if="prop.data?.lines?.length > 0">
-    <div class="font-bold ml-2">{{ getCategoryName() }}</div>
+  <div v-if="prop.categoryObj?.lines?.length > 0">
+    <div class="font-bold ml-2">
+      {{ rfq.categoryName(prop.categoryObj.categoryID) }}
+    </div>
     <div>
       <table class="w-full">
         <thead class="text-xs text-[#6b7090] font-bold text-left">
@@ -42,7 +35,7 @@ console.log(awardedStore.awardedLines);
         </thead>
         <tbody class="text-[13px]">
           <tr
-            v-for="element in prop.data?.lines || []"
+            v-for="element in prop.categoryObj?.lines || []"
             :key="element.particular + element.vendor"
             class="border-t border-[#eef0f8]"
           >
@@ -68,13 +61,13 @@ console.log(awardedStore.awardedLines);
             <td></td>
             <td></td>
             <td class="font-bold">
-              {{ formatCurrency(prop.data.base) }}
+              {{ formatCurrency(prop.categoryObj.base) }}
             </td>
             <td class="text-[#0d8f7a] font-bold">
-              {{ formatCurrency(prop.data.profit) }}
+              {{ formatCurrency(prop.categoryObj.profit) }}
             </td>
             <td class="text-[#3f3ba6] font-bold">
-              {{ formatCurrency(prop.data.total) }}
+              {{ formatCurrency(prop.categoryObj.total) }}
             </td>
           </tr>
           <tr class="text-[#6b7090] text-[11px] font-mono">
