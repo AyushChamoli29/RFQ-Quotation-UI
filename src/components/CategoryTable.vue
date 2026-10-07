@@ -1,27 +1,11 @@
 <script setup>
-import { computed, ref } from "vue";
+import { computed } from "vue";
 import { useRFQMainStore } from "@/store/RFQStoreMain";
-import { useFlagsStore } from "@/store/flag";
 import { useAwardedStore } from "@/store/awardedLines";
 const rfq = useRFQMainStore();
-const flags = useFlagsStore();
 const awardedStore = useAwardedStore();
-// const getVendorCount = (id) => {
-//   for (const [categoryID, value] of Object.entries(rfq.allocation)) {
-//     if (categoryID === id) {
-//       return value.length;
-//     }
-//   }
-//   return 0;
-// };
-// const getAwardedCount = (id) => {
-//   for (const [key, value] of Object.entries(evaluationStore.awardedLines)) {
-//     if (key === id) {
-//       return Object.keys(value.data).length;
-//     }
-//   }
-//   return 0;
-// };
+
+// this counts the number of requirement line for this particular category
 function getCategoryLine(id) {
   let counter = 0;
   for (const requirementObj of rfq.requirements) {
@@ -31,6 +15,7 @@ function getCategoryLine(id) {
   }
   return counter;
 }
+// this returns an object which has the count of vendors allocated who have given response for each category
 const getRespondedVendorCount = computed(() => {
   const obj = {};
 
@@ -57,6 +42,7 @@ const getRespondedVendorCount = computed(() => {
 
   return obj;
 });
+// this returns an object which has the count of total vendors allocated for each category
 const getTotalVendorCount = computed(() => {
   const obj = {};
   rfq.categories.forEach((categoryObj) => {
@@ -69,6 +55,7 @@ const getTotalVendorCount = computed(() => {
   });
   return obj;
 });
+// this returns an object which has the count of vendors which are awarded for each category
 const awardedCountByCategory = computed(() => {
   let obj = {};
 
@@ -88,6 +75,7 @@ const awardedCountByCategory = computed(() => {
 
   return obj;
 });
+// this returns an object which has status of each category
 const status = computed(() => {
   let obj = {};
 

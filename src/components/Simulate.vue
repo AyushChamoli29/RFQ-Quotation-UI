@@ -6,6 +6,7 @@ import { useRFQMainStore } from "@/store/RFQStoreMain";
 const rfq = useRFQMainStore();
 const router = useRouter();
 const historyStore = useHistoryStore();
+// this returns an object which has the number of quoted lines and total lines for a given vendorid,i.e.., for every vendor the number of lines for which the price is not null is the number of quoted lines
 const findQuotedLines = (vendorid) => {
   let totalLines = 0;
   let quotedLines = 0;
@@ -24,8 +25,16 @@ const findQuotedLines = (vendorid) => {
   }
   return { quoted: quotedLines, total: totalLines };
 };
+const categoryName = (id) => {
+  for (const element of rfq.vendors) {
+    if (element.id === id) {
+      return element.type;
+    }
+  }
+};
 const simulateVendors = () => {
-  rfq.progress=3;
+  // this progress is just for timeline in overview
+  rfq.progress = 3;
   rfq.rfqStatus = "simulated";
   // down here we get all the prices when simulate is clicked from base quotation to working quotation in rfq store
   for (const categoryObj of rfq.categories) {
@@ -83,7 +92,7 @@ const simulateVendors = () => {
       actor: rfq.selectedActor.name,
       roleOrCompany: rfq.selectedActor.role,
       action: "Vendor portal accessed",
-      category: rfq.categoryName(vid),
+      category: categoryName(vid),
       vendor: rfq.vendorName(vid),
       detail: "Secure link opened (simulated)",
     });
@@ -92,7 +101,7 @@ const simulateVendors = () => {
       roleOrCompany: rfq.selectedActor.role,
       action: `${findQuotedLines(vid).quoted === 0 ? "Vendor declined category" : "Vendor submitted quotation"}`,
       category: categoryName(vid),
-      vendor: vendorName(vid),
+      vendor: rfq.vendorName(vid),
       detail: `${findQuotedLines(vid).quoted}/${findQuotedLines(vid).total} line items(s) quoted`,
     });
   }

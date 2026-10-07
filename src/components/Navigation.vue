@@ -8,6 +8,7 @@ const route = useRoute();
 const awardedStore = useAwardedStore();
 const rfq = useRFQMainStore();
 const historyStore = useHistoryStore();
+// this is the calculation of number of vendor who responded
 const vendorResponse = computed(() => {
   let count = 0;
   for (const vendorObj of rfq.allocation) {

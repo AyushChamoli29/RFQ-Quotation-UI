@@ -4,6 +4,7 @@ import { useRFQMainStore } from "@/store/RFQStoreMain";
 import { useHistoryStore } from "@/store/auditHistory";
 const historyStore = useHistoryStore();
 const rfq = useRFQMainStore();
+// this function is responsible for formatting the given date it returns an object which has formatted date and time
 function formateDateTime(date) {
   const responseDeadlineDate = new Date(date).toLocaleDateString("en-IN", {
     day: "2-digit",
@@ -17,6 +18,7 @@ function formateDateTime(date) {
   });
   return { date: responseDeadlineDate, time: responseDeadlineTime };
 }
+// this is responsible for changing the deadline in rfq store and also to make audit history
 const changeDeadline = (event) => {
   const oldDeadline = rfq.rfqDeadline;
   const newDeadline = event.target.value;

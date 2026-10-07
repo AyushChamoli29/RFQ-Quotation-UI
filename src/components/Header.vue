@@ -4,7 +4,6 @@ import { RouterLink, useRoute } from "vue-router";
 import { useRFQMainStore } from "@/store/RFQStoreMain";
 const rfq = useRFQMainStore();
 const route = useRoute();
-
 const activeSpace = computed(() => {
   return route.matched[0]?.name || "agentWorkspace";
 });

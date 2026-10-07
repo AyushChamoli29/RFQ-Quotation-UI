@@ -1,8 +1,6 @@
 <script setup>
 import { useRFQMainStore } from "@/store/RFQStoreMain";
 const rfq = useRFQMainStore();
-import { useFlagsStore } from "@/store/flag";
-const flags = useFlagsStore();
 const responseDeadlineDate = new Date(rfq.rfqDeadline).toLocaleDateString(
   "en-IN",
   {
